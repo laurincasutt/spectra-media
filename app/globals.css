@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors */
+  --color-brand: #0066FF;
+  --color-brand-light: #3385FF;
+  --color-brand-dark: #0052CC;
+
+  /* Surface colors */
+  --color-surface: #09090B;
+  --color-surface-raised: #111113;
+  --color-surface-card: #1C1C1F;
+
+  /* Ink colors */
+  --color-ink: #F4F4F5;
+  --color-ink-muted: #A1A1AA;
+  --color-ink-faint: #52525B;
+
+  /* Font */
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+:root {
+  --background: #09090B;
+  --foreground: #F4F4F5;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #0066FF 0%, #3385FF 50%, #66A3FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle grid overlay */
+.bg-grid {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 79px,
+    rgba(255, 255, 255, 0.03) 79px,
+    rgba(255, 255, 255, 0.03) 80px
+  ),
+  repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 79px,
+    rgba(255, 255, 255, 0.03) 79px,
+    rgba(255, 255, 255, 0.03) 80px
+  );
+}
+
+/* Blue radial glow */
+.glow-blue {
+  background: radial-gradient(ellipse 60% 50% at 70% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #09090B;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
