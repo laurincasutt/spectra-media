@@ -24,7 +24,7 @@ export default function ProblemSection() {
         >
           <motion.span
             variants={fadeUpVariants}
-            className="inline-block px-3 py-1 rounded-full border border-red-500/30 bg-red-500/10 text-red-400 text-sm font-medium mb-4"
+            className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4"
           >
             {problem.eyebrow}
           </motion.span>
@@ -54,7 +54,9 @@ export default function ProblemSection() {
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              className="relative p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 group hover:border-red-500/20 transition-all duration-300"
+              whileHover={{ scale: 1.02, y: -3 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+              className="relative p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 group hover:border-[#0066FF]/30 hover:shadow-[0_0_30px_rgba(0,102,255,0.12)] transition-all duration-300"
             >
               {/* Icon */}
               <div className="text-4xl mb-6">{friction.icon}</div>
@@ -70,7 +72,7 @@ export default function ProblemSection() {
               </p>
 
               {/* Decorative corner */}
-              <div className="absolute top-0 right-0 w-24 h-24 bg-red-500/5 rounded-bl-3xl rounded-tr-2xl" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-[#0066FF]/5 rounded-bl-3xl rounded-tr-2xl" />
             </motion.div>
           ))}
         </motion.div>

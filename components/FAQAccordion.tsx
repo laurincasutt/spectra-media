@@ -14,10 +14,13 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
   return (
-    <div className="border-b border-white/8 last:border-0">
+    <div className={`border-b border-white/8 last:border-0 relative transition-all duration-300`}>
+      {isOpen && (
+        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[#0066FF] rounded-full" />
+      )}
       <button
         onClick={onToggle}
-        className="flex items-center justify-between w-full py-5 text-left gap-4"
+        className={`flex items-center justify-between w-full py-5 text-left gap-4 transition-all duration-300 ${isOpen ? "pl-4" : ""}`}
         aria-expanded={isOpen}
       >
         <span className="text-[#F4F4F5] font-medium text-base sm:text-lg leading-snug">
@@ -54,7 +57,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-[#A1A1AA] leading-relaxed pb-5 text-sm sm:text-base">
+            <p className="text-[#A1A1AA] leading-relaxed pb-5 text-sm sm:text-base pl-4">
               {answer}
             </p>
           </motion.div>

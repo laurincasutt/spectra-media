@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { nav } from "@/data/content";
 
 export default function Footer() {
@@ -11,10 +12,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-              <span className="text-xl font-bold text-white tracking-tight">
-                Spectra
-                <span className="text-[#0066FF]"> Media</span>
-              </span>
+              <Image
+                src="/spectra-logo.png"
+                alt="Spectra Media"
+                width={130}
+                height={32}
+                className="h-8 w-auto"
+              />
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">
               Done-for-You Social Media Growth für ambitionierte Unternehmer im
@@ -77,16 +81,6 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-            <div className="pt-2">
-              <a
-                href={nav.ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-5 py-2.5 rounded-full bg-[#0066FF] hover:bg-[#3385FF] text-white text-sm font-semibold transition-colors shadow-lg shadow-[#0066FF]/20"
-              >
-                {nav.ctaText}
-              </a>
-            </div>
           </div>
         </div>
 
@@ -94,7 +88,7 @@ export default function Footer() {
           <p className="text-[#52525B] text-sm">
             © {currentYear} Spectra Media GmbH. Alle Rechte vorbehalten.
           </p>
-          <p className="text-[#52525B] text-sm">🇨🇭 Zürich, Schweiz</p>
+          <p className="text-[#52525B] text-sm">🇨🇭 St. Gallen, Schweiz</p>
         </div>
       </div>
     </footer>

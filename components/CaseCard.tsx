@@ -15,8 +15,9 @@ export default function CaseCard({ caseStudy }: CaseCardProps) {
       variants={fadeUpVariants}
       initial="rest"
       whileHover="hover"
+      className="h-full"
     >
-      <Link href={`/case-studies/${caseStudy.slug}`} className="block group">
+      <Link href={`/case-studies/${caseStudy.slug}`} className="block group h-full">
         <motion.div
           variants={cardHover}
           className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 hover:border-[#0066FF]/30 transition-colors duration-300 overflow-hidden h-full"

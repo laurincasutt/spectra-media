@@ -59,9 +59,17 @@ export default function Hero() {
         {/* Sub */}
         <motion.p
           variants={fadeUpVariants}
-          className="text-lg sm:text-xl text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-10"
+          className="text-lg sm:text-xl text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-4"
         >
           {hero.sub}
+        </motion.p>
+
+        {/* Sub2 */}
+        <motion.p
+          variants={fadeUpVariants}
+          className="text-sm sm:text-base text-[#52525B] max-w-xl mx-auto leading-relaxed mb-10"
+        >
+          {hero.sub2}
         </motion.p>
 
         {/* CTA Row */}

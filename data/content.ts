@@ -26,7 +26,7 @@ export const nav = {
     { label: "Case Studies", href: "/case-studies" },
     { label: "Gründer", href: "/gruender" },
   ],
-  ctaText: "Call buchen",
+  ctaText: "Erstgespräch buchen",
   ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
   whatsappNumber: "41791234567",
   whatsappMessage: "Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.",
@@ -38,20 +38,21 @@ export const nav = {
 export const home = {
   hero: {
     eyebrow: "Done-for-You Social Media Growth",
-    headlineLines: ["Du filmst.", "Wir liefern", "die Resultate."],
-    gradientLineIndex: 2,
-    sub: "Du nimmst 1–2x pro Woche Videos auf. Wir übernehmen Strategie, Research, Skripte, Editing, Upload, Community und Funnel.",
-    cta: "Call buchen",
+    headlineLines: ["Von unsichtbar", "zu unübersehbar."],
+    gradientLineIndex: 1,
+    sub: "Wir skalieren Reichweite, Vertrauen und Profit durch Organic Media, Paid Ads & KI-optimierte Prozesse.",
+    sub2: "Spectra Media baut Personal Brands, die ihre Marktnische anführen und optimale Kunden magnetisch anziehen.",
+    cta: "Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
     secondaryCta: "Case Studies ansehen",
     secondaryCtaUrl: "/case-studies",
   },
 
   proofStats: [
-    { value: "41 Mio", label: "Views in 90 Tagen", sub: "Tamer Galal" },
-    { value: "+128k", label: "Follower in 90 Tagen", sub: "Cross-Platform" },
-    { value: "19k → 50k+", label: "Follower Wachstum", sub: "Kanzlei Mandic" },
-    { value: "0 → 10k", label: "Follower in 6 Wochen", sub: "George Maiorano" },
+    { value: "2 Mrd+", label: "Klicks generiert", sub: "" },
+    { value: "1 Mio+", label: "Follower gegrowt", sub: "" },
+    { value: "2.000+", label: "Kunden generiert", sub: "" },
+    { value: "30+", label: "Brands skaliert", sub: "" },
   ],
 
   problem: {
@@ -106,6 +107,11 @@ export const home = {
         number: "05",
         title: "Funnel & Conversion",
         desc: "Reichweite allein reicht nicht. Wir bauen Systeme, die Follower zu Kunden machen.",
+      },
+      {
+        number: "06",
+        title: "Angebot & Conversion-Optimierung",
+        desc: "Wir optimieren dein Angebot, deine Preisstruktur und deine Calls-to-Action – damit Reichweite zu echten Kunden wird.",
       },
     ],
   },
@@ -174,7 +180,7 @@ export const home = {
     eyebrow: "Bereit anzufangen?",
     headline: "Lass uns reden. Kostenlos und unverbindlich.",
     sub: "In 30 Minuten findest du heraus, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.",
-    cta: "Call buchen",
+    cta: "Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
   },
 };

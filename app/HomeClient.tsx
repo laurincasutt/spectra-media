@@ -57,11 +57,7 @@ export default function HomeClient() {
               <motion.div
                 key={i}
                 variants={fadeUpVariants}
-                className={`p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 ${
-                  i === system.deliverables.length - 1 && system.deliverables.length % 3 !== 0
-                    ? "md:col-span-2 lg:col-span-1"
-                    : ""
-                }`}
+                className="p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8"
               >
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5">
                   {item.number}
@@ -90,11 +86,26 @@ export default function HomeClient() {
           >
             <motion.div variants={fadeUpVariants}>
               <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4">
-                Warum Spectra Media
+                Warum genau Spectra Media?
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] leading-tight">
-                Anders als alle anderen.
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] leading-tight mb-8">
+                Nicht wie alle anderen — sondern besser.
               </h2>
+
+              {/* Brand logo placeholders */}
+              <div className="space-y-3">
+                <p className="text-[#52525B] text-xs uppercase tracking-wider font-medium">Vertraut von Brands</p>
+                <div className="grid grid-cols-3 gap-3">
+                  {[...Array(6)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="rounded-xl bg-white/5 border border-white/8 h-12 w-full flex items-center justify-center"
+                    >
+                      <span className="text-[#3F3F46] text-xs">Ihre Brand</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             <motion.ul
@@ -172,7 +183,7 @@ export default function HomeClient() {
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch"
           >
             {caseStudies.map((cs) => (
               <CaseCard key={cs.slug} caseStudy={cs} />

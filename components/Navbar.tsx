@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { nav } from "@/data/content";
@@ -40,9 +41,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#0066FF]/15 shadow-[0_1px_12px_rgba(0,102,255,0.12)] ${
           scrolled
-            ? "backdrop-blur-xl bg-[#09090B]/90 border-b border-white/8 shadow-lg shadow-black/20"
+            ? "backdrop-blur-xl bg-[#09090B]/90 shadow-lg shadow-black/20"
             : "bg-transparent"
         }`}
       >
@@ -50,10 +51,14 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 lg:h-18">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 group">
-              <span className="text-xl font-bold text-white tracking-tight">
-                Spectra
-                <span className="text-[#0066FF]"> Media</span>
-              </span>
+              <Image
+                src="/spectra-logo.png"
+                alt="Spectra Media"
+                width={130}
+                height={32}
+                priority
+                className="h-8 w-auto"
+              />
             </Link>
 
             {/* Desktop Nav */}
@@ -66,7 +71,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
                       isActive
                         ? "text-white bg-white/10"
                         : "text-[#A1A1AA] hover:text-white hover:bg-white/5"
