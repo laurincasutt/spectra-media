@@ -21,10 +21,11 @@ export interface CaseStudy {
 export const nav = {
   logo: "Spectra Media",
   links: [
+    { label: "Home", href: "/" },
     { label: "Leistung", href: "/service" },
     { label: "Prozess", href: "/prozess" },
     { label: "Case Studies", href: "/case-studies" },
-    { label: "Gründer", href: "/gruender" },
+    { label: "Über uns", href: "/gruender" },
   ],
   ctaText: "Erstgespräch buchen",
   ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",

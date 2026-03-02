@@ -8,8 +8,10 @@ export default function TestimonialsSection() {
   const { testimonials } = home;
 
   return (
-    <section className="py-20 lg:py-32 bg-[#111113]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 bg-[#111113] relative overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -42,22 +44,31 @@ export default function TestimonialsSection() {
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              whileHover={{ scale: 1.015 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              className="p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 flex flex-col gap-5 hover:shadow-[0_0_24px_rgba(0,102,255,0.1)] transition-shadow"
+              whileHover={{ scale: 1.025, y: -4 }}
+              transition={{ type: "spring", stiffness: 350, damping: 22 }}
+              className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 flex flex-col gap-5 overflow-hidden group cursor-default"
             >
-              {/* Quote icon */}
-              <svg className="w-8 h-8 text-[#0066FF] opacity-60 shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
+              {/* Blue corner gradient on hover */}
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              {/* Animated bottom border */}
+              <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/70 to-[#3385FF]/30 group-hover:w-full transition-all duration-500" />
 
-              <p className="text-[#A1A1AA] text-base leading-relaxed flex-1 italic">
+              {/* Quote icon */}
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                className="relative z-10"
+              >
+                <svg className="w-8 h-8 text-[#0066FF] opacity-70 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
+              </motion.div>
+
+              <p className="text-[#A1A1AA] text-base leading-relaxed flex-1 italic relative z-10 group-hover:text-[#C4C4C8] transition-colors duration-300">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
-              <div className="flex items-center gap-3 pt-2 border-t border-white/8">
-                {/* Avatar placeholder */}
-                <div className="w-9 h-9 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/20 flex items-center justify-center text-[#0066FF] font-bold text-sm shrink-0">
+              <div className="flex items-center gap-3 pt-2 border-t border-white/8 relative z-10">
+                <div className="w-9 h-9 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#0066FF] font-bold text-sm shrink-0 group-hover:bg-[#0066FF]/25 transition-colors duration-300">
                   {t.author[0]}
                 </div>
                 <div>

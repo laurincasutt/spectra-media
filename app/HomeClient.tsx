@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import ProcessSection from "@/components/ProcessSection";
 import StackedCaseStudies from "@/components/StackedCaseStudies";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import PricingSection from "@/components/PricingSection";
 import { home } from "@/data/content";
 import {
   fadeUpVariants,
@@ -62,15 +61,22 @@ export default function HomeClient() {
               <motion.div
                 key={i}
                 variants={fadeUpVariants}
-                className="p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8"
+                whileHover={{ scale: 1.03, y: -4 }}
+                transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
               >
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5">
+                {/* Blue corner glow */}
+                <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                {/* Bottom-left accent line */}
+                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
+
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
                   {item.number}
                 </div>
-                <h3 className="text-[#F4F4F5] font-bold text-lg mb-3">
+                <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">
                   {item.title}
                 </h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed">
+                <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">
                   {item.desc}
                 </p>
               </motion.div>
@@ -84,9 +90,6 @@ export default function HomeClient() {
 
       {/* Testimonials */}
       <TestimonialsSection />
-
-      {/* Pricing */}
-      <PricingSection />
     </>
   );
 }

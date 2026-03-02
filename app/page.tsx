@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ProofBar from "@/components/ProofBar";
-import CTASection from "@/components/CTASection";
+import ContactSection from "@/components/ContactSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import HomeClient from "./HomeClient";
 import { home } from "@/data/content";
@@ -23,7 +23,7 @@ const orgSchema = {
   address: {
     "@type": "PostalAddress",
     addressCountry: "CH",
-    addressLocality: "Zürich",
+    addressLocality: "St. Gallen",
   },
 };
 
@@ -52,25 +52,10 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero */}
       <Hero />
-
-      {/* Proof Bar */}
       <ProofBar />
-
-      {/* System + Process + Case Studies + Testimonials + Pricing (client) */}
       <HomeClient />
-
-      {/* CTA */}
-      <CTASection
-        eyebrow={home.bottomCta.eyebrow}
-        headline={home.bottomCta.headline}
-        sub={home.bottomCta.sub}
-        cta={home.bottomCta.cta}
-        ctaUrl={home.bottomCta.ctaUrl}
-      />
-
-      {/* FAQ */}
+      <ContactSection />
       <FAQAccordion />
     </>
   );
