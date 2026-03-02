@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ProofBar from "@/components/ProofBar";
-import ProblemSection from "@/components/ProblemSection";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 import HomeClient from "./HomeClient";
@@ -59,10 +58,7 @@ export default function HomePage() {
       {/* Proof Bar */}
       <ProofBar />
 
-      {/* Problem Section */}
-      <ProblemSection />
-
-      {/* System + USPs + Case Studies (client) */}
+      {/* System + Process + Case Studies + Testimonials + Pricing (client) */}
       <HomeClient />
 
       {/* CTA */}

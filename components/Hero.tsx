@@ -10,7 +10,7 @@ import {
 } from "@/lib/animations";
 
 export default function Hero() {
-  const { hero } = home;
+  const { hero, heroTestimonial } = home;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#09090B]">
@@ -28,6 +28,19 @@ export default function Hero() {
         animate="show"
         viewport={viewportOnce}
       >
+        {/* Testimonial snippet */}
+        <motion.div variants={fadeUpVariants} className="inline-flex flex-col items-center gap-2 mb-8">
+          <p className="text-[#A1A1AA] text-sm italic max-w-md mx-auto leading-relaxed">
+            &ldquo;{heroTestimonial.quote}&rdquo;
+          </p>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-[#0066FF]/20 border border-[#0066FF]/30 flex items-center justify-center text-[#0066FF] text-xs font-bold">
+              {heroTestimonial.author[0]}
+            </div>
+            <span className="text-[#52525B] text-xs">{heroTestimonial.author} · {heroTestimonial.role}</span>
+          </div>
+        </motion.div>
+
         {/* Eyebrow badge */}
         <motion.div variants={fadeUpVariants} className="inline-flex items-center gap-2 mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium">

@@ -176,6 +176,57 @@ export const home = {
     ],
   },
 
+  heroTestimonial: {
+    quote: "Spectra Media hat nicht nur meinen Account aufgebaut – sie haben mein Business transformiert.",
+    author: "Tamer Galal",
+    role: "Fitness Coach",
+  },
+
+  howItWorks: {
+    eyebrow: "Unser Prozess",
+    headline: "So funktioniert es",
+    steps: [
+      {
+        number: "01",
+        title: "Strategie & Briefing",
+        desc: "Wir analysieren deine Nische und Zielgruppe und entwickeln eine maßgeschneiderte Content-Strategie.",
+      },
+      {
+        number: "02",
+        title: "Produktion & Editing",
+        desc: "Du nimmst auf — wir schreiben Skripte, schneiden und optimieren alles für maximale Reichweite.",
+      },
+      {
+        number: "03",
+        title: "Upload & Skalierung",
+        desc: "Wir übernehmen Upload, Community Management und skalieren was funktioniert — laufend.",
+      },
+    ],
+  },
+
+  testimonials: [
+    {
+      quote: "Spectra Media hat nicht nur meinen Social Media Account aufgebaut – sie haben mein Business transformiert. Die Anfragen kommen jetzt zu mir.",
+      author: "Tamer Galal",
+      role: "Fitness Coach",
+    },
+    {
+      quote: "Wir haben nicht erwartet, dass Social Media so direkt auf unser Geschäft einzahlt. Spectra Media hat das möglich gemacht.",
+      author: "Kanzlei Mandic",
+      role: "Anwaltskanzlei",
+    },
+    {
+      quote: "Ich hatte erwartet, vielleicht 3.000 Follower in 6 Wochen zu erreichen. Spectra Media hat das Dreifache geliefert.",
+      author: "George Maiorano",
+      role: "Health Entrepreneur",
+    },
+    {
+      quote: "Mit dem richtigen System wuchs ich in 3 Monaten schneller als in den vorherigen 2 Jahren zusammen.",
+      author: "Markus Hoppe",
+      role: "Fitness & Lifestyle",
+    },
+  ],
+
   bottomCta: {
     eyebrow: "Bereit anzufangen?",
     headline: "Lass uns reden. Kostenlos und unverbindlich.",
