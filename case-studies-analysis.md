@@ -1,0 +1,497 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - link "home" [ref=e6] [cursor=pointer]:
+          - /url: /
+        - navigation [ref=e7]:
+          - link "Home" [ref=e8] [cursor=pointer]:
+            - /url: /
+          - link "Transformationen" [ref=e9] [cursor=pointer]:
+            - /url: /transformations
+        - generic [ref=e10]:
+          - text: 
+          - link "Arbeite mit uns" [ref=e12] [cursor=pointer]:
+            - /url: /calendly
+            - generic [ref=e13]: Arbeite mit uns
+    - generic [ref=e17]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - generic "Für Brands die ihren Markt dominieren wollen" [ref=e23]:
+            - generic [ref=e26]: Für Brands die ihren Markt dominieren wollen
+          - generic [ref=e27]: Von unsichtbar zu unübersehbar. Wir skalieren Reichweite, Vertrauen & Profit durch Organic Media, Paid Ads & KI-optimierte Prozesse.
+          - paragraph [ref=e30]:
+            - generic [ref=e32]: Socialbrands baut mit der AUREA Methode™ Personal Brands, die Ihren Markt anführen und
+            - generic [ref=e34]: Premiumklientel magnetisch anziehen.
+        - link "Arbeite mit uns" [ref=e35] [cursor=pointer]:
+          - /url: /calendly
+          - generic [ref=e36]: Arbeite mit uns
+      - generic [ref=e47]:
+        - generic "B2B VSL-001" [ref=e857]
+        - generic [ref=e858]:
+          - generic [ref=e859]:
+            - generic:
+              - 'button "Abspielen: B2B VSL-001"'
+            - generic "Video" [ref=e862]
+          - generic:
+            - generic:
+              - generic:
+                - 'button "Abspielen: B2B VSL-001" [ref=e865] [cursor=pointer]':
+                  - img [ref=e868]
+                - button "Klicken Sie hier, um den Ton einzuschalten" [ref=e870] [cursor=pointer]:
+                  - img [ref=e871]
+          - generic [ref=e878]:
+            - button "Stummschalten" [ref=e881] [cursor=pointer]:
+              - img [ref=e883]
+            - button "Show settings menu" [ref=e894] [cursor=pointer]:
+              - img [ref=e896]
+            - button "Vollbild" [ref=e900] [cursor=pointer]:
+              - img [ref=e902]
+      - generic [ref=e56]:
+        - heading "Gewählt von den sichtbarsten Marken mit Substanz." [level=2] [ref=e57]
+        - paragraph [ref=e58]: Ikonische Unternehmer, Marktführer und Persönlichkeiten mit Format vertrauen Socialbrands, wenn Sichtbarkeit mehr als Reichweite bedeuten soll. Nämlich messbare Resultate, Aura und strategische Tiefe.
+    - generic [ref=e74]:
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - img [ref=e77]:
+            - img [ref=e78]
+          - generic [ref=e80]: Das Problem
+        - heading "Was starke Persönlichkeiten unsichtbar macht." [level=1] [ref=e81]
+        - paragraph [ref=e82]: Nicht mangelndes Können, sondern das Fehlen eines Systems, das Reichweite und Vertrauen erzeugt.
+      - generic [ref=e84]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - img [ref=e90]:
+              - img [ref=e91]
+            - heading "Du kämpfst alleine gegen die Unsichtbarkeit" [level=4] [ref=e101]
+          - paragraph [ref=e104]: Du hast ein Produkt, das funktioniert. Echte Ergebnisse. Aber deine Konkurrenz wächst schneller, mit schlechteren Produkten. Sie sind sichtbar, du nicht. Der Markt belohnt die Sichtbarsten, nicht die Besten. Du bleibst der Geheimtipp, den niemand kennt.
+        - generic [ref=e107]:
+          - generic [ref=e108]:
+            - img [ref=e111]:
+              - img [ref=e112]
+            - heading "Dein Marketing ist ein Flickenteppich" [level=4] [ref=e119]
+          - paragraph [ref=e122]: Hier ein Post, dort eine Ad. Nichts greift ineinander. Du testest, hoffst, aber es fehlt die Strategie. Content verpufft, Ads konvertieren nicht. Andere erreichen mit weniger mehr. Dir fehlt das System.
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - img [ref=e129]:
+              - img [ref=e130]
+            - heading "Gefangen im operativen Hamsterrad" [level=4] [ref=e134]
+          - paragraph [ref=e137]: "Du wolltest Unternehmer sein, kein Selbständiger oder Content Creator. Aber hier bist du: erschöpft von operativer Arbeit. Du machst alles selbst oder delegierst an Unfähige. Du arbeitest IM Business, nicht AM Business. Die Zeit fürs Wachstum fehlt."
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e146]: AUREA Methode
+        - heading "Die präziseste Architektur hinter digitaler Markenkraft." [level=2] [ref=e147]
+        - paragraph [ref=e148]: Die AUREA Methode™ verbindet Organic & Paid Media. Organic zeigt dir, was wirklich resoniert. Paid verstärkt genau das. Ein Video entfaltet sich über alle Plattformen. KI spart dir und deinem Team zahllose Stunden. Was entsteht, ist mehr als Content. Es ist ein System, das Sichtbarkeit in Profit übersetzt.
+      - generic [ref=e152]:
+        - generic [ref=e155]:
+          - img [ref=e157]:
+            - img [ref=e158]
+          - heading "ALIGNMENT" [level=4] [ref=e168]
+          - paragraph [ref=e169]: Wir finden deine wahre Positionierung. Keine Bullshit-Claims und keine aufgesetzte Persona. Wir destillieren, was dich einzigartig macht und übersetzen es in eine Sprache, die verkauft. Deine Expertise wird zur Brand. Alles andere fliegt raus.
+        - generic [ref=e175]:
+          - img [ref=e177]:
+            - img [ref=e178]
+          - heading "UNFOLDING" [level=4] [ref=e182]
+          - paragraph [ref=e183]: Du drehst einmal, das System maximiert. Ein Video entfaltet sich über alle Plattformen – maßgeschneidert, automatisiert, allgegenwärtig. Omnipräsenz entsteht, ohne dass du zum Content Creator wirst. Du bleibst Unternehmer, das System macht dich sichtbar.
+        - generic [ref=e189]:
+          - img [ref=e191]:
+            - img [ref=e192]
+          - heading "Resonanz" [level=4] [ref=e198]
+          - paragraph [ref=e199]: Deine Marke wird zum Magneten. Organic baut Vertrauen auf, Paid bringt die richtigen Leute. Die Kombination zieht Premium-Kunden an, die bereit sind zu zahlen. Ohne Preisdiskussion. Ohne harten Sell. Die Brand verkauft für dich.
+    - generic [ref=e207]:
+      - generic [ref=e208]:
+        - generic [ref=e209]:
+          - img [ref=e210]:
+            - img [ref=e211]
+          - generic [ref=e215]: SIGNATURE CASES
+        - heading "Projekte mit Strahlkraft. Marken mit Impact." [level=2] [ref=e216]
+        - paragraph [ref=e217]: Jede Marke, die wir begleiten, wird zur Autorität. Von unbekannt zu unvermeidbar. Es gibt einen Grund, warum du unsere Cases kennst.
+      - list [ref=e221]:
+        - listitem [ref=e222]:
+          - generic [ref=e224]:
+            - paragraph [ref=e227]: “Vorher war die Dunkelheit und jetzt ist Licht.”
+            - generic [ref=e228]:
+              - generic [ref=e229]: Philip Hopf & HKCM
+              - paragraph [ref=e230]: Geschäftsführer HKC Management
+            - generic [ref=e232]:
+              - generic [ref=e234]:
+                - paragraph [ref=e235]: Follows
+                - paragraph [ref=e236]: 700k
+              - generic [ref=e237]:
+                - paragraph [ref=e238]: Views
+                - paragraph [ref=e239]: 250M
+              - generic [ref=e240]:
+                - paragraph [ref=e241]: Kunden
+                - paragraph [ref=e242]: "50.000"
+              - link "Case entdecken" [ref=e243] [cursor=pointer]:
+                - /url: /case-study/philip-hopf-hkcm
+                - generic [ref=e244]: Case entdecken
+        - listitem [ref=e247]:
+          - generic [ref=e249]:
+            - paragraph [ref=e252]: “In den dreieinhalb Monaten haben wir, wenn du mich fragst, spektakuläre Zahlen erreicht.”
+            - generic [ref=e253]:
+              - generic [ref=e254]: Krall und Bubeck
+              - paragraph [ref=e255]: Geschäftsführer GoldRevolution
+            - generic [ref=e257]:
+              - generic [ref=e259]:
+                - paragraph [ref=e260]: Follows
+                - paragraph [ref=e261]: 70k
+              - generic [ref=e262]:
+                - paragraph [ref=e263]: Views
+                - paragraph [ref=e264]: 120M
+              - generic [ref=e265]:
+                - paragraph [ref=e266]: Umsatz
+                - paragraph [ref=e267]: 100M
+              - link "Case entdecken" [ref=e268] [cursor=pointer]:
+                - /url: /case-study/krall-und-bubeck
+                - generic [ref=e269]: Case entdecken
+        - listitem [ref=e272]:
+          - generic [ref=e274]:
+            - paragraph [ref=e277]: “Ich bin total begeistert von wie ihr es macht, vor allem auch in welcher Qualität und in welcher Kadenz.”
+            - generic [ref=e278]:
+              - generic [ref=e279]: WeltWoche
+              - paragraph [ref=e280]: Leiter Digital, Die Weltwoche
+            - generic [ref=e282]:
+              - generic [ref=e284]:
+                - paragraph [ref=e285]: Follows
+                - paragraph [ref=e286]: 85k
+              - generic [ref=e287]:
+                - paragraph [ref=e288]: Views
+                - paragraph [ref=e289]: 130M
+              - generic [ref=e290]:
+                - paragraph [ref=e291]: Klicks auf Abo-Seite
+                - paragraph [ref=e292]: "500.000"
+              - link "Case entdecken" [ref=e293] [cursor=pointer]:
+                - /url: /case-study/weltwoche
+                - generic [ref=e294]: Case entdecken
+      - link "Arbeite mit uns" [ref=e299] [cursor=pointer]:
+        - /url: /calendly
+        - generic [ref=e300]: Arbeite mit uns
+    - generic [ref=e305]:
+      - generic [ref=e306]:
+        - generic [ref=e307]:
+          - img [ref=e308]:
+            - img [ref=e309]
+          - generic [ref=e314]: Vorteile
+        - heading "Wie unsere Kunden ganze Märkte dominieren." [level=2] [ref=e315]
+        - paragraph [ref=e316]: Socialbrands verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.
+      - generic [ref=e317]:
+        - generic [ref=e318]:
+          - generic [ref=e321]: "01"
+          - generic [ref=e323]:
+            - heading "niedrig" [level=1] [ref=e324]
+            - heading "Maximal" [level=1] [ref=e325]
+            - generic [ref=e326]: Wirkung
+            - generic [ref=e327]: Wirkung
+          - generic [ref=e329]:
+            - heading "Wirkung statt Werbung" [level=4] [ref=e330]
+            - paragraph [ref=e331]: Keine albernen Hooks und keine Content-Spam-Taktiken. Du wirst sichtbarer, weil deine Inhalte strategisch gebaut sind, nicht weil du schreist. Wir verbinden Form, Frequenz und Führung zu einer klaren Wirkung.
+        - generic [ref=e334]:
+          - generic [ref=e337]: "02"
+          - generic [ref=e339]:
+            - heading "Geschwindigkeit durch Synergie" [level=4] [ref=e340]
+            - paragraph [ref=e341]: Organic validiert und Paid skaliert. Kein blindes Testen mehr, kein verbranntes Geld. Du weißt, was zieht, bevor du skalierst. Schnell, effizient und profitabel.
+        - generic [ref=e344]:
+          - generic [ref=e347]: "03"
+          - generic [ref=e349]:
+            - heading "Mehr Output, weniger Aufwand" [level=4] [ref=e350]
+            - paragraph [ref=e351]: Ein strukturierter Wochenrhythmus statt täglichem Content-Stress. Einmal Input führt zu maximalen Ausspielungen über alle Plattformen. Kein Chaos. Kein Overthinking. Nur konsistenter Output, der Resultate liefert.
+        - generic [ref=e354]:
+          - generic [ref=e357]: "04"
+          - generic [ref=e358]:
+            - heading "Digitale Präsenz mit Substanz" [level=4] [ref=e359]
+            - paragraph [ref=e360]: Sichtbarkeit entsteht nicht durch Lautstärke, sondern durch Ordnung. Eine klare Struktur ersetzt Planlosigkeit. Du wirst zur Marke, weil alles, was du veröffentlichst, Gewicht hat.
+        - generic [ref=e363]:
+          - generic [ref=e366]: "05"
+          - generic [ref=e369]:
+            - heading "Führung durch Format" [level=4] [ref=e370]
+            - paragraph [ref=e371]:
+              - text: Deine Inhalte wiederholen nicht, sie führen. Du denkst in Narrativen, nicht in Likes.
+              - text: Deine Marke wächst über Muster, die sich wiederholen und Vertrauen formen.
+        - generic [ref=e373]:
+          - generic [ref=e376]: "06"
+          - generic [ref=e378]:
+            - heading "Aura schlägt Algorithmus" [level=4] [ref=e379]
+            - paragraph [ref=e380]: Wenn Positionierung, Stimme, Struktur und visuelle Sprache stimmen, musst du nichts mehr erzwingen. Dein Auftritt wirkt. Deine Marke zieht an. Und du spielst nicht mehr gegen den Algorithmus, du nutzt ihn.
+    - generic [ref=e386]:
+      - generic [ref=e388]:
+        - generic [ref=e389]:
+          - img [ref=e390]:
+            - img [ref=e391]
+          - generic [ref=e398]: Zielgruppe
+        - heading "Für Brands, die führen – nicht folgen." [level=2] [ref=e399]
+      - generic [ref=e402]:
+        - heading "Elite-Coaches & Expertenmarken" [level=4] [ref=e406]
+        - heading "Unternehmer mit Personal Brand" [level=4] [ref=e413]
+        - heading "Strategische Berater & Thought Leader" [level=4] [ref=e420]
+        - heading "Luxusmarken & High-End Brands" [level=4] [ref=e426]
+        - heading "Visionäre Gründer & B2B-Pioniere" [level=4] [ref=e432]
+        - heading "SaaS-Founders & Tech-Brands" [level=4] [ref=e439]
+    - generic [ref=e440]:
+      - generic [ref=e446]:
+        - generic [ref=e447]:
+          - generic [ref=e450]: SOCIAL Brand Power
+          - heading "DIE AUREA METHODE™" [level=2] [ref=e451]
+          - paragraph [ref=e452]: Die präziseste Architektur hinter digitaler Markenkraft. Mit chirurgischer Präzision destillieren wir Essenz, formen Narrative und etablieren Rhythmen, die resonieren. Keine Zufallstreffer mehr. Nur noch kalkulierte Wirkung. Marktführerschaft als logische Konsequenz, nicht als Wunschdenken.
+        - generic [ref=e466]:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img:
+                      - img
+                  - generic: Säule 1
+              - generic:
+                - heading "ARCHETYPE EXTRACTION" [level=4]
+              - generic:
+                - paragraph: Wir analysieren in einer Deep-Dive-Session bis ins kleinste Detail, was dich ausmacht und was dich wirklich einzigartig macht. Daraus bauen wir deine Positionierung. Was entsteht, ist deine Aura – greifbar, verkaufbar, unverwechselbar.
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img:
+                      - img
+                  - generic: Säule 2
+              - generic:
+                - heading "UNIQUE IDENTITY" [level=4]
+              - generic:
+                - paragraph: Deine Brand wird unverwechselbar. Wir entwickeln dein Signature Design, deine Visual Language, deinen Content-Stil. Alles wird dokumentiert und systematisiert. Das Content Waterfall System trägt deine DNA automatisch in jeden Post.
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img:
+                      - img
+                  - generic: Säule 3
+              - generic:
+                - heading "RHYTHMIC CONTENT ARCHITECTURE" [level=4]
+              - generic:
+                - paragraph: Ein Video-Dreh pro Woche. Daraus macht unser System zahlreiche Shorts, Posts, Stories & Ads. Alles nativ für jede Plattform optimiert. Organic sammelt Daten, welche Hooks ziehen. Paid nutzt diese Daten für profitable Kampagnen. Zwei Stunden Aufwand ergeben einen Monat Content.
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img:
+                      - img
+                  - generic: Säule 4
+              - generic:
+                - heading "ELEGANCE IN EXECUTION" [level=4]
+              - generic:
+                - paragraph: "Jeder Post wird zum Performance-Asset. Klare Hooks, die ziehen. CTAs, die konvertieren. Alles getrackt, gemessen, optimiert. Wöchentliche Reports zeigen: Was bringt Follower? Was bringt Leads? Was bringt Sales? Keine Vermutungen mehr. Nur noch datenbasierte Entscheidungen und kontinuierliche Verbesserung."
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - img:
+                      - img
+                  - generic: Säule 5
+              - generic:
+                - heading "ADAPTIVE PERFORMANCE" [level=4]
+              - generic:
+                - paragraph: Das System wird jeden Tag besser. KI analysiert, welcher Content viral geht. Diese Muster fließen in neue Posts. Paid Ads werden automatisch auf Winner-Content umgestellt. Attribution über alle Kanäle zeigt den echten ROI. Cost per Lead sinkt. Conversion Rate steigt. Das System optimiert sich selbst, während du schläfst.
+      - link "Arbeite mit uns" [ref=e469] [cursor=pointer]:
+        - /url: /calendly
+        - generic [ref=e470]: Arbeite mit uns
+    - generic [ref=e492]:
+      - generic [ref=e494]:
+        - heading "Das Resultat systematischer Präsenz." [level=2] [ref=e495]
+        - paragraph [ref=e496]: Sichtbarkeit ist kein Selbstzweck. Sie verändert, wie der Markt dich behandelt – was du verlangen kannst, wie schnell Deals closen, wer bei dir anfragt. Genau das passiert, wenn dein Marketing endlich funktioniert wie ein schweizer Uhrwerk.
+      - generic [ref=e497]:
+        - img [ref=e498]
+        - img [ref=e504]
+      - generic [ref=e510]:
+        - generic [ref=e511]:
+          - generic [ref=e512]:
+            - img [ref=e513]:
+              - img [ref=e514]
+            - heading "Preis wird Nebensache" [level=1] [ref=e520]
+          - paragraph [ref=e521]: Kunden, die dich monatelang gesehen haben, verhandeln nicht. Sie fragen nach Verfügbarkeit, nicht nach Rabatten. Deine Sichtbarkeit rechtfertigt dein Premium – bevor das erste Gespräch stattfindet.
+        - generic [ref=e522]:
+          - generic [ref=e523]:
+            - img [ref=e524]:
+              - img [ref=e525]
+            - heading "Von Monate auf Wochen" [level=1] [ref=e528]
+          - paragraph [ref=e530]: Andere Systeme brauchen Monate, um Vertrauen aufzubauen. Wir komprimieren das auf wenige Wochen. Dein Content positioniert dich sofort als Autorität. Leads kommen mit Vorwissen und Kaufbereitschaft. Schnellerer Trust. Schnellere Conversions.
+        - generic [ref=e531]:
+          - generic [ref=e532]:
+            - img [ref=e533]:
+              - img [ref=e534]
+            - heading "Brand mit Aura" [level=1] [ref=e537]
+          - paragraph [ref=e538]: Dein Name fällt in Räumen, in denen du nicht sitzt. Empfehlungen kommen von Leuten, die nie Kunde waren. Dein Ruf schließt Deals, bevor du den Raum betrittst. Das ist der Effekt einer Brand mit Aura.
+    - generic [ref=e543]:
+      - generic [ref=e545]:
+        - generic [ref=e546]: Die Founder
+        - heading "Alessandro. Der Organic-Architekt von Socialbrands." [level=2] [ref=e547]
+      - generic [ref=e548]:
+        - generic [ref=e551]:
+          - generic [ref=e552]: Alessandro Minneci, CEO
+          - paragraph [ref=e553]: Social Branding Expert
+        - generic [ref=e554]:
+          - generic [ref=e555]:
+            - img [ref=e557]:
+              - img [ref=e558]
+            - generic [ref=e562]:
+              - heading "1.000.000.000+ Klicks" [level=1] [ref=e563]
+              - paragraph [ref=e564]: Mit Socialbrands und eigenen 150.000+ Followern hat Alessandro über 1 Milliarde Views und einen achtstelligen Kundenumsatz generiert. Für Marken, die jeder kennt und Ikonen, die die Massen erreichen.
+          - generic [ref=e565]:
+            - img [ref=e567]:
+              - img [ref=e568]
+            - generic [ref=e578]:
+              - heading "5M+ Follower für Klienten" [level=1] [ref=e579]:
+                - strong [ref=e580]: 5M+ Follower für Klienten
+              - paragraph [ref=e581]: Die Architekturen, die er baut, wirken. Nach 8 Jahren Social Media Erfahrung und über 30 begleiteten Unternehmen ist Wachstum planbar. Jede Marke wird zur Referenz, durch Klarheit, Struktur und visuelle Signatur.
+          - generic [ref=e582]:
+            - img [ref=e584]:
+              - img [ref=e585]
+            - generic [ref=e587]:
+              - heading "Strahlkraft mit Struktur" [level=1] [ref=e588]:
+                - strong [ref=e589]: Strahlkraft mit Struktur
+              - paragraph [ref=e590]: Ästhetik ist bei ihm kein Zufall, sondern Codierung. Alessandro gestaltet Systeme, die visuell und algorithmisch funktionieren. Was gut klingt und gut aussieht, performt auch. Und zieht genau die Menschen an, die du wirklich willst.
+        - heading "Michael. Der Paid-Stratege von Socialbrands." [level=2] [ref=e592]
+        - generic [ref=e593]:
+          - generic [ref=e596]:
+            - generic [ref=e597]: Michael Föhringer, CEO
+            - paragraph [ref=e598]: Paid Growth Expert
+          - generic [ref=e599]:
+            - generic [ref=e600]:
+              - img [ref=e602]:
+                - img [ref=e603]
+              - generic [ref=e607]:
+                - heading "30M+ Umsatz generiert" [level=1] [ref=e608]
+                - paragraph [ref=e609]: Two Comma Club X Award Winner. Von null auf 10 Millionen Euro in drei Jahren für einen einzigen Partner. Michael transformiert Daten in Dominanz. Paid Media mit chirurgischer Präzision.
+            - generic [ref=e610]:
+              - img [ref=e612]:
+                - img [ref=e613]
+              - generic [ref=e623]:
+                - heading "Performance als System" [level=1] [ref=e624]
+                - paragraph [ref=e625]: Jede Zahl hat eine Bedeutung. Cost per Lead, Customer Lifetime Value, ROAS. Michael orchestriert KPIs zu profitablen Kampagnen. Attribution über alle Kanäle. Messbar, skalierbar, replizierbar.
+            - generic [ref=e626]:
+              - img [ref=e628]:
+                - img [ref=e629]
+              - generic [ref=e631]:
+                - heading "Skalierung als Wissenschaft" [level=1] [ref=e632]
+                - paragraph [ref=e633]: Von 50k auf 120k Monatsumsatz in 30 Tagen. Solche Sprünge sind kein Zufall, sondern Methodik. Michael sieht, wo der Hebel sitzt und weiß, wie man ihn umlegt. Präzise, messbar, replizierbar.
+    - generic [ref=e639]:
+      - generic [ref=e640]:
+        - generic [ref=e641]:
+          - img [ref=e642]:
+            - img [ref=e643]
+          - generic [ref=e646]: Vergleich
+        - heading "Agentur vs. Architektur" [level=2] [ref=e647]
+        - paragraph [ref=e649]: Es geht nicht um Content, sondern um Systeme. Socialbrands baut nicht nur hübsche Feeds, sondern kreiert eine Architektur aus Organic, Paid und KI – mit Stil, Struktur und Sogwirkung.
+      - generic [ref=e651]:
+        - generic [ref=e653]:
+          - img [ref=e655]:
+            - img [ref=e656]
+          - heading "ANDERE AGENTUREN" [level=3] [ref=e663]:
+            - strong [ref=e664]: ANDERE AGENTUREN
+          - generic [ref=e665]:
+            - paragraph [ref=e667]: Nur Content-Editing. Kein psychologisches Verständnis
+            - paragraph [ref=e669]: Kein Track Record, keine bekannten Cases
+            - paragraph [ref=e671]: Kopierte, veraltete Strategien
+            - paragraph [ref=e673]: Zu viel versprechen, zu wenig liefern
+            - paragraph [ref=e675]: Organic und Paid getrennt. Chaos vorprogrammiert
+            - paragraph [ref=e677]: Generische AI-Tools wie bei jedem anderen
+            - paragraph [ref=e679]: Dienstleister-Mentalität, keine Langfristigkeit
+            - paragraph [ref=e681]: Reine Vermarktung von Angeboten, nicht dem Individuum
+        - generic [ref=e684]:
+          - heading "SOCIALBRANDS Partner statt Agentur." [level=3] [ref=e685]:
+            - strong [ref=e686]: SOCIALBRANDS
+            - text: Partner statt Agentur.
+          - generic [ref=e688]:
+            - paragraph [ref=e690]: Psychologie und Authentizität als Fundament
+            - paragraph [ref=e692]: Unsere Cases haben dich erreicht. Proof of concept
+            - paragraph [ref=e694]: Strategien, die laufend optimiert werden
+            - paragraph [ref=e696]: Realistische Erwartungen, exzellente Performance
+            - paragraph [ref=e698]: Organic und Paid aus einer Hand
+            - paragraph [ref=e700]: Proprietäre AI-Workflows, in-house entwickelt
+            - paragraph [ref=e702]: Unsere Kunden bleiben Jahre, nicht 90 Tage
+            - paragraph [ref=e704]: Effiziente Vermarktung der Person und des Produkts
+    - generic [ref=e711]:
+      - generic [ref=e713]:
+        - generic [ref=e714]: Mehr als nur eine Agentur
+        - heading "Jede Agentur behauptet, anders zu sein." [level=2] [ref=e715]
+        - paragraph [ref=e716]: Wir wissen das. ABER WIR SIND KEINE AGENTUR. wir sind dein Skalierungpartner Und wir waren vor Jahren selbst nur eine weitere Agentur mit guten Absichten, aber ohne die Systeme für nachhaltige Ergebnisse.
+      - generic [ref=e720]:
+        - generic [ref=e721]:
+          - generic [ref=e722]:
+            - img [ref=e723]:
+              - img [ref=e724]
+            - generic [ref=e734]: Was uns heute unterscheidet
+          - paragraph [ref=e735]: "Was uns heute unterscheidet: Jahre an konsequentem Testing und Optimierung – im deutschsprachigen Raum und international. Wir haben Feedback von Dutzenden Brands aufgenommen, Strategien validiert und neu aufgebaut, bis wir eine Formel entwickelt hatten, die langfristig liefert."
+        - generic [ref=e736]:
+          - generic [ref=e737]:
+            - img [ref=e738]:
+              - img [ref=e739]
+            - generic [ref=e742]: Unsere Reputation basiert nicht auf Versprechen
+          - paragraph [ref=e743]: Unsere Reputation basiert nicht auf Versprechen, sondern auf messbaren Ergebnissen über Jahre hinweg. Das ist der Unterschied zwischen Behauptungen und Beweisen.
+    - generic [ref=e749]:
+      - generic [ref=e750]:
+        - generic [ref=e751]:
+          - img [ref=e752]:
+            - img [ref=e753]
+          - generic [ref=e758]: Dein nächster Schritt
+        - heading "Fundierte Selektion ist das Fundament für Resultate." [level=2] [ref=e759]
+        - paragraph [ref=e760]: Wir wollen keine 100 Kunden. Wir wollen Marktführer. Deshalb ist unser Selektionsprozess kompromisslos. Bei Socialbrands betreuen wir nur Brands, bei denen wir außergewöhnliche Ergebnisse garantieren können. Alles andere würde unsere Standards verwässern.
+      - generic [ref=e762]:
+        - generic [ref=e763]:
+          - generic [ref=e766]: "01"
+          - generic [ref=e768]:
+            - heading "Archetype-Konfigurator starten" [level=4] [ref=e769]
+            - paragraph [ref=e770]: Du beantwortest gezielte Fragen zu Positionierung, Herausforderungen und Ambitionen. In unter 4 Minuten sehen wir, ob AUREA zu dir passt und welcher Archetyp deiner Marke entspricht.
+        - generic [ref=e773]:
+          - generic [ref=e776]: "02"
+          - generic [ref=e778]:
+            - heading "Termin direkt im Kalender buchen" [level=4] [ref=e779]
+            - paragraph [ref=e780]: Nach deiner Auswertung wissen wir bereits, dass unsere Lösung zu dir passt. Im Erstgespräch analysieren wir deine Situation gemeinsam, klären offene Fragen und zeigen dir, wie die Zusammenarbeit konkret aussieht.
+        - generic [ref=e783]:
+          - generic [ref=e786]: "03"
+          - generic [ref=e788]:
+            - heading "Analyse durch das Strategieteam" [level=4] [ref=e789]
+            - paragraph [ref=e790]: Vor dem Call analysieren wir deine Konfigurator-Ergebnisse individuell. Keine KI, kein Copy-Paste. Du bekommst echtes strategisches Denken, kein automatisiertes Feedback.
+        - generic [ref=e793]:
+          - generic [ref=e796]: "04"
+          - generic [ref=e797]:
+            - heading "Strategiedossier & Roadmap" [level=4] [ref=e798]
+            - paragraph [ref=e799]: In einem Vertiefungs-Gespräch zeigen wir dir dein persönliches Strategiedossier. Potenziale, Prioritäten und der konkrete Ablauf werden individuell auf dich zugeschnitten.
+        - generic [ref=e802]:
+          - generic [ref=e805]: "05"
+          - generic [ref=e808]:
+            - heading "Start der Umsetzung" [level=4] [ref=e809]
+            - paragraph [ref=e810]: "Du startest mit einem klaren Setup. Auf dich angepasste Systeme, Vorlagen und Prozesse sind vorbereitet. Du wirst geführt, nicht beschäftigt. Der Fokus: Wirkung ab Woche eins."
+    - generic [ref=e816]:
+      - generic [ref=e817]:
+        - img [ref=e818]:
+          - img [ref=e819]
+        - generic [ref=e822]: FAQ's
+      - heading "Klare Antworten statt Kleingedrucktem." [level=2] [ref=e823]:
+        - strong [ref=e824]: Klare Antworten statt Kleingedrucktem.
+      - paragraph [ref=e826]:
+        - text: Deine Fragen verdienen es, persönlich beantwortet zu werden. Deswegen verzichten wir auf oberflächliche FAQs und konzentrieren uns ab dem ersten Moment auf das, was uns anders macht. Persönlicher Austausch. Fragen werden gerne in Beratungsgesprächen oder über Social Media beantwortet.
+        - text: ‍
+  - generic [ref=e833]: Du brauchst keine Agentur. Du brauchst Architektur.
+  - contentinfo [ref=e837]:
+    - generic [ref=e840]:
+      - generic [ref=e842]:
+        - paragraph [ref=e846]: Socialbrands ist das Kraftfeld hinter digitalen Marken mit Gravitation. Mit Strategie, Design und System entsteht eine Struktur, die wirkt. Für Marken, die nicht Aufmerksamkeit jagen, sondern Vertrauen anziehen.
+        - generic [ref=e849]:
+          - generic [ref=e850]: Social
+          - generic:
+            - link:
+              - /url: https://www.youtube.com/@Alessandro.Minneci
+            - link:
+              - /url: https://instagram.com/alessandrominneci
+            - link:
+              - /url: https://instagram.com/socialbrands.io
+      - generic [ref=e851]:
+        - generic [ref=e853]: © 2026 Socialbrands
+        - generic [ref=e854]:
+          - link "Impressum" [ref=e855] [cursor=pointer]:
+            - /url: /impressum
+          - link "Datenschutz" [ref=e856] [cursor=pointer]:
+            - /url: /datenschutzerklarung

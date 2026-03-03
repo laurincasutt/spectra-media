@@ -55,8 +55,8 @@ export default function HomePage() {
       <Hero />
       <ProofBar />
       <HomeClient />
-      <ContactSection />
       <FAQAccordion />
+      <ContactSection />
     </>
   );
 }

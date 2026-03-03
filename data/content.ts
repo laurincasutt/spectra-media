@@ -22,7 +22,7 @@ export const nav = {
   logo: "Spectra Media",
   links: [
     { label: "Home", href: "/" },
-    { label: "Leistung", href: "/service" },
+    { label: "Services", href: "/service" },
     { label: "Prozess", href: "/prozess" },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Über uns", href: "/gruender" },
