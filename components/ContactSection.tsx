@@ -41,16 +41,23 @@ const contactItems = [
 // Mini calendar visual
 function CalendarVisual() {
   const days = ["Mo", "Di", "Mi", "Do", "Fr"];
-  const slots = [
-    { day: 0, time: "10:00", available: true },
-    { day: 1, time: "14:00", available: false },
-    { day: 2, time: "11:00", available: true },
-    { day: 3, time: "09:00", available: true },
-    { day: 4, time: "15:00", available: false },
+  const row1 = [
+    { time: "10:00", available: true },
+    { time: "14:00", available: false },
+    { time: "11:00", available: true },
+    { time: "09:00", available: true },
+    { time: "15:00", available: false },
+  ];
+  const row2 = [
+    { time: "14:00", available: false },
+    { time: "16:00", available: true },
+    { time: "13:00", available: false },
+    { time: "11:00", available: true },
+    { time: "10:00", available: true },
   ];
 
   return (
-    <div className="p-5 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-6">
+    <div className="p-5 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-6 flex-1 flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <div>
           <div className="text-[#F4F4F5] font-semibold text-sm">Erstgespräch buchen</div>
@@ -69,13 +76,23 @@ function CalendarVisual() {
             <div className="text-[#52525B] text-[10px] font-medium">{day}</div>
             <motion.div
               className={`w-full py-2 rounded-lg text-[10px] font-medium text-center cursor-pointer transition-all ${
-                slots[di].available
+                row1[di].available
                   ? "bg-[#0066FF]/15 border border-[#0066FF]/30 text-[#3385FF] hover:bg-[#0066FF]/25"
                   : "bg-white/4 border border-white/6 text-[#3F3F46]"
               }`}
-              whileHover={slots[di].available ? { scale: 1.05 } : {}}
+              whileHover={row1[di].available ? { scale: 1.05 } : {}}
             >
-              {slots[di].time}
+              {row1[di].time}
+            </motion.div>
+            <motion.div
+              className={`w-full py-2 rounded-lg text-[10px] font-medium text-center cursor-pointer transition-all ${
+                row2[di].available
+                  ? "bg-[#0066FF]/15 border border-[#0066FF]/30 text-[#3385FF] hover:bg-[#0066FF]/25"
+                  : "bg-white/4 border border-white/6 text-[#3F3F46]"
+              }`}
+              whileHover={row2[di].available ? { scale: 1.05 } : {}}
+            >
+              {row2[di].time}
             </motion.div>
           </div>
         ))}
@@ -97,11 +114,11 @@ export default function ContactSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-stretch"
         >
           {/* Left: contact info */}
-          <motion.div variants={fadeUpVariants}>
-            <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
+          <motion.div variants={fadeUpVariants} className="flex flex-col">
+            <span className="inline-block w-fit px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
               Bereit anzufangen?
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4 leading-tight">
@@ -141,12 +158,13 @@ export default function ContactSection() {
           </motion.div>
 
           {/* Right: booking */}
-          <motion.div variants={fadeUpVariants}>
-            <div className="p-6 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 relative overflow-hidden">
+          <motion.div variants={fadeUpVariants} className="flex flex-col">
+            <div className="p-6 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 relative overflow-hidden flex flex-col flex-1">
               {/* Corner glow */}
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#0066FF]/10 rounded-full blur-[50px]" />
 
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col flex-1 justify-between">
+                <div>
                 <h3 className="text-[#F4F4F5] font-bold text-xl mb-2">Kostenloses Erstgespräch</h3>
                 <p className="text-[#A1A1AA] text-sm mb-1">Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.</p>
                 <div className="flex flex-wrap gap-2 mt-3 mb-2">
@@ -158,6 +176,7 @@ export default function ContactSection() {
                 </div>
 
                 <CalendarVisual />
+                </div>
 
                 <a
                   href={nav.ctaUrl}

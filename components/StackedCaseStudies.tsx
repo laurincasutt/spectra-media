@@ -32,13 +32,13 @@ export default function StackedCaseStudies() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Echte Resultate. Echte Kunden.
+            Projekte mit Strahlkraft. Marken mit Impact.
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
           >
-            Keine Versprechen ohne Beweis. Hier sind die Zahlen.
+            Jede Marke, die wir begleiten, wird zur Autorität — von Unbekannt zu Unvermeidbar.
           </motion.p>
         </motion.div>
 
@@ -62,13 +62,23 @@ export default function StackedCaseStudies() {
                   style={{ backgroundColor: cardBgs[i % cardBgs.length] }}
                 >
                   {/* Blue corner gradient */}
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-[#0066FF]/8 rounded-bl-full pointer-events-none" />
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-[#0066FF]/12 rounded-bl-full pointer-events-none" />
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#0066FF]/35 via-[#0066FF]/8 to-transparent opacity-30 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none" />
 
                   {/* Card main row */}
                   <div className="p-6 lg:p-8 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
-                      {/* Left: text */}
+                    <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
+                      {/* Person + Logo placeholders */}
+                      <div className="hidden lg:flex items-center gap-2 shrink-0">
+                        <div className="flex flex-col items-center gap-1">
+                          <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#F4F4F5] font-bold text-xl">
+                            {cs.client[0]}
+                          </div>
+                          <span className="text-[#3F3F46] text-[10px]">Foto folgt</span>
+                        </div>
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8" />
+                      </div>
+
+                      {/* Text */}
                       <div className="min-w-0">
                         <span className="inline-block px-2.5 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-xs font-medium mb-3">
                           {cs.badge}

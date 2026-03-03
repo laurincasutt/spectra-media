@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useAnimate } from "framer-motion";
+import { useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { home } from "@/data/content";
 import {
   fadeUpVariants,
@@ -9,141 +11,131 @@ import {
   viewportOnce,
 } from "@/lib/animations";
 
-// Floating social/content icon bubbles
-const floatingIcons = [
-  { icon: "📱", size: "w-12 h-12", pos: "top-[18%] left-[6%]", delay: 0, dur: 6 },
-  { icon: "🎬", size: "w-10 h-10", pos: "top-[38%] left-[3%]", delay: 1.2, dur: 7 },
-  { icon: "🚀", size: "w-9 h-9", pos: "top-[62%] left-[8%]", delay: 0.6, dur: 5.5 },
-  { icon: "💎", size: "w-10 h-10", pos: "top-[22%] right-[5%]", delay: 0.4, dur: 6.5 },
-  { icon: "📊", size: "w-9 h-9", pos: "top-[55%] right-[4%]", delay: 1.5, dur: 7.5 },
-  { icon: "⚡", size: "w-8 h-8", pos: "top-[75%] right-[9%]", delay: 0.8, dur: 5 },
-];
+// Animated grid background — random cells pulse with blue glow
+function AnimatedGridBackground() {
+  const COLS = 16;
+  const ROWS = 10;
+  const total = COLS * ROWS;
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
+      <div
+        className="absolute inset-0 grid opacity-60"
+        style={{ gridTemplateColumns: `repeat(${COLS}, 1fr)`, gridTemplateRows: `repeat(${ROWS}, 1fr)` }}
+      >
+        {Array.from({ length: total }).map((_, i) => (
+          <GridCell key={i} index={i} total={total} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function GridCell({ index, total }: { index: number; total: number }) {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    // Each cell gets a random delay so they fire independently
+    const delay = Math.random() * 8;
+    const interval = 6 + Math.random() * 10;
+
+    let t: ReturnType<typeof setTimeout>;
+    const run = () => {
+      animate(
+        scope.current,
+        { opacity: [0, 0.18, 0], backgroundColor: ["rgba(0,102,255,0)", "rgba(0,102,255,0.15)", "rgba(0,102,255,0)"] },
+        { duration: 2.5, ease: "easeInOut" }
+      );
+      t = setTimeout(run, interval * 1000);
+    };
+    t = setTimeout(run, delay * 1000);
+    return () => clearTimeout(t);
+  }, []);
+
+  return (
+    <div
+      ref={scope}
+      className="border border-white/[0.03]"
+      style={{ opacity: 0 }}
+    />
+  );
+}
 
 export default function Hero() {
-  const { hero, heroTestimonial } = home;
+  const { hero } = home;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#09090B]">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-grid opacity-40" />
-      <div className="absolute inset-0 glow-blue" />
+      {/* Animated grid background */}
+      <AnimatedGridBackground />
 
       {/* Blue glow blobs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0066FF]/8 rounded-full blur-[130px] -translate-y-1/4 translate-x-1/4" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0066FF]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#0066FF]/8 rounded-full blur-[130px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0066FF]/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none" />
+      <div className="absolute top-10 right-10 w-[320px] h-[320px] bg-[#FF6B00]/4 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-20 right-1/3 w-[200px] h-[200px] bg-[#6B3FFF]/4 rounded-full blur-[80px] pointer-events-none" />
 
-      {/* Warm ambient blob top-right */}
-      <div className="absolute top-10 right-10 w-[320px] h-[320px] bg-[#FF6B00]/6 rounded-full blur-[120px]" />
-      {/* Subtle purple tint bottom */}
-      <div className="absolute bottom-20 right-1/3 w-[200px] h-[200px] bg-[#6B3FFF]/5 rounded-full blur-[80px]" />
-
-      {/* Floating icon bubbles */}
-      {floatingIcons.map((item, i) => (
+      {/* Phone mockups — right side, behind text */}
+      <div className="hidden lg:flex absolute right-[-60px] top-1/2 -translate-y-1/2 items-end gap-[-20px] pointer-events-none select-none z-0 opacity-75">
+        {/* Left phone — Instagram screenshot */}
         <motion.div
-          key={i}
-          className={`absolute ${item.pos} ${item.size} hidden lg:flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm text-xl select-none pointer-events-none`}
-          animate={{ y: [0, -10, 0], rotate: [0, 3, -3, 0] }}
-          transition={{ duration: item.dur, delay: item.delay, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {item.icon}
-        </motion.div>
-      ))}
-
-      {/* iPhone mockup — right side, hidden on mobile */}
-      <div className="hidden lg:block absolute right-[4%] top-1/2 -translate-y-1/2 w-[220px] pointer-events-none select-none opacity-70">
-        <motion.div
-          initial={{ opacity: 0, x: 40, rotate: 6 }}
-          animate={{ opacity: 1, x: 0, rotate: 6 }}
-          transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          initial={{ opacity: 0, y: 30, rotate: -6 }}
+          animate={{ opacity: 1, y: 0, rotate: -6 }}
+          transition={{ duration: 1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
+          style={{ zIndex: 2 }}
         >
-          {/* Phone frame */}
-          <div className="relative w-[200px] mx-auto rounded-[36px] bg-[#1C1C1E] border-[3px] border-[#3A3A3C] shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
-            {/* Notch */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-5 bg-[#1C1C1E] rounded-b-2xl z-10" />
-            {/* Screen */}
-            <div className="rounded-[34px] overflow-hidden bg-black h-[400px] relative">
-              {/* Instagram-style UI */}
-              <div className="bg-white h-full flex flex-col">
-                {/* IG Header */}
-                <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100">
-                  <span className="text-[10px] font-bold text-black" style={{fontFamily:'serif',fontStyle:'italic'}}>Instagram</span>
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-gray-200" />
-                    <div className="w-3 h-3 rounded-full bg-gray-200" />
-                  </div>
-                </div>
-                {/* Stories row */}
-                <div className="flex gap-1.5 px-2 py-2">
-                  {[...Array(5)].map((_, i) => (
-                    <div key={i} className="flex flex-col items-center gap-0.5">
-                      <div className={`w-8 h-8 rounded-full border-2 ${i === 0 ? 'border-[#0066FF]' : 'border-pink-400'} p-0.5`}>
-                        <div className="w-full h-full rounded-full bg-gradient-to-br from-gray-200 to-gray-300" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                {/* Post */}
-                <div className="flex-1 overflow-hidden">
-                  <div className="px-2 pb-1">
-                    <div className="flex items-center gap-1.5 mb-1.5">
-                      <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#0066FF] to-[#3385FF]" />
-                      <span className="text-[8px] font-semibold text-black">spectra_media</span>
-                    </div>
-                    <div className="w-full h-[140px] rounded-xl bg-gradient-to-br from-[#0066FF]/20 via-[#3385FF]/10 to-[#0066FF]/5 border border-[#0066FF]/20 flex items-center justify-center">
-                      <span className="text-[32px]">🚀</span>
-                    </div>
-                    <div className="flex gap-3 mt-1.5 text-gray-400">
-                      <span className="text-[10px]">♥ 4.2K</span>
-                      <span className="text-[10px]">💬 128</span>
-                    </div>
-                    <div className="mt-1">
-                      <span className="text-[7px] text-black font-semibold">spectra_media </span>
-                      <span className="text-[7px] text-gray-600">Von 0 auf 41 Mio. Views 🔥</span>
-                    </div>
-                  </div>
-                </div>
-                {/* IG bottom nav */}
-                <div className="flex justify-around py-2 border-t border-gray-100 text-gray-400">
-                  {['🏠','🔍','➕','❤️','👤'].map((icon, i) => (
-                    <span key={i} className="text-[12px]">{icon}</span>
-                  ))}
-                </div>
-              </div>
-              {/* Animated notification badge */}
-              <motion.div
-                className="absolute top-16 right-2 bg-[#0066FF] text-white text-[7px] font-bold px-1.5 py-0.5 rounded-full shadow-lg"
-                animate={{ scale: [1, 1.15, 1] }}
-                transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-              >
-                +47k
-              </motion.div>
+          <div className="relative w-[180px] rounded-[28px] bg-[#1C1C1E] border-[2.5px] border-[#3A3A3C] shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#1C1C1E] rounded-b-xl z-10" />
+            <div className="rounded-[26px] overflow-hidden bg-black h-[360px] relative">
+              <Image
+                src="/insta-spectra-media.png"
+                alt="Instagram Screenshot Spectra Media"
+                fill
+                className="object-cover object-top"
+                sizes="160px"
+              />
             </div>
+          </div>
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-[#3F3F46] whitespace-nowrap">
+            Instagram
+          </div>
+        </motion.div>
+
+        {/* Right phone — Insights screenshot */}
+        <motion.div
+          initial={{ opacity: 0, y: 30, rotate: 6 }}
+          animate={{ opacity: 1, y: 0, rotate: 6 }}
+          transition={{ duration: 1, delay: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          className="relative -ml-6"
+          style={{ zIndex: 1 }}
+        >
+          <div className="relative w-[180px] rounded-[28px] bg-[#1C1C1E] border-[2.5px] border-[#3A3A3C] shadow-[0_30px_60px_rgba(0,0,0,0.6)]">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-14 h-4 bg-[#1C1C1E] rounded-b-xl z-10" />
+            <div className="rounded-[26px] overflow-hidden bg-black h-[360px] relative">
+              <Image
+                src="/insights-mike.png"
+                alt="Insights Screenshot"
+                fill
+                className="object-cover object-top"
+                sizes="160px"
+              />
+            </div>
+          </div>
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] text-[#3F3F46] whitespace-nowrap">
+            Insights
           </div>
         </motion.div>
       </div>
 
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-16 lg:pr-[260px]"
+        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-16"
         variants={staggerContainer}
         initial="hidden"
         animate="show"
         viewport={viewportOnce}
       >
-        {/* Testimonial snippet */}
-        <motion.div variants={fadeUpVariants} className="inline-flex flex-col items-center gap-2 mb-8">
-          <p className="text-[#A1A1AA] text-sm italic max-w-md mx-auto leading-relaxed">
-            &ldquo;{heroTestimonial.quote}&rdquo;
-          </p>
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-[#0066FF]/20 border border-[#0066FF]/30 flex items-center justify-center text-[#0066FF] text-xs font-bold">
-              {heroTestimonial.author[0]}
-            </div>
-            <span className="text-[#52525B] text-xs">{heroTestimonial.author} · {heroTestimonial.role}</span>
-          </div>
-        </motion.div>
-
         {/* Eyebrow badge */}
         <motion.div variants={fadeUpVariants} className="inline-flex items-center gap-2 mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium">
@@ -156,7 +148,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Headline */}
-        <div className="mb-8 space-y-2 lg:space-y-3">
+        <div className="mb-8">
           {hero.headlineLines.map((line, i) => (
             <motion.h1
               key={i}
@@ -211,24 +203,6 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-        </motion.div>
-      </motion.div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <span className="text-[#52525B] text-xs tracking-widest uppercase">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
-          <svg className="w-5 h-5 text-[#52525B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
         </motion.div>
       </motion.div>
     </section>

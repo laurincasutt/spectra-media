@@ -1,11 +1,57 @@
 "use client";
 
 import { motion } from "framer-motion";
-import CTASection from "@/components/CTASection";
+import ContactSection from "@/components/ContactSection";
+import AdvantagesSection from "@/components/AdvantagesSection";
 import { service, home } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
+const outcomeCards = [
+  {
+    number: "01",
+    title: "Was du verlangen kannst — verändert sich.",
+    desc: "Premium-Positionierung durch Sichtbarkeit: Kunden zahlen mehr, hinterfragen weniger.",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+      </svg>
+    ),
+  },
+  {
+    number: "02",
+    title: "Wie schnell Deals closed werden.",
+    desc: "Wer dich kennt, vertraut dir bereits. Social Proof beschleunigt jeden Abschluss.",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+  },
+  {
+    number: "03",
+    title: "Wer sich bei dir meldet.",
+    desc: "Inbound statt Outbound. Die richtigen Kunden kommen auf dich zu — nicht umgekehrt.",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+      </svg>
+    ),
+  },
+  {
+    number: "04",
+    title: "Wie dein Markt dich wahrnimmt.",
+    desc: "Von Anbieter zur Autorität. Dein Name steht für die Kategorie — nicht nur für ein Angebot.",
+    icon: (
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    ),
+  },
+];
+
 export default function ServiceClient() {
+  const { system } = home;
+
   return (
     <>
       {/* Hero */}
@@ -35,120 +81,125 @@ export default function ServiceClient() {
         </div>
       </section>
 
-      {/* Packages */}
-      <section className="py-16 lg:py-24 bg-[#09090B]">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Advantages — Wie unsere Kunden ganze Märkte dominieren */}
+      <AdvantagesSection />
+
+      {/* Resultat Section */}
+      <section className="py-16 lg:py-24 bg-[#111113] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
             viewport={viewportOnce}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+            className="text-center mb-12"
           >
-            {service.packages.map((pkg, i) => (
+            <motion.span
+              variants={fadeUpVariants}
+              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider"
+            >
+              Das Resultat
+            </motion.span>
+            <motion.h2
+              variants={fadeUpVariants}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
+            >
+              Wenn dein Marketing endlich funktioniert.
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6"
+          >
+            {outcomeCards.map((card, i) => (
               <motion.div
                 key={i}
                 variants={fadeUpVariants}
-                className={`relative flex flex-col p-8 rounded-2xl border transition-all duration-300 ${
-                  pkg.highlight
-                    ? "bg-[#0066FF]/10 border-[#0066FF]/40 shadow-2xl shadow-[#0066FF]/10"
-                    : "bg-[#1C1C1F] border-white/8"
-                }`}
+                whileHover={{ scale: 1.025, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative p-7 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
               >
-                {pkg.highlight && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                    <span className="px-4 py-1 rounded-full bg-[#0066FF] text-white text-xs font-semibold whitespace-nowrap">
-                      Empfohlen
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-6">
-                  <h3 className="text-[#F4F4F5] text-2xl font-bold mb-1">
-                    {pkg.name}
-                  </h3>
-                  <p className="text-[#A1A1AA] text-sm">{pkg.tagline}</p>
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="text-[#0066FF] font-bold text-5xl font-mono opacity-15 absolute top-5 right-6 select-none">
+                  {card.number}
                 </div>
-
-                <ul className="space-y-3 flex-1 mb-8">
-                  {pkg.features.map((feature, j) => (
-                    <li key={j} className="flex items-start gap-3">
-                      <svg
-                        className="w-5 h-5 text-[#0066FF] flex-shrink-0 mt-0.5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span className="text-[#A1A1AA] text-sm leading-relaxed">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="https://calendly.com/spectramedia/instagram-introduction-call"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`w-full text-center py-3.5 rounded-full font-semibold text-sm transition-all duration-200 ${
-                    pkg.highlight
-                      ? "bg-[#0066FF] hover:bg-[#3385FF] text-white shadow-lg shadow-[#0066FF]/30"
-                      : "bg-white/5 hover:bg-white/10 text-[#F4F4F5] border border-white/15"
-                  }`}
-                >
-                  {pkg.cta}
-                </a>
+                <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] mb-4 relative z-10">
+                  {card.icon}
+                </div>
+                <h3 className="text-[#F4F4F5] font-bold text-xl mb-2 relative z-10">{card.title}</h3>
+                <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{card.desc}</p>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Add-ons */}
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            className="mt-16 p-8 rounded-2xl bg-[#1C1C1F] border border-white/8"
-          >
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-xl font-bold text-[#F4F4F5] mb-6"
-            >
-              Add-ons & Erweiterungen
-            </motion.h2>
-            <motion.div
-              variants={staggerContainer}
-              className="flex flex-wrap gap-3"
-            >
-              {service.addons.map((addon, i) => (
-                <motion.span
-                  key={i}
-                  variants={fadeUpVariants}
-                  className="px-4 py-2 rounded-full bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#3385FF] text-sm font-medium"
-                >
-                  + {addon}
-                </motion.span>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* CTA */}
-      <CTASection
-        eyebrow={home.bottomCta.eyebrow}
-        headline={home.bottomCta.headline}
-        sub={home.bottomCta.sub}
-        cta={home.bottomCta.cta}
-        ctaUrl={home.bottomCta.ctaUrl}
-      />
+      {/* System / Deliverables Section */}
+      <section className="py-20 lg:py-32 bg-[#111113] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="text-center mb-16 lg:mb-20"
+          >
+            <motion.span
+              variants={fadeUpVariants}
+              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4"
+            >
+              {system.eyebrow}
+            </motion.span>
+            <motion.h2
+              variants={fadeUpVariants}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
+            >
+              {system.headline}
+            </motion.h2>
+            <motion.p
+              variants={fadeUpVariants}
+              className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
+            >
+              {system.sub}
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
+          >
+            {system.deliverables.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUpVariants}
+                whileHover={{ scale: 1.03, y: -4 }}
+                transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
+              >
+                <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
+                  {item.number}
+                </div>
+                <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">{item.title}</h3>
+                <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <ContactSection />
     </>
   );
 }
