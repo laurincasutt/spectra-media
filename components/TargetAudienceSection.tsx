@@ -4,12 +4,62 @@ import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 const audiences = [
-  { emoji: "🎯", title: "Elite Coaches & Expertenmarken" },
-  { emoji: "💼", title: "Unternehmer mit Personal Brand" },
-  { emoji: "⚖️", title: "Anwälte & Kanzleien" },
-  { emoji: "🧠", title: "Strategische Berater & Thought Leaders" },
-  { emoji: "💪", title: "Fitness & Health Coaches" },
-  { emoji: "🧬", title: "Supplement, Peptide & Gesundheitsmarken" },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="6" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="12" cy="12" r="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    ),
+    title: "Elite Coaches & Expertenmarken",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <rect x="2" y="7" width="20" height="14" rx="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+        <line x1="12" y1="12" x2="12" y2="12" strokeLinecap="round" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2 13h20" />
+      </svg>
+    ),
+    title: "Unternehmer mit Personal Brand",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M3 12h18M12 18H3" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v18" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M5 21l7-3 7 3" />
+      </svg>
+    ),
+    title: "Anwälte & Kanzleien",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+      </svg>
+    ),
+    title: "Strategische Berater & Thought Leaders",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    title: "Fitness & Health Coaches",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l1.5 1.5L15 9" />
+      </svg>
+    ),
+    title: "Supplement, Peptide & Gesundheitsmarken",
+  },
 ];
 
 export default function TargetAudienceSection() {
@@ -35,7 +85,7 @@ export default function TargetAudienceSection() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
           >
-            Brands, die führen — nicht folgen.
+            Brands, die Standards setzen — nicht Trends hinterherjagen.
           </motion.h2>
         </motion.div>
 
@@ -55,13 +105,9 @@ export default function TargetAudienceSection() {
               className="relative h-44 p-6 rounded-2xl bg-[#111113] border border-white/8 overflow-hidden group hover:bg-[#0066FF]/15 hover:border-[#0066FF]/40 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] transition-all duration-300 cursor-default flex flex-col items-center justify-center gap-4"
             >
               <div className="absolute -top-8 -right-8 w-24 h-24 bg-[#0066FF]/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <motion.span
-                className="text-5xl select-none relative z-10 block"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              >
-                {audience.emoji}
-              </motion.span>
+              <div className="relative z-10 text-[#A1A1AA] group-hover:text-[#3385FF] group-hover:scale-110 transition-all duration-300">
+                {audience.icon}
+              </div>
               <h3 className="text-[#F4F4F5] font-bold text-base text-center leading-tight relative z-10">
                 {audience.title}
               </h3>

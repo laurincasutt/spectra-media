@@ -39,10 +39,10 @@ export const nav = {
 export const home = {
   hero: {
     eyebrow: "Done-for-You Social Media Growth",
-    headlineLines: ["Von unsichtbar", "zu unübersehbar."],
+    headlineLines: ["Vom Mitläufer", "zum Marktführer."],
     gradientLineIndex: 1,
-    sub: "Wir skalieren Reichweite, Vertrauen und Profit durch Organic Media, Paid Ads & KI-optimierte Prozesse.",
-    sub2: "Spectra Media baut Personal Brands, die ihre Marktnische anführen und optimale Kunden magnetisch anziehen.",
+    sub: "We turn overlooked businesses and personal brands into standout names.",
+    sub2: "Spectra Media ist darauf spezialisiert, durchschnittliche Instagram-Accounts in herausragende Personal Brands zu verwandeln — die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.",
     cta: "Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
     secondaryCta: "Case Studies ansehen",
@@ -81,7 +81,7 @@ export const home = {
 
   system: {
     eyebrow: "Unser System",
-    headline: "Done-for-You. Von Strategie bis Ergebnis.",
+    headline: "Du fokussierst dich auf deine Stärken, wir machen den Rest.",
     sub: "Du gibst uns 1–2 Drehtage pro Woche. Wir liefern dir alles andere.",
     deliverables: [
       {
@@ -147,7 +147,7 @@ export const home = {
       {
         question: "Wie viel Zeit muss ich selbst investieren?",
         answer:
-          "Du nimmst 1–2x pro Woche Videos auf – das ist dein Hauptbeitrag. Den Rest übernehmen wir: Strategie, Skripte, Editing, Upload und Community Management. Die meisten Kunden investieren 2–4 Stunden pro Woche.",
+          "Unser Service ist genau dazu da, damit du möglichst zeiteffizient die besten Resultate erhältst. Alles, was von deiner Seite gebraucht wird, sind 1–2 Stunden Recordings pro Woche, in denen du Videos für uns abdrehst. Den ganzen Rest übernehmen wir: Strategie, Skripte, Editing, Upload und Community Management. Du fokussierst dich auf deine Stärken — wir machen den Rest.",
       },
       {
         question: "Wie schnell sehe ich erste Ergebnisse?",
@@ -250,7 +250,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "41 Mio.",
     heroStatLabel: "Views in 90 Tagen",
     challenge:
-      "Tamer war bereits ein erfahrener Fitness-Trainer mit einer starken Offline-Präsenz, aber kaum sichtbar auf Social Media. Er hatte weder Zeit noch Know-how, um konsistent Content zu produzieren – und die bisherigen Versuche brachten keine messbaren Ergebnisse.",
+      "Tamer Galal war bereits eine Legende im deutschsprachigen Fitnessbereich — doch seine Offline-Präsenz stimmte nicht mit seinem Online-Auftritt überein. Obwohl er seit über 30 Jahren eine führende Persönlichkeit war, hatte er den digitalen Wandel verpasst und dadurch einen grossen Nachteil erlitten. Er hatte weder die Zeit noch das Know-how, um konsistenten Content zu produzieren, der ihn als Experten darstellt und ihm seine Bühne zurückbringt. Bisherige Versuche brachten keine messbaren Ergebnisse. Wir halfen ihm, sein Wissen und seine Kompetenz so zu präsentieren, dass die Leute verstehen, was ihn besonders macht — und seinen Legendenstatus auch in der heutigen Zeit hervorheben.",
     approach: [
       "Plattform-Analyse: Identifikation von TikTok und Instagram Reels als primäre Wachstumskanäle",
       "Hook-Strategie: Entwicklung von 3–5 verschiedenen Hook-Formaten und kontinuierliches A/B-Testing",
@@ -282,7 +282,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "19k → 50k+",
     heroStatLabel: "Follower Wachstum",
     challenge:
-      "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich machen. Das Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Die Herausforderung: Juristische Inhalte müssen präzise sein – aber auf Social Media muss alles einfach wirken.",
+      "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich für die Allgemeinheit machen. Ihr Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Dies versuchten sie über die letzten Jahre — leider ohne nachhaltigen Erfolg. Die Herausforderung: Juristische Inhalte müssen präzise sein, aber gleichzeitig so aufbereitet, dass sie auf Social Media ankommen und performen. Wir entwickelten eine Strategie, die Mandics Werte und Persönlichkeit einfängt — hilfreiches Wissen so vermittelt, dass man nicht genug davon bekommt, weil es nicht nur informiert, sondern auch unterhält.",
     approach: [
       "Edutainment-Format: Komplexe Rechtsfragen in verständliche, kurzweilige Videos umwandeln",
       "Nischen-Fokus: Konzentration auf Mietrecht, Arbeitsrecht und Vertragsrecht als Top-Suchthemen",
@@ -314,7 +314,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "+38k",
     heroStatLabel: "Neue Follower in 3 Monaten",
     challenge:
-      "Markus Hoppe war bereits aktiv auf Instagram, aber das Wachstum stagnierte. Die Posts kamen unregelmässig, der Content-Mix war unklar und die Engagement-Rate sank kontinuierlich. Er brauchte ein System, kein weiteres Experiment.",
+      "Markus Hoppe war bereits ein etablierter Coach im deutschsprachigen Raum mit rund 30.000 Followern. Doch das Wachstum stagnierte — er kam nicht mehr über dieses Plateau hinaus. Posts kamen unregelmässig, der Content-Mix war unklar und die Engagement-Rate sank kontinuierlich. Er brauchte kein weiteres Experiment — sondern ein System. Wir führten eine klare Struktur ein, die all diese Probleme löst und auf langfristigen, messbaren Erfolg ausgerichtet ist.",
     approach: [
       "Content-Audit: Analyse der bisherigen Posts und Identifikation der Top-Performer",
       "Pillars-Framework: Drei klare Content-Säulen für konsistente Positionierung",
@@ -342,7 +342,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "0 → 10k",
     heroStatLabel: "Follower in 6 Wochen",
     challenge:
-      "George Maiorano startete mit einem neuen Account von null. Thema: Peptide, Biohacking und Longevity – eine komplexe Nische mit hohem Erklärungsbedarf. Ziel: Schnell Sichtbarkeit aufbauen und eine Community rund um ein erklärungs­intensives Produkt formen.",
+      "Mit George Maiorano stand die Aufgabe, einen Account komplett von null aufzubauen. Fokus: Biohacking, Peptide und Longevity — eine Nische mit hohem Erklärungsbedarf, die tiefes Vertrauen voraussetzt. Die Herausforderung war, schnell Sichtbarkeit aufzubauen und gleichzeitig eine Community zu formen, die rund um erklärungsbedürftige Produkte entsteht und wächst. Wir entwickelten eine Strategie, die wissenschaftliche Inhalte zugänglich macht — und aus einem leeren Profil in wenigen Wochen eine relevante Stimme in der Nische machte.",
     approach: [
       "Account-Aufbau von Grund auf: Profil-Optimierung, Bio, Highlights",
       "Edu-Content-Strategie: Wissenschaftliche Inhalte einfach und visuell aufbereiten",

@@ -26,7 +26,7 @@ export default function VideoSection() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Sieh selbst, wie Spectra Media arbeitet.
+            Überzeuge dich selbst von unserer Expertise.
           </motion.h2>
         </motion.div>
 

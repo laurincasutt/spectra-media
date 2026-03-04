@@ -26,7 +26,7 @@ export default function ClientLogosSection() {
             variants={fadeUpVariants}
             className="text-2xl sm:text-3xl font-bold text-[#F4F4F5] mb-3"
           >
-            Gewählt von den sichtbarsten Marken mit Substanz.
+            Marken, die auf uns setzen.
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}

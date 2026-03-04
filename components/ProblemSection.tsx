@@ -152,22 +152,22 @@ const problemIcon3 = (
 const problems = [
   {
     number: "01",
-    title: "Der Markt belohnt die Sichtbarsten, nicht die Besten.",
-    desc: "Du leistest mehr als die Konkurrenz — trotzdem wächst sie schneller. Weil Sichtbarkeit Vertrauen schafft, das Qualität allein nicht liefern kann.",
+    title: "Dein Marketing folgt keiner Struktur.",
+    desc: "Du postest drauf los, wann immer dir eine neue Idee kommt. Deine Upload-Zeiten sind unregelmässig, deine Zielgruppe wechselt von Post zu Post — und du fragst dich, warum du nicht die richtigen Leute erreichst. Was fehlt, ist ein klares System.",
     icon: problemIcon1,
     visual: <PodiumVisual />,
   },
   {
     number: "02",
-    title: "Hier ein Post, dort eine Ad — nichts greift ineinander.",
-    desc: "Kein System, kein roter Faden. Dein Content verpufft, Ads konvertieren nicht, Konkurrenten erreichen mit weniger mehr.",
+    title: "Deine Konkurrenz sticht dich aus.",
+    desc: "Du hast ein Produkt, das Marktführer sein sollte — aber niemand weiß davon. Nicht weil dein Fachwissen fehlt, sondern weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören.",
     icon: problemIcon2,
     visual: <FragmentedVisual />,
   },
   {
     number: "03",
-    title: "Du arbeitest im Business, nicht am Business.",
-    desc: "Du steckst in der Ausführung statt in der Strategie. Das Resultat: kein Wachstum, kein Hebel — nur Aufwand ohne Wirkung.",
+    title: "Die Zeit rennt dir durch die Hände.",
+    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen — nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts — und arbeitest im Business statt am Business. Wachstum fehlt deswegen.",
     icon: problemIcon3,
     visual: <ClockVisual />,
   },

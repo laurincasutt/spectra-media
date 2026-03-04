@@ -32,13 +32,13 @@ export default function StackedCaseStudies() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Projekte mit Strahlkraft. Marken mit Impact.
+            Vom Seitenfeld ins Rampenlicht.
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
           >
-            Jede Marke, die wir begleiten, wird zur Autorität — von Unbekannt zu Unvermeidbar.
+            Wir machen unsere Kunden nicht nur sichtbar — sondern zur Marktgrösse in ihrer Nische.
           </motion.p>
         </motion.div>
 
