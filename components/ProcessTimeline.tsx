@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { prozess } from "@/data/content";
 import {
   fadeUpVariants,
@@ -11,6 +12,13 @@ import {
 
 export default function ProcessTimeline() {
   const { steps } = prozess;
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 20%"],
+  });
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <section className="py-20 lg:py-32 bg-[#09090B]">
@@ -44,9 +52,14 @@ export default function ProcessTimeline() {
         </motion.div>
 
         {/* Timeline */}
-        <div className="relative">
-          {/* Vertical line */}
+        <div className="relative" ref={containerRef}>
+          {/* Dotted background line */}
           <div className="absolute left-6 top-2 bottom-2 w-px bg-white/10 md:left-[2.25rem]" />
+          {/* Blue fill overlay */}
+          <motion.div
+            className="absolute left-6 top-2 w-[2px] bg-[#0066FF]/60 origin-top md:left-[2.25rem]"
+            style={{ scaleY, bottom: 2 }}
+          />
 
           <motion.div
             variants={staggerContainer}

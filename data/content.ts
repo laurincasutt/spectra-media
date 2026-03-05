@@ -31,7 +31,7 @@ export const nav = {
   ],
   ctaText: "Erstgespräch buchen",
   ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
-  whatsappNumber: "41791234567",
+  whatsappNumber: "41795371839",
   whatsappMessage: "Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.",
 };
 
@@ -149,32 +149,27 @@ export const home = {
       {
         question: "Wie viel Zeit muss ich selbst investieren?",
         answer:
-          "Unser Service ist genau dazu da, damit du möglichst zeiteffizient die besten Resultate erhältst. Alles, was von deiner Seite gebraucht wird, sind 1–2 Stunden Recordings pro Woche, in denen du Videos für uns abdrehst. Den ganzen Rest übernehmen wir: Strategie, Skripte, Editing, Upload und Community Management. Du fokussierst dich auf deine Stärken — wir machen den Rest.",
+          "Unser Service ist genau dazu da, damit du möglichst zeiteffizient die besten Resultate erhältst. Alles, was von deiner Seite gebraucht wird, sind 1–2 Stunden Recordings pro Woche, in denen du Videos für uns abdrehst. Den ganzen Rest übernehmen wir: Strategie, Skripte, Editing, Upload und Community Management. Du fokussierst dich auf deine Kernkompetenzen. Wir machen den Rest.",
       },
       {
         question: "Wie schnell sehe ich erste Ergebnisse?",
         answer:
-          "Die ersten Ergebnisse sind meist innerhalb der ersten 4–6 Wochen sichtbar. Nachhaltiges, starkes Wachstum entsteht über 3–6 Monate. Unsere Case Studies zeigen: Tamer Galal erzielte 41 Mio. Views in 90 Tagen.",
+          "Die ersten Ergebnisse sind meist innerhalb der ersten 4–6 Wochen sichtbar. Nachhaltiges, starkes Wachstum entsteht über 3–6 Monate. Für Tamer Galal erzielten wir über 41 Millionen Views auf allen Plattformen in nur 90 Tagen.",
       },
       {
         question: "Für welche Branchen arbeitet ihr?",
         answer:
-          "Wir spezialisieren uns auf Coaches, Trainer, Berater, Anwälte, Ärzte und Unternehmer, die ihr Wissen und ihre Expertise über Social Media sichtbar machen wollen. Ideal wenn du bereits offline erfolgreich bist.",
-      },
-      {
-        question: "Was ist inklusive – was kostet extra?",
-        answer:
-          "Im Paket inbegriffen: Strategie, Research, Skripte, Editing (bis zu 20 Clips/Monat), Upload, Hashtag-Optimierung, Community Management und monatliche Reporting-Calls. Ads-Budget und externe Tools werden separat verrechnet.",
+          "Wir spezialisieren uns auf Persönlichkeiten und Unternehmer, die ihre Personal Brand auf das nächste Level bringen wollen. Branchenübergreifend — ob Coaches, Trainer, Berater, Anwälte, Ärzte, Unternehmer oder Sportler, die ihr Wissen und ihre Expertise über Social Media sichtbar machen wollen. Ideal, wenn du bereits offline erfolgreich bist.",
       },
       {
         question: "Arbeitet ihr nur mit Instagram oder auch anderen Plattformen?",
         answer:
-          "Unser Fokus liegt auf Instagram und TikTok. Auf Wunsch erweitern wir auf YouTube Shorts, LinkedIn und weitere Plattformen. Wir empfehlen, mit 1–2 Plattformen zu starten und dann zu skalieren.",
+          "Unser Fokus liegt auf Instagram, TikTok und YouTube. Auf Wunsch erweitern wir auf YouTube Longform, LinkedIn und weiteren Plattformen. Wir empfehlen, von Beginn an so viele Plattformen wie sinnvoll zu bespielen, um Reichweite zu maximieren und Content maximal zu skalieren.",
       },
       {
         question: "Wie läuft der Einstieg ab?",
         answer:
-          "1. Einführungscall (kostenlos, 30 Min.) – Wir schauen ob es passt. 2. Onboarding & Strategie-Workshop (1 Woche). 3. Erste Content-Produktion startet. 4. Kontinuierliche Optimierung und Skalierung.",
+          "1. Discovery Call (kostenlos) — wir schauen ob es passt und welche Möglichkeiten es gibt. 2. Entwicklung von Content-Strategie und Brandmap, präsentiert in einem Angebots-Call. 3. Vertragsabschluss. 4. Onboarding Call. 5. Content Production Start. 6. Kontinuierliche Optimierung und Skalierung.",
       },
     ],
   },
@@ -281,7 +276,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "kanzlei-mandic",
     client: "Kanzlei Mandic",
     profileImg: "/Kundenbilder/Dubravko Mandic.jpeg",
-    brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.jpg",
+    brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.png",
     industry: "Legal",
     badge: "Rechtsberatung",
     tagline: "Von 19.000 auf 50.000+ Follower in 4 Monaten",
@@ -315,7 +310,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "markus-hoppe",
     client: "Markus Hoppe",
     profileImg: "/Kundenbilder/Markus Hoppe.jpg",
-    brandLogoImg: "/Logos/Hoppe Coaching Markus Hoppe.jpg",
+    brandLogoImg: "/Logos/Hoppe Coaching Markus Hoppe.png",
     industry: "Fitness",
     badge: "Fitness & Lifestyle",
     tagline: "Systematisches Wachstum mit konsistentem Content",
@@ -343,7 +338,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "george-maiorano",
-    client: "Majorano Performance",
+    client: "Maiorano Performance",
     profileImg: "/Kundenbilder/George Maiorano.JPG",
     brandLogoImg: "/Logos/Maiorano Perfomance 2 George Maiorano.png",
     industry: "Health / Peptides",
@@ -384,7 +379,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "Coming soon",
     heroStatLabel: "Ergebnisse folgen",
     profileImg: "/Kundenbilder/Mike Sommerfeld.png",
-    brandLogoImg: "/Logos/Badass Coaching Mike Sommerfeld.JPG",
+    brandLogoImg: "/Logos/Badass Coaching Mike Sommerfeld.png",
     challenge:
       "Details folgen.",
     approach: [
@@ -405,7 +400,8 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Fitness-Medienmarke auf das nächste Level gebracht",
     heroStat: "Coming soon",
     heroStatLabel: "Ergebnisse folgen",
-    brandLogoImg: "/Logos/Gannikus.jpg",
+    profileImg: "/Logos/Gannikus.png",
+    brandLogoImg: "/Logos/Gannikus.png",
     challenge:
       "Details folgen.",
     approach: [
@@ -453,8 +449,8 @@ export const service = {
   },
   hero: {
     eyebrow: "Unsere Leistungen",
-    headline: "Alles was du brauchst. Nichts was du nicht brauchst.",
-    sub: "Ein vollständiges Done-for-You System für organisches Social Media Wachstum.",
+    headline: "Ein System. Alle Hebel. Ein Ziel: Wachstum und Skalierung.",
+    sub: "Done-for-You Social Media Service für Marken, die sichtbar und profitabel werden wollen.",
   },
   packages: [
     {
@@ -581,7 +577,7 @@ export const gruender = {
     sub: "Spectra Media wurde gegründet, weil wir selbst erlebt haben, wie frustrierend Social Media ohne System ist – und wie mächtig es mit einem wird.",
   },
   story: [
-    "Spectra Media entstand aus einer einfachen Beobachtung: Unglaublich talentierte Menschen und Unternehmen scheitern auf Social Media – nicht wegen mangelndem Wissen, sondern wegen fehlendem System.",
+    "Die Spectra Media GmbH entstand aus einer Beobachtung. Im digitalen Markt gewinnen heutzutage nicht mehr die Besten, sondern die Sichtbarsten.",
     "Als Agentur aus der Schweiz verstehen wir den DACH-Markt, den Anspruch an Qualität und die Bedeutung von Vertrauen. Wir arbeiten ausschliesslich mit Kunden zusammen, bei denen wir überzeugt sind, dass wir echte Resultate liefern können.",
     "Unser Team kombiniert Content-Strategie, Datenanalyse und kreatives Handwerk. Wir hören nicht auf zu optimieren bis die Zahlen stimmen.",
   ],
@@ -596,7 +592,7 @@ export const gruender = {
     },
     {
       title: "Selektiv und fokussiert",
-      desc: "Wir nehmen nicht jeden Kunden an. Lieber wenige Partnerschaften, bei denen wir wirklich den Unterschied machen.",
+      desc: "Wir arbeiten nicht mit jedem. Wir konzentrieren uns auf eine ausgewählte Selektion von Kunden, bei denen wir Potenzial sehen und wo wir wirklich einen Unterschied machen können.",
     },
   ],
   cta: {

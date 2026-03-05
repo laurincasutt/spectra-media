@@ -1,13 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import ContactSection from "@/components/ContactSection";
 import { gruender } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-const valueEmojis = ["🏆", "🔍", "🎯"];
+const valueIcons = [
+  // Trophy — Ergebnis über Aktivität
+  <svg key="trophy" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+  </svg>,
+  // Eye — Vertrauen durch Transparenz
+  <svg key="eye" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+  </svg>,
+  // Target — Selektiv und fokussiert
+  <svg key="target" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" strokeWidth={1.5} />
+    <circle cx="12" cy="12" r="6" strokeWidth={1.5} />
+    <circle cx="12" cy="12" r="2" strokeWidth={1.5} />
+  </svg>,
+];
 
 export default function GruenderClient() {
+  const [imgError, setImgError] = useState(false);
+
   return (
     <>
       {/* Hero — left-aligned, big headline + text + image */}
@@ -30,20 +50,14 @@ export default function GruenderClient() {
                 variants={fadeUpVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
               >
-                Die Transformatoren<br />
-                <span className="gradient-text">deines Online-Auftritts.</span>
+                Die Architekten hinter<br />
+                <span className="gradient-text">deiner digitalen Präsenz.</span>
               </motion.h1>
               <motion.p
                 variants={fadeUpVariants}
-                className="text-lg text-[#A1A1AA] leading-relaxed mb-4"
+                className="text-base text-[#52525B] leading-relaxed mb-4"
               >
-                {gruender.hero.sub}
-              </motion.p>
-              <motion.p
-                variants={fadeUpVariants}
-                className="text-base text-[#52525B] leading-relaxed"
-              >
-                Wir transformieren deine Social Media Präsenz zur Marktführerschaft — mit messbaren Ergebnissen statt leerer Versprechen.
+                Wir transformieren deine Social Media Präsenz zur Marktführerschaft - mit messbaren Ergebnissen statt leerer Versprechen.
               </motion.p>
 
               {/* Quick stats */}
@@ -53,8 +67,8 @@ export default function GruenderClient() {
               >
                 {[
                   { value: "30+", label: "Brands skaliert" },
-                  { value: "41 Mio.", label: "Views in 90 Tagen" },
-                  { value: "100%", label: "Organisch" },
+                  { value: "2 Mrd+", label: "Views generiert" },
+                  { value: "1 Mio+", label: "Follower gegrowt" },
                 ].map((stat, i) => (
                   <motion.div key={i} variants={fadeUpVariants} className="text-center p-3 rounded-xl bg-white/4 border border-white/8">
                     <div className="text-[#0066FF] font-bold text-xl drop-shadow-[0_0_10px_rgba(0,102,255,0.4)]">{stat.value}</div>
@@ -64,42 +78,39 @@ export default function GruenderClient() {
               </motion.div>
             </motion.div>
 
-            {/* Right: image placeholder (team/office visual) */}
+            {/* Right: founder photo */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-white/8 bg-[#111113] aspect-[4/3]">
-                {/* Placeholder visual */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/10 via-[#09090B] to-[#FF6B00]/8" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                  <div className="text-6xl">📱</div>
-                  <div className="text-[#A1A1AA] text-sm text-center px-8">
-                    Das Spectra Media Team — <br />dein Partner für Social Media Wachstum
+              <div className="relative rounded-2xl overflow-hidden border border-white/8 aspect-[4/3]">
+                {!imgError ? (
+                  <Image
+                    src="/gruender-foto.jpg"
+                    alt="Gründer Spectra Media"
+                    fill
+                    className="object-cover"
+                    onError={() => setImgError(true)}
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/10 via-[#09090B] to-[#FF6B00]/8 flex flex-col items-center justify-center gap-4">
+                    <div className="text-6xl">📱</div>
+                    <div className="text-[#A1A1AA] text-sm text-center px-8">
+                      Das Spectra Media Team —<br />dein Partner für Social Media Wachstum
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    {["🇨🇭", "📊", "🚀"].map((e, i) => (
-                      <motion.div
-                        key={i}
-                        className="w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 flex items-center justify-center text-lg"
-                        animate={{ y: [0, -5, 0] }}
-                        transition={{ duration: 2 + i * 0.4, repeat: Infinity, delay: i * 0.3 }}
-                      >
-                        {e}
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/40 to-transparent pointer-events-none" />
               </div>
-              {/* Floating badge */}
+              {/* Floating badge — Spectra logo */}
               <motion.div
-                className="absolute -bottom-4 -left-4 px-4 py-2 rounded-xl bg-[#0066FF] text-white text-sm font-semibold shadow-xl shadow-[#0066FF]/30"
+                className="absolute -bottom-4 -left-4 px-4 py-2.5 rounded-xl bg-[#0066FF] shadow-xl shadow-[#0066FF]/30 flex items-center justify-center"
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                🇨🇭 Swiss Quality
+                <Image src="/logo-neu.png" alt="Spectra Media" width={100} height={25} className="h-5 w-auto object-contain brightness-0 invert" />
               </motion.div>
             </motion.div>
           </div>
@@ -161,9 +172,12 @@ export default function GruenderClient() {
                   <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
 
-                  {/* Emoji icon */}
-                  <div className="text-3xl mb-4 relative z-10">
-                    {valueEmojis[i]}
+                  {/* Icon — muted by default, glows blue on hover */}
+                  <div className="relative mb-4 w-fit z-10">
+                    <div className="absolute inset-0 rounded-full bg-[#0066FF]/40 blur-[14px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+                    <div className="relative text-[#3F3F46] group-hover:text-[#3385FF] transition-colors duration-300 drop-shadow-none group-hover:drop-shadow-[0_0_8px_rgba(0,102,255,0.6)]">
+                      {valueIcons[i]}
+                    </div>
                   </div>
                   <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10 leading-snug">
                     {value.title}

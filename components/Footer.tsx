@@ -21,8 +21,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">
-              Done-for-You Social Media Growth für ambitionierte Unternehmer im
-              DACH-Raum.
+              Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -37,7 +36,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/spectramedia"
+                href="https://www.instagram.com/spectramedia.ch/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

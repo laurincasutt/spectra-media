@@ -9,7 +9,7 @@ import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations
 const outcomeCards = [
   {
     number: "01",
-    title: "Was du verlangen kannst — verändert sich.",
+    title: "Mit Autorität verändert sich alles, auch was du verlangen kannst.",
     desc: "Premium-Positionierung durch Sichtbarkeit: Kunden zahlen mehr, hinterfragen weniger.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -19,7 +19,7 @@ const outcomeCards = [
   },
   {
     number: "02",
-    title: "Wie schnell Deals closed werden.",
+    title: "Deals werden schneller geclosed.",
     desc: "Wer dich kennt, vertraut dir bereits. Social Proof beschleunigt jeden Abschluss.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -30,7 +30,7 @@ const outcomeCards = [
   {
     number: "03",
     title: "Wer sich bei dir meldet.",
-    desc: "Inbound statt Outbound. Die richtigen Kunden kommen auf dich zu — nicht umgekehrt.",
+    desc: "Inbound statt Outbound - die richtigen Kunden kommen auf dich zu, nicht umgekehrt.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -40,7 +40,7 @@ const outcomeCards = [
   {
     number: "04",
     title: "Wie dein Markt dich wahrnimmt.",
-    desc: "Von Anbieter zur Autorität. Dein Name steht für die Kategorie — nicht nur für ein Angebot.",
+    desc: "Von Anbieter zur Autorität. Dein Name steht für die Kategorie - nicht nur für ein Angebot.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -169,6 +169,35 @@ export default function ServiceClient() {
               {system.sub}
             </motion.p>
           </motion.div>
+
+          {/* Step connector — desktop only */}
+          <div className="hidden lg:block mb-8">
+            <div className="flex items-center justify-between gap-0">
+              <div className="flex items-center flex-1">
+                {["01","02","03"].map((n, i) => (
+                  <div key={n} className="flex items-center flex-1 last:flex-none">
+                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
+                      {n}
+                    </div>
+                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-col items-end mx-1" style={{ height: 28 }}>
+                <div className="w-px bg-[#0066FF]/25" style={{ height: "100%" }} />
+              </div>
+              <div className="flex items-center flex-1">
+                {["06","05","04"].map((n, i) => (
+                  <div key={n} className="flex items-center flex-1 last:flex-none">
+                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
+                      {n}
+                    </div>
+                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
 
           <motion.div
             variants={staggerContainer}

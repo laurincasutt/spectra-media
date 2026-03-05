@@ -12,8 +12,8 @@ const contactItems = [
       </svg>
     ),
     label: "E-Mail",
-    value: "hello@spectra-media.ch",
-    href: "mailto:hello@spectra-media.ch",
+    value: "info@spectramedia.ch",
+    href: "mailto:info@spectramedia.ch",
   },
   {
     icon: (
@@ -33,7 +33,7 @@ const contactItems = [
       </svg>
     ),
     label: "Büro",
-    value: "St. Gallen, Schweiz",
+    value: "Gossau, St. Gallen, Schweiz",
     href: "https://maps.app.goo.gl/stgallen",
   },
 ];

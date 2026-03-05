@@ -7,28 +7,25 @@ const phases = [
   {
     number: "01",
     name: "POSITIONING",
-    title: "Deine Marke, unverwechselbar.",
     body: [
-      "Bevor wir einen einzigen Clip produzieren, klären wir das Fundament: Wer bist du? Für wen? Warum du — und nicht die Konkurrenz?",
-      "Wir definieren deine Positionierung, deine Zielgruppe auf Tiefenebene und dein unverwechselbares Wertversprechen. Das Ergebnis: Eine klare Markenidentität, die auf jeder Plattform sofort erkennbar ist.",
+      "Bevor wir ein einziges Content Piece produzieren, klären wir das Fundament. Wer bist du? Wen willst du erreichen? Warum sollten Menschen dir vertrauen und nicht deiner Konkurrenz.",
+      "Wir definieren deine Positionierung, deine Zielgruppe auf tiefer Ebene und ein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort erkennbar ist.",
     ],
   },
   {
     number: "02",
     name: "CONTENT ENGINE",
-    title: "Ein System, das niemals schläft.",
     body: [
-      "Content-Strategie, Skripte, Editing, Upload, Community Management — wir bauen eine vollständige Content Engine um deine Marke herum.",
-      "Du gibst uns 1–2 Stunden Recording-Zeit pro Woche. Wir liefern dir 20+ optimierte Clips, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
+      "Content-Strategie, Skripte, Editing, Upload, Community Management - wir bauen eine vollständige Content Engine um deine Marke herum.",
+      "Du gibst uns 1-2 Stunden Recording-Zeit pro Woche. Wir liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
     ],
   },
   {
     number: "03",
     name: "MARKET DOMINANCE",
-    title: "Sichtbarkeit, die zu Umsatz wird.",
     body: [
-      "Reichweite ist kein Selbstzweck. Wir bauen Systeme, die Follower in Kunden verwandeln — mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
-      "Das Ziel ist nicht, viral zu gehen. Das Ziel ist, zur unbestrittenen Nummer Eins in deiner Nische zu werden.",
+      "Reichweite ist kein Selbstzweck. Wir bauen Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
+      "Das Ziel ist nicht nur viral zu gehen. Das Ziel ist, zur unbestrittenen Nummer 1 in deiner Nische zu werden.",
     ],
   },
 ];
@@ -58,17 +55,45 @@ export default function SolutionPlaceholder() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Von unsichtbar zu unübersehbar —<br className="hidden lg:block" /> in drei Phasen.
+            Von unsichtbar zu unübersehbar - in drei Phasen.
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Kein Rätselraten. Kein Ausprobieren. Eine bewährte Methode, die aus Experten Marktführer macht.
+            Kein Rätselraten. Kein Experimentieren. Eine bewährte Methode, die aus Experten Marktführer macht.
           </motion.p>
         </motion.div>
 
-        {/* Phase cards */}
+        {/* Horizontal flow connector — desktop only */}
+        <motion.div
+          variants={fadeUpVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          className="hidden md:flex items-center mb-10"
+        >
+          {phases.map((phase, i) => (
+            <div key={phase.number} className="flex items-center flex-1 last:flex-none">
+              {/* Phase node */}
+              <div className="flex flex-col items-center gap-2 shrink-0">
+                <div className="w-14 h-14 rounded-full bg-[#0D0D10] border-2 border-[#0066FF]/50 flex items-center justify-center shadow-[0_0_20px_rgba(0,102,255,0.2)] relative">
+                  <span className="text-[#3385FF] font-bold text-lg">{phase.number}</span>
+                  <div className="absolute inset-0 rounded-full bg-[#0066FF]/8" />
+                </div>
+                <span className="text-[#3385FF] text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap">
+                  {phase.name}
+                </span>
+              </div>
+              {/* Connector line between nodes */}
+              {i < phases.length - 1 && (
+                <div className="flex-1 h-px bg-gradient-to-r from-[#0066FF]/40 to-[#0066FF]/40 mx-3" />
+              )}
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Phase panels */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -80,19 +105,13 @@ export default function SolutionPlaceholder() {
             <motion.div
               key={phase.number}
               variants={fadeUpVariants}
-              className="relative p-7 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 flex flex-col overflow-hidden group"
+              className="relative p-7 lg:p-8 rounded-2xl border-l-2 border-[#0066FF]/30 border border-white/6 overflow-hidden group"
+              style={{ background: "linear-gradient(to bottom, #0D0D10, #111113)" }}
             >
-              {/* Phase number bg */}
-              <div className="text-[#0066FF] font-bold text-6xl font-mono opacity-10 absolute top-5 right-6 select-none">
-                {phase.number}
-              </div>
-              {/* Phase badge */}
-              <span className="inline-block px-2.5 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-[10px] font-bold tracking-[0.2em] uppercase mb-5 w-fit">
+              {/* Mobile phase badge (hidden on md+) */}
+              <span className="md:hidden inline-block px-2.5 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-[10px] font-bold tracking-[0.2em] uppercase mb-5 w-fit">
                 {phase.number} {phase.name}
               </span>
-              <h3 className="text-[#F4F4F5] font-bold text-xl lg:text-2xl mb-4 leading-snug">
-                {phase.title}
-              </h3>
               <div className="space-y-3">
                 {phase.body.map((para, j) => (
                   <p key={j} className="text-[#A1A1AA] text-sm leading-relaxed">

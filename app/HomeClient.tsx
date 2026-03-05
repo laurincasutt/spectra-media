@@ -62,6 +62,38 @@ export default function HomeClient() {
             </motion.p>
           </motion.div>
 
+          {/* Step connector — desktop only */}
+          <div className="hidden lg:block mb-8">
+            <div className="flex items-center justify-between gap-0">
+              {/* Row 1: 01-02-03 */}
+              <div className="flex items-center flex-1">
+                {["01","02","03"].map((n, i) => (
+                  <div key={n} className="flex items-center flex-1 last:flex-none">
+                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
+                      {n}
+                    </div>
+                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
+                  </div>
+                ))}
+              </div>
+              {/* Vertical connector */}
+              <div className="flex flex-col items-end mx-1" style={{ height: 28 }}>
+                <div className="w-px bg-[#0066FF]/25" style={{ height: "100%" }} />
+              </div>
+              {/* Row 2: 04-05-06 (reversed direction) */}
+              <div className="flex items-center flex-1">
+                {["06","05","04"].map((n, i) => (
+                  <div key={n} className="flex items-center flex-1 last:flex-none">
+                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
+                      {n}
+                    </div>
+                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <motion.div
             variants={staggerContainer}
             initial="hidden"

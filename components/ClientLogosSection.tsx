@@ -7,13 +7,13 @@ import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations
 const logos = [
   { src: "/Logos/American-Medical-Wellness-Logo.svg", alt: "American Medical Wellness" },
   { src: "/Logos/American-Wellness-Pharmacy-Logo.png", alt: "American Wellness Pharmacy" },
-  { src: "/Logos/Badass Coaching Mike Sommerfeld.JPG", alt: "Badass Coaching Mike Sommerfeld" },
-  { src: "/Logos/BioWell Labs.jpg", alt: "BioWell Labs" },
+  { src: "/Logos/Badass Coaching Mike Sommerfeld.png", alt: "Badass Coaching Mike Sommerfeld" },
+  { src: "/Logos/BioWell Labs.png", alt: "BioWell Labs" },
   { src: "/Logos/Body Planet Tamer Galal.png", alt: "Body Planet Tamer Galal" },
   { src: "/Logos/Der Holzafpel Patrick Holzapfel.png", alt: "Der Holzapfel Patrick Holzapfel" },
-  { src: "/Logos/Gannikus.jpg", alt: "Gannikus" },
-  { src: "/Logos/Hoppe Coaching Markus Hoppe.jpg", alt: "Hoppe Coaching Markus Hoppe" },
-  { src: "/Logos/Kanzlei Mandic Dubravko Mandic.jpg", alt: "Kanzlei Mandic" },
+  { src: "/Logos/Gannikus.png", alt: "Gannikus" },
+  { src: "/Logos/Hoppe Coaching Markus Hoppe.png", alt: "Hoppe Coaching Markus Hoppe" },
+  { src: "/Logos/Kanzlei Mandic Dubravko Mandic.png", alt: "Kanzlei Mandic" },
   { src: "/Logos/Maiorano Perfomance 2 George Maiorano.png", alt: "Maiorano Performance George Maiorano" },
 ];
 
@@ -44,7 +44,7 @@ export default function ClientLogosSection() {
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            Ikonische Persönlichkeiten, Marktführer und Unternehmer mit Format vertrauen auf Spectra Media — wenn Sichtbarkeit messbare Resultate, strategische Tiefe und Umsatzgenerierung bedeuten soll.
+            Ikonische Persönlichkeiten, Marktführer und Unternehmer mit Format vertrauen auf Spectra Media - wenn Sichtbarkeit messbare Resultate, strategische Tiefe und Umsatzgenerierung bedeuten soll.
           </motion.p>
         </motion.div>
 

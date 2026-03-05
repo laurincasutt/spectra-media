@@ -52,7 +52,7 @@ export default function AnimatedGridBackground() {
         zags: genZags(rows),
         T: spread ? Math.random() * rows * 4 : 0,
         speed: 0.010 + Math.random() * 0.008,
-        opacity: 0.3 + Math.random() * 0.3,
+        opacity: 0.5 + Math.random() * 0.35,
         trailLen: 2.0 + Math.random() * 1.5,
       };
     }
@@ -63,7 +63,7 @@ export default function AnimatedGridBackground() {
       W = c.offsetWidth; H = c.offsetHeight;
       c.width = W * devicePixelRatio; c.height = H * devicePixelRatio;
       g2d.scale(devicePixelRatio, devicePixelRatio);
-      drops = Array.from({ length: 8 }, () => makeDrop(true));
+      drops = Array.from({ length: 12 }, () => makeDrop(true));
     }
 
     function draw() {
@@ -97,7 +97,7 @@ export default function AnimatedGridBackground() {
         grad.addColorStop(1, `rgba(0,102,255,${d.opacity})`);
         g2d.beginPath(); g2d.moveTo(u[0][0], u[0][1]);
         for (let j = 1; j < u.length; j++) g2d.lineTo(u[j][0], u[j][1]);
-        g2d.strokeStyle = grad; g2d.lineWidth = 1.5; g2d.stroke();
+        g2d.strokeStyle = grad; g2d.lineWidth = 2; g2d.stroke();
       }
       raf = requestAnimationFrame(draw);
     }

@@ -170,12 +170,11 @@ const cards = [
     title: "Geschwindigkeit durch Synergie",
     desc: "Organic validiert und Paid skaliert. Kein blindes Testen mehr. Du weisst, was zieht, bevor du skalierst.",
     visual: <TachoVisual />,
-    highlight: true,
   },
   {
     number: "03",
     title: "Mehr Output, weniger Aufwand",
-    desc: "Ein strukturierter Wochenrhythmus statt täglichem Content-Stress. Einmal Input — maximale Ausspielung.",
+    desc: "Ein strukturierter Wochenrhythmus statt täglichem Content-Stress. Einmal Input - maximale Ausspielung.",
     visual: <OutputVisual />,
   },
   {
@@ -187,7 +186,7 @@ const cards = [
   {
     number: "05",
     title: "Führung durch Format",
-    desc: "Deine Inhalte wiederholen nicht — sie führen. Deine Marke wächst über Muster, die Vertrauen formen.",
+    desc: "Deine Inhalte wiederholen nicht - sie führen. Deine Marke wächst über Muster, die Vertrauen formen.",
     visual: <ChatVisual />,
   },
   {
@@ -245,11 +244,8 @@ export default function AdvantagesSection() {
               variants={fadeUpVariants}
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className={`relative rounded-2xl border overflow-hidden group cursor-default flex flex-col ${
-                card.highlight
-                  ? "bg-[#111113] border-[#0066FF]/60"
-                  : "bg-[#111113] border-white/8"
-              }`}
+              className="relative rounded-2xl border border-white/8 hover:border-[#0066FF]/40 overflow-hidden group cursor-default flex flex-col transition-colors duration-300"
+              style={{ backgroundColor: "#111113" }}
             >
               {/* Number badge */}
               <div className="absolute top-4 left-4 z-10">

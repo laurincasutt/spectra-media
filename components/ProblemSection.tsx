@@ -3,32 +3,34 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-// Schedule visual — 4×3 mini calendar grid with animated dots (red + blue only)
+// Schedule visual — 6×3 mini calendar grid with animated dots (red + blue only)
 function ScheduleVisual() {
   const dotConfigs = [
-    { cell: 1, color: "bg-[#0066FF]/80", delay: 0,   duration: 2.2, repeatDelay: 3.0 },
-    { cell: 4, color: "bg-[#FF4444]/70", delay: 1.2, duration: 3.1, repeatDelay: 1.5 },
-    { cell: 8, color: "bg-[#3385FF]/70", delay: 0.5, duration: 2.7, repeatDelay: 2.5 },
-    { cell: 2, color: "bg-[#FF4444]/65", delay: 3.5, duration: 1.5, repeatDelay: 4.0 },
-    { cell: 6, color: "bg-[#FF4444]/60", delay: 2.0, duration: 3.8, repeatDelay: 0.8 },
-    { cell: 10, color: "bg-[#3385FF]/60", delay: 1.8, duration: 2.4, repeatDelay: 2.2 },
-    { cell: 0, color: "bg-[#0066FF]/45", delay: 4.2, duration: 1.8, repeatDelay: 3.5 },
-    { cell: 9, color: "bg-[#FF4444]/55", delay: 0.8, duration: 1.2, repeatDelay: 5.0 },
-    { cell: 5, color: "bg-[#FF4444]/35", delay: 2.7, duration: 3.3, repeatDelay: 1.0 },
+    { cell: 1,  color: "bg-[#0066FF]/80", delay: 0,   duration: 2.2, repeatDelay: 3.0 },
+    { cell: 4,  color: "bg-[#FF4444]/70", delay: 1.2, duration: 3.1, repeatDelay: 1.5 },
+    { cell: 10, color: "bg-[#3385FF]/70", delay: 0.5, duration: 2.7, repeatDelay: 2.5 },
+    { cell: 2,  color: "bg-[#FF4444]/65", delay: 3.5, duration: 1.5, repeatDelay: 4.0 },
+    { cell: 7,  color: "bg-[#FF4444]/60", delay: 2.0, duration: 3.8, repeatDelay: 0.8 },
+    { cell: 13, color: "bg-[#3385FF]/60", delay: 1.8, duration: 2.4, repeatDelay: 2.2 },
+    { cell: 0,  color: "bg-[#0066FF]/45", delay: 4.2, duration: 1.8, repeatDelay: 3.5 },
+    { cell: 11, color: "bg-[#FF4444]/55", delay: 0.8, duration: 1.2, repeatDelay: 5.0 },
+    { cell: 6,  color: "bg-[#FF4444]/35", delay: 2.7, duration: 3.3, repeatDelay: 1.0 },
+    { cell: 16, color: "bg-[#FF4444]/50", delay: 1.5, duration: 2.8, repeatDelay: 1.8 },
+    { cell: 3,  color: "bg-[#0066FF]/40", delay: 3.0, duration: 2.0, repeatDelay: 3.2 },
   ];
 
   return (
     <div className="relative h-28 flex flex-col items-center justify-end gap-2">
       <div className="flex gap-1">
-        {["Mo", "Di", "Mi", "Do"].map((d) => (
-          <div key={d} className="w-10 text-center text-[#3F3F46] text-[9px] font-medium">{d}</div>
+        {["Mo", "Di", "Mi", "Do", "Fr", "Sa"].map((d) => (
+          <div key={d} className="w-8 text-center text-[#FF4444]/70 text-[9px] font-medium">{d}</div>
         ))}
       </div>
-      <div className="grid grid-cols-4 gap-1">
-        {Array.from({ length: 12 }, (_, c) => {
+      <div className="grid grid-cols-6 gap-1">
+        {Array.from({ length: 18 }, (_, c) => {
           const dots = dotConfigs.filter(d => d.cell === c);
           return (
-            <div key={c} className="w-10 h-8 rounded-md bg-white/5 border border-white/8 flex items-center justify-center relative overflow-hidden">
+            <div key={c} className="w-8 h-7 rounded-md bg-[#FF4444]/5 border border-[#FF4444]/15 flex items-center justify-center relative overflow-hidden">
               {dots.map((dot, di) => (
                 <motion.div
                   key={di}
@@ -46,22 +48,22 @@ function ScheduleVisual() {
   );
 }
 
-// Competitor podium — competition is #1 (red), you are #2 and #3 (red-toned)
+// Competitor podium — same baseline, competition is #1 (red), you are #2 and #3 (gray)
 function CompetitorVisual() {
   return (
     <div className="relative h-28 flex items-end justify-center gap-3">
-      {/* #2 — you */}
-      <div className="flex flex-col items-center gap-1">
-        <span className="text-[#FF4444]/60 text-[10px] font-bold">#2 Du</span>
+      {/* #2 */}
+      <div className="flex flex-col items-center justify-end gap-1">
+        <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#2</span>
         <motion.div
-          className="w-10 rounded-t-sm bg-[#FF4444]/15 border border-[#FF4444]/20"
+          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
           style={{ height: 44 }}
           animate={{ height: [44, 46, 44] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
       {/* #1 — Konkurrenz */}
-      <div className="flex flex-col items-center gap-1">
+      <div className="flex flex-col items-center justify-end gap-1">
         <motion.span
           className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30"
           animate={{ opacity: [0.7, 1, 0.7] }}
@@ -78,10 +80,10 @@ function CompetitorVisual() {
         <span className="text-[#FF4444]/70 text-[8px] font-medium -mt-0.5">Konkurrenz</span>
       </div>
       {/* #3 — Du */}
-      <div className="flex flex-col items-center gap-1">
-        <span className="text-[#FF4444]/60 text-[10px] font-bold">#3 Du</span>
+      <div className="flex flex-col items-center justify-end gap-1">
+        <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#3 Du</span>
         <motion.div
-          className="w-10 rounded-t-sm bg-[#FF4444]/15 border border-[#FF4444]/20"
+          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
           style={{ height: 32 }}
           animate={{ height: [32, 34, 32] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -91,31 +93,62 @@ function CompetitorVisual() {
   );
 }
 
-// Task overload visual — tasks pile up endlessly with spinning loader rings
+// Task overload visual — tasks pile up with spinning loaders + hourglass on right
 const taskLabels = ["Content planen", "Video schneiden", "Posts planen", "Ads optimieren"];
 
 function TaskOverloadVisual() {
   return (
-    <div className="relative h-28 flex flex-col items-center justify-center gap-2 overflow-hidden">
-      {/* Red glow behind */}
-      <div className="absolute inset-0 bg-[#FF4444]/4 rounded-xl pointer-events-none" />
-      {taskLabels.map((label, i) => (
-        <motion.div
-          key={i}
-          className="flex items-center gap-2.5 w-44"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: i * 1.5, duration: 0.4, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatDelay: taskLabels.length * 1.5 - 0.4 }}
-        >
-          {/* Spinning loader */}
+    <div className="relative h-28 flex items-center overflow-hidden">
+      {/* Task items shifted slightly left */}
+      <div className="flex flex-col gap-2 pl-2 pr-8 flex-1">
+        {taskLabels.map((label, i) => (
           <motion.div
-            className="w-4 h-4 rounded-full border-2 border-[#FF4444]/30 border-t-[#FF4444] shrink-0"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+            key={i}
+            className="flex items-center gap-2.5"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 1.5, duration: 0.4, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatDelay: taskLabels.length * 1.5 - 0.4 }}
+          >
+            <motion.div
+              className="w-4 h-4 rounded-full border-2 border-[#FF4444]/30 border-t-[#FF4444] shrink-0"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+            />
+            <span className="text-[#A1A1AA] text-xs truncate">{label}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Hourglass animation on right */}
+      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
+        <svg width="28" height="44" viewBox="0 0 28 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Outer frame */}
+          <path d="M4 2 L24 2 L24 4 L16 20 L24 36 L24 42 L4 42 L4 36 L12 20 L4 4 Z" stroke="rgba(255,68,68,0.4)" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
+          {/* Top sand (draining) */}
+          <motion.path
+            d="M6 4 L22 4 L15 18 L13 18 Z"
+            fill="rgba(255,68,68,0.25)"
+            animate={{ opacity: [0.8, 0.3, 0.8] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           />
-          <span className="text-[#A1A1AA] text-xs truncate">{label}</span>
-        </motion.div>
-      ))}
+          {/* Bottom sand (filling) */}
+          <motion.path
+            d="M13 22 L15 22 L22 36 L6 36 Z"
+            fill="rgba(255,68,68,0.25)"
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          {/* Falling sand particle */}
+          <motion.circle
+            cx="14"
+            cy="18"
+            r="1.5"
+            fill="rgba(255,68,68,0.6)"
+            animate={{ cy: [18, 24] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeIn" }}
+          />
+        </svg>
+      </div>
     </div>
   );
 }
