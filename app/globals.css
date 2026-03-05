@@ -59,6 +59,12 @@ body {
   );
 }
 
+/* Hexagonal grid overlay */
+.bg-hex {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 0l28 16v32l-28 16L0 48V16z' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='0.5'/%3E%3Cpath d='M28 64v36M0 48L0 84L28 100L56 84L56 48' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size: 56px 100px;
+}
+
 /* Blue radial glow */
 .glow-blue {
   background: radial-gradient(ellipse 60% 50% at 70% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 70%);

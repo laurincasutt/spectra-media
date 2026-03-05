@@ -85,7 +85,7 @@ export default function TargetAudienceSection() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
           >
-            Brands, die Standards setzen — nicht Trends hinterherjagen.
+            Brands, die Standards setzen, nicht Trends hinterherjagen.
           </motion.h2>
         </motion.div>
 
@@ -102,13 +102,15 @@ export default function TargetAudienceSection() {
               variants={fadeUpVariants}
               whileHover={{ scale: 1.03, y: -4 }}
               transition={{ type: "spring", stiffness: 350, damping: 22 }}
-              className="relative h-44 p-6 rounded-2xl bg-[#111113] border border-white/8 overflow-hidden group hover:bg-[#0066FF]/15 hover:border-[#0066FF]/40 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] transition-all duration-300 cursor-default flex flex-col items-center justify-center gap-4"
+              className="relative h-44 p-6 rounded-2xl bg-[#111113] border border-white/8 overflow-hidden group hover:bg-[#0066FF]/15 hover:border-[#0066FF]/40 hover:shadow-[0_0_30px_rgba(0,102,255,0.15)] transition-all duration-300 cursor-default flex flex-col items-center justify-between pt-8 pb-6"
             >
               <div className="absolute -top-8 -right-8 w-24 h-24 bg-[#0066FF]/10 rounded-full blur-[30px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10 text-[#A1A1AA] group-hover:text-[#3385FF] group-hover:scale-110 transition-all duration-300">
-                {audience.icon}
+              <div className="relative z-10 w-16 h-16 rounded-2xl bg-white/6 border border-white/10 flex items-center justify-center group-hover:border-[#0066FF]/40 group-hover:bg-[#0066FF]/10 group-hover:scale-[1.2] group-hover:-translate-y-1 transition-all duration-300">
+                <div className="text-[#71717A] group-hover:text-[#3385FF] transition-colors duration-300 [&>svg]:w-7 [&>svg]:h-7">
+                  {audience.icon}
+                </div>
               </div>
-              <h3 className="text-[#F4F4F5] font-bold text-base text-center leading-tight relative z-10">
+              <h3 className="text-[#F4F4F5] font-bold text-sm text-center leading-tight relative z-10 uppercase tracking-wide">
                 {audience.title}
               </h3>
             </motion.div>
