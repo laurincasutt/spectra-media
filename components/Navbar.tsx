@@ -44,7 +44,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/spectra-logo.png"
+              src="/logo-neu.png"
               alt="Spectra Media"
               width={150}
               height={38}

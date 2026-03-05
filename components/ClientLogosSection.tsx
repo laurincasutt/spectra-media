@@ -1,9 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-const logoPlaceholders = Array.from({ length: 7 });
+const logos = [
+  { src: "/Logos/American-Medical-Wellness-Logo.svg", alt: "American Medical Wellness" },
+  { src: "/Logos/American-Wellness-Pharmacy-Logo.png", alt: "American Wellness Pharmacy" },
+  { src: "/Logos/Badass Coaching Mike Sommerfeld.JPG", alt: "Badass Coaching Mike Sommerfeld" },
+  { src: "/Logos/BioWell Labs.jpg", alt: "BioWell Labs" },
+  { src: "/Logos/Body Planet Tamer Galal.png", alt: "Body Planet Tamer Galal" },
+  { src: "/Logos/Der Holzafpel Patrick Holzapfel.png", alt: "Der Holzapfel Patrick Holzapfel" },
+  { src: "/Logos/Gannikus.jpg", alt: "Gannikus" },
+  { src: "/Logos/Hoppe Coaching Markus Hoppe.jpg", alt: "Hoppe Coaching Markus Hoppe" },
+  { src: "/Logos/Kanzlei Mandic Dubravko Mandic.jpg", alt: "Kanzlei Mandic" },
+  { src: "/Logos/Maiorano Perfomance 2 George Maiorano.png", alt: "Maiorano Performance George Maiorano" },
+];
 
 export default function ClientLogosSection() {
   return (
@@ -26,7 +38,7 @@ export default function ClientLogosSection() {
             variants={fadeUpVariants}
             className="text-2xl sm:text-3xl font-bold text-[#F4F4F5] mb-3"
           >
-            Marken, die auf uns setzen.
+            Geschätzt von Marken, die Standards setzen.
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
@@ -42,14 +54,22 @@ export default function ClientLogosSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="flex flex-wrap items-center justify-center gap-4 lg:gap-6"
+          className="flex flex-wrap items-center justify-center gap-6 lg:gap-8"
         >
-          {logoPlaceholders.map((_, i) => (
+          {logos.map((logo, i) => (
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              className="w-28 h-12 rounded-xl bg-white/5 border border-white/8 opacity-40 hover:opacity-60 transition-opacity duration-300"
-            />
+              className="relative h-10 w-28 flex items-center justify-center"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                fill
+                className="object-contain opacity-50 hover:opacity-80 transition-opacity duration-300 grayscale hover:grayscale-0"
+                sizes="112px"
+              />
+            </motion.div>
           ))}
         </motion.div>
       </div>

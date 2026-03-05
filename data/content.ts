@@ -13,6 +13,8 @@ export interface CaseStudy {
     summary: string;
   };
   quote?: { text: string; author: string };
+  profileImg?: string;
+  brandLogoImg?: string;
 }
 
 // ─────────────────────────────────────────────
@@ -41,8 +43,8 @@ export const home = {
     eyebrow: "Done-for-You Social Media Growth",
     headlineLines: ["Vom Mitläufer", "zum Marktführer."],
     gradientLineIndex: 1,
-    sub: "We turn overlooked businesses and personal brands into standout names.",
-    sub2: "Spectra Media ist darauf spezialisiert, durchschnittliche Instagram-Accounts in herausragende Personal Brands zu verwandeln — die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.",
+    sub: "Spectra Media GmbH ist darauf spezialisiert, übersehbare Instagram-Accounts in herausragende Personal Brands und Business Pages zu transformieren, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden konvertieren.",
+    sub2: "",
     cta: "Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
     secondaryCta: "Case Studies ansehen",
@@ -50,7 +52,7 @@ export const home = {
   },
 
   proofStats: [
-    { value: "2 Mrd+", label: "Klicks generiert", sub: "" },
+    { value: "2 Mrd+", label: "Views generiert", sub: "" },
     { value: "1 Mio+", label: "Follower gegrowt", sub: "" },
     { value: "2.000+", label: "Kunden generiert", sub: "" },
     { value: "30+", label: "Brands skaliert", sub: "" },
@@ -81,8 +83,8 @@ export const home = {
 
   system: {
     eyebrow: "Unser System",
-    headline: "Du fokussierst dich auf deine Stärken, wir machen den Rest.",
-    sub: "Du gibst uns 1–2 Drehtage pro Woche. Wir liefern dir alles andere.",
+    headline: "Du fokussierst dich auf deine Kernkompetenzen, wir machen den Rest.",
+    sub: "Du gibst uns 1–2 Stunden Recording-Zeit pro Woche. Wir liefern dir alles andere.",
     deliverables: [
       {
         number: "01",
@@ -244,6 +246,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "tamer-galal",
     client: "Tamer Galal",
+    profileImg: "/Kundenbilder/Tamer Galal.png",
+    brandLogoImg: "/Logos/Body Planet Tamer Galal.png",
     industry: "Fitness",
     badge: "Fitness & Coaching",
     tagline: "Von 0 auf 41 Millionen Views in 90 Tagen",
@@ -276,6 +280,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "kanzlei-mandic",
     client: "Kanzlei Mandic",
+    profileImg: "/Kundenbilder/Dubravko Mandic.jpeg",
+    brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.jpg",
     industry: "Legal",
     badge: "Rechtsberatung",
     tagline: "Von 19.000 auf 50.000+ Follower in 4 Monaten",
@@ -308,6 +314,8 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "markus-hoppe",
     client: "Markus Hoppe",
+    profileImg: "/Kundenbilder/Markus Hoppe.jpg",
+    brandLogoImg: "/Logos/Hoppe Coaching Markus Hoppe.jpg",
     industry: "Fitness",
     badge: "Fitness & Lifestyle",
     tagline: "Systematisches Wachstum mit konsistentem Content",
@@ -335,7 +343,9 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "george-maiorano",
-    client: "George Maiorano",
+    client: "Majorano Performance",
+    profileImg: "/Kundenbilder/George Maiorano.JPG",
+    brandLogoImg: "/Logos/Maiorano Perfomance 2 George Maiorano.png",
     industry: "Health / Peptides",
     badge: "Health & Wellness",
     tagline: "Von 0 auf 10.000 Follower in 6 Wochen",
@@ -363,6 +373,71 @@ export const caseStudies: CaseStudy[] = [
     quote: {
       text: "Ich hatte erwartet, vielleicht 3.000 Follower in 6 Wochen zu erreichen. Spectra Media hat das Dreifache geliefert.",
       author: "George Maiorano, Health Entrepreneur",
+    },
+  },
+  {
+    slug: "mike-sommerfeld",
+    client: "Mike Sommerfeld",
+    industry: "Coaching",
+    badge: "Fitness & Coaching",
+    tagline: "Badass Coaching — Community aufgebaut und skaliert",
+    heroStat: "Coming soon",
+    heroStatLabel: "Ergebnisse folgen",
+    profileImg: "/Kundenbilder/Mike Sommerfeld.png",
+    brandLogoImg: "/Logos/Badass Coaching Mike Sommerfeld.JPG",
+    challenge:
+      "Details folgen.",
+    approach: [
+      "Details folgen.",
+    ],
+    outcome: {
+      stats: [
+        { value: "Coming soon", label: "Details folgen" },
+      ],
+      summary: "Details folgen.",
+    },
+  },
+  {
+    slug: "gannikus",
+    client: "Gannikus",
+    industry: "Fitness / Media",
+    badge: "Fitness & Media",
+    tagline: "Fitness-Medienmarke auf das nächste Level gebracht",
+    heroStat: "Coming soon",
+    heroStatLabel: "Ergebnisse folgen",
+    brandLogoImg: "/Logos/Gannikus.jpg",
+    challenge:
+      "Details folgen.",
+    approach: [
+      "Details folgen.",
+    ],
+    outcome: {
+      stats: [
+        { value: "Coming soon", label: "Details folgen" },
+      ],
+      summary: "Details folgen.",
+    },
+  },
+  {
+    slug: "patrick-holzapfel",
+    client: "Patrick Holzapfel",
+    industry: "Lifestyle",
+    badge: "Lifestyle & Brand",
+    tagline: "Der Holzapfel — Personal Brand von Grund auf aufgebaut",
+    heroStat: "Coming soon",
+    heroStatLabel: "Ergebnisse folgen",
+    profileImg: "/Kundenbilder/Patrik Holzapfel.png",
+    brandLogoImg: "/Logos/Der Holzafpel Patrick Holzapfel.png",
+    challenge:
+      "Details folgen.",
+    approach: [
+      "Details folgen.",
+    ],
+    outcome: {
+      stats: [
+        { value: "Coming soon", label: "Details folgen" },
+      ],
+      summary: "Details folgen.",
     },
   },
 ];

@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { home } from "@/data/content";
@@ -10,63 +9,17 @@ import {
   staggerContainer,
   viewportOnce,
 } from "@/lib/animations";
-
-// Animated grid background — random cells pulse with blue glow
-function AnimatedGridBackground() {
-  const COLS = 16;
-  const ROWS = 10;
-  const total = COLS * ROWS;
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-      <div
-        className="absolute inset-0 grid opacity-60"
-        style={{ gridTemplateColumns: `repeat(${COLS}, 1fr)`, gridTemplateRows: `repeat(${ROWS}, 1fr)` }}
-      >
-        {Array.from({ length: total }).map((_, i) => (
-          <GridCell key={i} index={i} total={total} />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function GridCell({ index, total }: { index: number; total: number }) {
-  const [scope, animate] = useAnimate();
-
-  useEffect(() => {
-    // Each cell gets a random delay so they fire independently
-    const delay = Math.random() * 8;
-    const interval = 6 + Math.random() * 10;
-
-    let t: ReturnType<typeof setTimeout>;
-    const run = () => {
-      animate(
-        scope.current,
-        { opacity: [0, 0.18, 0], backgroundColor: ["rgba(0,102,255,0)", "rgba(0,102,255,0.15)", "rgba(0,102,255,0)"] },
-        { duration: 2.5, ease: "easeInOut" }
-      );
-      t = setTimeout(run, interval * 1000);
-    };
-    t = setTimeout(run, delay * 1000);
-    return () => clearTimeout(t);
-  }, []);
-
-  return (
-    <div
-      ref={scope}
-      className="border border-white/[0.03]"
-      style={{ opacity: 0 }}
-    />
-  );
-}
+import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
 export default function Hero() {
   const { hero } = home;
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#09090B]">
-      {/* Animated grid background */}
+      {/* Hex pattern base */}
+      <div className="absolute inset-0 bg-hex pointer-events-none" />
+
+      {/* Animated drops along hex lines */}
       <AnimatedGridBackground />
 
       {/* Blue glow blobs */}
@@ -75,7 +28,7 @@ export default function Hero() {
       <div className="absolute top-10 right-10 w-[320px] h-[320px] bg-[#FF6B00]/4 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-20 right-1/3 w-[200px] h-[200px] bg-[#6B3FFF]/4 rounded-full blur-[80px] pointer-events-none" />
 
-      {/* Phone mockups — right side, behind text */}
+      {/* Phone mockups — right edge */}
       <div className="hidden lg:flex absolute right-[-60px] top-1/2 -translate-y-1/2 items-end gap-[-20px] pointer-events-none select-none z-0 opacity-75">
         {/* Left phone — Instagram screenshot */}
         <motion.div
@@ -165,18 +118,20 @@ export default function Hero() {
         {/* Sub */}
         <motion.p
           variants={fadeUpVariants}
-          className="text-lg sm:text-xl text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-4"
+          className="text-base sm:text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-8"
         >
           {hero.sub}
         </motion.p>
 
         {/* Sub2 */}
-        <motion.p
-          variants={fadeUpVariants}
-          className="text-sm sm:text-base text-[#52525B] max-w-xl mx-auto leading-relaxed mb-10"
-        >
-          {hero.sub2}
-        </motion.p>
+        {hero.sub2 && (
+          <motion.p
+            variants={fadeUpVariants}
+            className="text-sm sm:text-base text-[#52525B] max-w-xl mx-auto leading-relaxed mb-10"
+          >
+            {hero.sub2}
+          </motion.p>
+        )}
 
         {/* CTA Row */}
         <motion.div

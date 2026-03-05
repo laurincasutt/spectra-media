@@ -1,15 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { caseStudies } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 const cardBgs = ["#111113", "#0F0F11", "#0D0D0F", "#0B0B0D"];
-const topOffsets = ["top-20", "top-24", "top-28", "top-32"];
+const topOffsets = ["top-20", "top-24", "top-28", "top-32", "top-36", "top-40", "top-44"];
 
 export default function StackedCaseStudies() {
-  const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const headerRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // Auto-close when open card header scrolls above viewport
+  useEffect(() => {
+    if (openIndex === null) return;
+    function onScroll() {
+      const el = headerRefs.current[openIndex!];
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.bottom < 0) setOpenIndex(null);
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [openIndex]);
 
   return (
     <section className="py-20 lg:py-32 bg-[#09090B]">
@@ -38,19 +53,20 @@ export default function StackedCaseStudies() {
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
           >
-            Wir machen unsere Kunden nicht nur sichtbar — sondern zur Marktgrösse in ihrer Nische.
+            Wir machen unsere Kunden nicht nur sichtbar, sondern zur Marktgrösse in ihrer Nische.
           </motion.p>
         </motion.div>
 
         {/* Stacked cards */}
         <div className="relative space-y-4">
           {caseStudies.map((cs, i) => {
-            const isOpen = openSlug === cs.slug;
+            const isOpen = openIndex === i;
+            const isAfterOpen = openIndex !== null && i > openIndex;
             return (
               <div
                 key={cs.slug}
-                className={`sticky ${topOffsets[i]}`}
-                style={{ zIndex: 10 + i }}
+                className={isAfterOpen ? "" : `sticky ${topOffsets[Math.min(i, topOffsets.length - 1)]}`}
+                style={{ zIndex: caseStudies.length + (openIndex === i ? 10 : i) }}
               >
                 <motion.div
                   layout
@@ -62,20 +78,31 @@ export default function StackedCaseStudies() {
                   style={{ backgroundColor: cardBgs[i % cardBgs.length] }}
                 >
                   {/* Blue corner gradient */}
-                  <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-[#0066FF]/35 via-[#0066FF]/8 to-transparent opacity-30 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none" />
+                  <div
+                    className="absolute inset-0 opacity-20 group-hover:opacity-55 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                    style={{ background: 'radial-gradient(ellipse 55% 65% at 100% 0%, rgba(0,102,255,0.5) 0%, rgba(0,102,255,0.12) 45%, transparent 70%)' }}
+                  />
 
                   {/* Card main row */}
-                  <div className="p-6 lg:p-8 relative z-10">
+                  <div
+                    ref={(el) => { headerRefs.current[i] = el; }}
+                    className="p-6 lg:p-8 relative z-10"
+                  >
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
-                      {/* Person + Logo placeholders */}
+                      {/* Person + Logo */}
                       <div className="hidden lg:flex items-center gap-2 shrink-0">
                         <div className="flex flex-col items-center gap-1">
-                          <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-[#F4F4F5] font-bold text-xl">
-                            {cs.client[0]}
+                          <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 overflow-hidden relative flex items-center justify-center">
+                            {cs.profileImg
+                              ? <Image src={cs.profileImg} alt={cs.client} fill className="object-cover" sizes="64px" />
+                              : <span className="text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}
                           </div>
-                          <span className="text-[#3F3F46] text-[10px]">Foto folgt</span>
                         </div>
-                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8" />
+                        <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/8 overflow-hidden relative flex items-center justify-center">
+                          {cs.brandLogoImg
+                            ? <Image src={cs.brandLogoImg} alt="Logo" fill className="object-contain p-1" sizes="32px" />
+                            : <span className="text-[10px] text-[#3F3F46]">Logo</span>}
+                        </div>
                       </div>
 
                       {/* Text */}
@@ -89,7 +116,7 @@ export default function StackedCaseStudies() {
                         <p className="text-[#A1A1AA] text-base">{cs.tagline}</p>
                       </div>
 
-                      {/* Stat block — fixed width so all cards align */}
+                      {/* Stat block */}
                       <div className="w-44 shrink-0">
                         <div className="text-[#0066FF] font-bold text-2xl lg:text-3xl drop-shadow-[0_0_12px_rgba(0,102,255,0.4)] leading-tight">
                           {cs.heroStat}
@@ -99,7 +126,7 @@ export default function StackedCaseStudies() {
 
                       {/* Toggle */}
                       <button
-                        onClick={() => setOpenSlug(isOpen ? null : cs.slug)}
+                        onClick={() => setOpenIndex(isOpen ? null : i)}
                         className="shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
                         aria-expanded={isOpen}
                       >

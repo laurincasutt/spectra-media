@@ -13,11 +13,11 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/spectra-logo.png"
+                src="/logo-neu.png"
                 alt="Spectra Media"
-                width={130}
-                height={32}
-                className="h-8 w-auto"
+                width={160}
+                height={40}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">

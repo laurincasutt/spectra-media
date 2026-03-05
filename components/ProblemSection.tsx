@@ -3,41 +3,85 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-// Podium visual — 3 columns, middle (#1) glows blue and pulses
-function PodiumVisual() {
+// Schedule visual — 4×3 mini calendar grid with animated dots (red + blue only)
+function ScheduleVisual() {
+  const dotConfigs = [
+    { cell: 1, color: "bg-[#0066FF]/80", delay: 0,   duration: 2.2, repeatDelay: 3.0 },
+    { cell: 4, color: "bg-[#FF4444]/70", delay: 1.2, duration: 3.1, repeatDelay: 1.5 },
+    { cell: 8, color: "bg-[#3385FF]/70", delay: 0.5, duration: 2.7, repeatDelay: 2.5 },
+    { cell: 2, color: "bg-[#FF4444]/65", delay: 3.5, duration: 1.5, repeatDelay: 4.0 },
+    { cell: 6, color: "bg-[#FF4444]/60", delay: 2.0, duration: 3.8, repeatDelay: 0.8 },
+    { cell: 10, color: "bg-[#3385FF]/60", delay: 1.8, duration: 2.4, repeatDelay: 2.2 },
+    { cell: 0, color: "bg-[#0066FF]/45", delay: 4.2, duration: 1.8, repeatDelay: 3.5 },
+    { cell: 9, color: "bg-[#FF4444]/55", delay: 0.8, duration: 1.2, repeatDelay: 5.0 },
+    { cell: 5, color: "bg-[#FF4444]/35", delay: 2.7, duration: 3.3, repeatDelay: 1.0 },
+  ];
+
   return (
-    <div className="relative h-28 flex items-end justify-center gap-3 mt-4">
-      {/* #2 */}
+    <div className="relative h-28 flex flex-col items-center justify-end gap-2">
+      <div className="flex gap-1">
+        {["Mo", "Di", "Mi", "Do"].map((d) => (
+          <div key={d} className="w-10 text-center text-[#3F3F46] text-[9px] font-medium">{d}</div>
+        ))}
+      </div>
+      <div className="grid grid-cols-4 gap-1">
+        {Array.from({ length: 12 }, (_, c) => {
+          const dots = dotConfigs.filter(d => d.cell === c);
+          return (
+            <div key={c} className="w-10 h-8 rounded-md bg-white/5 border border-white/8 flex items-center justify-center relative overflow-hidden">
+              {dots.map((dot, di) => (
+                <motion.div
+                  key={di}
+                  className={`w-2 h-2 rounded-full ${dot.color} absolute`}
+                  animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 0.5] }}
+                  transition={{ duration: dot.duration, repeat: Infinity, ease: "easeInOut", delay: dot.delay, repeatDelay: dot.repeatDelay }}
+                  initial={{ opacity: 0 }}
+                />
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// Competitor podium — competition is #1 (red), you are #2 and #3 (red-toned)
+function CompetitorVisual() {
+  return (
+    <div className="relative h-28 flex items-end justify-center gap-3">
+      {/* #2 — you */}
       <div className="flex flex-col items-center gap-1">
-        <span className="text-[#3F3F46] text-[10px] font-bold">#2</span>
+        <span className="text-[#FF4444]/60 text-[10px] font-bold">#2 Du</span>
         <motion.div
-          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
+          className="w-10 rounded-t-sm bg-[#FF4444]/15 border border-[#FF4444]/20"
           style={{ height: 44 }}
           animate={{ height: [44, 46, 44] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
-      {/* #1 — highlighted */}
+      {/* #1 — Konkurrenz */}
       <div className="flex flex-col items-center gap-1">
         <motion.span
-          className="text-[#0066FF] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30"
+          className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30"
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           #1
         </motion.span>
         <motion.div
-          className="w-10 rounded-t-sm bg-[#0066FF]/40 border border-[#0066FF]/50 shadow-[0_0_20px_rgba(0,102,255,0.4)]"
-          animate={{ height: [64, 76, 64] }}
+          className="w-10 rounded-t-sm bg-[#FF4444]/30 border border-[#FF4444]/40 shadow-[0_0_16px_rgba(255,68,68,0.3)]"
+          animate={{ height: [64, 72, 64] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           style={{ height: 64 }}
         />
+        <span className="text-[#FF4444]/70 text-[8px] font-medium -mt-0.5">Konkurrenz</span>
       </div>
-      {/* #3 */}
+      {/* #3 — Du */}
       <div className="flex flex-col items-center gap-1">
-        <span className="text-[#3F3F46] text-[10px] font-bold">#3</span>
+        <span className="text-[#FF4444]/60 text-[10px] font-bold">#3 Du</span>
         <motion.div
-          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
+          className="w-10 rounded-t-sm bg-[#FF4444]/15 border border-[#FF4444]/20"
           style={{ height: 32 }}
           animate={{ height: [32, 34, 32] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
@@ -47,87 +91,31 @@ function PodiumVisual() {
   );
 }
 
-// Fragmented / chaos visual — 3 floating cards, unconnected
-function FragmentedVisual() {
-  const cards = [
-    { x: "-30%", rotate: -12, delay: 0, label: "Post", color: "bg-white/8" },
-    { x: "0%", rotate: 5, delay: 0.3, label: "Ad", color: "bg-[#0066FF]/10" },
-    { x: "28%", rotate: 14, delay: 0.6, label: "Story", color: "bg-white/6" },
-  ];
+// Task overload visual — tasks pile up endlessly with spinning loader rings
+const taskLabels = ["Content planen", "Video schneiden", "Posts planen", "Ads optimieren"];
 
+function TaskOverloadVisual() {
   return (
-    <div className="relative h-28 flex items-center justify-center mt-4">
-      {cards.map((card, i) => (
+    <div className="relative h-28 flex flex-col items-center justify-center gap-2 overflow-hidden">
+      {/* Red glow behind */}
+      <div className="absolute inset-0 bg-[#FF4444]/4 rounded-xl pointer-events-none" />
+      {taskLabels.map((label, i) => (
         <motion.div
           key={i}
-          className={`absolute w-16 h-20 rounded-xl ${card.color} border border-white/10 flex items-end pb-2 justify-center`}
-          style={{ left: `calc(50% + ${card.x})`, rotate: card.rotate }}
-          animate={{
-            y: [0, -6, 2, -4, 0],
-            rotate: [card.rotate, card.rotate - 3, card.rotate + 2, card.rotate],
-          }}
-          transition={{ duration: 3 + i * 0.5, delay: card.delay, repeat: Infinity, ease: "easeInOut" }}
+          className="flex items-center gap-2.5 w-44"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 1.5, duration: 0.4, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatDelay: taskLabels.length * 1.5 - 0.4 }}
         >
-          <span className="text-[#52525B] text-[9px] font-medium">{card.label}</span>
+          {/* Spinning loader */}
+          <motion.div
+            className="w-4 h-4 rounded-full border-2 border-[#FF4444]/30 border-t-[#FF4444] shrink-0"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+          />
+          <span className="text-[#A1A1AA] text-xs truncate">{label}</span>
         </motion.div>
       ))}
-      {/* Disconnect lines (dashed) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg width="120" height="40" viewBox="0 0 120 40" fill="none" className="opacity-20">
-          <line x1="20" y1="20" x2="100" y2="20" stroke="#3F3F46" strokeWidth="1.5" strokeDasharray="4 4" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-// Clock / busy visual — rotating clock + gear
-function ClockVisual() {
-  return (
-    <div className="relative h-28 flex items-center justify-center mt-4 gap-4">
-      {/* Clock */}
-      <div className="relative w-16 h-16">
-        {/* Face */}
-        <div className="absolute inset-0 rounded-full border-2 border-[#0066FF]/25 bg-[#0066FF]/5" />
-        {/* Hour hand */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 origin-bottom"
-          style={{ width: 2, height: 18, marginLeft: -1, marginTop: -18, backgroundColor: "rgba(255,255,255,0.3)", borderRadius: 2 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        />
-        {/* Minute hand */}
-        <motion.div
-          className="absolute top-1/2 left-1/2 origin-bottom"
-          style={{ width: 1.5, height: 22, marginLeft: -0.75, marginTop: -22, backgroundColor: "rgba(0,102,255,0.6)", borderRadius: 2 }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
-        {/* Center dot */}
-        <div className="absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0066FF]/60" />
-      </div>
-
-      {/* Gear / cog */}
-      <motion.div
-        animate={{ rotate: -360 }}
-        transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-      >
-        <svg className="w-10 h-10 text-white/15" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
-          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
-        </svg>
-      </motion.div>
-
-      {/* Busy indicator */}
-      <motion.div
-        className="absolute bottom-2 right-4 flex flex-col gap-1"
-        animate={{ opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        {[28, 40, 22].map((w, i) => (
-          <div key={i} className="h-1.5 rounded-full bg-white/10" style={{ width: w }} />
-        ))}
-      </motion.div>
     </div>
   );
 }
@@ -153,23 +141,23 @@ const problems = [
   {
     number: "01",
     title: "Dein Marketing folgt keiner Struktur.",
-    desc: "Du postest drauf los, wann immer dir eine neue Idee kommt. Deine Upload-Zeiten sind unregelmässig, deine Zielgruppe wechselt von Post zu Post — und du fragst dich, warum du nicht die richtigen Leute erreichst. Was fehlt, ist ein klares System.",
+    desc: "Hier ein Post, dort eine Ad - nichts greift ineinander. Du testest, hoffst, aber es fehlt die Strategie. Content verpufft, Ads konvertieren nicht. Andere erreichen mit weniger mehr. Was dir fehlt, ist ein System.",
     icon: problemIcon1,
-    visual: <PodiumVisual />,
+    visual: <ScheduleVisual />,
   },
   {
     number: "02",
     title: "Deine Konkurrenz sticht dich aus.",
-    desc: "Du hast ein Produkt, das Marktführer sein sollte — aber niemand weiß davon. Nicht weil dein Fachwissen fehlt, sondern weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören.",
+    desc: "Du hast ein Produkt, das Marktführer sein sollte, aber niemand weiß davon. Weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören - nur weil sie wissen, wie man Social Media nutzt und Reichweite generiert.",
     icon: problemIcon2,
-    visual: <FragmentedVisual />,
+    visual: <CompetitorVisual />,
   },
   {
     number: "03",
     title: "Die Zeit rennt dir durch die Hände.",
-    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen — nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts — und arbeitest im Business statt am Business. Wachstum fehlt deswegen.",
+    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen — nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
     icon: problemIcon3,
-    visual: <ClockVisual />,
+    visual: <TaskOverloadVisual />,
   },
 ];
 
@@ -197,7 +185,7 @@ export default function ProblemSection() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
           >
-            Warum die meisten unsichtbar bleiben.
+            Warum die meisten Marken unsichtbar bleiben.
           </motion.h2>
         </motion.div>
 
@@ -206,7 +194,7 @@ export default function ProblemSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
         >
           {problems.map((problem, i) => (
             <motion.div
@@ -214,9 +202,10 @@ export default function ProblemSection() {
               variants={fadeUpVariants}
               whileHover={{ scale: 1.025, y: -4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative p-7 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 flex flex-col overflow-hidden group cursor-default"
+              className="relative p-7 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 hover:border-[#0066FF]/50 hover:shadow-[0_0_28px_rgba(0,102,255,0.12)] flex flex-col overflow-hidden group cursor-default transition-all duration-300"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#0066FF] to-[#3385FF]/50 group-hover:w-full transition-all duration-500 ease-out" />
               <div className="text-[#0066FF] font-bold text-5xl lg:text-6xl font-mono opacity-15 absolute top-5 right-6 select-none">
                 {problem.number}
               </div>
@@ -225,7 +214,7 @@ export default function ProblemSection() {
               </div>
               <h3 className="text-[#F4F4F5] font-bold text-xl mb-2 relative z-10">{problem.title}</h3>
               <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{problem.desc}</p>
-              <div className="relative z-10">{problem.visual}</div>
+              <div className="relative z-10 mt-auto">{problem.visual}</div>
             </motion.div>
           ))}
         </motion.div>

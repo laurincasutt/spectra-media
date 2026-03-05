@@ -2,11 +2,15 @@
 
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
 export default function VideoSection() {
   return (
     <section className="py-20 lg:py-28 bg-[#09090B] relative overflow-hidden">
+      <div className="absolute inset-0 bg-hex pointer-events-none" />
+      <AnimatedGridBackground />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[300px] bg-[#0066FF]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[#0066FF]/8 rounded-full blur-[100px] translate-y-1/4 translate-x-1/4 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -22,12 +26,6 @@ export default function VideoSection() {
           >
             In Action
           </motion.span>
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
-          >
-            Überzeuge dich selbst von unserer Expertise.
-          </motion.h2>
         </motion.div>
 
         {/* Video placeholder */}

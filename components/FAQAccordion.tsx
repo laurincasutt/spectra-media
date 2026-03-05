@@ -14,13 +14,14 @@ interface FAQItemProps {
 
 function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
   return (
-    <div className={`border-b border-white/8 last:border-0 relative transition-all duration-300`}>
-      {isOpen && (
-        <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-[#0066FF] rounded-full" />
-      )}
+    <div className={`rounded-2xl border transition-all duration-300 mb-3 ${
+      isOpen
+        ? "border-[#0066FF]/40 shadow-[0_0_20px_rgba(0,102,255,0.10)] bg-[#111113]"
+        : "border-white/8 bg-[#111113]"
+    }`}>
       <button
         onClick={onToggle}
-        className={`flex items-center justify-between w-full py-5 text-left gap-4 transition-all duration-300 ${isOpen ? "pl-4" : ""}`}
+        className="flex items-center justify-between w-full px-6 py-5 text-left gap-4"
         aria-expanded={isOpen}
       >
         <span className="text-[#F4F4F5] font-medium text-base sm:text-lg leading-snug">
@@ -57,7 +58,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="overflow-hidden"
           >
-            <p className="text-[#A1A1AA] leading-relaxed pb-5 text-sm sm:text-base pl-4">
+            <p className="text-[#A1A1AA] leading-relaxed pb-5 px-6 text-sm sm:text-base">
               {answer}
             </p>
           </motion.div>
@@ -102,7 +103,6 @@ export default function FAQAccordion() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="bg-[#1C1C1F] rounded-2xl border border-white/8 px-6 lg:px-8"
         >
           {faq.items.map((item, i) => (
             <motion.div key={i} variants={fadeUpVariants}>
