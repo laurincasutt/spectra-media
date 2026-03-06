@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import ContactSection from "@/components/ContactSection";
 import { gruender } from "@/data/content";
@@ -25,6 +25,72 @@ const valueIcons = [
   </svg>,
 ];
 
+function AnimatedStats() {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true });
+
+  const [count, setCount] = useState(30);
+  const [mrdDigit, setMrdDigit] = useState(2);
+  const [mioDigit, setMioDigit] = useState(1);
+
+  useEffect(() => {
+    if (!inView) return;
+
+    setCount(0);
+    setMrdDigit(Math.floor(Math.random() * 9) + 1);
+    setMioDigit(Math.floor(Math.random() * 9) + 1);
+
+    // Count-up: 0 → 30 over ~1s
+    let current = 0;
+    const countInterval = setInterval(() => {
+      current++;
+      setCount(current);
+      if (current >= 30) clearInterval(countInterval);
+    }, 33);
+
+    // Slot machine for Mrd, stops at 2 after 1500ms
+    const mrdInterval = setInterval(() => {
+      setMrdDigit(Math.floor(Math.random() * 9) + 1);
+    }, 80);
+    const mrdTimeout = setTimeout(() => {
+      clearInterval(mrdInterval);
+      setMrdDigit(2);
+    }, 1500);
+
+    // Slot machine for Mio, stops at 1 after 1500ms
+    const mioInterval = setInterval(() => {
+      setMioDigit(Math.floor(Math.random() * 9) + 1);
+    }, 80);
+    const mioTimeout = setTimeout(() => {
+      clearInterval(mioInterval);
+      setMioDigit(1);
+    }, 1500);
+
+    return () => {
+      clearInterval(countInterval);
+      clearInterval(mrdInterval);
+      clearInterval(mioInterval);
+      clearTimeout(mrdTimeout);
+      clearTimeout(mioTimeout);
+    };
+  }, [inView]);
+
+  return (
+    <motion.div ref={ref} variants={staggerContainer} className="grid grid-cols-3 gap-4 mt-10">
+      {[
+        { value: `${count}+`, label: "Brands skaliert" },
+        { value: `${mrdDigit} Mrd+`, label: "Views generiert" },
+        { value: `${mioDigit} Mio+`, label: "Follower gegrowt" },
+      ].map((stat, i) => (
+        <motion.div key={i} variants={fadeUpVariants} className="text-center p-3 rounded-xl bg-white/4 border border-white/8">
+          <div className="text-[#0066FF] font-bold text-xl drop-shadow-[0_0_10px_rgba(0,102,255,0.4)]">{stat.value}</div>
+          <div className="text-[#52525B] text-xs mt-0.5">{stat.label}</div>
+        </motion.div>
+      ))}
+    </motion.div>
+  );
+}
+
 export default function GruenderClient() {
   const [imgError, setImgError] = useState(false);
 
@@ -34,7 +100,7 @@ export default function GruenderClient() {
       <section className="pt-36 pb-20 lg:pt-44 lg:pb-28 bg-[#09090B] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0066FF]/6 rounded-full blur-[130px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-[#FF6B00]/4 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute inset-0 bg-grid opacity-25 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -60,22 +126,7 @@ export default function GruenderClient() {
                 Wir transformieren deine Social Media Präsenz zur Marktführerschaft - mit messbaren Ergebnissen statt leerer Versprechen.
               </motion.p>
 
-              {/* Quick stats */}
-              <motion.div
-                variants={staggerContainer}
-                className="grid grid-cols-3 gap-4 mt-10"
-              >
-                {[
-                  { value: "30+", label: "Brands skaliert" },
-                  { value: "2 Mrd+", label: "Views generiert" },
-                  { value: "1 Mio+", label: "Follower gegrowt" },
-                ].map((stat, i) => (
-                  <motion.div key={i} variants={fadeUpVariants} className="text-center p-3 rounded-xl bg-white/4 border border-white/8">
-                    <div className="text-[#0066FF] font-bold text-xl drop-shadow-[0_0_10px_rgba(0,102,255,0.4)]">{stat.value}</div>
-                    <div className="text-[#52525B] text-xs mt-0.5">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <AnimatedStats />
             </motion.div>
 
             {/* Right: founder photo */}
@@ -106,43 +157,20 @@ export default function GruenderClient() {
               </div>
               {/* Floating badge — Spectra logo */}
               <motion.div
-                className="absolute -bottom-4 -left-4 px-4 py-2.5 rounded-xl bg-[#0066FF] shadow-xl shadow-[#0066FF]/30 flex items-center justify-center"
+                className="absolute -bottom-6 -left-4"
                 animate={{ y: [0, -4, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
-                <Image src="/logo-neu.png" alt="Spectra Media" width={100} height={25} className="h-5 w-auto object-contain brightness-0 invert" />
+                <Image src="/logo-neu.png" alt="Spectra Media" width={220} height={55} className="h-14 w-auto object-contain" />
               </motion.div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-16 lg:py-24 bg-[#09090B]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            className="space-y-5"
-          >
-            {gruender.story.map((paragraph, i) => (
-              <motion.p
-                key={i}
-                variants={fadeUpVariants}
-                className="text-[#A1A1AA] text-base lg:text-lg leading-relaxed"
-              >
-                {paragraph}
-              </motion.p>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-16 lg:py-24 bg-[#111113] relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             variants={staggerContainer}
@@ -172,10 +200,10 @@ export default function GruenderClient() {
                   <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
 
-                  {/* Icon — muted by default, glows blue on hover */}
+                  {/* Icon — slightly blue by default, strong blue on hover */}
                   <div className="relative mb-4 w-fit z-10">
-                    <div className="absolute inset-0 rounded-full bg-[#0066FF]/40 blur-[14px] opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
-                    <div className="relative text-[#3F3F46] group-hover:text-[#3385FF] transition-colors duration-300 drop-shadow-none group-hover:drop-shadow-[0_0_8px_rgba(0,102,255,0.6)]">
+                    <div className="absolute inset-0 rounded-full bg-[#0066FF]/40 blur-[14px] opacity-30 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
+                    <div className="relative text-[#0066FF]/40 group-hover:text-[#3385FF] transition-colors duration-300 drop-shadow-none group-hover:drop-shadow-[0_0_8px_rgba(0,102,255,0.6)]">
                       {valueIcons[i]}
                     </div>
                   </div>

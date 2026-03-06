@@ -105,7 +105,7 @@ function CalendarVisual() {
 export default function ContactSection() {
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#0066FF]/6 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -122,11 +122,11 @@ export default function ContactSection() {
               Bereit anzufangen?
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4 leading-tight">
-              Lass uns reden.<br />
+              Den ersten Schritt zu deiner digitalen Autorität.<br />
               <span className="text-[#52525B]">Kostenlos und unverbindlich.</span>
             </h2>
             <p className="text-[#A1A1AA] text-lg mb-8 leading-relaxed">
-              In 30 Minuten findest du heraus, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+              In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
             </p>
 
             {/* Contact cards */}

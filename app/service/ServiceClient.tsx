@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import ContactSection from "@/components/ContactSection";
 import AdvantagesSection from "@/components/AdvantagesSection";
+import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 import { service, home } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
@@ -52,10 +54,18 @@ const outcomeCards = [
 export default function ServiceClient() {
   const { system } = home;
 
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: gridRef,
+    offset: ["start 70%", "end 30%"],
+  });
+  const snakePathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <>
       {/* Hero */}
       <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-[#09090B] relative overflow-hidden">
+        <AnimatedGridBackground />
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[#0066FF]/6 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div variants={staggerContainer} initial="hidden" animate="show">
@@ -67,9 +77,11 @@ export default function ServiceClient() {
             </motion.span>
             <motion.h1
               variants={fadeUpVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             >
-              {service.hero.headline}
+              <span className="text-[#F4F4F5]">Ein System. Alle Hebel. Ein Ziel:</span>
+              <br />
+              <span className="gradient-text">Wachstum und Skalierung.</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
@@ -77,6 +89,17 @@ export default function ServiceClient() {
             >
               {service.hero.sub}
             </motion.p>
+            {/* Animated scroll arrows */}
+            <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-1 mt-8">
+              {[0, 1, 2].map(i => (
+                <motion.svg key={i} width="20" height="12" viewBox="0 0 20 12" fill="none"
+                  animate={{ y: [0, 4, 0], opacity: [0.3 + i * 0.25, 0.8, 0.3 + i * 0.25] }}
+                  transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.2, ease: "easeInOut" }}
+                >
+                  <path d="M2 2l8 8 8-8" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" />
+                </motion.svg>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -142,6 +165,7 @@ export default function ServiceClient() {
       {/* System / Deliverables Section */}
       <section className="py-20 lg:py-32 bg-[#111113] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             variants={staggerContainer}
@@ -170,60 +194,49 @@ export default function ServiceClient() {
             </motion.p>
           </motion.div>
 
-          {/* Step connector — desktop only */}
-          <div className="hidden lg:block mb-8">
-            <div className="flex items-center justify-between gap-0">
-              <div className="flex items-center flex-1">
-                {["01","02","03"].map((n, i) => (
-                  <div key={n} className="flex items-center flex-1 last:flex-none">
-                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
-                      {n}
-                    </div>
-                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-col items-end mx-1" style={{ height: 28 }}>
-                <div className="w-px bg-[#0066FF]/25" style={{ height: "100%" }} />
-              </div>
-              <div className="flex items-center flex-1">
-                {["06","05","04"].map((n, i) => (
-                  <div key={n} className="flex items-center flex-1 last:flex-none">
-                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
-                      {n}
-                    </div>
-                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          {/* Grid with snake SVG overlay */}
+          <div ref={gridRef} className="relative">
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <motion.path
+                d="M 17 25 L 50 25 L 83 25 Q 93 25 93 50 Q 93 75 83 75 L 50 75 L 17 75"
+                stroke="rgba(0,102,255,0.25)"
+                strokeWidth="0.4"
+                fill="none"
+                style={{ pathLength: snakePathLength }}
+              />
+            </svg>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
-          >
-            {system.deliverables.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUpVariants}
-                whileHover={{ scale: 1.03, y: -4 }}
-                transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
-              >
-                <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
-                  {item.number}
-                </div>
-                <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">{item.title}</h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{item.desc}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewportOnce}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative z-10"
+            >
+              {system.deliverables.map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUpVariants}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                  className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
+                >
+                  <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
+                    {item.number}
+                  </div>
+                  <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">{item.title}</h3>
+                  <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{item.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
       </section>
 

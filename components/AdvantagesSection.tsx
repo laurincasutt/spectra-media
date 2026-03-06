@@ -200,7 +200,7 @@ const cards = [
 export default function AdvantagesSection() {
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0066FF]/4 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

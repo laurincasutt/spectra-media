@@ -65,7 +65,7 @@ const audiences = [
 export default function TargetAudienceSection() {
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

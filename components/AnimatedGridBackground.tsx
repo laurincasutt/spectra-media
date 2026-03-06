@@ -50,8 +50,8 @@ export default function AnimatedGridBackground() {
         col: Math.floor(Math.random() * cols),
         baseRow: -2,
         zags: genZags(rows),
-        T: spread ? Math.random() * rows * 4 : 0,
-        speed: 0.010 + Math.random() * 0.008,
+        T: spread ? Math.random() * rows * 4 : Math.random() * 1.5,
+        speed: 0.008 + Math.random() * 0.014,
         opacity: 0.5 + Math.random() * 0.35,
         trailLen: 2.0 + Math.random() * 1.5,
       };

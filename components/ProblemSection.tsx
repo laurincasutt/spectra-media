@@ -48,40 +48,42 @@ function ScheduleVisual() {
   );
 }
 
-// Competitor podium — same baseline, competition is #1 (red), you are #2 and #3 (gray)
+// Competitor podium — fixed baseline with separated label/bar rows
 function CompetitorVisual() {
   return (
-    <div className="relative h-28 flex items-end justify-center gap-3">
-      {/* #2 */}
-      <div className="flex flex-col items-center justify-end gap-1">
-        <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#2</span>
+    <div className="relative h-28 flex flex-col justify-end">
+      {/* Labels row — fixed height so bars align independently */}
+      <div className="flex items-end justify-center gap-3 h-8 mb-1">
+        <div className="w-10 flex items-end justify-center">
+          <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#2</span>
+        </div>
+        <div className="w-10 flex items-end justify-center">
+          <motion.span
+            className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30"
+            animate={{ opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          >
+            #1
+          </motion.span>
+        </div>
+        <div className="w-10 flex items-end justify-center">
+          <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#3 Du</span>
+        </div>
+      </div>
+      {/* Bars row — all share same baseline via items-end */}
+      <div className="flex items-end justify-center gap-3">
         <motion.div
           className="w-10 rounded-t-sm bg-white/8 border border-white/10"
           style={{ height: 44 }}
           animate={{ height: [44, 46, 44] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         />
-      </div>
-      {/* #1 — Konkurrenz */}
-      <div className="flex flex-col items-center justify-end gap-1">
-        <motion.span
-          className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30"
-          animate={{ opacity: [0.7, 1, 0.7] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          #1
-        </motion.span>
         <motion.div
           className="w-10 rounded-t-sm bg-[#FF4444]/30 border border-[#FF4444]/40 shadow-[0_0_16px_rgba(255,68,68,0.3)]"
           animate={{ height: [64, 72, 64] }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           style={{ height: 64 }}
         />
-        <span className="text-[#FF4444]/70 text-[8px] font-medium -mt-0.5">Konkurrenz</span>
-      </div>
-      {/* #3 — Du */}
-      <div className="flex flex-col items-center justify-end gap-1">
-        <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#3 Du</span>
         <motion.div
           className="w-10 rounded-t-sm bg-white/8 border border-white/10"
           style={{ height: 32 }}
@@ -89,65 +91,99 @@ function CompetitorVisual() {
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         />
       </div>
+      {/* Konkurrenz label below middle bar */}
+      <div className="flex justify-center gap-3 mt-1.5">
+        <div className="w-10" />
+        <div className="w-10 flex justify-center">
+          <span className="text-[#FF4444]/70 text-[8px] font-medium">Konkurrenz</span>
+        </div>
+        <div className="w-10" />
+      </div>
     </div>
   );
 }
 
-// Task overload visual — tasks pile up with spinning loaders + hourglass on right
-const taskLabels = ["Content planen", "Video schneiden", "Posts planen", "Ads optimieren"];
+// Clock chaos visual — analog clock consuming time while tasks pile up
+const clockTaskPills = ["Content", "Editing", "Strategie", "Posting"];
 
-function TaskOverloadVisual() {
+function ClockChaosVisual() {
   return (
-    <div className="relative h-28 flex items-center overflow-hidden">
-      {/* Task items shifted slightly left */}
-      <div className="flex flex-col gap-2 pl-2 pr-8 flex-1">
-        {taskLabels.map((label, i) => (
-          <motion.div
-            key={i}
-            className="flex items-center gap-2.5"
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 1.5, duration: 0.4, ease: [0.22, 1, 0.36, 1], repeat: Infinity, repeatDelay: taskLabels.length * 1.5 - 0.4 }}
-          >
-            <motion.div
-              className="w-4 h-4 rounded-full border-2 border-[#FF4444]/30 border-t-[#FF4444] shrink-0"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-            />
-            <span className="text-[#A1A1AA] text-xs truncate">{label}</span>
-          </motion.div>
-        ))}
+    <div className="h-28 flex flex-col items-center gap-2 justify-center">
+      {/* Analog clock */}
+      <div className="relative flex items-center justify-center">
+        {/* Red glow pulse behind clock */}
+        <motion.div
+          className="absolute inset-0 rounded-full bg-[#FF4444]/20 blur-[10px]"
+          animate={{ opacity: [0.3, 0.7, 0.3] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          {/* Clock face */}
+          <circle cx="26" cy="26" r="24" stroke="rgba(255,68,68,0.4)" strokeWidth="1.5" fill="rgba(255,68,68,0.05)" />
+          {/* Tick marks */}
+          {Array.from({ length: 12 }, (_, i) => {
+            const a = (i * 30 - 90) * Math.PI / 180;
+            const r1 = i % 3 === 0 ? 18 : 20;
+            return (
+              <line key={i}
+                x1={26 + r1 * Math.cos(a)} y1={26 + r1 * Math.sin(a)}
+                x2={26 + 22 * Math.cos(a)} y2={26 + 22 * Math.sin(a)}
+                stroke={`rgba(255,68,68,${i % 3 === 0 ? 0.6 : 0.3})`}
+                strokeWidth="1"
+              />
+            );
+          })}
+          {/* Center dot */}
+          <circle cx="26" cy="26" r="2" fill="rgba(255,68,68,0.8)" />
+        </svg>
+        {/* Minute hand */}
+        <motion.div
+          className="absolute"
+          style={{
+            width: 1.5, height: 16,
+            background: "rgba(255,68,68,0.9)",
+            borderRadius: 2,
+            transformOrigin: "bottom center",
+            left: "50%", bottom: "50%",
+            marginLeft: -0.75,
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+        />
+        {/* Hour hand */}
+        <motion.div
+          className="absolute"
+          style={{
+            width: 2, height: 11,
+            background: "rgba(255,68,68,0.6)",
+            borderRadius: 2,
+            transformOrigin: "bottom center",
+            left: "50%", bottom: "50%",
+            marginLeft: -1,
+          }}
+          animate={{ rotate: 360 }}
+          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+        />
       </div>
 
-      {/* Hourglass animation on right */}
-      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
-        <svg width="28" height="44" viewBox="0 0 28 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Outer frame */}
-          <path d="M4 2 L24 2 L24 4 L16 20 L24 36 L24 42 L4 42 L4 36 L12 20 L4 4 Z" stroke="rgba(255,68,68,0.4)" strokeWidth="1.5" fill="none" strokeLinejoin="round" />
-          {/* Top sand (draining) */}
-          <motion.path
-            d="M6 4 L22 4 L15 18 L13 18 Z"
-            fill="rgba(255,68,68,0.25)"
-            animate={{ opacity: [0.8, 0.3, 0.8] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-          {/* Bottom sand (filling) */}
-          <motion.path
-            d="M13 22 L15 22 L22 36 L6 36 Z"
-            fill="rgba(255,68,68,0.25)"
-            animate={{ opacity: [0.3, 0.8, 0.3] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-          {/* Falling sand particle */}
-          <motion.circle
-            cx="14"
-            cy="18"
-            r="1.5"
-            fill="rgba(255,68,68,0.6)"
-            animate={{ cy: [18, 24] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeIn" }}
-          />
-        </svg>
+      {/* Task pills fading in one-by-one */}
+      <div className="flex flex-wrap gap-1.5 justify-center max-w-[160px]">
+        {clockTaskPills.map((label, i) => (
+          <motion.span
+            key={i}
+            className="px-2 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/25 text-[#FF4444]/70 text-[9px] font-medium"
+            animate={{ opacity: [0, 1, 1, 0] }}
+            transition={{
+              duration: 1.2,
+              repeat: Infinity,
+              delay: i * 1.2,
+              repeatDelay: (clockTaskPills.length - 1) * 1.2,
+            }}
+            initial={{ opacity: 0 }}
+          >
+            {label}
+          </motion.span>
+        ))}
       </div>
     </div>
   );
@@ -190,14 +226,14 @@ const problems = [
     title: "Die Zeit rennt dir durch die Hände.",
     desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen — nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
     icon: problemIcon3,
-    visual: <TaskOverloadVisual />,
+    visual: <ClockChaosVisual />,
   },
 ];
 
 export default function ProblemSection() {
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+      <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0066FF]/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

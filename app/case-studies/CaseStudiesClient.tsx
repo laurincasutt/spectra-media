@@ -29,6 +29,16 @@ const icons = {
 
 const statIcons = [icons.followers, icons.views, icons.chart];
 
+function getObjectPosition(slug: string): string {
+  const map: Record<string, string> = {
+    'tamer-galal': '50% 80%',
+    'kanzlei-mandic': '50% 20%',
+    'markus-hoppe': '50% 30%',
+    'patrick-holzapfel': '50% 30%',
+  };
+  return map[slug] ?? '50% 50%';
+}
+
 export default function CaseStudiesClient() {
   return (
     <>
@@ -52,15 +62,15 @@ export default function CaseStudiesClient() {
               variants={fadeUpVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
             >
-              Echte Resultate.
+              Resultate, die
               <br />
-              <span className="gradient-text">Echte Kunden.</span>
+              <span className="gradient-text">für sich sprechen.</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
-              Keine Hochglanz-Versprechen. Nur echte Zahlen von echten Partnerschaften.
+              Was passiert, wenn Strategie, Content und Distribution zusammenkommen.
             </motion.p>
           </motion.div>
         </div>
@@ -97,6 +107,7 @@ export default function CaseStudiesClient() {
                           fill
                           className="object-cover opacity-60"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          style={{ objectPosition: getObjectPosition(cs.slug) }}
                         />
                       ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/15 to-[#111113]" />

@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import VideoSection from "@/components/VideoSection";
 import ClientLogosSection from "@/components/ClientLogosSection";
 import ProblemSection from "@/components/ProblemSection";
@@ -16,6 +17,13 @@ import {
 
 export default function HomeClient() {
   const { system } = home;
+
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: gridRef,
+    offset: ["start 70%", "end 30%"],
+  });
+  const snakePathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <>
@@ -34,6 +42,7 @@ export default function HomeClient() {
       {/* System / Deliverables Section */}
       <section className="py-20 lg:py-32 bg-[#111113] relative overflow-hidden">
         <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             variants={staggerContainer}
@@ -62,68 +71,55 @@ export default function HomeClient() {
             </motion.p>
           </motion.div>
 
-          {/* Step connector — desktop only */}
-          <div className="hidden lg:block mb-8">
-            <div className="flex items-center justify-between gap-0">
-              {/* Row 1: 01-02-03 */}
-              <div className="flex items-center flex-1">
-                {["01","02","03"].map((n, i) => (
-                  <div key={n} className="flex items-center flex-1 last:flex-none">
-                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
-                      {n}
-                    </div>
-                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
+          {/* Grid with snake SVG overlay */}
+          <div ref={gridRef} className="relative">
+            {/* Snake path SVG — desktop only, behind cards */}
+            <svg
+              className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <motion.path
+                d="M 17 25 L 50 25 L 83 25 Q 93 25 93 50 Q 93 75 83 75 L 50 75 L 17 75"
+                stroke="rgba(0,102,255,0.25)"
+                strokeWidth="0.4"
+                fill="none"
+                style={{ pathLength: snakePathLength }}
+              />
+            </svg>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="show"
+              viewport={viewportOnce}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative z-10"
+            >
+              {system.deliverables.map((item, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUpVariants}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                  className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
+                >
+                  <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                  <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
+
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
+                    {item.number}
                   </div>
-                ))}
-              </div>
-              {/* Vertical connector */}
-              <div className="flex flex-col items-end mx-1" style={{ height: 28 }}>
-                <div className="w-px bg-[#0066FF]/25" style={{ height: "100%" }} />
-              </div>
-              {/* Row 2: 04-05-06 (reversed direction) */}
-              <div className="flex items-center flex-1">
-                {["06","05","04"].map((n, i) => (
-                  <div key={n} className="flex items-center flex-1 last:flex-none">
-                    <div className="w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 flex items-center justify-center text-[#3385FF] text-xs font-bold shrink-0">
-                      {n}
-                    </div>
-                    {i < 2 && <div className="flex-1 h-px bg-[#0066FF]/25 mx-1" />}
-                  </div>
-                ))}
-              </div>
-            </div>
+                  <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">
+                    {item.title}
+                  </h3>
+                  <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
-
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
-          >
-            {system.deliverables.map((item, i) => (
-              <motion.div
-                key={i}
-                variants={fadeUpVariants}
-                whileHover={{ scale: 1.03, y: -4 }}
-                transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                className="relative p-6 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
-              >
-                <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/12 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
-
-                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-5 relative z-10">
-                  {item.number}
-                </div>
-                <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">
-                  {item.title}
-                </h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
         </div>
       </section>
 
