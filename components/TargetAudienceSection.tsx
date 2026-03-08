@@ -12,7 +12,7 @@ const audiences = [
         <circle cx="12" cy="12" r="2" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
-    title: "Elite Coaches & Expertenmarken",
+    title: "Elite-Coaches und Experten",
   },
   {
     icon: (
@@ -23,7 +23,7 @@ const audiences = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M2 13h20" />
       </svg>
     ),
-    title: "Unternehmer mit Personal Brand",
+    title: "Unternehmen mit Personal Brand",
   },
   {
     icon: (
@@ -33,7 +33,7 @@ const audiences = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 21l7-3 7 3" />
       </svg>
     ),
-    title: "Anwälte & Kanzleien",
+    title: "Anwälte und Kanzleien",
   },
   {
     icon: (
@@ -41,7 +41,7 @@ const audiences = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     ),
-    title: "Strategische Berater & Thought Leaders",
+    title: "Strategische Berater und Vordenker",
   },
   {
     icon: (
@@ -49,7 +49,7 @@ const audiences = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
-    title: "Fitness & Health Coaches",
+    title: "Fitness- und Gesundheitscoaches",
   },
   {
     icon: (
@@ -58,7 +58,7 @@ const audiences = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l1.5 1.5L15 9" />
       </svg>
     ),
-    title: "Supplement, Peptide & Gesundheitsmarken",
+    title: "Supplement- und Gesundheitsmarken",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function TargetAudienceSection() {
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
           >
-            Brands, die Standards setzen, nicht Trends hinterherjagen.
+            Brands, die Standards setzen,<br className="hidden sm:block" /> nicht Trends hinterherjagen.
           </motion.h2>
         </motion.div>
 

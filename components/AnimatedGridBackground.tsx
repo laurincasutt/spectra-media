@@ -66,8 +66,35 @@ export default function AnimatedGridBackground() {
       drops = Array.from({ length: 12 }, () => makeDrop(true));
     }
 
+    function drawGrid() {
+      g2d.strokeStyle = "rgba(0,102,255,0.09)";
+      g2d.lineWidth = 0.8;
+      const cols = Math.ceil(W / TW) + 1;
+      const rows = Math.ceil(H / TH) + 1;
+      for (let row = -1; row <= rows; row++) {
+        for (let col = 0; col <= cols; col++) {
+          const ox = col * TW, oy = row * TH;
+          // Left zigzag: (28,0)→(0,16)→(0,48)→(28,64)
+          g2d.beginPath();
+          g2d.moveTo(28 + ox, 0 + oy);
+          g2d.lineTo(0 + ox, 16 + oy);
+          g2d.lineTo(0 + ox, 48 + oy);
+          g2d.lineTo(28 + ox, 64 + oy);
+          g2d.stroke();
+          // Right zigzag: (28,0)→(56,16)→(56,48)→(28,64)
+          g2d.beginPath();
+          g2d.moveTo(28 + ox, 0 + oy);
+          g2d.lineTo(56 + ox, 16 + oy);
+          g2d.lineTo(56 + ox, 48 + oy);
+          g2d.lineTo(28 + ox, 64 + oy);
+          g2d.stroke();
+        }
+      }
+    }
+
     function draw() {
       g2d.clearRect(0, 0, W, H);
+      drawGrid();
 
       for (let i = 0; i < drops.length; i++) {
         const d = drops[i];

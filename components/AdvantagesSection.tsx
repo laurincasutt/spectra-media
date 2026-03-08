@@ -162,37 +162,37 @@ const cards = [
   {
     number: "01",
     title: "Wirkung statt Werbung",
-    desc: "Keine albernen Hooks und Content-Spam-Taktiken. Du wirst sichtbar, weil deine Inhalte strategisch gebaut sind.",
+    desc: "Keine albernen Hooks und kein Content-Spam. Wir entwickeln Inhalte, die Vertrauen aufbauen und dich als klare Stimme in deiner Branche positionieren.",
     visual: <WirkungVisual />,
   },
   {
     number: "02",
     title: "Geschwindigkeit durch Synergie",
-    desc: "Organic validiert und Paid skaliert. Kein blindes Testen mehr. Du weisst, was zieht, bevor du skalierst.",
+    desc: "Was organisch funktioniert, wird gezielt verstärkt. Statt blind zu testen, skalieren wir Inhalte, die bereits nachweisliche Aufmerksamkeit erzeugen.",
     visual: <TachoVisual />,
   },
   {
     number: "03",
     title: "Mehr Output, weniger Aufwand",
-    desc: "Ein strukturierter Wochenrhythmus statt täglichem Content-Stress. Einmal Input - maximale Ausspielung.",
+    desc: "Du lieferst wenige Stunden Input, wir verwandeln daraus konstanten Content für alle Kanäle, ohne dass dein Alltag zum Content-Job wird.",
     visual: <OutputVisual />,
   },
   {
     number: "04",
     title: "Digitale Präsenz mit Substanz",
-    desc: "Sichtbarkeit entsteht nicht durch Lautstärke, sondern durch Ordnung. Du wirst zur Marke, weil alles Gewicht hat.",
+    desc: "Deine Inhalte folgen einer klaren Struktur. Jeder Post stärkt deine Positionierung und baut langfristig Vertrauen in deine Marke auf.",
     visual: <LayersVisual />,
   },
   {
     number: "05",
     title: "Führung durch Format",
-    desc: "Deine Inhalte wiederholen nicht - sie führen. Deine Marke wächst über Muster, die Vertrauen formen.",
+    desc: "Starke Marken kommunizieren nicht zufällig. Wir entwickeln wiedererkennbare Formate, die deine Expertise sichtbar machen und deine Marke führen.",
     visual: <ChatVisual />,
   },
   {
     number: "06",
     title: "Aura schlägt Algorithmus",
-    desc: "Wenn Positionierung, Stimme, Struktur stimmen, musst du nichts erzwingen. Deine Marke zieht an.",
+    desc: "Wenn Positionierung, Stimme und Struktur stimmen, arbeitet der Algorithmus für dich. Deine Marke zieht Aufmerksamkeit an, statt sie erzwingen zu müssen.",
     visual: <AuraVisual />,
   },
 ];

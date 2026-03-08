@@ -8,24 +8,24 @@ const phases = [
     number: "01",
     name: "POSITIONING",
     body: [
-      "Bevor wir ein einziges Content Piece produzieren, klären wir das Fundament. Wer bist du? Wen willst du erreichen? Warum sollten Menschen dir vertrauen und nicht deiner Konkurrenz.",
-      "Wir definieren deine Positionierung, deine Zielgruppe auf tiefer Ebene und ein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort erkennbar ist.",
+      "Alles steht und fällt mit der Grundstruktur deiner Marke. Bevor wir erste Content Pieces produzieren, klären wir zuerst das Fundament: Wer du bist, welchen Personen du weiterhelfen möchtest und warum Menschen auf dich anstatt auf deine Konkurrenz setzen sollen.",
+      "Wir definieren ganz klar deine Positionierung im Markt, deine Zielgruppe und dein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort wiedererkennbar ist.",
     ],
   },
   {
     number: "02",
     name: "CONTENT ENGINE",
     body: [
-      "Content-Strategie, Skripte, Editing, Upload, Community Management - wir bauen eine vollständige Content Engine um deine Marke herum.",
-      "Du gibst uns 1-2 Stunden Recording-Zeit pro Woche. Wir liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
+      "Bei unserem Service handelt es sich um ein Done-For-You-Service — wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management.",
+      "Alles was wir von deiner Seite brauchen, sind 1–2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest — und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
     ],
   },
   {
     number: "03",
     name: "MARKET DOMINANCE",
     body: [
-      "Reichweite ist kein Selbstzweck. Wir bauen Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
-      "Das Ziel ist nicht nur viral zu gehen. Das Ziel ist, zur unbestrittenen Nummer 1 in deiner Nische zu werden.",
+      "Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln — mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
+      "Das Ziel ist nicht nur viral zu gehen, sondern die unbestrittene Nummer 1 in deiner Nische zu werden. Dies schafft Vertrauen, das wir direkt monetarisieren können.",
     ],
   },
 ];
@@ -153,7 +153,7 @@ export default function SolutionPlaceholder() {
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Kein Rätselraten. Kein Ausprobieren. Eine bewährte Methode, die aus Experten Marktführer macht.
+            Wir verwandeln gewöhnliche Accounts in herausstechende Marken — und das nicht durch Zufall, sondern mit System.
           </motion.p>
         </motion.div>
 

@@ -83,8 +83,8 @@ export const home = {
 
   system: {
     eyebrow: "Unser System",
-    headline: "Du fokussierst dich auf deine Kernkompetenzen, wir machen den Rest.",
-    sub: "Du gibst uns 1–2 Stunden Recording-Zeit pro Woche. Wir liefern dir alles andere.",
+    headline: "Du fokussierst dich auf deine Stärken, wir machen den Rest.",
+    sub: "Wir bauen die Marke, du skalierst dein Business.",
     deliverables: [
       {
         number: "01",
@@ -260,8 +260,8 @@ export const caseStudies: CaseStudy[] = [
     outcome: {
       stats: [
         { value: "41 Mio.", label: "Views in 90 Tagen" },
-        { value: "+47k", label: "Neue Follower" },
-        { value: "3.2%", label: "Engagement Rate" },
+        { value: "+128k", label: "Neue Follower" },
+        { value: "4.8%", label: "Engagement Rate" },
         { value: "12", label: "Virale Videos (>500k Views)" },
       ],
       summary:

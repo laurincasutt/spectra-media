@@ -159,7 +159,7 @@ export default function CaseStudiesClient() {
                       {/* CTA button */}
                       <div className="mt-4">
                         <div className="w-full py-3 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/30 text-[#3385FF] font-medium text-sm text-center group-hover:bg-[#0066FF]/20 transition-colors duration-200">
-                          Case entdecken →
+                          Mehr Details →
                         </div>
                       </div>
                     </div>

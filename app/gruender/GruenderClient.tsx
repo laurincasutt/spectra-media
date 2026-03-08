@@ -123,7 +123,7 @@ export default function GruenderClient() {
                 variants={fadeUpVariants}
                 className="text-base text-[#52525B] leading-relaxed mb-4"
               >
-                Wir transformieren deine Social Media Präsenz zur Marktführerschaft - mit messbaren Ergebnissen statt leerer Versprechen.
+                Wir sind darauf spezialisiert, gewöhnliche Instagram-Accounts in herausstechende Brands zu verwandeln, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.
               </motion.p>
 
               <AnimatedStats />

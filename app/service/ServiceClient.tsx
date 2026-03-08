@@ -11,8 +11,8 @@ import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations
 const outcomeCards = [
   {
     number: "01",
-    title: "Mit Autorität verändert sich alles, auch was du verlangen kannst.",
-    desc: "Premium-Positionierung durch Sichtbarkeit: Kunden zahlen mehr, hinterfragen weniger.",
+    title: "Autorität verändert alles, auch dein Preis.",
+    desc: "Sichtbarkeit schafft Vertrauen. Kunden zahlen mehr, stellen weniger Fragen und entscheiden schneller.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -21,8 +21,8 @@ const outcomeCards = [
   },
   {
     number: "02",
-    title: "Deals werden schneller geclosed.",
-    desc: "Wer dich kennt, vertraut dir bereits. Social Proof beschleunigt jeden Abschluss.",
+    title: "Abschlüsse gehen leicht von der Hand.",
+    desc: "Wer dich bereits kennt und vertraut, entscheidet leichter. Social Proof verkürzt jeden Verkaufsprozess.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -31,8 +31,8 @@ const outcomeCards = [
   },
   {
     number: "03",
-    title: "Wer sich bei dir meldet.",
-    desc: "Inbound statt Outbound - die richtigen Kunden kommen auf dich zu, nicht umgekehrt.",
+    title: "Die richtigen Kunden kommen zu dir.",
+    desc: "Statt kalter Akquise entstehen Inbound Leads. Menschen melden sich bei dir, weil sie deine Inhalte bereits überzeugen.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -41,8 +41,8 @@ const outcomeCards = [
   },
   {
     number: "04",
-    title: "Wie dein Markt dich wahrnimmt.",
-    desc: "Von Anbieter zur Autorität. Dein Name steht für die Kategorie - nicht nur für ein Angebot.",
+    title: "Vom Anbieter zur Autorität.",
+    desc: "Dein Name steht für eine Kategorie, nicht für ein einzelnes Angebot.",
     icon: (
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -79,15 +79,15 @@ export default function ServiceClient() {
               variants={fadeUpVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             >
-              <span className="text-[#F4F4F5]">Ein System. Alle Hebel. Ein Ziel:</span>
+              <span className="text-[#F4F4F5]">Als Accounts werden Marken,</span>
               <br />
-              <span className="gradient-text">Wachstum und Skalierung.</span>
+              <span className="gradient-text">als Marken werden Marktführer.</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
-              {service.hero.sub}
+              Für Social Media, für Experten und Unternehmen, die Sichtbarkeit in echtes Wachstum verwandeln wollen.
             </motion.p>
             {/* Animated scroll arrows */}
             <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-1 mt-8">
@@ -128,7 +128,7 @@ export default function ServiceClient() {
               variants={fadeUpVariants}
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
             >
-              Wenn dein Marketing endlich funktioniert.
+              Was passiert, wenn dein Marketing wirklich funktioniert.
             </motion.h2>
           </motion.div>
 
