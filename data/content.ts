@@ -245,30 +245,30 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Body Planet Tamer Galal.png",
     industry: "Fitness",
     badge: "Fitness & Coaching",
-    tagline: "Von 0 auf 41 Millionen Views in 90 Tagen",
-    heroStat: "41 Mio.",
-    heroStatLabel: "Views in 90 Tagen",
+    tagline: "170.000 neue Follower in den ersten 6 Monaten",
+    heroStat: "170k+",
+    heroStatLabel: "Neue Follower in 6 Monaten",
     challenge:
       "Tamer Galal war bereits eine Legende im deutschsprachigen Fitnessbereich — doch seine Offline-Präsenz stimmte nicht mit seinem Online-Auftritt überein. Obwohl er seit über 30 Jahren eine führende Persönlichkeit war, hatte er den digitalen Wandel verpasst und dadurch einen grossen Nachteil erlitten. Er hatte weder die Zeit noch das Know-how, um konsistenten Content zu produzieren, der ihn als Experten darstellt und ihm seine Bühne zurückbringt. Bisherige Versuche brachten keine messbaren Ergebnisse. Wir halfen ihm, sein Wissen und seine Kompetenz so zu präsentieren, dass die Leute verstehen, was ihn besonders macht — und seinen Legendenstatus auch in der heutigen Zeit hervorheben.",
     approach: [
-      "Plattform-Analyse: Identifikation von TikTok und Instagram Reels als primäre Wachstumskanäle",
-      "Hook-Strategie: Entwicklung von 3–5 verschiedenen Hook-Formaten und kontinuierliches A/B-Testing",
-      "Content-Kalender: 5 Clips pro Woche, strukturiert nach Wochentag und Content-Typ",
-      "Trend-Exploitation: Schnelle Reaktion auf virale Trends in der Fitness-Nische",
-      "Community Building: Aktives Engagement, Umfragen und Creator-Kollaborationen",
+      "Positionierung der Marke — Bevor Content produziert wurde, haben wir Tamers jahrzehntelange Erfahrung klar positioniert. Der Fokus: nicht nur der Fitnesscoach, sondern die erfahrene Stimme im deutschsprachigen Bodybuilding.",
+      "Übersetzung seiner Expertise in Content — Tamers Wissen aus über 30 Jahren Training, Coaching und Wettkampf wurde in klare Content-Formate übersetzt, die seine Expertise verständlich und wiedererkennbar für die breite Masse machen.",
+      "Aufbau einer konsistenten Content-Struktur — Statt einzelner Posts entstand ein klarer Veröffentlichungsrhythmus mit wiedererkennbaren Formaten, die seinen Inhalt regelmäßig und strukturiert sichtbar machen.",
+      "Fokus auf Kurzvideoplattformen — Der Schwerpunkt lag auf Instagram Reels, TikTok und YouTube Shorts, um seine Expertise dort sichtbar zu machen, wo die Fitness-Community heute entsteht.",
+      "Skalierung der Inhalte — Inhalte, die besonders gut funktionierten, wurden weiter ausgebaut und gezielt verbreitet, um die Reichweite kontinuierlich zu steigern. Jeder Monat diente als Feedback-Loop zur Anpassung der Content-Strategie.",
     ],
     outcome: {
       stats: [
+        { value: "170k+",   label: "Neue Follower in 6 Monaten" },
         { value: "41 Mio.", label: "Views in 90 Tagen" },
-        { value: "+128k", label: "Neue Follower" },
-        { value: "4.8%", label: "Engagement Rate" },
-        { value: "12", label: "Virale Videos (>500k Views)" },
+        { value: "25+",     label: "Calls pro Woche gebucht" },
+        { value: "12",      label: "Virale Videos (>500k Views)" },
       ],
       summary:
-        "In nur 90 Tagen entwickelte sich Tamer Galal von einem lokalen Trainer zu einer anerkannten Online-Persönlichkeit in der DACH-Fitness-Szene. Die viralen Videos führten zu einer 4-fachen Steigerung der Anfragen für sein Coaching-Programm.",
+        "Innerhalb weniger Monate entwickelte sich Tamers Online-Präsenz zu einer der sichtbarsten Stimmen in der deutschsprachigen Fitnessszene. Seine Inhalte erreichten Millionen von Menschen, bauten eine schnell wachsende Community auf und machten seine jahrzehntelange Erfahrung erstmals digital für ein breites Publikum sichtbar. Mit der steigenden Reichweite wuchs auch die Nachfrage — die Anfragen für sein Coaching vervielfachten sich, während seine Inhalte ihn als klare Autorität in der Branche positionierten.",
     },
     quote: {
-      text: "Spectra Media hat nicht nur meinen Social Media Account aufgebaut – sie haben mein Business transformiert. Die Anfragen kommen jetzt zu mir, nicht umgekehrt.",
+      text: "Spectra Media hat nicht nur meinen Social Media Account von neuem aufgebaut — sie haben mein ganzes Business transformiert. Heute bekomme ich Anfragen und muss ihnen nicht mehr ständig hinterherlaufen.",
       author: "Tamer Galal, Fitness Coach",
     },
   },
@@ -285,24 +285,24 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich für die Allgemeinheit machen. Ihr Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Dies versuchten sie über die letzten Jahre — leider ohne nachhaltigen Erfolg. Die Herausforderung: Juristische Inhalte müssen präzise sein, aber gleichzeitig so aufbereitet, dass sie auf Social Media ankommen und performen. Wir entwickelten eine Strategie, die Mandics Werte und Persönlichkeit einfängt — hilfreiches Wissen so vermittelt, dass man nicht genug davon bekommt, weil es nicht nur informiert, sondern auch unterhält.",
     approach: [
-      "Edutainment-Format: Komplexe Rechtsfragen in verständliche, kurzweilige Videos umwandeln",
-      "Nischen-Fokus: Konzentration auf Mietrecht, Arbeitsrecht und Vertragsrecht als Top-Suchthemen",
-      "Trust-Building: Fallbeispiele und FAQ-Videos, die echte Probleme lösen",
-      "Call-to-Action Optimierung: Jedes Video führte gezielt zur Erstberatung",
-      "Cross-Plattform: Instagram als Hauptkanal, LinkedIn für B2B-Zielgruppe",
+      "Komplexes Recht verständlich machen — Kritische Themen wurden in kurze, klare Video-Formate übersetzt, die komplexe Rechtsfragen verständlich erklären und gleichzeitig Aufmerksamkeit erzeugen.",
+      "Fokus auf konkrete Alltagsprobleme — Der Inhalt konzentrierte sich auf Themen, die Menschen tatsächlich betreffen, etwa Mietrecht, Strafrecht und Arbeitsrecht. So entstand Content, nach dem aktiv gesucht wird.",
+      "Vertrauen durch echte Beispiele — Fallbeispiele, häufige Fragen und reale Situationen machten den Inhalt greifbar und bauten Vertrauen bei potenziellen Mandanten auf.",
+      "Klare Führung zur Erstberatung — Jedes Video hat eine klare Struktur und führt gezielt zur nächsten Handlung: der Kontaktaufnahme oder Erstberatung. Auch wer gerade kein akutes Problem hat, bleibt im Kopf — und meldet sich, wenn es soweit ist.",
+      "Präsenz auf den richtigen Plattformen — Instagram wurde als Hauptkanal für Reichweite genutzt, LinkedIn zusätzlich für die B2B-Zielgruppe. So wurde maximale Sichtbarkeit bei unterschiedlichen Zielgruppen erreicht.",
     ],
     outcome: {
       stats: [
-        { value: "50k+", label: "Follower (von 19k)" },
-        { value: "+163%", label: "Follower-Wachstum" },
+        { value: "50k+",   label: "Follower (von 19k)" },
+        { value: "2 Mio.", label: "Impressionen pro Monat" },
         { value: "4 Monate", label: "Zeitraum" },
-        { value: "+85%", label: "Mehr Mandantenanfragen" },
+        { value: "+85%",   label: "Mehr Mandantenanfragen" },
       ],
       summary:
-        "Kanzlei Mandic etablierte sich als führende Stimme für Rechtsfragen im deutschsprachigen Raum. Das Wachstum von 19k auf über 50k Follower führte zu einem signifikanten Anstieg qualifizierter Mandantenanfragen.",
+        "Die Kanzlei Mandic entwickelte sich zu einer der sichtbarsten Stimmen für Rechtsanfragen im deutschsprachigen Raum. Die Social-Media-Präsenz wuchs von 19.000 auf über 50.000 Follower und erreicht monatlich über 100.000 Menschen mit verständlichen Erklärungen — das entspricht rund 2 Millionen Impressionen pro Monat. Mit der gesteigerten Sichtbarkeit wurde auch die Nachfrage automatisiert: Ein in Social Media integriertes System leitet eingehende Anfragen professionell auf ein kostenpflichtiges Erstgespräch, was zu einem vollautomatischen und deutlich gestiegenen Umsatz führte.",
     },
     quote: {
-      text: "Wir haben nicht erwartet, dass Social Media so direkt auf unser Geschäft einzahlt. Spectra Media hat das möglich gemacht.",
+      text: "Wir hätten nie erwartet, dass Social Media sich so direkt auf unser Geschäft auszahlen kann. Spectra Media hat das für uns möglich gemacht — und dafür sind wir ihnen unendlich dankbar.",
       author: "Kanzlei Mandic, Anwaltskanzlei",
     },
   },
@@ -313,17 +313,17 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Hoppe Coaching Markus Hoppe.png",
     industry: "Fitness",
     badge: "Fitness & Lifestyle",
-    tagline: "Systematisches Wachstum mit konsistentem Content",
+    tagline: "Vom stagnierenden Supplement-Shop zum erfolgreichen Online-Coach",
     heroStat: "+38k",
     heroStatLabel: "Neue Follower in 3 Monaten",
     challenge:
       "Markus Hoppe war bereits ein etablierter Coach im deutschsprachigen Raum mit rund 30.000 Followern. Doch das Wachstum stagnierte — er kam nicht mehr über dieses Plateau hinaus. Posts kamen unregelmässig, der Content-Mix war unklar und die Engagement-Rate sank kontinuierlich. Er brauchte kein weiteres Experiment — sondern ein System. Wir führten eine klare Struktur ein, die all diese Probleme löst und auf langfristigen, messbaren Erfolg ausgerichtet ist.",
     approach: [
-      "Content-Audit: Analyse der bisherigen Posts und Identifikation der Top-Performer",
-      "Pillars-Framework: Drei klare Content-Säulen für konsistente Positionierung",
-      "Posting-Frequenz: 6x pro Woche, systematisch geplant und termingerecht geliefert",
-      "Reels-Fokus: Shift von statischen Posts zu Video-first Strategie",
-      "Storytelling: Persönliche Geschichten und Transformation als Wachstumstreiber",
+      "Analyse der bestehenden Inhalte — Wir werteten zunächst die bisherigen Inhalte aus und identifizierten, welche Themen und Formate in seiner Community wirklich Resonanz erzeugen.",
+      "Klare Content-Säulen definieren — Auf dieser Basis entstanden drei klare Content-Säulen, die Markus als Coach stärken und seinen Account wiedererkennbar machen.",
+      "Konsistenz im Content-System — Statt unregelmäßigem Posten führten wir eine feste Veröffentlichungsstruktur ein, die kontinuierlich neuen Content liefert und nachhaltiges Wachstum ermöglicht.",
+      "Fokus auf Videocontent — Der Schwerpunkt wurde auf Reels und Kurzvideos gelegt, um Reichweite aufzubauen und neue Zielgruppen zu erreichen.",
+      "Persönliche Story und Transformation — Markus' eigene Entwicklung, Erfahrungen und Perspektive wurden stärker in den Content integriert, was seinen Inhalt authentisch und greifbar macht.",
     ],
     outcome: {
       stats: [
@@ -333,7 +333,11 @@ export const caseStudies: CaseStudy[] = [
         { value: "4.1%", label: "Engagement Rate" },
       ],
       summary:
-        "Mit einem klaren System und konsistentem Output wuchs Markus Hoppe in 3 Monaten schneller als in den vorherigen 2 Jahren zusammen. Der Schlüssel: Konsequenz schlägt Kreativität.",
+        "Innerhalb weniger Monate entwickelte sich Markus' Social Media von einem stagnierenden Account zu einer wachsenden Personal Brand im Fitnessbereich. Mit klarer Content-Struktur und dem Fokus auf Videoformate wuchs seine Community in nur drei Monaten um über 38.000 neue Follower. Was zuvor ein schlecht laufender Supplement-Shop war, wurde durch optimierte Sales Funnels und strategisches Marketing zu einem erfolgreichen Coaching-Business — das ihm ein Vielfaches seines bisherigen Einkommens einbrachte. Markus konnte seinen Shop schließen und sich vollständig seiner Leidenschaft widmen.",
+    },
+    quote: {
+      text: "Ich wusste, dass mehr Potenzial in meinem Account steckt, aber mir fehlte ein klares System. Mit Spectra Media wurde aus meinem Account endlich eine echte Personal Brand.",
+      author: "Markus Hoppe, Fitness Coach",
     },
   },
   {
@@ -349,11 +353,11 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Mit George Maiorano stand die Aufgabe, einen Account komplett von null aufzubauen. Fokus: Biohacking, Peptide und Longevity — eine Nische mit hohem Erklärungsbedarf, die tiefes Vertrauen voraussetzt. Die Herausforderung war, schnell Sichtbarkeit aufzubauen und gleichzeitig eine Community zu formen, die rund um erklärungsbedürftige Produkte entsteht und wächst. Wir entwickelten eine Strategie, die wissenschaftliche Inhalte zugänglich macht — und aus einem leeren Profil in wenigen Wochen eine relevante Stimme in der Nische machte.",
     approach: [
-      "Account-Aufbau von Grund auf: Profil-Optimierung, Bio, Highlights",
-      "Edu-Content-Strategie: Wissenschaftliche Inhalte einfach und visuell aufbereiten",
-      "Trend-Surfing: Biohacking und Longevity als wachsende Nischen gezielt nutzen",
-      "Viral-Seeding: Gezielte erste Clips mit hohem Share-Potential",
-      "Community-First: Frühe Follower aktiv einbinden und zu Ambassadors machen",
+      "Aufbau einer klaren Expertenpräsenz — Von einem leeren Profil zu einer klar positionierten Stimme im Bereich Longevity, Peptide und optimale Gesundheit.",
+      "Wissenschaft verständlich machen — Komplexe biochemische Zusammenhänge wurden in kurze, visuelle Inhalte übersetzt, die auch für Laien verständlich sind.",
+      "Fokus auf relevante Themen und Nischen — Biohacking, Longevity und Peptide wurden gezielt als Content-Säulen aufgebaut, um George als Experten in dieser wachsenden Nische zu positionieren.",
+      "Video-First-Content-Strategie — Kurzvideos mit klaren Erklärungen und starken Hooks sorgten dafür, dass wissenschaftliche Inhalte auf Social Media Reichweite erzielen.",
+      "Aufbau von Vertrauen und Community — Durch Konsistenz, Aufklärung und transparente Inhalte entstand eine Community rund um Gesundheit, Performance und Longevity.",
     ],
     outcome: {
       stats: [
@@ -363,7 +367,7 @@ export const caseStudies: CaseStudy[] = [
         { value: "+300%", label: "Over-Delivery vs. Ziel" },
       ],
       summary:
-        "George Maiorano erreichte in 6 Wochen das, wofür andere Monate brauchen. Der Schlüssel: Die richtige Nische, die richtige Strategie und konsequente Umsetzung von Tag eins.",
+        "In nur 6 Wochen entwickelte sich Georges Account von null auf 10.000 Follower — eine Leistung, für die andere Monate oder Jahre brauchen. Ermöglicht durch Content, der genau seine Zielgruppe traf und komplizierte medizinische Themen wie Peptide in nutzerfreundlicher Sprache erklärte. Die neu gewonnene Aufmerksamkeit wurde gezielt genutzt, um sein E-Book erfolgreich zu vermarkten und sein Coaching-Angebot zu etablieren — was für ihn zu einem großen Erfolg wurde.",
     },
     quote: {
       text: "Ich hatte erwartet, vielleicht 3.000 Follower in 6 Wochen zu erreichen. Spectra Media hat das Dreifache geliefert.",
@@ -373,23 +377,34 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "mike-sommerfeld",
     client: "Mike Sommerfeld",
-    industry: "Coaching",
-    badge: "Fitness & Coaching",
-    tagline: "Badass Coaching — Community aufgebaut und skaliert",
-    heroStat: "Coming soon",
-    heroStatLabel: "Ergebnisse folgen",
+    industry: "Bodybuilding",
+    badge: "Fitness & Lifestyle",
+    tagline: "Die Road zum Mr. Olympia – dokumentiert in Echtzeit",
+    heroStat: "+100k",
+    heroStatLabel: "Follower in 30 Tagen",
     profileImg: "/Kundenbilder/Mike Sommerfeld.png",
     brandLogoImg: "/Logos/Badass Coaching Mike Sommerfeld.png",
     challenge:
-      "Details folgen.",
+      "Mike Sommerfeld gehört zu den erfolgreichsten Bodybuildern Deutschlands und bereitete sich auf den wichtigsten Wettkampf seiner Karriere vor: den Mr. Olympia in Las Vegas.\n\nDie Vorbereitung auf einen Wettkampf auf diesem Niveau ist intensiv, emotional und voller entscheidender Momente. Genau diese Phase wollten wir nutzen, um nicht nur Content zu produzieren, sondern eine Geschichte zu erzählen.\n\nDie Herausforderung bestand darin, diese entscheidenden Wochen so zu dokumentieren, dass sie sowohl bestehende Fans mitnehmen als auch neue Zielgruppen erreichen — und dabei authentisch bleiben.",
     approach: [
-      "Details folgen.",
+      "Road-to-Olympia Storyline — Die Vorbereitung auf den Mr. Olympia wurde als fortlaufende Content-Serie aufgebaut, die Fans täglich am Weg zum Wettkampf teilhaben lässt.",
+      "High-Frequency Content-System — Tägliche Reels, Vlogs und Postings sorgten dafür, dass die Community konstant neuen Content erhielt und die Dynamik der Vorbereitung spürbar wurde.",
+      "Dokumentarischer Content-Stil — Statt inszenierter Clips lag der Fokus auf echten Momenten aus Training, Alltag und Vorbereitung — roh, authentisch und nah am Athleten.",
+      "Multi-Platform Strategie — Kurzvideos für maximale Reichweite auf Instagram und TikTok wurden mit längeren YouTube-Vlogs kombiniert, um tiefere Einblicke zu ermöglichen.",
+      "Momentum nutzen — Die steigende Aufmerksamkeit rund um den Mr. Olympia wurde gezielt genutzt, um neue Zielgruppen zu erreichen und die Reichweite exponentiell zu steigern.",
     ],
     outcome: {
       stats: [
-        { value: "Coming soon", label: "Details folgen" },
+        { value: "+100k",    label: "Neue Follower in 30 Tagen" },
+        { value: "134 Mio.", label: "Views auf allen Plattformen" },
+        { value: "8.6 Mio.", label: "Accounts erreicht" },
       ],
-      summary: "Details folgen.",
+      summary:
+        "Innerhalb von nur 30 Tagen entwickelte sich Mike Sommerfelds Social Media zu einer der sichtbarsten Bodybuilding-Präsenzen im deutschsprachigen Raum. Durch tägliche Inhalte, starke Storylines und eine konsequente Content-Strategie entstand eine enorme Dynamik rund um seine Mr.-Olympia-Vorbereitung. Die Kombination aus authentischer Dokumentation, hoher Posting-Frequenz und plattformübergreifendem Content sorgte für eine massive Reichweitensteigerung und ein starkes Wachstum seiner Community.",
+    },
+    quote: {
+      text: "Die Vorbereitung auf den Mr. Olympia war eine der intensivsten Phasen meiner Karriere. Spectra Media hat es geschafft, genau diese Energie einzufangen und daraus Content zu machen, der Millionen Menschen erreicht hat.",
+      author: "Mike Sommerfeld, Bodybuilder",
     },
   },
   {
@@ -397,43 +412,62 @@ export const caseStudies: CaseStudy[] = [
     client: "Gannikus",
     industry: "Fitness / Media",
     badge: "Fitness & Media",
-    tagline: "Fitness-Medienmarke auf das nächste Level gebracht",
-    heroStat: "Coming soon",
-    heroStatLabel: "Ergebnisse folgen",
+    tagline: "Wie wir aus einem Podcast eine Social-Media-Content-Maschine gebaut haben",
+    heroStat: "Podcast",
+    heroStatLabel: "zu Social-Media-Maschine",
     profileImg: "/Logos/Gannikus.png",
     brandLogoImg: "/Logos/Gannikus.png",
     challenge:
-      "Details folgen.",
+      "Gannikus betreibt den größten Fitness-Podcast im deutschsprachigen Raum. Jede Woche entstehen dort hochwertige Gespräche mit Athleten, Coaches und Branchenexperten.\n\nDer Podcast wurde jedoch hauptsächlich auf YouTube veröffentlicht. Dadurch blieb ein großer Teil des Potentials ungenutzt — denn viele starke Momente aus den Gesprächen verschwanden in langen Episoden und erreichten nur einen Teil der möglichen Zuschauer.\n\nDie Herausforderung bestand darin, diese Inhalte so aufzubereiten, dass sie auch auf Instagram, TikTok und anderen Social-Media-Kanälen ihre volle Wirkung entfalten.",
     approach: [
-      "Details folgen.",
+      "Podcast-Content analysieren — Jede Episode wurde systematisch nach starken Aussagen, kontroversen Momenten und besonders interessanten Themen durchsucht.",
+      "Short-Form Clips erstellen — Die relevantesten Passagen wurden in kurze, aufmerksamkeitsstarke Clips geschnitten, die perfekt für Social Media funktionieren.",
+      "Plattformgerechte Aufbereitung — Die Clips wurden visuell und dramaturgisch so angepasst, dass sie auf Instagram Reels, TikTok und Shorts optimal performen.",
+      "Konsistente Veröffentlichung — Statt nur einzelner Episoden entstand ein kontinuierlicher Strom an Short-Form-Content aus den Podcast-Folgen.",
+      "Aufmerksamkeit zurück zum Podcast lenken — Die Clips fungieren als Einstiegspunkt und führen neue Zuschauer zu den vollständigen Podcast-Episoden.",
     ],
     outcome: {
       stats: [
         { value: "Coming soon", label: "Details folgen" },
       ],
-      summary: "Details folgen.",
+      summary:
+        "Durch das systematische Repurposing der Podcast-Folgen entstand aus einem einzigen Content-Format ein kontinuierlicher Strom an Social-Media-Inhalten. Die Short Clips sorgen dafür, dass zentrale Aussagen aus den Episoden deutlich mehr Menschen erreichen und gleichzeitig neue Zuschauer auf den Podcast aufmerksam werden. So wurde aus dem bestehenden Podcast nicht nur ein YouTube-Format, sondern eine plattformübergreifende Content-Maschine, die konstant Aufmerksamkeit generiert.",
+    },
+    quote: {
+      text: "Wir hatten bereits starken Content im Podcast – aber durch die Short Clips erreicht er jetzt ein völlig neues Publikum.",
+      author: "Danny, CEO und Inhaber Gannikus",
     },
   },
   {
     slug: "patrick-holzapfel",
-    client: "Patrick Holzapfel",
-    industry: "Lifestyle",
+    client: "Der Holzapfel",
+    industry: "Food & Lifestyle",
     badge: "Lifestyle & Brand",
-    tagline: "Der Holzapfel — Personal Brand von Grund auf aufgebaut",
-    heroStat: "Coming soon",
-    heroStatLabel: "Ergebnisse folgen",
+    tagline: "Von Social Media Präsenz zu einem echten Verkaufskanal",
+    heroStat: "80k+",
+    heroStatLabel: "Bestehende Follower",
     profileImg: "/Kundenbilder/Patrik Holzapfel.png",
     brandLogoImg: "/Logos/Der Holzafpel Patrick Holzapfel.png",
     challenge:
-      "Details folgen.",
+      "Die Metzgerei Holzapfel verfügte bereits über eine starke Online-Präsenz mit über 80.000 Followern auf Social Media.\n\nDoch obwohl die Community gross war, spiegelte der bestehende Content nicht die tatsächliche Qualität der Produkte und der Marke wider. Viele Inhalte wirkten austauschbar und nutzten das Potential der Reichweite nur begrenzt.\n\nGleichzeitig sollte Social Media stärker dazu beitragen, den Onlineshop und die hochwertigen Produkte sichtbar zu machen. Die Herausforderung bestand darin, den Content so zu verändern, dass er die Qualität der Marke transportiert und gezielt Aufmerksamkeit auf den Onlineshop lenkt.",
     approach: [
-      "Details folgen.",
+      "Fokus auf Produktqualität und Handwerk — Der Content wurde stärker auf die Qualität der Produkte, die Herstellung und das handwerkliche Können der Metzgerei ausgerichtet.",
+      "Visueller Premium-Content — Durch hochwertigere Bild- und Videoaufnahmen wurden Produkte so präsentiert, dass sie die tatsächliche Qualität und Frische widerspiegeln.",
+      "Storytelling rund um Produkte — Statt nur einzelne Produkte zu zeigen, wurde Content geschaffen, der die Geschichten hinter den Produkten erzählt.",
+      "Content mit klarer Shop-Verbindung — Die Inhalte wurden gezielt so aufgebaut, dass sie Aufmerksamkeit erzeugen und gleichzeitig den Onlineshop in den Fokus rücken.",
+      "Social Media als Verkaufsunterstützung — Der Kanal wurde strategisch genutzt, um Interesse zu wecken und Traffic auf den Onlineshop zu lenken.",
     ],
     outcome: {
       stats: [
-        { value: "Coming soon", label: "Details folgen" },
+        { value: "80k+",        label: "Bestehende Follower" },
+        { value: "Coming soon", label: "Shop-Traffic Details folgen" },
       ],
-      summary: "Details folgen.",
+      summary:
+        "Durch die neue Content-Strategie wurde Social Media stärker zu einem Kanal, der nicht nur Reichweite generiert, sondern die Qualität der Marke sichtbar macht. Produkte stehen klarer im Mittelpunkt, die Inhalte wirken hochwertiger und der Onlineshop wird gezielt in die Kommunikation integriert. So wurde aus einer grossen Community eine Plattform, die aktiv zur Sichtbarkeit der Marke und ihrer Produkte beiträgt.",
+    },
+    quote: {
+      text: "Unsere Community war schon gross, aber der Content hat unsere Qualität nicht richtig gezeigt. Mit Spectra Media konnten wir das komplett verändern.",
+      author: "Metzgerei Holzapfel",
     },
   },
 ];
