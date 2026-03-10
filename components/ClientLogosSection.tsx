@@ -10,8 +10,8 @@ const logos = [
   { src: "/Logos/Bad Ass Coaching neu.png", alt: "Badass Coaching Mike Sommerfeld" },
   { src: "/Logos/BioWell Labs neu.png", alt: "BioWell Labs" },
   { src: "/Logos/BodyPlanet neu.png", alt: "Body Planet Tamer Galal" },
-  { src: "/Logos/Holzapfel neu.png", alt: "Der Holzapfel" },
-  { src: "/Logos/Gannikus neu.png", alt: "Gannikus" },
+  { src: "/Logos/Holzapfel neu.png", alt: "Der Holzapfel", invert: true },
+  { src: "/Logos/Gannikus neu.png", alt: "Gannikus", invert: true },
   { src: "/Logos/Hoppe neu.png", alt: "Hoppe Coaching Markus Hoppe" },
   { src: "/Logos/Kanzlei Mandic neu.png", alt: "Kanzlei Mandic" },
   { src: "/Logos/Maiorano Perfomance 2 George Maiorano.png", alt: "Maiorano Performance George Maiorano" },
@@ -66,7 +66,7 @@ export default function ClientLogosSection() {
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className="object-contain opacity-50 hover:opacity-80 transition-opacity duration-300 grayscale hover:grayscale-0"
+                className={`object-contain opacity-50 hover:opacity-80 transition-opacity duration-300 grayscale hover:grayscale-0${"invert" in logo && logo.invert ? " invert hover:invert" : ""}`}
                 sizes="112px"
               />
             </motion.div>
