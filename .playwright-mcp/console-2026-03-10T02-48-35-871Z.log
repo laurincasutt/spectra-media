@@ -1,0 +1,68 @@
+[     801ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <div className="max-w-7xl ...">
+      <motion.div>
+      <motion.div variants={{hidden:{}, ...}} initial="hidden" whileInView="show" viewport={{once:true, ...}} ...>
+        <div className="grid grid-..." style={{}} ref={function useMotionRef.useCallback}>
+          <motion.div>
+          <motion.div>
+          <motion.div variants={{hidden:{...}, ...}} whileHover={{scale:1.025,y:-4}} transition={{type:"spring", ...}} ...>
+            <div className="relative p..." style={{opacity:0, ...}} ref={function useMotionRef.useCallback}>
+              <div>
+              <div>
+              <div>
+              <div>
+              <h3>
+              <p>
+              <div className="relative z...">
+                <ClockChaosVisual>
+                  <div className="h-[200px] ...">
+                    <div className="relative w...">
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <motion.span>
+                      <div className="absolute i...">
+                        <div className="relative f...">
+                          <motion.div>
+                          <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+                            <circle>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line>
+                            <line
+                              x1={15.999999999999991}
++                             y1={8.679491924311233}
+-                             y1="8.679491924311229"
+                              x2={14.99999999999999}
+                              y2={6.947441116742354}
+                              stroke="rgba(255,68,68,0.3)"
+                              strokeWidth="1"
+                            >
+                            ...
+                          ...
+ @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[     809ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
