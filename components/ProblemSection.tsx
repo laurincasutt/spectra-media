@@ -48,48 +48,48 @@ function ScheduleVisual() {
   );
 }
 
-// Competitor podium — fixed baseline with separated label/bar rows
+// Competitor podium — labels sit directly atop each bar column
 function CompetitorVisual() {
   return (
     <div className="relative h-28 flex flex-col justify-end">
-      {/* Labels row — fixed height so bars align independently */}
-      <div className="flex items-end justify-center gap-3 h-8 mb-1">
-        <div className="w-10 flex items-end justify-center">
-          <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#2</span>
+      {/* Single row: each column = label on top + bar below, aligned to bottom */}
+      <div className="flex items-end justify-center gap-3 h-[80px]">
+        {/* Bar #2 */}
+        <div className="flex flex-col items-center justify-end h-full">
+          <span className="text-[#A1A1AA]/60 text-[10px] font-bold mb-1">#2</span>
+          <motion.div
+            className="w-10 rounded-t-sm bg-white/8 border border-white/10"
+            style={{ height: 44 }}
+            animate={{ height: [44, 46, 44] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-        <div className="w-10 flex items-end justify-center">
+        {/* Bar #1 — Konkurrenz */}
+        <div className="flex flex-col items-center justify-end h-full">
           <motion.span
-            className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30"
+            className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30 mb-1"
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             #1
           </motion.span>
+          <motion.div
+            className="w-10 rounded-t-sm bg-[#FF4444]/30 border border-[#FF4444]/40 shadow-[0_0_16px_rgba(255,68,68,0.3)]"
+            style={{ height: 64 }}
+            animate={{ height: [64, 72, 64] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
-        <div className="w-10 flex items-end justify-center">
-          <span className="text-[#A1A1AA]/60 text-[10px] font-bold">#3 Du</span>
+        {/* Bar #3 Du */}
+        <div className="flex flex-col items-center justify-end h-full">
+          <span className="text-[#A1A1AA]/60 text-[10px] font-bold mb-1">#3 Du</span>
+          <motion.div
+            className="w-10 rounded-t-sm bg-white/8 border border-white/10"
+            style={{ height: 32 }}
+            animate={{ height: [32, 34, 32] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
         </div>
-      </div>
-      {/* Bars row — all share same baseline via items-end */}
-      <div className="flex items-end justify-center gap-3">
-        <motion.div
-          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
-          style={{ height: 44 }}
-          animate={{ height: [44, 46, 44] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="w-10 rounded-t-sm bg-[#FF4444]/30 border border-[#FF4444]/40 shadow-[0_0_16px_rgba(255,68,68,0.3)]"
-          animate={{ height: [64, 72, 64] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{ height: 64 }}
-        />
-        <motion.div
-          className="w-10 rounded-t-sm bg-white/8 border border-white/10"
-          style={{ height: 32 }}
-          animate={{ height: [32, 34, 32] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        />
       </div>
       {/* Konkurrenz label below middle bar */}
       <div className="flex justify-center gap-3 mt-1.5">
@@ -114,13 +114,13 @@ const clockWords = [
   { label: "Strategie", angle: 270 },
   { label: "Posting",   angle: 315 },
 ];
-const WORD_RADIUS = 58;
+const WORD_RADIUS = 78;
 
 function ClockChaosVisual() {
   return (
-    <div className="h-36 relative flex items-end justify-center pb-2">
-      {/* Words floating around clock at lower portion of visual */}
-      <div className="relative w-[140px] h-[140px]">
+    <div className="h-[200px] relative flex items-center justify-center">
+      {/* Words floating around clock — all at equal radius from center */}
+      <div className="relative w-[200px] h-[200px]">
         {/* Words at radial positions */}
         {clockWords.map(({ label, angle }, i) => {
           const rad = (angle - 90) * Math.PI / 180;
@@ -231,7 +231,7 @@ const problems = [
   {
     number: "03",
     title: "Die Zeit rennt dir durch die Hände.",
-    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen — nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
+    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen - nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
     icon: problemIcon3,
     visual: <ClockChaosVisual />,
   },
