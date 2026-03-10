@@ -71,7 +71,7 @@ export const home = {
       {
         icon: "🔄",
         title: "Kein System",
-        desc: "Kein Redaktionsplan. Keine klare Strategie. Du postest wenn du kannst — nicht wenn der Algorithmus es belohnt.",
+        desc: "Kein Redaktionsplan. Keine klare Strategie. Du postest wenn du kannst - nicht wenn der Algorithmus es belohnt.",
       },
       {
         icon: "📉",
@@ -159,7 +159,7 @@ export const home = {
       {
         question: "Für welche Branchen arbeitet ihr?",
         answer:
-          "Wir spezialisieren uns auf Persönlichkeiten und Unternehmer, die ihre Personal Brand auf das nächste Level bringen wollen. Branchenübergreifend — ob Coaches, Trainer, Berater, Anwälte, Ärzte, Unternehmer oder Sportler, die ihr Wissen und ihre Expertise über Social Media sichtbar machen wollen. Ideal, wenn du bereits offline erfolgreich bist.",
+          "Wir spezialisieren uns auf Persönlichkeiten und Unternehmer, die ihre Personal Brand auf das nächste Level bringen wollen. Branchenübergreifend - ob Coaches, Trainer, Berater, Anwälte, Ärzte, Unternehmer oder Sportler, die ihr Wissen und ihre Expertise über Social Media sichtbar machen wollen. Ideal, wenn du bereits offline erfolgreich bist.",
       },
       {
         question: "Arbeitet ihr nur mit Instagram oder auch anderen Plattformen?",
@@ -169,7 +169,7 @@ export const home = {
       {
         question: "Wie läuft der Einstieg ab?",
         answer:
-          "1. Discovery Call (kostenlos) — wir schauen ob es passt und welche Möglichkeiten es gibt. 2. Entwicklung von Content-Strategie und Brandmap, präsentiert in einem Angebots-Call. 3. Vertragsabschluss. 4. Onboarding Call. 5. Content Production Start. 6. Kontinuierliche Optimierung und Skalierung.",
+          "1. Discovery Call (kostenlos) - wir schauen ob es passt und welche Möglichkeiten es gibt. 2. Entwicklung von Content-Strategie und Brandmap, präsentiert in einem Angebots-Call. 3. Vertragsabschluss. 4. Onboarding Call. 5. Content Production Start. 6. Kontinuierliche Optimierung und Skalierung.",
       },
     ],
   },
@@ -192,12 +192,12 @@ export const home = {
       {
         number: "02",
         title: "Produktion & Editing",
-        desc: "Du nimmst auf — wir schreiben Skripte, schneiden und optimieren alles für maximale Reichweite.",
+        desc: "Du nimmst auf - wir schreiben Skripte, schneiden und optimieren alles für maximale Reichweite.",
       },
       {
         number: "03",
         title: "Upload & Skalierung",
-        desc: "Wir übernehmen Upload, Community Management und skalieren was funktioniert — laufend.",
+        desc: "Wir übernehmen Upload, Community Management und skalieren was funktioniert - laufend.",
       },
     ],
   },
@@ -249,7 +249,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "128k+",
     heroStatLabel: "Neue Follower in 90 Tagen",
     challenge:
-      "Tamer Galal war bereits eine Legende im deutschsprachigen Fitnessbereich — doch seine Offline-Präsenz stimmte nicht mit seinem Online-Auftritt überein. Obwohl er seit über 30 Jahren eine führende Persönlichkeit war, hatte er den digitalen Wandel verpasst und dadurch einen grossen Nachteil erlitten. Er hatte weder die Zeit noch das Know-how, um konsistenten Content zu produzieren, der ihn als Experten darstellt und ihm seine Bühne zurückbringt. Bisherige Versuche brachten keine messbaren Ergebnisse. Wir halfen ihm, sein Wissen und seine Kompetenz so zu präsentieren, dass die Leute verstehen, was ihn besonders macht — und seinen Legendenstatus auch in der heutigen Zeit hervorheben.",
+      "Tamer Galal war bereits eine Legende im deutschsprachigen Fitnessbereich - doch seine Offline-Präsenz stimmte nicht mit seinem Online-Auftritt überein. Obwohl er seit über 30 Jahren eine führende Persönlichkeit war, hatte er den digitalen Wandel verpasst und dadurch einen grossen Nachteil erlitten. Er hatte weder die Zeit noch das Know-how, um konsistenten Content zu produzieren, der ihn als Experten darstellt und ihm seine Bühne zurückbringt. Bisherige Versuche brachten keine messbaren Ergebnisse. Wir halfen ihm, sein Wissen und seine Kompetenz so zu präsentieren, dass die Leute verstehen, was ihn besonders macht - und seinen Legendenstatus auch in der heutigen Zeit hervorheben.",
     approach: [
       "Positionierung der Marke - Bevor Content produziert wurde, haben wir Tamers jahrzehntelange Erfahrung klar positioniert. Der Fokus: nicht nur der Fitnesscoach, sondern die erfahrene Stimme im deutschsprachigen Bodybuilding.",
       "Übersetzung seiner Expertise in Content - Tamers Wissen aus über 30 Jahren Training, Coaching und Wettkampf wurde in klare Content-Formate übersetzt, die seine Expertise verständlich und wiedererkennbar für die breite Masse machen.",
@@ -283,7 +283,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "15k → 50k+",
     heroStatLabel: "Follower Wachstum",
     challenge:
-      "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich für die Allgemeinheit machen. Ihr Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Dies versuchten sie über die letzten Jahre — leider ohne nachhaltigen Erfolg. Die Herausforderung: Juristische Inhalte müssen präzise sein, aber gleichzeitig so aufbereitet, dass sie auf Social Media ankommen und performen. Wir entwickelten eine Strategie, die Mandics Werte und Persönlichkeit einfängt — hilfreiches Wissen so vermittelt, dass man nicht genug davon bekommt, weil es nicht nur informiert, sondern auch unterhält.",
+      "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich für die Allgemeinheit machen. Ihr Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Dies versuchten sie über die letzten Jahre - leider ohne nachhaltigen Erfolg. Die Herausforderung: Juristische Inhalte müssen präzise sein, aber gleichzeitig so aufbereitet, dass sie auf Social Media ankommen und performen. Wir entwickelten eine Strategie, die Mandics Werte und Persönlichkeit einfängt - hilfreiches Wissen so vermittelt, dass man nicht genug davon bekommt, weil es nicht nur informiert, sondern auch unterhält.",
     approach: [
       "Komplexes Recht verständlich machen - Kritische Themen wurden in kurze, klare Video-Formate übersetzt, die komplexe Rechtsfragen verständlich erklären und gleichzeitig Aufmerksamkeit erzeugen.",
       "Fokus auf konkrete Alltagsprobleme - Der Inhalt konzentrierte sich auf Themen, die Menschen tatsächlich betreffen, etwa Mietrecht, Strafrecht und Arbeitsrecht. So entstand Content, nach dem aktiv gesucht wird.",
@@ -317,7 +317,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "+30k",
     heroStatLabel: "Neue Follower in 3 Monaten",
     challenge:
-      "Markus Hoppe war bereits ein etablierter Coach im deutschsprachigen Raum mit rund 30.000 Followern. Doch das Wachstum stagnierte — er kam nicht mehr über dieses Plateau hinaus. Posts kamen unregelmässig, der Content-Mix war unklar und die Engagement-Rate sank kontinuierlich. Er brauchte kein weiteres Experiment — sondern ein System. Wir führten eine klare Struktur ein, die all diese Probleme löst und auf langfristigen, messbaren Erfolg ausgerichtet ist.",
+      "Markus Hoppe war bereits ein etablierter Coach im deutschsprachigen Raum mit rund 30.000 Followern. Doch das Wachstum stagnierte - er kam nicht mehr über dieses Plateau hinaus. Posts kamen unregelmässig, der Content-Mix war unklar und die Engagement-Rate sank kontinuierlich. Er brauchte kein weiteres Experiment - sondern ein System. Wir führten eine klare Struktur ein, die all diese Probleme löst und auf langfristigen, messbaren Erfolg ausgerichtet ist.",
     approach: [
       "Analyse der bestehenden Inhalte - Wir werteten zunächst die bisherigen Inhalte aus und identifizierten, welche Themen und Formate in seiner Community wirklich Resonanz erzeugen.",
       "Klare Content-Säulen definieren - Auf dieser Basis entstanden drei klare Content-Säulen, die Markus als Coach stärken und seinen Account wiedererkennbar machen.",
@@ -351,7 +351,7 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "0 → 10k",
     heroStatLabel: "Follower in 6 Wochen",
     challenge:
-      "Mit George Maiorano stand die Aufgabe, einen Account komplett von null aufzubauen. Fokus: Biohacking, Peptide und Longevity — eine Nische mit hohem Erklärungsbedarf, die tiefes Vertrauen voraussetzt. Die Herausforderung war, schnell Sichtbarkeit aufzubauen und gleichzeitig eine Community zu formen, die rund um erklärungsbedürftige Produkte entsteht und wächst. Wir entwickelten eine Strategie, die wissenschaftliche Inhalte zugänglich macht — und aus einem leeren Profil in wenigen Wochen eine relevante Stimme in der Nische machte.",
+      "Mit George Maiorano stand die Aufgabe, einen Account komplett von null aufzubauen. Fokus: Biohacking, Peptide und Longevity - eine Nische mit hohem Erklärungsbedarf, die tiefes Vertrauen voraussetzt. Die Herausforderung war, schnell Sichtbarkeit aufzubauen und gleichzeitig eine Community zu formen, die rund um erklärungsbedürftige Produkte entsteht und wächst. Wir entwickelten eine Strategie, die wissenschaftliche Inhalte zugänglich macht - und aus einem leeren Profil in wenigen Wochen eine relevante Stimme in der Nische machte.",
     approach: [
       "Aufbau einer klaren Expertenpräsenz - Von einem leeren Profil zu einer klar positionierten Stimme im Bereich Longevity, Peptide und optimale Gesundheit.",
       "Wissenschaft verständlich machen - Komplexe biochemische Zusammenhänge wurden in kurze, visuelle Inhalte übersetzt, die auch für Laien verständlich sind.",
