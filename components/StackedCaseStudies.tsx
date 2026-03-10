@@ -89,26 +89,19 @@ export default function StackedCaseStudies() {
                     className="p-6 lg:p-8 relative z-10"
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
-                      {/* Person + Logo */}
-                      <div className="hidden lg:flex items-center gap-2 shrink-0">
-                        <div className="flex flex-col items-center gap-1">
-                          <div className="w-20 h-20 rounded-full bg-white/10 border border-white/20 overflow-hidden relative flex items-center justify-center">
-                            {cs.profileImg
-                              ? <Image
-                                  src={cs.profileImg}
-                                  alt={cs.client}
-                                  fill
-                                  className={`object-cover ${cs.slug === "kanzlei-mandic" ? "object-center" : ""}`}
-                                  style={cs.slug === "kanzlei-mandic" ? { objectPosition: "50% 30%" } : cs.slug === "markus-hoppe" ? { objectPosition: "50% 10%" } : undefined}
-                                  sizes="80px"
-                                />
-                              : <span className="text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}
-                          </div>
-                        </div>
-                        <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/8 overflow-hidden relative flex items-center justify-center">
-                          {cs.brandLogoImg
-                            ? <Image src={cs.brandLogoImg} alt="Logo" fill className="object-contain p-1" sizes="48px" />
-                            : <span className="text-[10px] text-[#3F3F46]">Logo</span>}
+                      {/* Person avatar */}
+                      <div className="hidden lg:flex items-center shrink-0">
+                        <div className="w-24 h-24 rounded-full bg-white/10 border border-white/20 overflow-hidden relative flex items-center justify-center">
+                          {cs.profileImg
+                            ? <Image
+                                src={cs.profileImg}
+                                alt={cs.client}
+                                fill
+                                className="object-cover"
+                                style={cs.slug === "kanzlei-mandic" ? { objectPosition: "50% 30%" } : cs.slug === "markus-hoppe" ? { objectPosition: "50% 10%" } : undefined}
+                                sizes="96px"
+                              />
+                            : <span className="text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}
                         </div>
                       </div>
 

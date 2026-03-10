@@ -81,9 +81,9 @@ export default function HomeClient() {
               fill="none"
             >
               <motion.path
-                d="M 17 25 L 50 25 L 83 25 Q 93 25 93 50 Q 93 75 83 75 L 50 75 L 17 75"
-                stroke="rgba(0,102,255,0.25)"
-                strokeWidth="0.4"
+                d="M 17 25 L 50 25 L 83 25 C 83 50 17 50 17 75 L 50 75 L 83 75"
+                stroke="rgba(0,102,255,0.5)"
+                strokeWidth="0.7"
                 fill="none"
                 style={{ pathLength: snakePathLength }}
               />

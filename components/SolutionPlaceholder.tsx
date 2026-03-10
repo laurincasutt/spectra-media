@@ -16,15 +16,15 @@ const phases = [
     number: "02",
     name: "CONTENT ENGINE",
     body: [
-      "Bei unserem Service handelt es sich um ein Done-For-You-Service — wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management.",
-      "Alles was wir von deiner Seite brauchen, sind 1–2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest — und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
+      "Bei unserem Service handelt es sich um ein Done-For-You-Service - wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management.",
+      "Alles was wir von deiner Seite brauchen, sind 1-2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest - und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
     ],
   },
   {
     number: "03",
     name: "MARKET DOMINANCE",
     body: [
-      "Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln — mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
+      "Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
       "Das Ziel ist nicht nur viral zu gehen, sondern die unbestrittene Nummer 1 in deiner Nische zu werden. Dies schafft Vertrauen, das wir direkt monetarisieren können.",
     ],
   },
@@ -38,85 +38,172 @@ function PhaseVisual() {
     }).join(" ");
 
   const hexPhases = [
-    { cx: 100, cy: 80, num: "01", name: ["POSITIONING"] },
-    { cx: 250, cy: 80, num: "02", name: ["CONTENT", "ENGINE"] },
-    { cx: 400, cy: 80, num: "03", name: ["MARKET", "DOMINANCE"] },
+    { cx: 100, cy: 90, num: "01", name: ["POSITIONING"] },
+    { cx: 250, cy: 90, num: "02", name: ["CONTENT", "ENGINE"] },
+    { cx: 400, cy: 90, num: "03", name: ["MARKET", "DOMINANCE"] },
   ];
 
-  const connections = [
-    { x1: 143, x2: 207 },
-    { x1: 293, x2: 357 },
+  // Connection segments: [x1, x2] at y=90
+  const connSegs = [
+    { x1: 152, x2: 198 },
+    { x1: 302, x2: 348 },
+  ];
+
+  // Traveling particles per connection
+  const particles = [
+    { conn: 0, delay: 0 },
+    { conn: 0, delay: 0.5 },
+    { conn: 0, delay: 1.0 },
+    { conn: 1, delay: 0.25 },
+    { conn: 1, delay: 0.75 },
+    { conn: 1, delay: 1.25 },
   ];
 
   return (
     <motion.div
-      className="relative my-10"
-      initial={{ opacity: 0, y: 10 }}
+      className="relative my-8 lg:my-12"
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={viewportOnce}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.9 }}
     >
-      {/* Center glow behind SVG */}
+      {/* Wide ambient glow */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <motion.div
-          className="w-40 h-40 rounded-full bg-[#0066FF]/10 blur-[40px]"
-          animate={{ opacity: [0.4, 0.9, 0.4] }}
-          transition={{ duration: 3, repeat: Infinity }}
+          className="w-[420px] h-[120px] rounded-full bg-[#0066FF]/12 blur-[70px]"
+          animate={{ opacity: [0.5, 1, 0.5], scaleX: [0.9, 1.05, 0.9] }}
+          transition={{ duration: 4, repeat: Infinity }}
         />
       </div>
-      <svg viewBox="0 0 500 160" className="w-full h-[120px] md:h-[160px]" fill="none">
-        {/* Animated connection lines */}
-        {connections.map((c, i) => (
-          <motion.line
-            key={i}
-            x1={c.x1} y1={80} x2={c.x2} y2={80}
-            stroke="rgba(0,102,255,0.4)"
-            strokeWidth="1.5"
-            strokeDasharray="5 4"
-            animate={{ strokeDashoffset: [18, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "linear", delay: i * 0.3 }}
+
+      <svg viewBox="0 0 500 180" className="w-full h-[140px] md:h-[200px]" fill="none">
+        <defs>
+          <filter id="glow2">
+            <feGaussianBlur stdDeviation="3.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="dotGlow">
+            <feGaussianBlur stdDeviation="2.5" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {/* Connection glow halos */}
+        {connSegs.map((c, i) => (
+          <line key={`halo-${i}`} x1={c.x1} y1={90} x2={c.x2} y2={90}
+            stroke="rgba(0,102,255,0.18)" strokeWidth="8" strokeLinecap="round" />
+        ))}
+
+        {/* Static dashed lines */}
+        {connSegs.map((c, i) => (
+          <line key={`line-${i}`} x1={c.x1} y1={90} x2={c.x2} y2={90}
+            stroke="rgba(0,102,255,0.35)" strokeWidth="1.5" strokeDasharray="5 3" />
+        ))}
+
+        {/* Animated dash sweep */}
+        {connSegs.map((c, i) => (
+          <motion.line key={`anim-${i}`} x1={c.x1} y1={90} x2={c.x2} y2={90}
+            stroke="rgba(51,133,255,0.85)" strokeWidth="1.5" strokeDasharray="5 3"
+            animate={{ strokeDashoffset: [16, 0] }}
+            transition={{ duration: 0.9, repeat: Infinity, ease: "linear", delay: i * 0.45 }}
           />
         ))}
-        {/* Hexagons + text */}
-        {hexPhases.map((p) => (
-          <g key={p.num}>
-            <polygon
-              points={hexPts(p.cx, p.cy, 50)}
-              fill={p.num === "02" ? "rgba(0,102,255,0.08)" : "rgba(0,102,255,0.04)"}
-              stroke={p.num === "02" ? "rgba(0,102,255,0.7)" : "rgba(0,102,255,0.4)"}
-              strokeWidth="1.5"
+
+        {/* Traveling particles */}
+        {particles.map((p, pi) => {
+          const seg = connSegs[p.conn];
+          return (
+            <motion.circle key={`p-${pi}`} r="3" fill="rgba(0,153,255,0.95)" filter="url(#dotGlow)"
+              animate={{ cx: [seg.x1, seg.x2], opacity: [0, 1, 1, 0] }}
+              transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut",
+                delay: p.delay, repeatDelay: 0.6 }}
+              initial={{ cx: seg.x1, cy: 90, opacity: 0 }}
+              style={{ cy: 90 } as React.CSSProperties}
             />
-            {/* Phase number */}
-            <text
-              x={p.cx}
-              y={p.cy - (p.name.length > 1 ? 10 : 6)}
-              textAnchor="middle"
-              dominantBaseline="middle"
-              fill="rgba(51,133,255,0.35)"
-              fontSize="20"
-              fontWeight="bold"
-              fontFamily="monospace"
-            >
-              {p.num}
-            </text>
-            {/* Phase name (split across lines if needed) */}
-            {p.name.map((line, li) => (
-              <text
-                key={li}
-                x={p.cx}
-                y={p.cy + 10 + li * 9}
-                textAnchor="middle"
-                dominantBaseline="middle"
-                fill="rgba(161,161,170,0.8)"
-                fontSize="6"
-                fontWeight="600"
-                letterSpacing="1"
+          );
+        })}
+
+        {/* Hexagons */}
+        {hexPhases.map((p, idx) => {
+          const isCenter = p.num === "02";
+          const r = isCenter ? 60 : 54;
+          return (
+            <g key={p.num}>
+              {/* Outer glow hex */}
+              {isCenter && (
+                <motion.polygon points={hexPts(p.cx, p.cy, r + 18)}
+                  fill="rgba(0,102,255,0.07)"
+                  animate={{ opacity: [0.3, 0.8, 0.3] }}
+                  transition={{ duration: 2.8, repeat: Infinity }}
+                />
+              )}
+              {/* Mid glow outline */}
+              <polygon points={hexPts(p.cx, p.cy, r + 6)}
+                fill="none"
+                stroke={isCenter ? "rgba(0,102,255,0.22)" : "rgba(0,102,255,0.08)"}
+                strokeWidth="1"
+              />
+              {/* Main hex */}
+              <polygon points={hexPts(p.cx, p.cy, r)}
+                fill={isCenter ? "rgba(0,102,255,0.13)" : "rgba(0,102,255,0.05)"}
+                stroke={isCenter ? "rgba(0,102,255,1)" : "rgba(0,102,255,0.5)"}
+                strokeWidth={isCenter ? "1.8" : "1.4"}
+                filter={isCenter ? "url(#glow2)" : undefined}
+              />
+              {/* Vertex node dots */}
+              {Array.from({ length: 6 }, (_, vi) => {
+                const a = (60 * vi - 30) * Math.PI / 180;
+                return (
+                  <motion.circle key={vi}
+                    cx={p.cx + r * Math.cos(a)} cy={p.cy + r * Math.sin(a)}
+                    r={isCenter ? 2.2 : 1.6}
+                    fill={isCenter ? "rgba(51,133,255,1)" : "rgba(51,133,255,0.55)"}
+                    animate={{ opacity: [0.4, 1, 0.4] }}
+                    transition={{ duration: 2.2, repeat: Infinity, delay: vi * 0.2 + idx * 0.35 }}
+                  />
+                );
+              })}
+              {/* Number */}
+              <text x={p.cx} y={p.cy - (p.name.length > 1 ? 13 : 8)}
+                textAnchor="middle" dominantBaseline="middle"
+                fill={isCenter ? "rgba(51,133,255,0.85)" : "rgba(51,133,255,0.45)"}
+                fontSize={isCenter ? "24" : "19"} fontWeight="bold" fontFamily="monospace"
               >
-                {line}
+                {p.num}
               </text>
-            ))}
-          </g>
-        ))}
+              {/* Name lines */}
+              {p.name.map((line, li) => (
+                <text key={li} x={p.cx} y={p.cy + 13 + li * 11}
+                  textAnchor="middle" dominantBaseline="middle"
+                  fill={isCenter ? "rgba(161,161,170,1)" : "rgba(161,161,170,0.75)"}
+                  fontSize={isCenter ? "7.5" : "6.5"} fontWeight="700" letterSpacing="1.4"
+                >
+                  {line}
+                </text>
+              ))}
+            </g>
+          );
+        })}
+
+        {/* Connector endpoint dots */}
+        {connSegs.flatMap((c, i) => [
+          <motion.circle key={`n-${i}-a`} cx={c.x1} cy={90} r="4" fill="rgba(0,102,255,0.9)"
+            filter="url(#dotGlow)"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+          />,
+          <motion.circle key={`n-${i}-b`} cx={c.x2} cy={90} r="4" fill="rgba(0,102,255,0.9)"
+            filter="url(#dotGlow)"
+            animate={{ opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 + 0.3 }}
+          />,
+        ])}
       </svg>
     </motion.div>
   );
@@ -153,7 +240,7 @@ export default function SolutionPlaceholder() {
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Wir verwandeln gewöhnliche Accounts in herausstechende Marken — und das nicht durch Zufall, sondern mit System.
+            Wir verwandeln gewöhnliche Accounts in herausstechende Marken und das nicht durch Zufall, sondern mit System.
           </motion.p>
         </motion.div>
 

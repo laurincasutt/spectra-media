@@ -31,9 +31,9 @@ const statIcons = [icons.followers, icons.views, icons.chart];
 
 function getObjectPosition(slug: string): string {
   const map: Record<string, string> = {
-    'tamer-galal': '50% 80%',
-    'kanzlei-mandic': '50% 20%',
-    'markus-hoppe': '50% 30%',
+    'tamer-galal': '50% 10%',
+    'kanzlei-mandic': '50% 35%',
+    'markus-hoppe': '50% 45%',
     'patrick-holzapfel': '50% 30%',
   };
   return map[slug] ?? '50% 50%';
@@ -114,15 +114,6 @@ export default function CaseStudiesClient() {
                       )}
                       {/* Gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#0D0D0F]" />
-
-                      {/* Quote over photo (bottom of photo zone) */}
-                      {cs.quote && (
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <p className="text-white/90 text-xs italic leading-relaxed line-clamp-2">
-                            &ldquo;{cs.quote.text}&rdquo;
-                          </p>
-                        </div>
-                      )}
                     </div>
 
                     {/* Content area */}

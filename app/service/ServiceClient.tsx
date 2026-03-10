@@ -145,9 +145,10 @@ export default function ServiceClient() {
                 variants={fadeUpVariants}
                 whileHover={{ scale: 1.025, y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="relative p-7 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default"
+                className="relative p-7 lg:p-8 rounded-2xl bg-[#1C1C1F] border border-white/8 hover:border-[#0066FF]/50 hover:shadow-[0_0_28px_rgba(0,102,255,0.12)] overflow-hidden group cursor-default transition-all duration-300"
               >
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#0066FF] to-[#3385FF]/50 group-hover:w-full transition-all duration-500 ease-out" />
                 <div className="text-[#0066FF] font-bold text-5xl font-mono opacity-15 absolute top-5 right-6 select-none">
                   {card.number}
                 </div>
@@ -203,9 +204,9 @@ export default function ServiceClient() {
               fill="none"
             >
               <motion.path
-                d="M 17 25 L 50 25 L 83 25 Q 93 25 93 50 Q 93 75 83 75 L 50 75 L 17 75"
-                stroke="rgba(0,102,255,0.25)"
-                strokeWidth="0.4"
+                d="M 17 25 L 50 25 L 83 25 C 83 50 17 50 17 75 L 50 75 L 83 75"
+                stroke="rgba(0,102,255,0.5)"
+                strokeWidth="0.7"
                 fill="none"
                 style={{ pathLength: snakePathLength }}
               />

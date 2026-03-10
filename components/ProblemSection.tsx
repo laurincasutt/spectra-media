@@ -103,87 +103,94 @@ function CompetitorVisual() {
   );
 }
 
-// Clock chaos visual — analog clock consuming time while tasks pile up
-const clockTaskPills = ["Content", "Editing", "Strategie", "Posting"];
+// Clock chaos visual — analog clock with words floating around it
+const clockWords = [
+  { label: "Editing",    angle: 0   },
+  { label: "Stories",   angle: 45  },
+  { label: "Reels",     angle: 90  },
+  { label: "Upload",    angle: 135 },
+  { label: "Content",   angle: 180 },
+  { label: "Analytics", angle: 225 },
+  { label: "Strategie", angle: 270 },
+  { label: "Posting",   angle: 315 },
+];
+const WORD_RADIUS = 58;
 
 function ClockChaosVisual() {
   return (
-    <div className="h-28 flex flex-col items-center gap-2 justify-center">
-      {/* Analog clock */}
-      <div className="relative flex items-center justify-center">
-        {/* Red glow pulse behind clock */}
-        <motion.div
-          className="absolute inset-0 rounded-full bg-[#FF4444]/20 blur-[10px]"
-          animate={{ opacity: [0.3, 0.7, 0.3] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          {/* Clock face */}
-          <circle cx="26" cy="26" r="24" stroke="rgba(255,68,68,0.4)" strokeWidth="1.5" fill="rgba(255,68,68,0.05)" />
-          {/* Tick marks */}
-          {Array.from({ length: 12 }, (_, i) => {
-            const a = (i * 30 - 90) * Math.PI / 180;
-            const r1 = i % 3 === 0 ? 18 : 20;
-            return (
-              <line key={i}
-                x1={26 + r1 * Math.cos(a)} y1={26 + r1 * Math.sin(a)}
-                x2={26 + 22 * Math.cos(a)} y2={26 + 22 * Math.sin(a)}
-                stroke={`rgba(255,68,68,${i % 3 === 0 ? 0.6 : 0.3})`}
-                strokeWidth="1"
-              />
-            );
-          })}
-          {/* Center dot */}
-          <circle cx="26" cy="26" r="2" fill="rgba(255,68,68,0.8)" />
-        </svg>
-        {/* Minute hand */}
-        <motion.div
-          className="absolute"
-          style={{
-            width: 1.5, height: 16,
-            background: "rgba(255,68,68,0.9)",
-            borderRadius: 2,
-            transformOrigin: "bottom center",
-            left: "50%", bottom: "50%",
-            marginLeft: -0.75,
-          }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-        />
-        {/* Hour hand */}
-        <motion.div
-          className="absolute"
-          style={{
-            width: 2, height: 11,
-            background: "rgba(255,68,68,0.6)",
-            borderRadius: 2,
-            transformOrigin: "bottom center",
-            left: "50%", bottom: "50%",
-            marginLeft: -1,
-          }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-        />
-      </div>
+    <div className="h-36 relative flex items-end justify-center pb-2">
+      {/* Words floating around clock at lower portion of visual */}
+      <div className="relative w-[140px] h-[140px]">
+        {/* Words at radial positions */}
+        {clockWords.map(({ label, angle }, i) => {
+          const rad = (angle - 90) * Math.PI / 180;
+          const x = Math.cos(rad) * WORD_RADIUS;
+          const y = Math.sin(rad) * WORD_RADIUS;
+          // Stagger so ~2 are visible at once: each shows for 1.4s, cycle = 8 * 0.7 = 5.6s
+          return (
+            <motion.span
+              key={i}
+              className="absolute px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/25 text-[#FF4444]/75 text-[8px] font-medium whitespace-nowrap"
+              style={{
+                left: `calc(50% + ${x}px)`,
+                top: `calc(50% + ${y}px)`,
+                transform: "translate(-50%, -50%)",
+              }}
+              animate={{ opacity: [0, 1, 1, 0], scale: [0.75, 1, 1, 0.75] }}
+              transition={{
+                duration: 1.4,
+                repeat: Infinity,
+                delay: i * 0.7,
+                repeatDelay: clockWords.length * 0.7 - 1.4,
+                ease: "easeInOut",
+              }}
+              initial={{ opacity: 0 }}
+            >
+              {label}
+            </motion.span>
+          );
+        })}
 
-      {/* Task pills fading in one-by-one */}
-      <div className="flex flex-wrap gap-1.5 justify-center max-w-[160px]">
-        {clockTaskPills.map((label, i) => (
-          <motion.span
-            key={i}
-            className="px-2 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/25 text-[#FF4444]/70 text-[9px] font-medium"
-            animate={{ opacity: [0, 1, 1, 0] }}
-            transition={{
-              duration: 1.2,
-              repeat: Infinity,
-              delay: i * 1.2,
-              repeatDelay: (clockTaskPills.length - 1) * 1.2,
-            }}
-            initial={{ opacity: 0 }}
-          >
-            {label}
-          </motion.span>
-        ))}
+        {/* Clock centered */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative flex items-center justify-center">
+            <motion.div
+              className="absolute inset-0 rounded-full bg-[#FF4444]/20 blur-[12px]"
+              animate={{ opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+              <circle cx="26" cy="26" r="24" stroke="rgba(255,68,68,0.45)" strokeWidth="1.5" fill="rgba(255,68,68,0.06)" />
+              {Array.from({ length: 12 }, (_, i) => {
+                const a = (i * 30 - 90) * Math.PI / 180;
+                const r1 = i % 3 === 0 ? 18 : 20;
+                return (
+                  <line key={i}
+                    x1={26 + r1 * Math.cos(a)} y1={26 + r1 * Math.sin(a)}
+                    x2={26 + 22 * Math.cos(a)} y2={26 + 22 * Math.sin(a)}
+                    stroke={`rgba(255,68,68,${i % 3 === 0 ? 0.65 : 0.3})`}
+                    strokeWidth="1"
+                  />
+                );
+              })}
+              <circle cx="26" cy="26" r="2" fill="rgba(255,68,68,0.85)" />
+            </svg>
+            <motion.div
+              className="absolute"
+              style={{ width: 1.5, height: 16, background: "rgba(255,68,68,0.9)", borderRadius: 2,
+                transformOrigin: "bottom center", left: "50%", bottom: "50%", marginLeft: -0.75 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute"
+              style={{ width: 2, height: 11, background: "rgba(255,68,68,0.6)", borderRadius: 2,
+                transformOrigin: "bottom center", left: "50%", bottom: "50%", marginLeft: -1 }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
