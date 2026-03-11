@@ -4,13 +4,19 @@ import type { CSSProperties, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-// ─── Shared glassmorphism bubble (macOS dark style) ───────────────────────
+// ─── Shared glassmorphism bubble ───────────────────────────────────────────
 
-function Bubble({ pos, size, delay, children }: {
+function Bubble({
+  pos, size, delay, children, floatY = 7, floatX = 0, duration = 3.2, glow = false,
+}: {
   pos: CSSProperties;
   size: number;
   delay: number;
   children: ReactNode;
+  floatY?: number;
+  floatX?: number;
+  duration?: number;
+  glow?: boolean;
 }) {
   return (
     <motion.div
@@ -20,49 +26,58 @@ function Bubble({ pos, size, delay, children }: {
         width: size,
         height: size,
         background: "linear-gradient(145deg, #2D2D36 0%, #1C1C24 100%)",
-        border: "1px solid rgba(255,255,255,0.07)",
-        boxShadow: "0 8px 28px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07)",
+        border: "1px solid rgba(255,255,255,0.08)",
+        boxShadow: glow
+          ? "0 8px 28px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 28px rgba(0,102,255,0.22)"
+          : "0 8px 28px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07)",
       }}
-      animate={{ y: [0, -7, 0] }}
-      transition={{ duration: 3.2 + delay * 0.4, repeat: Infinity, delay, ease: "easeInOut" }}
+      animate={{
+        y: [0, -floatY, 0],
+        ...(floatX !== 0 ? { x: [0, floatX, 0] } : {}),
+      }}
+      transition={{ duration, repeat: Infinity, delay, ease: "easeInOut" }}
     >
       {children}
     </motion.div>
   );
 }
 
-// ─── Problem 01: Kein System — scattered task-app bubbles ─────────────────
+// ─── Problem 01: Kein System — scattered task bubbles (varied speed + amplitude) ───
 
 function ScheduleVisual() {
   return (
     <div className="relative w-full h-28">
-      {/* Calendar */}
-      <Bubble pos={{ left: "5%", top: 0 }} size={58} delay={0}>
-        <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {/* Calendar — left, mid-size, floats high */}
+      <Bubble pos={{ left: "6%", top: 4 }} size={58} delay={0} floatY={11} duration={3.0}>
+        <svg className="w-6 h-6 text-white/72" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
         </svg>
       </Bubble>
-      {/* Mail */}
-      <Bubble pos={{ right: "4%", top: 4 }} size={70} delay={0.5}>
+
+      {/* Mail — top-right, large, drifts gently + slight x */}
+      <Bubble pos={{ right: "4%", top: 0 }} size={72} delay={0.5} floatY={5} floatX={3} duration={4.2}>
         <svg className="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       </Bubble>
-      {/* Bar chart */}
-      <Bubble pos={{ left: "30%", bottom: 0 }} size={46} delay={1.1}>
+
+      {/* Bar chart — bottom-left, fast short float */}
+      <Bubble pos={{ left: "28%", bottom: 0 }} size={46} delay={1.0} floatY={14} duration={2.5}>
         <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       </Bubble>
-      {/* Document */}
-      <Bubble pos={{ right: "17%", bottom: 6 }} size={42} delay={0.8}>
-        <svg className="w-4 h-4 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      {/* Document — bottom-right, slow + -x drift */}
+      <Bubble pos={{ right: "16%", bottom: 4 }} size={42} delay={0.8} floatY={8} floatX={-3} duration={3.8}>
+        <svg className="w-4 h-4 text-white/58" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
         </svg>
       </Bubble>
-      {/* Edit / pen */}
-      <Bubble pos={{ left: "50%", top: "28%" }} size={36} delay={1.7}>
-        <svg className="w-4 h-4 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      {/* Edit — center, tiny, quick float */}
+      <Bubble pos={{ left: "50%", top: "30%" }} size={34} delay={1.6} floatY={9} duration={2.9}>
+        <svg className="w-3.5 h-3.5 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
         </svg>
       </Bubble>
@@ -70,93 +85,149 @@ function ScheduleVisual() {
   );
 }
 
-// ─── Problem 02: Konkurrenz — competitor-dominance bubbles ────────────────
+// ─── Problem 02: Konkurrenz — podium hierarchy (competitor above you) ─────
 
 function CompetitorVisual() {
   return (
     <div className="relative w-full h-28">
-      {/* Star / winner */}
-      <Bubble pos={{ left: "6%", top: 2 }} size={62} delay={0.2}>
-        <svg className="w-7 h-7 text-white/72" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      {/* Competitor — top center, largest, glowing blue, slow drift */}
+      <Bubble
+        pos={{ left: "calc(50% - 36px)", top: 0 }}
+        size={72} delay={0} floatY={4} duration={4.5} glow
+      >
+        {/* Crown */}
+        <svg className="w-8 h-8 text-white/75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 16L3 7l5.5 4L12 4l3.5 7L21 7l-2 9H5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 16h14" />
+        </svg>
+      </Bubble>
+
+      {/* 2nd — bottom left, medium, normal float */}
+      <Bubble pos={{ left: "5%", bottom: 2 }} size={52} delay={0.7} floatY={10} duration={3.1}>
+        <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
         </svg>
       </Bubble>
-      {/* Users / market */}
-      <Bubble pos={{ right: "4%", top: 0 }} size={72} delay={0}>
-        <svg className="w-8 h-8 text-white/72" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+
+      {/* You (3rd) — bottom right, smallest, slightly dimmer, faster */}
+      <Bubble pos={{ right: "5%", bottom: 0 }} size={44} delay={0.3} floatY={12} duration={2.7}>
+        <svg className="w-5 h-5 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
         </svg>
       </Bubble>
-      {/* Trending up */}
-      <Bubble pos={{ left: "30%", bottom: 2 }} size={46} delay={1.0}>
-        <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      {/* Extra — users group, bottom center, tiny filler */}
+      <Bubble pos={{ left: "calc(50% - 18px)", bottom: 6 }} size={36} delay={1.4} floatY={7} duration={3.5}>
+        <svg className="w-3.5 h-3.5 text-white/45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       </Bubble>
-      {/* Eye / visibility */}
-      <Bubble pos={{ right: "18%", bottom: 8 }} size={42} delay={0.7}>
-        <svg className="w-5 h-5 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-        </svg>
-      </Bubble>
-      {/* Speaker / megaphone */}
-      <Bubble pos={{ left: "50%", top: "26%" }} size={38} delay={1.5}>
-        <svg className="w-4 h-4 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-        </svg>
-      </Bubble>
     </div>
   );
 }
 
-// ─── Problem 03: Zeit — chaotic task bubbles ──────────────────────────────
+// ─── Problem 03: Zeit — vertical scrolling task column + soundwave ─────────
+
+const SCROLL_ICONS: ReactNode[] = [
+  // Clock
+  <svg key="clk" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>,
+  // Calendar
+  <svg key="cal" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>,
+  // Video
+  <svg key="vid" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+  </svg>,
+  // Mail
+  <svg key="mail" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>,
+  // Edit
+  <svg key="edt" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+  </svg>,
+  // Settings
+  <svg key="set" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
+  // Lightning
+  <svg key="lgt" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+  </svg>,
+  // Refresh
+  <svg key="ref" className="w-4 h-4 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+  </svg>,
+];
+
+const ITEM_SIZE = 36;
+const ITEM_GAP = 10;
+const SCROLL_DIST = SCROLL_ICONS.length * (ITEM_SIZE + ITEM_GAP); // 368px
+
+const WAVE_HEIGHTS = [28, 60, 44, 80, 52, 72, 36, 64, 40, 56];
 
 function ClockChaosVisual() {
   return (
-    <div className="relative w-full h-[200px]">
-      {/* Clock – large, top left */}
-      <Bubble pos={{ left: "5%", top: "12%" }} size={72} delay={0}>
-        <svg className="w-8 h-8 text-white/75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      </Bubble>
-      {/* Refresh / repeat – large, top right */}
-      <Bubble pos={{ right: "5%", top: "8%" }} size={64} delay={0.6}>
-        <svg className="w-7 h-7 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-      </Bubble>
-      {/* Video camera – center top */}
-      <Bubble pos={{ left: "42%", top: "6%" }} size={48} delay={1.2}>
-        <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-      </Bubble>
-      {/* Settings / gear – bottom left */}
-      <Bubble pos={{ left: "18%", bottom: "10%" }} size={52} delay={0.4}>
-        <svg className="w-6 h-6 text-white/62" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      </Bubble>
-      {/* Lightning / urgency – bottom right */}
-      <Bubble pos={{ right: "14%", bottom: "8%" }} size={50} delay={1.0}>
-        <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      </Bubble>
-      {/* Edit – center bottom */}
-      <Bubble pos={{ left: "50%", bottom: "5%" }} size={40} delay={1.8}>
-        <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-        </svg>
-      </Bubble>
+    <div className="relative w-full h-[200px] flex gap-3">
+      {/* Left: vertical scrolling icon column */}
+      <div
+        className="flex-1 overflow-hidden relative"
+        style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%)" }}
+      >
+        <motion.div
+          className="flex flex-col"
+          style={{ gap: ITEM_GAP }}
+          animate={{ y: [0, -SCROLL_DIST] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "linear" }}
+        >
+          {/* Duplicate for seamless loop */}
+          {[...SCROLL_ICONS, ...SCROLL_ICONS].map((icon, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center rounded-full"
+              style={{
+                width: ITEM_SIZE,
+                height: ITEM_SIZE,
+                background: "linear-gradient(145deg, #2D2D36 0%, #1C1C24 100%)",
+                border: "1px solid rgba(255,255,255,0.07)",
+                boxShadow: "0 4px 12px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06)",
+              }}
+            >
+              {icon}
+            </div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Right: EQ soundwave bars */}
+      <div className="flex items-center gap-[3px] pr-1 self-center">
+        {WAVE_HEIGHTS.map((baseH, i) => (
+          <motion.div
+            key={i}
+            className="w-[3px] rounded-full bg-[#0066FF]/55"
+            style={{ height: baseH * 0.5 }}
+            animate={{
+              height: [baseH * 0.3, baseH, baseH * 0.25, baseH * 0.75, baseH * 0.3],
+              opacity: [0.45, 0.8, 0.45],
+            }}
+            transition={{
+              duration: 1.4 + i * 0.07,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.06,
+            }}
+          />
+        ))}
+      </div>
     </div>
   );
 }
 
-// ─── Icons (top badge — unchanged) ────────────────────────────────────────
+// ─── Icons for the top badge (unchanged) ──────────────────────────────────
 
 const problemIcon1 = (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
