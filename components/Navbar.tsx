@@ -44,12 +44,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center shrink-0">
             <Image
-              src="/logo-neu.png"
+              src="/Logos/spectra-icon.png"
               alt="Spectra Media"
-              width={150}
-              height={38}
+              width={40}
+              height={40}
               priority
-              className="h-10 w-auto"
+              className="h-9 w-9 object-contain"
             />
           </Link>
 

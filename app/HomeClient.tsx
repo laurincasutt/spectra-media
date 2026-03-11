@@ -6,50 +6,43 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // ─── System card mini visuals ──────────────────────────────────────────────
 
 function StrategyVisual() {
-  // Two copies stacked for seamless vertical scroll loop (each 72px tall)
-  const ChartA = () => (
-    <svg viewBox="0 0 180 90" style={{ width: "100%", height: 72, display: "block" }} fill="none">
-      <defs>
-        <linearGradient id="homeStratGradA" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0066FF" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <line x1="10" y1="75" x2="170" y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <line x1="10" y1="50" x2="170" y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <line x1="10" y1="25" x2="170" y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <polygon points="10,68 45,58 80,46 115,32 150,20 170,10 170,80 10,80" fill="url(#homeStratGradA)" />
-      <polyline points="10,68 45,58 80,46 115,32 150,20 170,10" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="170" cy="10" r="4" fill="#0066FF" />
-    </svg>
-  );
-  const ChartB = () => (
-    <svg viewBox="0 0 180 90" style={{ width: "100%", height: 72, display: "block" }} fill="none">
-      <defs>
-        <linearGradient id="homeStratGradB" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0066FF" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <line x1="10" y1="75" x2="170" y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <line x1="10" y1="50" x2="170" y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <line x1="10" y1="25" x2="170" y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-      <polygon points="10,68 45,58 80,46 115,32 150,20 170,10 170,80 10,80" fill="url(#homeStratGradB)" />
-      <polyline points="10,68 45,58 80,46 115,32 150,20 170,10" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <circle cx="170" cy="10" r="4" fill="#0066FF" />
-    </svg>
-  );
+  // 540px wide chart scrolls left → right side always shows the rising peak
   return (
-    <div className="w-full h-full flex items-end justify-center px-6 pb-2 overflow-hidden">
+    <div
+      className="w-full h-full flex items-end justify-center pb-2 overflow-hidden"
+      style={{ maskImage: "linear-gradient(to right, transparent 0%, black 14%, black 92%, transparent 100%)" }}
+    >
       <div className="w-full relative overflow-hidden" style={{ height: 72 }}>
         <motion.div
-          className="absolute inset-x-0 top-0"
-          style={{ height: 144 }}
-          animate={{ y: [0, -72] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 left-0"
+          style={{ width: 540 }}
+          animate={{ x: [0, -360] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
         >
-          <ChartA />
-          <ChartB />
+          <svg viewBox="0 0 540 90" width={540} height={72} fill="none">
+            <defs>
+              <linearGradient id="homeStratGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#0066FF" stopOpacity="0.35" />
+                <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <line x1="0" y1="75" x2="540" y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="0" y1="50" x2="540" y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="0" y1="25" x2="540" y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <polygon
+              points="0,70 90,64 180,56 270,44 360,30 450,16 540,5 540,80 0,80"
+              fill="url(#homeStratGrad)"
+            />
+            <polyline
+              points="0,70 90,64 180,56 270,44 360,30 450,16 540,5"
+              stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            />
+            <motion.circle
+              cx={540} cy={5} r={4} fill="#0066FF"
+              animate={{ r: [4, 6, 4], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </svg>
         </motion.div>
       </div>
     </div>
@@ -57,32 +50,38 @@ function StrategyVisual() {
 }
 
 function ScriptVisual() {
-  const widths = [0.85, 0.65, 0.92, 0.55, 0.75];
+  // 5 lines fill sequentially, 1.3s each → 6.5s filled → 0.5s pause → all reset simultaneously
+  // Total cycle = 7.0s. Line i fills during [i*1.3, (i+1)*1.3], resets at 7.0s
+  const CYCLE = 7.0;
+  const FILL = 1.3;
+  const RESET = 6.5 / CYCLE; // normalised time when last line finishes
+  const lineWidths = [0.85, 0.65, 0.92, 0.55, 0.75];
+
+  // Line 0 = HOOK bar, lines 1-4 = script lines
+  const makeTimes = (i: number) => [0, (i * FILL) / CYCLE, ((i + 1) * FILL) / CYCLE, RESET, 1];
+
   return (
     <div className="w-full h-full flex flex-col justify-center gap-2.5 px-8 py-3">
+      {/* HOOK row */}
       <div className="flex items-center gap-2">
-        <motion.div
-          className="px-2 py-0.5 rounded text-[10px] font-bold text-[#0066FF] bg-[#0066FF]/15 border border-[#0066FF]/30 whitespace-nowrap"
-          animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 1.8, repeat: Infinity }}
-        >
+        <div className="px-2 py-0.5 rounded text-[10px] font-bold text-[#0066FF] bg-[#0066FF]/15 border border-[#0066FF]/30 whitespace-nowrap">
           HOOK
-        </motion.div>
-        {/* Hook line — fills blue continuously */}
+        </div>
         <div className="flex-1 relative h-2 rounded-full bg-[#0066FF]/15 overflow-hidden">
           <motion.div
             className="absolute inset-y-0 left-0 rounded-full bg-[#0066FF]/65"
-            animate={{ width: ["0%", "100%", "0%"] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ width: ["0%", "0%", "100%", "100%", "0%"] }}
+            transition={{ duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(0) }}
           />
         </div>
       </div>
-      {/* Script lines — fill blue from left to right, staggered */}
-      {widths.map((w, i) => (
+      {/* Script lines */}
+      {lineWidths.map((w, i) => (
         <div key={i} className="relative h-2 rounded-full bg-white/10 overflow-hidden" style={{ width: `${w * 100}%` }}>
           <motion.div
             className="absolute inset-y-0 left-0 rounded-full bg-[#0066FF]/45"
-            animate={{ width: ["0%", "100%", "0%"] }}
-            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut", delay: (i + 1) * 0.38 }}
+            animate={{ width: ["0%", "0%", "100%", "100%", "0%"] }}
+            transition={{ duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(i + 1) }}
           />
         </div>
       ))}
