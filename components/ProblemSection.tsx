@@ -1,191 +1,162 @@
 "use client";
 
+import type { CSSProperties, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-// Schedule visual — 6×3 mini calendar grid with animated dots (red + blue only)
-function ScheduleVisual() {
-  const dotConfigs = [
-    { cell: 1,  color: "bg-[#0066FF]/80", delay: 0,   duration: 2.2, repeatDelay: 3.0 },
-    { cell: 4,  color: "bg-[#FF4444]/70", delay: 1.2, duration: 3.1, repeatDelay: 1.5 },
-    { cell: 10, color: "bg-[#3385FF]/70", delay: 0.5, duration: 2.7, repeatDelay: 2.5 },
-    { cell: 2,  color: "bg-[#FF4444]/65", delay: 3.5, duration: 1.5, repeatDelay: 4.0 },
-    { cell: 7,  color: "bg-[#FF4444]/60", delay: 2.0, duration: 3.8, repeatDelay: 0.8 },
-    { cell: 13, color: "bg-[#3385FF]/60", delay: 1.8, duration: 2.4, repeatDelay: 2.2 },
-    { cell: 0,  color: "bg-[#0066FF]/45", delay: 4.2, duration: 1.8, repeatDelay: 3.5 },
-    { cell: 11, color: "bg-[#FF4444]/55", delay: 0.8, duration: 1.2, repeatDelay: 5.0 },
-    { cell: 6,  color: "bg-[#FF4444]/35", delay: 2.7, duration: 3.3, repeatDelay: 1.0 },
-    { cell: 16, color: "bg-[#FF4444]/50", delay: 1.5, duration: 2.8, repeatDelay: 1.8 },
-    { cell: 3,  color: "bg-[#0066FF]/40", delay: 3.0, duration: 2.0, repeatDelay: 3.2 },
-  ];
+// ─── Shared glassmorphism bubble (macOS dark style) ───────────────────────
 
+function Bubble({ pos, size, delay, children }: {
+  pos: CSSProperties;
+  size: number;
+  delay: number;
+  children: ReactNode;
+}) {
   return (
-    <div className="relative h-28 flex flex-col items-center justify-end gap-2">
-      <div className="flex gap-1">
-        {["Mo", "Di", "Mi", "Do", "Fr", "Sa"].map((d) => (
-          <div key={d} className="w-8 text-center text-[#FF4444]/70 text-[9px] font-medium">{d}</div>
-        ))}
-      </div>
-      <div className="grid grid-cols-6 gap-1">
-        {Array.from({ length: 18 }, (_, c) => {
-          const dots = dotConfigs.filter(d => d.cell === c);
-          return (
-            <div key={c} className="w-8 h-7 rounded-md bg-[#FF4444]/5 border border-[#FF4444]/15 flex items-center justify-center relative overflow-hidden">
-              {dots.map((dot, di) => (
-                <motion.div
-                  key={di}
-                  className={`w-2 h-2 rounded-full ${dot.color} absolute`}
-                  animate={{ opacity: [0, 1, 1, 0], scale: [0.5, 1, 1, 0.5] }}
-                  transition={{ duration: dot.duration, repeat: Infinity, ease: "easeInOut", delay: dot.delay, repeatDelay: dot.repeatDelay }}
-                  initial={{ opacity: 0 }}
-                />
-              ))}
-            </div>
-          );
-        })}
-      </div>
+    <motion.div
+      className="absolute flex items-center justify-center rounded-full"
+      style={{
+        ...pos,
+        width: size,
+        height: size,
+        background: "linear-gradient(145deg, #2D2D36 0%, #1C1C24 100%)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        boxShadow: "0 8px 28px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.07)",
+      }}
+      animate={{ y: [0, -7, 0] }}
+      transition={{ duration: 3.2 + delay * 0.4, repeat: Infinity, delay, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// ─── Problem 01: Kein System — scattered task-app bubbles ─────────────────
+
+function ScheduleVisual() {
+  return (
+    <div className="relative w-full h-28">
+      {/* Calendar */}
+      <Bubble pos={{ left: "5%", top: 0 }} size={58} delay={0}>
+        <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </Bubble>
+      {/* Mail */}
+      <Bubble pos={{ right: "4%", top: 4 }} size={70} delay={0.5}>
+        <svg className="w-8 h-8 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </Bubble>
+      {/* Bar chart */}
+      <Bubble pos={{ left: "30%", bottom: 0 }} size={46} delay={1.1}>
+        <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+      </Bubble>
+      {/* Document */}
+      <Bubble pos={{ right: "17%", bottom: 6 }} size={42} delay={0.8}>
+        <svg className="w-4 h-4 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+      </Bubble>
+      {/* Edit / pen */}
+      <Bubble pos={{ left: "50%", top: "28%" }} size={36} delay={1.7}>
+        <svg className="w-4 h-4 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
+      </Bubble>
     </div>
   );
 }
 
-// Competitor podium — labels sit directly atop each bar column
+// ─── Problem 02: Konkurrenz — competitor-dominance bubbles ────────────────
+
 function CompetitorVisual() {
   return (
-    <div className="relative h-28 flex flex-col justify-end">
-      <div className="flex items-end justify-center gap-3 h-[80px]">
-        <div className="flex flex-col items-center justify-end h-full">
-          <span className="text-[#A1A1AA]/60 text-[10px] font-bold mb-1">#2</span>
-          <motion.div
-            className="w-10 rounded-t-sm bg-white/8 border border-white/10"
-            style={{ height: 44 }}
-            animate={{ height: [44, 46, 44] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-        <div className="flex flex-col items-center justify-end h-full">
-          <motion.span
-            className="text-[#FF4444] text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/30 mb-1"
-            animate={{ opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            #1
-          </motion.span>
-          <motion.div
-            className="w-10 rounded-t-sm bg-[#FF4444]/30 border border-[#FF4444]/40 shadow-[0_0_16px_rgba(255,68,68,0.3)]"
-            style={{ height: 64 }}
-            animate={{ height: [64, 72, 64] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
-        <div className="flex flex-col items-center justify-end h-full">
-          <span className="text-[#A1A1AA]/60 text-[10px] font-bold mb-1">#3 Du</span>
-          <motion.div
-            className="w-10 rounded-t-sm bg-white/8 border border-white/10"
-            style={{ height: 32 }}
-            animate={{ height: [32, 34, 32] }}
-            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          />
-        </div>
-      </div>
-      <div className="flex justify-center gap-3 mt-1.5">
-        <div className="w-10" />
-        <div className="w-10 flex justify-center">
-          <span className="text-[#FF4444]/70 text-[8px] font-medium">Konkurrenz</span>
-        </div>
-        <div className="w-10" />
-      </div>
+    <div className="relative w-full h-28">
+      {/* Star / winner */}
+      <Bubble pos={{ left: "6%", top: 2 }} size={62} delay={0.2}>
+        <svg className="w-7 h-7 text-white/72" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+        </svg>
+      </Bubble>
+      {/* Users / market */}
+      <Bubble pos={{ right: "4%", top: 0 }} size={72} delay={0}>
+        <svg className="w-8 h-8 text-white/72" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </Bubble>
+      {/* Trending up */}
+      <Bubble pos={{ left: "30%", bottom: 2 }} size={46} delay={1.0}>
+        <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      </Bubble>
+      {/* Eye / visibility */}
+      <Bubble pos={{ right: "18%", bottom: 8 }} size={42} delay={0.7}>
+        <svg className="w-5 h-5 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+      </Bubble>
+      {/* Speaker / megaphone */}
+      <Bubble pos={{ left: "50%", top: "26%" }} size={38} delay={1.5}>
+        <svg className="w-4 h-4 text-white/48" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+        </svg>
+      </Bubble>
     </div>
   );
 }
 
-// Clock chaos visual — analog clock with words floating around it
-const clockWords = [
-  { label: "Editing",    angle: 0   },
-  { label: "Stories",   angle: 45  },
-  { label: "Reels",     angle: 90  },
-  { label: "Upload",    angle: 135 },
-  { label: "Content",   angle: 180 },
-  { label: "Analytics", angle: 225 },
-  { label: "Strategie", angle: 270 },
-  { label: "Posting",   angle: 315 },
-];
-const WORD_RADIUS = 78;
+// ─── Problem 03: Zeit — chaotic task bubbles ──────────────────────────────
 
 function ClockChaosVisual() {
   return (
-    <div className="h-[200px] relative flex items-center justify-center">
-      <div className="relative w-[200px] h-[200px]">
-        {clockWords.map(({ label, angle }, i) => {
-          const rad = (angle - 90) * Math.PI / 180;
-          const x = Math.cos(rad) * WORD_RADIUS;
-          const y = Math.sin(rad) * WORD_RADIUS;
-          return (
-            <motion.span
-              key={i}
-              className="absolute px-1.5 py-0.5 rounded-full bg-[#FF4444]/10 border border-[#FF4444]/25 text-[#FF4444]/75 text-[8px] font-medium whitespace-nowrap"
-              style={{
-                left: `calc(50% + ${x}px)`,
-                top: `calc(50% + ${y}px)`,
-                transform: "translate(-50%, -50%)",
-              }}
-              animate={{ opacity: [0, 1, 1, 0], scale: [0.75, 1, 1, 0.75] }}
-              transition={{
-                duration: 1.4,
-                repeat: Infinity,
-                delay: i * 0.7,
-                repeatDelay: clockWords.length * 0.7 - 1.4,
-                ease: "easeInOut",
-              }}
-              initial={{ opacity: 0 }}
-            >
-              {label}
-            </motion.span>
-          );
-        })}
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative flex items-center justify-center">
-            <motion.div
-              className="absolute inset-0 rounded-full bg-[#FF4444]/20 blur-[12px]"
-              animate={{ opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-              <circle cx="26" cy="26" r="24" stroke="rgba(255,68,68,0.45)" strokeWidth="1.5" fill="rgba(255,68,68,0.06)" />
-              {Array.from({ length: 12 }, (_, i) => {
-                const a = (i * 30 - 90) * Math.PI / 180;
-                const r1 = i % 3 === 0 ? 18 : 20;
-                return (
-                  <line key={i}
-                    x1={26 + r1 * Math.cos(a)} y1={26 + r1 * Math.sin(a)}
-                    x2={26 + 22 * Math.cos(a)} y2={26 + 22 * Math.sin(a)}
-                    stroke={`rgba(255,68,68,${i % 3 === 0 ? 0.65 : 0.3})`}
-                    strokeWidth="1"
-                  />
-                );
-              })}
-              <circle cx="26" cy="26" r="2" fill="rgba(255,68,68,0.85)" />
-            </svg>
-            <motion.div
-              className="absolute"
-              style={{ width: 1.5, height: 16, background: "rgba(255,68,68,0.9)", borderRadius: 2,
-                transformOrigin: "bottom center", left: "50%", bottom: "50%", marginLeft: -0.75 }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            />
-            <motion.div
-              className="absolute"
-              style={{ width: 2, height: 11, background: "rgba(255,68,68,0.6)", borderRadius: 2,
-                transformOrigin: "bottom center", left: "50%", bottom: "50%", marginLeft: -1 }}
-              animate={{ rotate: 360 }}
-              transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            />
-          </div>
-        </div>
-      </div>
+    <div className="relative w-full h-[200px]">
+      {/* Clock – large, top left */}
+      <Bubble pos={{ left: "5%", top: "12%" }} size={72} delay={0}>
+        <svg className="w-8 h-8 text-white/75" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </Bubble>
+      {/* Refresh / repeat – large, top right */}
+      <Bubble pos={{ right: "5%", top: "8%" }} size={64} delay={0.6}>
+        <svg className="w-7 h-7 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      </Bubble>
+      {/* Video camera – center top */}
+      <Bubble pos={{ left: "42%", top: "6%" }} size={48} delay={1.2}>
+        <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+      </Bubble>
+      {/* Settings / gear – bottom left */}
+      <Bubble pos={{ left: "18%", bottom: "10%" }} size={52} delay={0.4}>
+        <svg className="w-6 h-6 text-white/62" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      </Bubble>
+      {/* Lightning / urgency – bottom right */}
+      <Bubble pos={{ right: "14%", bottom: "8%" }} size={50} delay={1.0}>
+        <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </Bubble>
+      {/* Edit – center bottom */}
+      <Bubble pos={{ left: "50%", bottom: "5%" }} size={40} delay={1.8}>
+        <svg className="w-4 h-4 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+        </svg>
+      </Bubble>
     </div>
   );
 }
+
+// ─── Icons (top badge — unchanged) ────────────────────────────────────────
 
 const problemIcon1 = (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -281,7 +252,7 @@ export default function ProblemSection() {
               </div>
               <h3 className="text-[#F4F4F5] font-bold text-xl mb-2 relative z-10">{problem.title}</h3>
               <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{problem.desc}</p>
-              <div className="relative z-10 mt-auto">{problem.visual}</div>
+              <div className="relative z-10 mt-auto pt-4">{problem.visual}</div>
             </motion.div>
           ))}
         </motion.div>
