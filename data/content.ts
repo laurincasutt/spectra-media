@@ -584,22 +584,54 @@ export const gruender = {
     sub: "Spectra Media wurde gegründet, weil wir selbst erlebt haben, wie frustrierend Social Media ohne System ist – und wie mächtig es mit einem wird.",
   },
   story: [
-    "Die Spectra Media GmbH entstand aus einer Beobachtung. Im digitalen Markt gewinnen heutzutage nicht mehr die Besten, sondern die Sichtbarsten.",
-    "Als Agentur aus der Schweiz verstehen wir den DACH-Markt, den Anspruch an Qualität und die Bedeutung von Vertrauen. Wir arbeiten ausschliesslich mit Kunden zusammen, bei denen wir überzeugt sind, dass wir echte Resultate liefern können.",
-    "Unser Team kombiniert Content-Strategie, Datenanalyse und kreatives Handwerk. Wir hören nicht auf zu optimieren bis die Zahlen stimmen.",
+    "Spectra Media entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen, wie talentierte Unternehmer, Coaches und Experten mit echtem Wissen unsichtbar blieben, während mittelmässige Inhalte viral gingen. Nicht weil die Qualität fehlte – sondern weil das System fehlte.",
+    "Als Gründer hatten wir selbst erlebt, wie mächtig Social Media sein kann – wenn man es richtig einsetzt. Also bauten wir eine Agentur, die genau das liefert: kein Einheitsbrei, keine leeren Versprechen, sondern maßgeschneiderte Content-Systeme, die messbare Resultate produzieren.",
+    "Heute skalieren wir die digitale Präsenz von über 30 Brands im DACH-Raum – vom Fitnesscoach bis zur Anwaltskanzlei. Was uns antreibt: der Moment, in dem ein Kunde sieht, wie sein Account zur echten Umsatzmaschine wird.",
   ],
   values: [
     {
-      title: "Ergebnis über Aktivität",
+      title: "Ergebnis > Aktivität",
       desc: "Wir messen uns an Resultaten, nicht an Arbeitsaufwand. Follower-Wachstum, Reichweite, Anfragen – das zählt.",
     },
     {
-      title: "Vertrauen durch Transparenz",
+      title: "Transparenz > Buzzwords",
       desc: "Keine versteckten Methoden, keine aufgeblähten Zahlen. Du weisst immer genau was wir tun und warum.",
     },
     {
-      title: "Selektiv und fokussiert",
+      title: "Fokus > Masse",
       desc: "Wir arbeiten nicht mit jedem. Wir konzentrieren uns auf eine ausgewählte Selektion von Kunden, bei denen wir Potenzial sehen und wo wir wirklich einen Unterschied machen können.",
+    },
+  ],
+  team: [
+    {
+      name: "Laurin Casutt",
+      role: "Co-Founder & Strategy",
+      img: "/gruender-foto.jpg",
+      linkedin: "https://www.linkedin.com/in/laurin-casutt/",
+    },
+    {
+      name: "Julian Ott",
+      role: "Co-Founder & Operations",
+      img: "/gruender-foto.jpg",
+      linkedin: "#",
+    },
+  ],
+  antiValues: [
+    {
+      title: "One-Fits-All-Lösungen",
+      desc: "Kein Kunde ist wie der andere. Generische Pakete produzieren generische Resultate – das ist nicht unser Weg.",
+    },
+    {
+      title: "Generische Skripte",
+      desc: "Wir schreiben keine Copy-Paste-Texte. Jedes Skript trägt deine Stimme, deine Sprache und deine Persönlichkeit.",
+    },
+    {
+      title: "Vanity Metrics",
+      desc: "Likes ohne Leads bringen nichts. Wir optimieren für echte Resultate: Anfragen, Follower-Wachstum und Umsatz.",
+    },
+    {
+      title: "Leere Versprechen",
+      desc: "Keine aufgeblähten Zahlen, keine unrealistischen Erwartungen. Wir sagen dir im Voraus, was realistisch ist.",
     },
   ],
   cta: {
