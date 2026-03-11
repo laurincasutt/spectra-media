@@ -33,8 +33,8 @@ const contactItems = [
       </svg>
     ),
     label: "Büro",
-    value: "Gossau, St. Gallen, Schweiz",
-    href: "https://maps.app.goo.gl/stgallen",
+    value: "9200 Gossau SG, Schweiz",
+    href: "https://maps.google.com/?q=9200+Gossau+SG+Schweiz",
   },
 ];
 

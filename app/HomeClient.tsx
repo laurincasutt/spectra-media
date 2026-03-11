@@ -6,40 +6,52 @@ import { motion, useScroll, useTransform } from "framer-motion";
 // ─── System card mini visuals ──────────────────────────────────────────────
 
 function StrategyVisual() {
-  // 540px wide chart scrolls left → right side always shows the rising peak
+  // Line DRAWS from left to right (pathLength 0→1) while container pans left.
+  // Effect: graph always extends rightward, the frontier stays visible on the right side.
+  const W = 1080;
+  const DUR = 16;
   return (
     <div
       className="w-full h-full flex items-end justify-center pb-2 overflow-hidden"
-      style={{ maskImage: "linear-gradient(to right, transparent 0%, black 14%, black 92%, transparent 100%)" }}
+      style={{ maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 92%, transparent 100%)" }}
     >
       <div className="w-full relative overflow-hidden" style={{ height: 72 }}>
         <motion.div
           className="absolute top-0 left-0"
-          style={{ width: 540 }}
-          animate={{ x: [0, -360] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+          style={{ width: W }}
+          animate={{ x: [0, -(W - 180)] }}
+          transition={{ duration: DUR, repeat: Infinity, ease: "linear" }}
         >
-          <svg viewBox="0 0 540 90" width={540} height={72} fill="none">
+          <svg viewBox={`0 0 ${W} 90`} width={W} height={72} fill="none">
             <defs>
               <linearGradient id="homeStratGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#0066FF" stopOpacity="0.35" />
+                <stop offset="0%" stopColor="#0066FF" stopOpacity="0.2" />
                 <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <line x1="0" y1="75" x2="540" y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-            <line x1="0" y1="50" x2="540" y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-            <line x1="0" y1="25" x2="540" y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="0" y1="75" x2={W} y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="0" y1="50" x2={W} y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            <line x1="0" y1="25" x2={W} y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
+            {/* Subtle static fill */}
             <polygon
-              points="0,70 90,64 180,56 270,44 360,30 450,16 540,5 540,80 0,80"
+              points={`0,70 ${W*0.25},62 ${W*0.5},48 ${W*0.75},32 ${W},5 ${W},80 0,80`}
               fill="url(#homeStratGrad)"
             />
-            <polyline
-              points="0,70 90,64 180,56 270,44 360,30 450,16 540,5"
-              stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+            {/* Growing line — draws from left to right */}
+            <motion.path
+              d={`M 0,70 L ${W*0.25},62 L ${W*0.5},48 L ${W*0.75},32 L ${W},5`}
+              stroke="#0066FF"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+              animate={{ pathLength: [0, 1] }}
+              transition={{ duration: DUR, repeat: Infinity, ease: "linear" }}
             />
+            {/* Pulsing dot at endpoint */}
             <motion.circle
-              cx={540} cy={5} r={4} fill="#0066FF"
-              animate={{ r: [4, 6, 4], opacity: [1, 0.5, 1] }}
+              cx={W} cy={5} r={4} fill="#0066FF"
+              animate={{ r: [4, 6, 4], opacity: [1, 0.4, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </svg>

@@ -14,9 +14,10 @@ const bubbleStyle = {
 function ScheduleVisual() {
   const DAYS = ["Mo", "Di", "Mi", "Do", "Fr"];
 
+  // 6 task bubbles fly through the grid in different directions / speeds
   const flyBubbles = [
     {
-      top: "14%", left: "2%", size: 40, xDelta: 195, duration: 4.1, delay: 0,
+      top: "8%", left: "2%", size: 40, xDelta: 195, duration: 4.1, delay: 0,
       icon: (
         <svg className="w-5 h-5 text-white/68" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -25,7 +26,7 @@ function ScheduleVisual() {
       ),
     },
     {
-      top: "50%", left: "62%", size: 44, xDelta: -195, duration: 3.7, delay: 0.8,
+      top: "40%", left: "62%", size: 44, xDelta: -195, duration: 3.7, delay: 0.8,
       icon: (
         <svg className="w-5 h-5 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -34,7 +35,7 @@ function ScheduleVisual() {
       ),
     },
     {
-      top: "70%", left: "6%", size: 36, xDelta: 165, duration: 4.7, delay: 1.4,
+      top: "72%", left: "6%", size: 36, xDelta: 165, duration: 4.7, delay: 1.4,
       icon: (
         <svg className="w-4 h-4 text-white/58" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -43,7 +44,7 @@ function ScheduleVisual() {
       ),
     },
     {
-      top: "32%", left: "38%", size: 38, xDelta: -105, duration: 4.0, delay: 0.3,
+      top: "25%", left: "38%", size: 38, xDelta: -105, duration: 4.0, delay: 0.3,
       icon: (
         <svg className="w-4 h-4 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
@@ -51,10 +52,28 @@ function ScheduleVisual() {
         </svg>
       ),
     },
+    {
+      top: "56%", left: "22%", size: 36, xDelta: 130, duration: 5.1, delay: 2.1,
+      icon: (
+        <svg className="w-4 h-4 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      ),
+    },
+    {
+      top: "88%", left: "52%", size: 34, xDelta: -140, duration: 4.4, delay: 1.0,
+      icon: (
+        <svg className="w-4 h-4 text-white/52" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+          </svg>
+      ),
+    },
   ];
 
   return (
-    <div className="relative w-full" style={{ height: 130 }}>
+    <div className="relative w-full" style={{ height: 185 }}>
       <div className="absolute inset-0 px-1">
         <div className="flex gap-1 mb-1.5">
           {DAYS.map((d) => (
@@ -63,14 +82,14 @@ function ScheduleVisual() {
             </div>
           ))}
         </div>
-        {[0, 1, 2].map((r) => (
+        {[0, 1, 2, 3, 4].map((r) => (
           <div key={r} className="flex gap-1 mb-1">
             {DAYS.map((_, c) => (
               <div
                 key={c}
                 className="flex-1 rounded-sm"
                 style={{
-                  height: 28,
+                  height: 26,
                   background: "rgba(255,255,255,0.025)",
                   border: "1px solid rgba(255,255,255,0.045)",
                 }}
@@ -94,18 +113,18 @@ function ScheduleVisual() {
   );
 }
 
-// ─── Card 02: Konkurrenz — 3 Podeste (#1 bobs up/down, Du = #3) ────────────
+// ─── Card 02: Konkurrenz — 3 Podeste (#1 wächst nach oben) ────────────────
 
 function CompetitorVisual() {
   return (
-    <div className="w-full flex items-end justify-center gap-3 pb-1" style={{ height: 120 }}>
+    <div className="w-full flex items-end justify-center gap-3 pb-1" style={{ height: 145 }}>
       {/* #2 — medium, left */}
       <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
         <span className="text-[11px] font-bold text-white/40">#2</span>
         <div
           style={{
             width: "100%",
-            height: 62,
+            height: 78,
             background: "rgba(255,255,255,0.055)",
             border: "1px solid rgba(255,255,255,0.09)",
             borderRadius: "6px 6px 2px 2px",
@@ -113,13 +132,8 @@ function CompetitorVisual() {
         />
       </div>
 
-      {/* #1 — tallest, center — entire column bobs up/down */}
-      <motion.div
-        className="flex flex-col items-center gap-1.5"
-        style={{ width: 72 }}
-        animate={{ y: [0, -9, 0] }}
-        transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-      >
+      {/* #1 — tallest, center — bar grows taller from fixed bottom */}
+      <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
         <span
           className="text-[11px] font-bold text-[#0066FF]"
           style={{ filter: "drop-shadow(0 0 6px rgba(0,102,255,0.7))" }}
@@ -129,21 +143,21 @@ function CompetitorVisual() {
         <motion.div
           style={{
             width: "100%",
-            height: 90,
             background: "rgba(0,102,255,0.13)",
             border: "1px solid rgba(0,102,255,0.3)",
             borderRadius: "6px 6px 2px 2px",
           }}
           animate={{
+            height: [110, 132, 110],
             boxShadow: [
               "0 0 16px rgba(0,102,255,0.18)",
-              "0 0 32px rgba(0,102,255,0.36)",
+              "0 0 32px rgba(0,102,255,0.38)",
               "0 0 16px rgba(0,102,255,0.18)",
             ],
           }}
-          transition={{ duration: 2.5, repeat: Infinity }}
+          transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
         />
-      </motion.div>
+      </div>
 
       {/* #3 + Du — shortest, right, very dim */}
       <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
@@ -154,7 +168,7 @@ function CompetitorVisual() {
         <div
           style={{
             width: "100%",
-            height: 28,
+            height: 38,
             background: "rgba(255,255,255,0.03)",
             border: "1px solid rgba(255,255,255,0.06)",
             borderRadius: "6px 6px 2px 2px",
@@ -170,38 +184,31 @@ function CompetitorVisual() {
 const ITEM_H = 68;
 
 const reelIcons = [
-  // 1 — mail
   <svg key="mail" className="w-7 h-7 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>,
-  // 2 — pencil
   <svg key="pencil" className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
   </svg>,
-  // 3 — settings
   <svg key="cog" className="w-7 h-7 text-white/62" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
   </svg>,
-  // 4 — bar chart
   <svg key="chart" className="w-7 h-7 text-white/58" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
   </svg>,
-  // 5 — calendar
   <svg key="cal" className="w-7 h-7 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
   </svg>,
-  // 6 — film
   <svg key="film" className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
   </svg>,
-  // 7 — star
   <svg key="star" className="w-7 h-7 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
       d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
@@ -210,7 +217,6 @@ const reelIcons = [
 
 function SlotReel() {
   const TOTAL = 7;
-  // Append first 3 copies for seamless loop: at y=-(TOTAL*ITEM_H) visually identical to y=0
   const items = [...reelIcons, ...reelIcons.slice(0, 3)];
 
   return (
@@ -218,28 +224,21 @@ function SlotReel() {
       className="relative overflow-hidden rounded-xl"
       style={{ height: ITEM_H * 3, width: ITEM_H }}
     >
-      {/* Top fade mask */}
       <div
         className="absolute inset-x-0 top-0 z-10 pointer-events-none"
         style={{ height: ITEM_H * 1.1, background: "linear-gradient(to bottom, #111113 30%, transparent 100%)" }}
       />
-      {/* Bottom fade mask */}
       <div
         className="absolute inset-x-0 bottom-0 z-10 pointer-events-none"
         style={{ height: ITEM_H * 1.1, background: "linear-gradient(to top, #111113 30%, transparent 100%)" }}
       />
-
       <motion.div
         className="absolute top-0 left-0 w-full"
         animate={{ y: [0, -(TOTAL * ITEM_H)] }}
         transition={{ duration: TOTAL * 2.2, repeat: Infinity, ease: "linear" }}
       >
         {items.map((icon, idx) => (
-          <div
-            key={idx}
-            className="flex items-center justify-center"
-            style={{ height: ITEM_H }}
-          >
+          <div key={idx} className="flex items-center justify-center" style={{ height: ITEM_H }}>
             <div
               className="flex items-center justify-center rounded-full"
               style={{ width: ITEM_H - 10, height: ITEM_H - 10, ...bubbleStyle }}
@@ -272,7 +271,7 @@ function HourglassVisual() {
       <rect x="3" y="96" width="58" height="8" rx="4"
         fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
 
-      {/* Glass outline — X shape (top + bottom triangles) */}
+      {/* Glass outline */}
       <polygon
         points="6,12 58,12 32,48 32,60 58,96 6,96 32,60 32,48"
         stroke="rgba(255,255,255,0.12)"
@@ -280,16 +279,16 @@ function HourglassVisual() {
         fill="rgba(4,4,6,0.55)"
       />
 
-      {/* Top sand — drains */}
+      {/* Top sand — surface DROPS (y increases), keeping bottom fixed at apex y=47 */}
       <motion.rect
-        x="0" y="12" width="64"
-        animate={{ height: [35, 0] }}
+        x="0" width="64"
+        animate={{ y: [12, 47], height: [35, 0] }}
         transition={{ duration: 4, repeat: Infinity, repeatDelay: 0.8, ease: "linear" }}
         clipPath="url(#hgV2Top)"
         fill="rgba(0,102,255,0.52)"
       />
 
-      {/* Bottom sand — fills */}
+      {/* Bottom sand — surface RISES from bottom of chamber */}
       <motion.rect
         x="0" width="64"
         animate={{ y: [96, 61], height: [0, 35] }}
@@ -313,10 +312,7 @@ function HourglassVisual() {
 function ClockChaosVisual() {
   return (
     <div className="w-full flex items-center justify-center gap-8 py-1">
-      {/* Slot machine reel */}
       <SlotReel />
-
-      {/* Animated hourglass */}
       <div className="flex items-center justify-center">
         <HourglassVisual />
       </div>
