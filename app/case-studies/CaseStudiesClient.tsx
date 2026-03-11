@@ -31,9 +31,9 @@ const statIcons = [icons.followers, icons.views, icons.chart];
 
 function getObjectPosition(slug: string): string {
   const map: Record<string, string> = {
-    'tamer-galal': '50% 15%',
-    'kanzlei-mandic': '50% 10%',
-    'markus-hoppe': '50% 12%',
+    'tamer-galal': '50% 5%',
+    'kanzlei-mandic': '50% 5%',
+    'markus-hoppe': '50% 5%',
   };
   return map[slug] ?? '50% 50%';
 }

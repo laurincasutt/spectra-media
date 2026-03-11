@@ -7,13 +7,13 @@ import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations
 const logos = [
   { src: "/Logos/American-Medical-Wellness-Logo.svg", alt: "American Medical Wellness" },
   { src: "/Logos/American-Wellness-Pharmacy-Logo.png", alt: "American Wellness Pharmacy" },
-  { src: "/Logos/Bad Ass Coaching neu.png", alt: "Badass Coaching Mike Sommerfeld" },
-  { src: "/Logos/BioWell Labs neu.png", alt: "BioWell Labs" },
-  { src: "/Logos/BodyPlanet neu.png", alt: "Body Planet Tamer Galal" },
+  { src: "/Logos/Badass Coaching Mike Sommerfeld.png", alt: "Badass Coaching Mike Sommerfeld" },
+  { src: "/Logos/BioWell Labs.png", alt: "BioWell Labs" },
+  { src: "/Logos/Body Planet Tamer Galal.png", alt: "Body Planet Tamer Galal" },
   { src: "/Logos/Holzapfel neu.png", alt: "Der Holzapfel", invert: true },
   { src: "/Logos/Gannikus neu.png", alt: "Gannikus", invert: true },
-  { src: "/Logos/Hoppe neu.png", alt: "Hoppe Coaching Markus Hoppe" },
-  { src: "/Logos/Kanzlei Mandic neu.png", alt: "Kanzlei Mandic" },
+  { src: "/Logos/Hoppe Coaching Markus Hoppe.png", alt: "Hoppe Coaching Markus Hoppe" },
+  { src: "/Logos/Kanzlei Mandic Dubravko Mandic.png", alt: "Kanzlei Mandic" },
   { src: "/Logos/Maiorano Perfomance 2 George Maiorano.png", alt: "Maiorano Performance George Maiorano" },
 ];
 
@@ -54,20 +54,20 @@ export default function ClientLogosSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="flex flex-wrap items-center justify-center gap-6 lg:gap-8"
+          className="flex flex-wrap items-center justify-center gap-3 lg:gap-4"
         >
           {logos.map((logo, i) => (
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              className="relative h-10 w-28 flex items-center justify-center"
+              className="group relative h-14 w-32 flex items-center justify-center rounded-xl bg-white/5 border border-white/8 hover:bg-white/12 hover:border-white/20 transition-all duration-300 cursor-pointer overflow-hidden"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className={`object-contain transition-all duration-300 grayscale hover:grayscale-0${"invert" in logo && logo.invert ? " opacity-60 hover:opacity-100 invert" : " opacity-50 hover:opacity-100"}`}
-                sizes="112px"
+                className={`object-contain p-2.5 transition-all duration-300 grayscale group-hover:grayscale-0 ${"invert" in logo && logo.invert ? "opacity-55 group-hover:opacity-90 invert" : "opacity-55 group-hover:opacity-100"}`}
+                sizes="128px"
               />
             </motion.div>
           ))}
