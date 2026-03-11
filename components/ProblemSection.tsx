@@ -14,7 +14,6 @@ const bubbleStyle = {
 function ScheduleVisual() {
   const DAYS = ["Mo", "Di", "Mi", "Do", "Fr"];
 
-  // Task bubbles fly through the grid in different directions / speeds
   const flyBubbles = [
     {
       top: "14%", left: "2%", size: 40, xDelta: 195, duration: 4.1, delay: 0,
@@ -56,9 +55,7 @@ function ScheduleVisual() {
 
   return (
     <div className="relative w-full" style={{ height: 130 }}>
-      {/* Wochenplan grid */}
       <div className="absolute inset-0 px-1">
-        {/* Day headers */}
         <div className="flex gap-1 mb-1.5">
           {DAYS.map((d) => (
             <div key={d} className="flex-1 text-center text-[9px] text-white/22 font-semibold tracking-wide">
@@ -66,7 +63,6 @@ function ScheduleVisual() {
             </div>
           ))}
         </div>
-        {/* 3 time rows */}
         {[0, 1, 2].map((r) => (
           <div key={r} className="flex gap-1 mb-1">
             {DAYS.map((_, c) => (
@@ -83,20 +79,11 @@ function ScheduleVisual() {
           </div>
         ))}
       </div>
-
-      {/* Flying task bubbles */}
       {flyBubbles.map((b, i) => (
         <motion.div
           key={i}
           className="absolute flex items-center justify-center rounded-full"
-          style={{
-            top: b.top,
-            left: b.left,
-            width: b.size,
-            height: b.size,
-            zIndex: 10,
-            ...bubbleStyle,
-          }}
+          style={{ top: b.top, left: b.left, width: b.size, height: b.size, zIndex: 10, ...bubbleStyle }}
           animate={{ x: [0, b.xDelta, 0] }}
           transition={{ duration: b.duration, repeat: Infinity, ease: "easeInOut", delay: b.delay }}
         >
@@ -107,11 +94,11 @@ function ScheduleVisual() {
   );
 }
 
-// ─── Card 02: Konkurrenz — 3 Podeste (Konkurrenz weit vorne) ──────────────
+// ─── Card 02: Konkurrenz — 3 Podeste (#1 bobs up/down, Du = #3) ────────────
 
 function CompetitorVisual() {
   return (
-    <div className="w-full flex items-end justify-center gap-3 pb-1" style={{ height: 110 }}>
+    <div className="w-full flex items-end justify-center gap-3 pb-1" style={{ height: 120 }}>
       {/* #2 — medium, left */}
       <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
         <span className="text-[11px] font-bold text-white/40">#2</span>
@@ -126,15 +113,19 @@ function CompetitorVisual() {
         />
       </div>
 
-      {/* #1 — tallest, center, blue glow — Konkurrenz */}
-      <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
-        <motion.span
+      {/* #1 — tallest, center — entire column bobs up/down */}
+      <motion.div
+        className="flex flex-col items-center gap-1.5"
+        style={{ width: 72 }}
+        animate={{ y: [0, -9, 0] }}
+        transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <span
           className="text-[11px] font-bold text-[#0066FF]"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2.2, repeat: Infinity }}
+          style={{ filter: "drop-shadow(0 0 6px rgba(0,102,255,0.7))" }}
         >
           #1
-        </motion.span>
+        </span>
         <motion.div
           style={{
             width: "100%",
@@ -146,17 +137,20 @@ function CompetitorVisual() {
           animate={{
             boxShadow: [
               "0 0 16px rgba(0,102,255,0.18)",
-              "0 0 30px rgba(0,102,255,0.34)",
+              "0 0 32px rgba(0,102,255,0.36)",
               "0 0 16px rgba(0,102,255,0.18)",
             ],
           }}
           transition={{ duration: 2.5, repeat: Infinity }}
         />
-      </div>
+      </motion.div>
 
-      {/* Du — shortest, right, very dim */}
+      {/* #3 + Du — shortest, right, very dim */}
       <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
-        <span className="text-[11px] font-bold text-white/22">Du</span>
+        <div className="flex flex-col items-center leading-tight">
+          <span className="text-[10px] font-bold text-white/30">#3</span>
+          <span className="text-[11px] font-bold text-white/22">Du</span>
+        </div>
         <div
           style={{
             width: "100%",
@@ -171,123 +165,166 @@ function CompetitorVisual() {
   );
 }
 
-// ─── Card 03: Zeit — 3 große Bubbles + animierte Sanduhr ──────────────────
+// ─── Card 03: Zeit — Slot-Machine Reel + Sanduhr ──────────────────────────
+
+const ITEM_H = 68;
+
+const reelIcons = [
+  // 1 — mail
+  <svg key="mail" className="w-7 h-7 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>,
+  // 2 — pencil
+  <svg key="pencil" className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+  </svg>,
+  // 3 — settings
+  <svg key="cog" className="w-7 h-7 text-white/62" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
+  // 4 — bar chart
+  <svg key="chart" className="w-7 h-7 text-white/58" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+  </svg>,
+  // 5 — calendar
+  <svg key="cal" className="w-7 h-7 text-white/65" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+  </svg>,
+  // 6 — film
+  <svg key="film" className="w-7 h-7 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M7 4v16M17 4v16M3 8h4m10 0h4M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+  </svg>,
+  // 7 — star
+  <svg key="star" className="w-7 h-7 text-white/55" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+      d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+  </svg>,
+];
+
+function SlotReel() {
+  const TOTAL = 7;
+  // Append first 3 copies for seamless loop: at y=-(TOTAL*ITEM_H) visually identical to y=0
+  const items = [...reelIcons, ...reelIcons.slice(0, 3)];
+
+  return (
+    <div
+      className="relative overflow-hidden rounded-xl"
+      style={{ height: ITEM_H * 3, width: ITEM_H }}
+    >
+      {/* Top fade mask */}
+      <div
+        className="absolute inset-x-0 top-0 z-10 pointer-events-none"
+        style={{ height: ITEM_H * 1.1, background: "linear-gradient(to bottom, #111113 30%, transparent 100%)" }}
+      />
+      {/* Bottom fade mask */}
+      <div
+        className="absolute inset-x-0 bottom-0 z-10 pointer-events-none"
+        style={{ height: ITEM_H * 1.1, background: "linear-gradient(to top, #111113 30%, transparent 100%)" }}
+      />
+
+      <motion.div
+        className="absolute top-0 left-0 w-full"
+        animate={{ y: [0, -(TOTAL * ITEM_H)] }}
+        transition={{ duration: TOTAL * 2.2, repeat: Infinity, ease: "linear" }}
+      >
+        {items.map((icon, idx) => (
+          <div
+            key={idx}
+            className="flex items-center justify-center"
+            style={{ height: ITEM_H }}
+          >
+            <div
+              className="flex items-center justify-center rounded-full"
+              style={{ width: ITEM_H - 10, height: ITEM_H - 10, ...bubbleStyle }}
+            >
+              {icon}
+            </div>
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
 
 function HourglassVisual() {
   return (
-    <svg viewBox="0 0 52 92" width={52} height={92} fill="none">
+    <svg viewBox="0 0 64 108" width={52} height={88} fill="none">
       <defs>
-        <clipPath id="hgTopClip">
-          <polygon points="6,8 46,8 26,45" />
+        <clipPath id="hgV2Top">
+          <polygon points="6,12 58,12 32,47" />
         </clipPath>
-        <clipPath id="hgBotClip">
-          <polygon points="26,47 46,84 6,84" />
+        <clipPath id="hgV2Bot">
+          <polygon points="32,61 58,96 6,96" />
         </clipPath>
       </defs>
 
       {/* Top cap */}
-      <rect x="4" y="3" width="44" height="6" rx="3" fill="rgba(255,255,255,0.13)" />
+      <rect x="3" y="4" width="58" height="8" rx="4"
+        fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
       {/* Bottom cap */}
-      <rect x="4" y="83" width="44" height="6" rx="3" fill="rgba(255,255,255,0.13)" />
+      <rect x="3" y="96" width="58" height="8" rx="4"
+        fill="rgba(255,255,255,0.13)" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5" />
 
-      {/* Glass body */}
+      {/* Glass outline — X shape (top + bottom triangles) */}
       <polygon
-        points="6,8 46,8 26,46 46,84 6,84 26,46"
-        stroke="rgba(255,255,255,0.1)"
+        points="6,12 58,12 32,48 32,60 58,96 6,96 32,60 32,48"
+        stroke="rgba(255,255,255,0.12)"
         strokeWidth="1"
-        fill="rgba(0,0,0,0.22)"
+        fill="rgba(4,4,6,0.55)"
       />
 
-      {/* Top sand — drains over time */}
+      {/* Top sand — drains */}
       <motion.rect
-        x="0" y="8" width="52"
-        animate={{ height: [37, 0] }}
-        transition={{ duration: 3.6, repeat: Infinity, repeatDelay: 0.5, ease: "linear" }}
-        clipPath="url(#hgTopClip)"
-        fill="rgba(0,102,255,0.32)"
+        x="0" y="12" width="64"
+        animate={{ height: [35, 0] }}
+        transition={{ duration: 4, repeat: Infinity, repeatDelay: 0.8, ease: "linear" }}
+        clipPath="url(#hgV2Top)"
+        fill="rgba(0,102,255,0.52)"
       />
 
       {/* Bottom sand — fills */}
       <motion.rect
-        x="0" width="52"
-        animate={{ y: [84, 47], height: [0, 37] }}
-        transition={{ duration: 3.6, repeat: Infinity, repeatDelay: 0.5, ease: "linear" }}
-        clipPath="url(#hgBotClip)"
-        fill="rgba(0,102,255,0.28)"
+        x="0" width="64"
+        animate={{ y: [96, 61], height: [0, 35] }}
+        transition={{ duration: 4, repeat: Infinity, repeatDelay: 0.8, ease: "linear" }}
+        clipPath="url(#hgV2Bot)"
+        fill="rgba(0,102,255,0.46)"
       />
 
-      {/* Sand grain at pinch point */}
+      {/* Neck drip particle */}
       <motion.circle
-        cx="26" cy="46" r="1.8"
-        fill="rgba(0,102,255,0.55)"
-        animate={{ opacity: [0, 1, 0], cy: [44, 48] }}
-        transition={{ duration: 0.45, repeat: Infinity, ease: "easeIn" }}
+        cx="32" cy="54"
+        r="2.2"
+        fill="#3385FF"
+        animate={{ opacity: [0, 0.9, 0], cy: [48, 60] }}
+        transition={{ duration: 0.55, repeat: Infinity, ease: "easeIn" }}
       />
     </svg>
   );
 }
 
 function ClockChaosVisual() {
-  const taskBubbles = [
-    {
-      delay: 0,
-      floatY: 8,
-      icon: (
-        <svg className="w-7 h-7 text-white/68" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-    },
-    {
-      delay: 0.7,
-      floatY: 6,
-      icon: (
-        <svg className="w-7 h-7 text-white/62" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-        </svg>
-      ),
-    },
-    {
-      delay: 1.3,
-      floatY: 10,
-      icon: (
-        <svg className="w-7 h-7 text-white/58" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-    },
-  ];
-
   return (
-    <div className="w-full flex items-center justify-between gap-2 py-3">
-      {/* 3 large task bubbles */}
-      <div className="flex items-center gap-3">
-        {taskBubbles.map((b, i) => (
-          <motion.div
-            key={i}
-            className="flex items-center justify-center rounded-full"
-            style={{ width: 62, height: 62, flexShrink: 0, ...bubbleStyle }}
-            animate={{ y: [0, -b.floatY, 0] }}
-            transition={{ duration: 3.2 + i * 0.45, repeat: Infinity, delay: b.delay, ease: "easeInOut" }}
-          >
-            {b.icon}
-          </motion.div>
-        ))}
-      </div>
+    <div className="w-full flex items-center justify-center gap-8 py-1">
+      {/* Slot machine reel */}
+      <SlotReel />
 
       {/* Animated hourglass */}
-      <div className="flex items-center justify-center shrink-0">
+      <div className="flex items-center justify-center">
         <HourglassVisual />
       </div>
     </div>
   );
 }
 
-// ─── Icons for card header badges (unchanged) ──────────────────────────────
+// ─── Icons for card header badges ──────────────────────────────────────────
 
 const problemIcon1 = (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

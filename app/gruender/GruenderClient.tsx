@@ -193,16 +193,10 @@ export default function GruenderClient() {
           >
             <motion.span
               variants={fadeUpVariants}
-              className="inline-block text-[#3385FF] text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+              className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-10 uppercase tracking-wider"
             >
               Unsere Werte
             </motion.span>
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-12"
-            >
-              Was wir glauben
-            </motion.h2>
             <motion.div
               variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-3 gap-5"
@@ -213,12 +207,13 @@ export default function GruenderClient() {
                   variants={fadeUpVariants}
                   whileHover={{ scale: 1.02, y: -4 }}
                   transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                  className="relative p-8 rounded-2xl bg-[#111113] border border-white/6 overflow-hidden group cursor-default"
+                  className="relative p-8 rounded-2xl bg-[#111113] border border-white/6 hover:border-[#0066FF]/50 hover:shadow-[0_0_28px_rgba(0,102,255,0.12)] overflow-hidden group cursor-default transition-all duration-300"
                 >
                   <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/8 rounded-full blur-[50px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#0066FF] to-[#3385FF]/50 group-hover:w-full transition-all duration-500 ease-out" />
 
                   {/* Alpinity-style icon box */}
-                  <div className="w-16 h-16 rounded-2xl bg-[#0A0A0F] border border-[#0066FF]/15 flex items-center justify-center mb-7 text-[#3385FF] shadow-[0_0_24px_rgba(0,102,255,0.12)]">
+                  <div className="w-16 h-16 rounded-2xl bg-[#0A0A0F] border border-[#0066FF]/15 group-hover:border-[#0066FF]/35 flex items-center justify-center mb-7 text-[#3385FF] shadow-[0_0_24px_rgba(0,102,255,0.12)] group-hover:shadow-[0_0_28px_rgba(0,102,255,0.32)] transition-all duration-300">
                     {valueIcons[i]}
                   </div>
 
@@ -247,16 +242,10 @@ export default function GruenderClient() {
           >
             <motion.span
               variants={fadeUpVariants}
-              className="inline-block text-[#3385FF] text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+              className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-10 uppercase tracking-wider"
             >
               Unser Team
             </motion.span>
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-12"
-            >
-              Verantwortung hat ein Gesicht
-            </motion.h2>
 
             <motion.div
               variants={staggerContainer}
@@ -314,7 +303,7 @@ export default function GruenderClient() {
           >
             <motion.span
               variants={fadeUpVariants}
-              className="inline-block text-[#3385FF] text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+              className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-6 uppercase tracking-wider"
             >
               Unser Hintergrund
             </motion.span>
@@ -351,7 +340,7 @@ export default function GruenderClient() {
           >
             <motion.span
               variants={fadeUpVariants}
-              className="inline-block text-[#FF4444]/80 text-xs font-semibold tracking-[0.2em] uppercase mb-4"
+              className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-6 uppercase tracking-wider"
             >
               Kein Interesse an
             </motion.span>
@@ -359,7 +348,7 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-12"
             >
-              Was wir nicht tun
+              Wofür wir nicht stehen
             </motion.h2>
             <motion.div
               variants={staggerContainer}

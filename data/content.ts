@@ -605,13 +605,13 @@ export const gruender = {
   team: [
     {
       name: "Laurin Casutt",
-      role: "Co-Founder & Strategy",
+      role: "CEO & Geschäftsführer",
       img: "/gruender-foto.jpg",
       linkedin: "https://www.linkedin.com/in/laurin-casutt/",
     },
     {
       name: "Julian Ott",
-      role: "Co-Founder & Operations",
+      role: "Co-Founder & Head of Operations",
       img: "/gruender-foto.jpg",
       linkedin: "#",
     },
