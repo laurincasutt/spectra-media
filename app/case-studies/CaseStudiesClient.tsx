@@ -31,9 +31,9 @@ const statIcons = [icons.followers, icons.views, icons.chart];
 
 function getObjectPosition(slug: string): string {
   const map: Record<string, string> = {
-    'tamer-galal': '50% 0%',
-    'kanzlei-mandic': '50% 0%',
-    'markus-hoppe': '50% 0%',
+    'tamer-galal': '50% 15%',
+    'kanzlei-mandic': '50% 10%',
+    'markus-hoppe': '50% 12%',
   };
   return map[slug] ?? '50% 50%';
 }
@@ -98,15 +98,15 @@ export default function CaseStudiesClient() {
                     className="relative rounded-2xl overflow-hidden border border-white/10 group-hover:border-[#0066FF]/40 group-hover:shadow-[0_0_40px_rgba(0,102,255,0.2)] transition-all duration-300 flex flex-col flex-1 bg-[#0D0D0F]"
                   >
                     {/* Photo area */}
-                    <div className="relative h-[280px] overflow-hidden flex-shrink-0">
+                    <div className="relative h-[360px] overflow-hidden flex-shrink-0">
                       {cs.profileImg ? (
                         <Image
                           src={cs.profileImg}
                           alt={cs.client}
                           fill
-                          className="object-cover opacity-60"
+                          className={cs.profileImgContain ? "object-contain opacity-90 p-6" : "object-cover opacity-80"}
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          style={{ objectPosition: getObjectPosition(cs.slug) }}
+                          style={cs.profileImgContain ? {} : { objectPosition: getObjectPosition(cs.slug) }}
                         />
                       ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/15 to-[#111113]" />

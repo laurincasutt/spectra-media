@@ -66,7 +66,7 @@ export default function ClientLogosSection() {
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className={`object-contain opacity-50 hover:opacity-80 transition-opacity duration-300 grayscale hover:grayscale-0${"invert" in logo && logo.invert ? " invert hover:invert-0" : ""}`}
+                className={`object-contain transition-all duration-300 grayscale hover:grayscale-0${"invert" in logo && logo.invert ? " opacity-60 hover:opacity-100 invert" : " opacity-50 hover:opacity-100"}`}
                 sizes="112px"
               />
             </motion.div>
