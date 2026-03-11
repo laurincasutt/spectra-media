@@ -103,31 +103,6 @@ export default function HomeClient() {
                 style={{ pathLength: snakePathLength }}
                 filter="url(#snakeGlow)"
               />
-              {/* Traveling particles along row1 → S-curve → row3 */}
-              {[0, 1, 2].map((i) => (
-                <motion.circle
-                  key={i}
-                  r="0.9"
-                  fill="#0066FF"
-                  filter="url(#snakeGlow)"
-                  initial={{ cx: 17, cy: 25 }}
-                  animate={{
-                    cx: [17, 50, 83, 50, 17, 50, 83],
-                    cy: [25, 25, 25, 50, 75, 75, 75],
-                  }}
-                  transition={{
-                    duration: 3.5,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: i * 1.15,
-                    times: [0, 0.15, 0.32, 0.5, 0.68, 0.84, 1],
-                  }}
-                />
-              ))}
-              {/* Connection dots at card centers */}
-              {[[17,25],[50,25],[83,25],[17,75],[50,75],[83,75]].map(([x,y], i) => (
-                <circle key={i} cx={x} cy={y} r="0.8" fill="rgba(0,102,255,0.5)" />
-              ))}
             </svg>
 
             <motion.div

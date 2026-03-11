@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import CaseCard from "@/components/CaseCard";
 import CTASection from "@/components/CTASection";
 import type { CaseStudy } from "@/data/content";
@@ -54,32 +55,65 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
               </Link>
             </motion.div>
 
-            <motion.span
-              variants={fadeUpVariants}
-              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
-            >
-              {cs.badge}
-            </motion.span>
+            {/* 2-col layout: text left, photo right */}
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
+              {/* Left: text content */}
+              <div className="flex-1 min-w-0">
+                <motion.span
+                  variants={fadeUpVariants}
+                  className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
+                >
+                  {cs.badge}
+                </motion.span>
 
-            <motion.h1
-              variants={fadeUpVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
-            >
-              {cs.tagline}
-            </motion.h1>
+                <motion.h1
+                  variants={fadeUpVariants}
+                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-6 leading-tight"
+                >
+                  {cs.tagline}
+                </motion.h1>
 
-            {/* Hero stat */}
-            <motion.div
-              variants={fadeUpVariants}
-              className="inline-flex flex-col items-start p-6 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-4"
-            >
-              <span className="text-5xl lg:text-6xl font-bold text-[#0066FF] leading-none">
-                {cs.heroStat}
-              </span>
-              <span className="text-[#A1A1AA] text-base mt-2">
-                {cs.heroStatLabel}
-              </span>
-            </motion.div>
+                {/* Hero stat */}
+                <motion.div
+                  variants={fadeUpVariants}
+                  className="inline-flex flex-col items-start p-6 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-2"
+                >
+                  <span className="text-5xl lg:text-6xl font-bold text-[#0066FF] leading-none">
+                    {cs.heroStat}
+                  </span>
+                  <span className="text-[#A1A1AA] text-base mt-2">
+                    {cs.heroStatLabel}
+                  </span>
+                </motion.div>
+              </div>
+
+              {/* Right: profile photo */}
+              {cs.profileImg && (
+                <motion.div
+                  variants={fadeUpVariants}
+                  className="w-full lg:w-72 xl:w-80 flex-shrink-0"
+                >
+                  <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden border border-white/10">
+                    <Image
+                      src={cs.profileImg}
+                      alt={cs.client}
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 320px"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#09090B]/60 via-transparent to-transparent" />
+                    {/* Client name badge */}
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="px-3 py-2 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10">
+                        <p className="text-[#F4F4F5] font-bold text-sm">{cs.client}</p>
+                        <p className="text-[#A1A1AA] text-xs">{cs.industry}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </div>
           </motion.div>
         </div>
       </section>
@@ -177,6 +211,53 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
             >
               {cs.outcome.summary}
             </motion.p>
+          </motion.div>
+
+          {/* Screenshots & Insights */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+          >
+            <motion.h2
+              variants={fadeUpVariants}
+              className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-6"
+            >
+              Screenshots & Insights
+            </motion.h2>
+            <motion.div
+              variants={staggerContainer}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {(cs.screenshots && cs.screenshots.length > 0
+                ? cs.screenshots
+                : [null, null]
+              ).map((src, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeUpVariants}
+                  className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-[#111113]"
+                >
+                  {src ? (
+                    <Image
+                      src={src}
+                      alt={`Screenshot ${i + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-white/15 rounded-xl m-2">
+                      <svg className="w-8 h-8 text-white/20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                      <span className="text-white/25 text-sm font-medium">Screenshot / Insight {i + 1}</span>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Quote */}

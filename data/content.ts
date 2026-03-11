@@ -15,6 +15,7 @@ export interface CaseStudy {
   quote?: { text: string; author: string };
   profileImg?: string;
   brandLogoImg?: string;
+  screenshots?: string[];
 }
 
 // ─────────────────────────────────────────────
@@ -241,7 +242,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "tamer-galal",
     client: "Tamer Galal",
-    profileImg: "/Kundenbilder/Tamer Galal.png",
+    profileImg: "/Kundenbilder/Tamer Galal neu.png",
     brandLogoImg: "/Logos/Body Planet Tamer Galal.png",
     industry: "Fitness",
     badge: "Fitness & Coaching",
@@ -275,7 +276,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "kanzlei-mandic",
     client: "Kanzlei Mandic",
-    profileImg: "/Kundenbilder/Dubravko Mandic.jpeg",
+    profileImg: "/Kundenbilder/Kanzlei Mandic neu.png",
     brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.png",
     industry: "Legal",
     badge: "Rechtsberatung",
@@ -309,7 +310,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "markus-hoppe",
     client: "Markus Hoppe",
-    profileImg: "/Kundenbilder/Markus Hoppe.jpg",
+    profileImg: "/Kundenbilder/Markus Hoppe neu.png",
     brandLogoImg: "/Logos/Hoppe Coaching Markus Hoppe.png",
     industry: "Fitness",
     badge: "Fitness & Lifestyle",
@@ -416,7 +417,7 @@ export const caseStudies: CaseStudy[] = [
     tagline: "Podcast in virale Clips umgewandelt",
     heroStat: "Podcast",
     heroStatLabel: "in virale Clips umgewandelt",
-    profileImg: "/Logos/Gannikus Profilbild.png",
+    profileImg: "/Logos/Gannikus Profilbild neu.png",
     brandLogoImg: "/Logos/Gannikus neu.png",
     challenge:
       "Gannikus betreibt den größten Fitness-Podcast im deutschsprachigen Raum. Jede Woche entstehen dort hochwertige Gespräche mit Athleten, Coaches und Branchenexperten.\n\nDer Podcast wurde jedoch hauptsächlich auf YouTube veröffentlicht. Dadurch blieb ein großer Teil des Potentials ungenutzt - denn viele starke Momente aus den Gesprächen verschwanden in langen Episoden und erreichten nur einen Teil der möglichen Zuschauer.\n\nDie Herausforderung bestand darin, diese Inhalte so aufzubereiten, dass sie auch auf Instagram, TikTok und anderen Social-Media-Kanälen ihre volle Wirkung entfalten.",
