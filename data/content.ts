@@ -419,7 +419,6 @@ export const caseStudies: CaseStudy[] = [
     heroStat: "Podcast",
     heroStatLabel: "in virale Clips umgewandelt",
     profileImg: "/Logos/Gannikus Profilbild neu.png",
-    profileImgContain: true,
     brandLogoImg: "/Logos/Gannikus neu.png",
     challenge:
       "Gannikus betreibt den größten Fitness-Podcast im deutschsprachigen Raum. Jede Woche entstehen dort hochwertige Gespräche mit Athleten, Coaches und Branchenexperten.\n\nDer Podcast wurde jedoch hauptsächlich auf YouTube veröffentlicht. Dadurch blieb ein großer Teil des Potentials ungenutzt - denn viele starke Momente aus den Gesprächen verschwanden in langen Episoden und erreichten nur einen Teil der möglichen Zuschauer.\n\nDie Herausforderung bestand darin, diese Inhalte so aufzubereiten, dass sie auch auf Instagram, TikTok und anderen Social-Media-Kanälen ihre volle Wirkung entfalten.",
