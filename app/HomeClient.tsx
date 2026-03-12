@@ -269,8 +269,8 @@ export default function HomeClient() {
           <Reveal><p className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">Bereit loszulegen?</p></Reveal>
           <Reveal delay={0.08}>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F4F4F5] mb-3 leading-tight">
-              Verwandle deine Präsenz in ein System,<br className="hidden sm:block" />{" "}
-              das für dich arbeitet.
+              Den ersten Schritt zu deiner<br className="hidden sm:block" />{" "}
+              digitalen Autorität.
             </h2>
           </Reveal>
           <Reveal delay={0.15}><p className="text-[#71717A] text-base mb-8">In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.</p></Reveal>
