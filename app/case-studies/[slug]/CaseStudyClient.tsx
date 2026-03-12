@@ -237,7 +237,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                 <motion.div
                   key={i}
                   variants={fadeUpVariants}
-                  className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10 bg-[#111113]"
+                  className="relative aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-[#111113]"
                 >
                   {src ? (
                     <Image

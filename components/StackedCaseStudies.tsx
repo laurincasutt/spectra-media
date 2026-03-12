@@ -51,12 +51,11 @@ export default function StackedCaseStudies() {
             return (
               <div
                 key={cs.slug}
-                className={isAfterOpen ? "" : `sticky ${topOffsets[Math.min(i, topOffsets.length - 1)]}`}
+                className={openIndex === null ? `sticky ${topOffsets[Math.min(i, topOffsets.length - 1)]}` : ""}
                 style={{ zIndex: caseStudies.length + (openIndex === i ? 10 : i) }}
               >
                 <motion.div
-                  layout
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={viewportOnce}
                   transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
