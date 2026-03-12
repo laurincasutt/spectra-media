@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import Reveal from "@/components/Reveal";
 
 // ─── Card 01: Kein System — Wochenplan mit fliegenden Task-Kreisen ─────────
 
@@ -398,42 +398,27 @@ export default function ProblemSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0066FF]/3 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="text-center mb-14 lg:mb-18"
-        >
-          <motion.span
-            variants={fadeUpVariants}
-            className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider"
-          >
-            Das Problem
-          </motion.span>
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]"
-          >
-            Warum die meisten Marken unsichtbar bleiben.
-          </motion.h2>
-        </motion.div>
+        <div className="text-center mb-14 lg:mb-18">
+          <Reveal>
+            <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
+              Das Problem
+            </span>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]">
+              Warum die meisten Marken unsichtbar bleiben.
+            </h2>
+          </Reveal>
+        </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
           {problems.map((problem, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUpVariants}
-              whileHover={{ scale: 1.025, y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative p-7 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 hover:border-[#0066FF]/50 hover:shadow-[0_0_28px_rgba(0,102,255,0.12)] flex flex-col overflow-hidden group cursor-default transition-all duration-300"
-            >
+            <Reveal key={i} delay={i * 0.1} className="flex flex-col">
+              <motion.div
+                whileHover={{ scale: 1.025, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative p-7 lg:p-8 rounded-2xl bg-[#111113] border border-white/8 hover:border-[#0066FF]/50 hover:shadow-[0_0_28px_rgba(0,102,255,0.12)] flex flex-col overflow-hidden group cursor-default transition-all duration-300 flex-1"
+              >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/10 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#0066FF] to-[#3385FF]/50 group-hover:w-full transition-all duration-500 ease-out" />
               <div className="text-[#0066FF] font-bold text-5xl lg:text-6xl font-mono opacity-15 absolute top-5 right-6 select-none">
@@ -445,9 +430,10 @@ export default function ProblemSection() {
               <h3 className="text-[#F4F4F5] font-bold text-xl mb-2 relative z-10">{problem.title}</h3>
               <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{problem.desc}</p>
               <div className="relative z-10 mt-auto pt-4">{problem.visual}</div>
-            </motion.div>
+              </motion.div>
+            </Reveal>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -200,11 +200,7 @@ import SolutionPlaceholder from "@/components/SolutionPlaceholder";
 import StackedCaseStudies from "@/components/StackedCaseStudies";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
 import { home, nav } from "@/data/content";
-import {
-  fadeUpVariants,
-  staggerContainer,
-  viewportOnce,
-} from "@/lib/animations";
+import Reveal from "@/components/Reveal";
 
 // ─── System card wrapper — tracks hover state per card ─────────────────────
 
@@ -218,12 +214,11 @@ function SystemCard({
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
-      variants={fadeUpVariants}
       whileHover={{ scale: 1.03, y: -4 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       transition={{ type: "spring", stiffness: 350, damping: 22 }}
-      className="flex flex-col rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default transition-all duration-300 hover:border-[#0066FF]/40 hover:shadow-[0_0_28px_rgba(0,102,255,0.1)]"
+      className="flex flex-col rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default transition-all duration-300 hover:border-[#0066FF]/40 hover:shadow-[0_0_28px_rgba(0,102,255,0.1)] h-full"
     >
       <div className="relative h-[140px] bg-[#0D0D0F] flex items-center justify-center overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0066FF]/4 to-transparent pointer-events-none" />
@@ -271,39 +266,27 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-[#0066FF]/4 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#0066FF]/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-          >
-            <motion.p variants={fadeUpVariants} className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">
-              Bereit loszulegen?
-            </motion.p>
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F4F4F5] mb-3 leading-tight"
-            >
+          <Reveal><p className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">Bereit loszulegen?</p></Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F4F4F5] mb-3 leading-tight">
               Verwandle deine Präsenz in ein System,<br className="hidden sm:block" />{" "}
               das für dich arbeitet.
-            </motion.h2>
-            <motion.p variants={fadeUpVariants} className="text-[#71717A] text-base mb-8">
-              In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.
-            </motion.p>
-            <motion.div variants={fadeUpVariants}>
-              <a
-                href={nav.ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 hover:scale-[1.02] active:scale-95"
-              >
-                Kostenloses Erstgespräch buchen
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </motion.div>
-          </motion.div>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}><p className="text-[#71717A] text-base mb-8">In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.</p></Reveal>
+          <Reveal delay={0.2}>
+            <a
+              href={nav.ctaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 hover:scale-[1.02] active:scale-95"
+            >
+              Kostenloses Erstgespräch buchen
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </Reveal>
         </div>
       </section>
 
@@ -312,32 +295,11 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
         <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={viewportOnce}
-            className="text-center mb-16 lg:mb-20"
-          >
-            <motion.span
-              variants={fadeUpVariants}
-              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4"
-            >
-              {system.eyebrow}
-            </motion.span>
-            <motion.h2
-              variants={fadeUpVariants}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
-            >
-              {system.headline}
-            </motion.h2>
-            <motion.p
-              variants={fadeUpVariants}
-              className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
-            >
-              {system.sub}
-            </motion.p>
-          </motion.div>
+          <div className="text-center mb-16 lg:mb-20">
+            <Reveal><span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4">{system.eyebrow}</span></Reveal>
+            <Reveal delay={0.08}><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4">{system.headline}</h2></Reveal>
+            <Reveal delay={0.15}><p className="text-[#A1A1AA] text-lg max-w-2xl mx-auto">{system.sub}</p></Reveal>
+          </div>
 
           {/* Grid with snake SVG overlay */}
           <div ref={gridRef} className="relative">
@@ -373,18 +335,16 @@ export default function HomeClient() {
               />
             </svg>
 
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="show"
-              viewport={viewportOnce}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative z-10"
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 relative z-10">
               {system.deliverables.map((item, i) => {
                 const Visual = systemCardVisuals[i];
-                return <SystemCard key={i} item={item} Visual={Visual} />;
+                return (
+                  <Reveal key={i} delay={i * 0.08}>
+                    <SystemCard item={item} Visual={Visual} />
+                  </Reveal>
+                );
               })}
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>

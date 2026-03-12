@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import Reveal from "@/components/Reveal";
 
 // Visual 01 — Pin + Wirkung scale
 function WirkungVisual() {
@@ -204,72 +204,57 @@ export default function AdvantagesSection() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#0066FF]/4 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="text-center mb-16 lg:mb-20"
-        >
-          <motion.span
-            variants={fadeUpVariants}
-            className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider"
-          >
-            Vorteile
-          </motion.span>
-          <motion.h2
-            variants={fadeUpVariants}
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
-          >
-            Wie unsere Kunden ganze Märkte dominieren.
-          </motion.h2>
-          <motion.p
-            variants={fadeUpVariants}
-            className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
-          >
-            Spectra Media verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.
-          </motion.p>
-        </motion.div>
+        <div className="text-center mb-16 lg:mb-20">
+          <Reveal>
+            <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
+              Vorteile
+            </span>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4">
+              Wie unsere Kunden ganze Märkte dominieren.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <p className="text-[#A1A1AA] text-lg max-w-2xl mx-auto">
+              Spectra Media verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.
+            </p>
+          </Reveal>
+        </div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {cards.map((card, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUpVariants}
-              whileHover={{ scale: 1.025, y: -4 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative rounded-2xl border border-white/8 hover:border-[#0066FF]/40 overflow-hidden group cursor-default flex flex-col transition-colors duration-300"
-              style={{ backgroundColor: "#111113" }}
-            >
-              {/* Number badge */}
-              <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 text-[#3385FF] text-xs font-bold">
-                  {card.number}
-                </span>
-              </div>
+            <Reveal key={i} delay={i * 0.08}>
+              <motion.div
+                whileHover={{ scale: 1.025, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="relative rounded-2xl border border-white/8 hover:border-[#0066FF]/40 overflow-hidden group cursor-default flex flex-col transition-colors duration-300 h-full"
+                style={{ backgroundColor: "#111113" }}
+              >
+                {/* Number badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/30 text-[#3385FF] text-xs font-bold">
+                    {card.number}
+                  </span>
+                </div>
 
-              {/* Hover glow */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/8 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Hover glow */}
+                <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#0066FF]/8 rounded-full blur-[40px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              {/* Visual area */}
-              <div className="relative z-10 h-36 px-6 pt-6">
-                {card.visual}
-              </div>
+                {/* Visual area */}
+                <div className="relative z-10 h-36 px-6 pt-6">
+                  {card.visual}
+                </div>
 
-              {/* Text */}
-              <div className="relative z-10 px-6 pb-6 pt-3 border-t border-white/5 mt-auto">
-                <h3 className="text-[#F4F4F5] font-bold text-base mb-2">{card.title}</h3>
-                <p className="text-[#A1A1AA] text-sm leading-relaxed">{card.desc}</p>
-              </div>
-            </motion.div>
+                {/* Text */}
+                <div className="relative z-10 px-6 pb-6 pt-3 border-t border-white/5 mt-auto">
+                  <h3 className="text-[#F4F4F5] font-bold text-base mb-2">{card.title}</h3>
+                  <p className="text-[#A1A1AA] text-sm leading-relaxed">{card.desc}</p>
+                </div>
+              </motion.div>
+            </Reveal>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
