@@ -277,7 +277,7 @@ export default function GruenderClient() {
                   className="relative rounded-2xl overflow-hidden bg-[#111113] border border-white/8 group"
                 >
                   {/* Photo */}
-                  <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
+                  <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
                     <TeamPhoto src={member.img} alt={member.name} />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-[#111113]/20 to-transparent" />
                   </div>
