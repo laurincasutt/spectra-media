@@ -230,10 +230,10 @@ export const home = {
   ],
 
   bottomCta: {
-    eyebrow: "Bereit anzufangen?",
-    headline: "Lass uns reden. Kostenlos und unverbindlich.",
-    sub: "In 30 Minuten findest du heraus, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.",
-    cta: "Erstgespräch buchen",
+    eyebrow: "Bereit loszulegen?",
+    headline: "Den ersten Schritt zu deiner digitalen Autorität.",
+    sub: "In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.",
+    cta: "Kostenloses Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
   },
 };

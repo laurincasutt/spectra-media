@@ -20,9 +20,18 @@ export default function CTASection({
 }: CTASectionProps) {
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
-      {/* Background gradient */}
+      {/* Background glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0066FF]/5 to-transparent" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#0066FF]/10 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#0066FF]/8 rounded-full blur-[120px]" />
+
+      {/* Concentric blue rings */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+        <div className="w-[200px] h-[200px] rounded-full border border-[#0066FF]/35 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-[340px] h-[340px] rounded-full border border-[#0066FF]/22 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-[500px] h-[500px] rounded-full border border-[#0066FF]/14 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-[680px] h-[680px] rounded-full border border-[#0066FF]/8 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+        <div className="w-[880px] h-[880px] rounded-full border border-[#0066FF]/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
