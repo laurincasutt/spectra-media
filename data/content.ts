@@ -17,6 +17,7 @@ export interface CaseStudy {
   profileImgContain?: boolean;
   brandLogoImg?: string;
   screenshots?: string[];
+  screenshotVideo?: string;
 }
 
 // ─────────────────────────────────────────────
@@ -273,6 +274,13 @@ export const caseStudies: CaseStudy[] = [
       text: "Spectra Media hat nicht nur meinen Social Media Account von neuem aufgebaut - sie haben mein ganzes Business transformiert. Heute bekomme ich Anfragen und muss ihnen nicht mehr ständig hinterherlaufen.",
       author: "Tamer Galal, Fitness Coach",
     },
+    screenshots: [
+      "/case-studies/tamer-galal/follower-ig.png",
+      "/case-studies/tamer-galal/views-ig.png",
+      "/case-studies/tamer-galal/insights-yt.png",
+      "/case-studies/tamer-galal/tiktok-follower.png",
+      "/case-studies/tamer-galal/tiktok-views.png",
+    ],
   },
   {
     slug: "kanzlei-mandic",
@@ -307,6 +315,11 @@ export const caseStudies: CaseStudy[] = [
       text: "Wir hätten nie erwartet, dass Social Media sich so direkt auf unser Geschäft auszahlen kann. Spectra Media hat das für uns möglich gemacht - und dafür sind wir ihnen unendlich dankbar.",
       author: "Kanzlei Mandic, Anwaltskanzlei",
     },
+    screenshots: [
+      "/case-studies/kanzlei-mandic/follower-ig.png",
+      "/case-studies/kanzlei-mandic/interaktionen-ig.png",
+      "/case-studies/kanzlei-mandic/views-ig.png",
+    ],
   },
   {
     slug: "markus-hoppe",
@@ -341,6 +354,11 @@ export const caseStudies: CaseStudy[] = [
       text: "Ich wusste, dass Potenzial in meinem Account steckt, aber mir fehlte ein klares System. Mit Spectra Media wurde aus meinem Account eine echte Personal Brand, die mir monatlich über 20k generiert.",
       author: "Markus Hoppe, Fitness Coach",
     },
+    screenshots: [
+      "/case-studies/markus-hoppe/follower-ig.png",
+      "/case-studies/markus-hoppe/interaktion-ig.png",
+      "/case-studies/markus-hoppe/views-ig.png",
+    ],
   },
   {
     slug: "george-maiorano",
@@ -375,6 +393,11 @@ export const caseStudies: CaseStudy[] = [
       text: "Ich habe schon erwartet, dass mein Content auf Interesse stößt, aber dass Spectra Media mir 10.000 Follower in 6 Wochen generiert, das hat alle meine Erwartungen gesprengt.",
       author: "George Maiorano, Geschäftsführer und Inhaber von American Medical Wellness und American Wellness Pharmacy",
     },
+    screenshots: [
+      "/case-studies/george-maiorano/follower-ig.png",
+      "/case-studies/george-maiorano/interaktionen-ig.png",
+      "/case-studies/george-maiorano/views-ig.png",
+    ],
   },
   {
     slug: "mike-sommerfeld",
@@ -409,6 +432,11 @@ export const caseStudies: CaseStudy[] = [
       text: "Die Vorbereitung auf den Mr. Olympia war eine der intensivsten Phasen meiner Karriere. Spectra Media hat es geschafft, genau diese Energie einzufangen und daraus Content zu machen, der Millionen Menschen erreicht hat.",
       author: "Mike Sommerfeld, Bodybuilder & Mr. Olympia Athlet",
     },
+    screenshots: [
+      "/case-studies/mike-sommerfeld/follower-ig.png",
+      "/case-studies/mike-sommerfeld/views-ig.png",
+    ],
+    screenshotVideo: "/case-studies/mike-sommerfeld/review-video.mp4",
   },
   {
     slug: "gannikus",
@@ -442,6 +470,11 @@ export const caseStudies: CaseStudy[] = [
       text: "Wir hatten bereits starken Content im Podcast - aber durch die Short Clips erreicht er jetzt ein völlig neues Publikum.",
       author: "Danny, CEO und Inhaber Gannikus",
     },
+    screenshots: [
+      "/case-studies/gannikus/follower-ig.jpg",
+      "/case-studies/gannikus/interaktionen-ig.jpg",
+      "/case-studies/gannikus/views-ig.jpg",
+    ],
   },
 ];
 

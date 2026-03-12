@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { caseStudies } from "@/data/content";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
@@ -174,6 +175,17 @@ export default function StackedCaseStudies() {
                                   <cite className="text-[#52525B] text-xs not-italic mt-2 block">— {cs.quote.author}</cite>
                                 </blockquote>
                               )}
+                              <div className="flex justify-end pt-2">
+                                <Link
+                                  href={`/case-studies/${cs.slug}`}
+                                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/25 text-[#3385FF] text-sm font-medium hover:bg-[#0066FF]/20 hover:border-[#0066FF]/50 transition-all duration-200 group"
+                                >
+                                  Zur Case Study
+                                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                  </svg>
+                                </Link>
+                              </div>
                             </div>
                           </div>
                         </div>
