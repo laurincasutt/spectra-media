@@ -610,9 +610,9 @@ export const gruender = {
       linkedin: "https://www.linkedin.com/in/laurin-casutt/",
     },
     {
-      name: "Julian Ott",
+      name: "Andri Casutt",
       role: "Co-Founder & Head of Operations",
-      img: "/Team Spectra Media/Bild André.png",
+      img: "/Team Spectra Media/Bild Andri.png",
       linkedin: "#",
     },
   ],
