@@ -55,10 +55,10 @@ export default function StackedCaseStudies() {
                 style={{ zIndex: caseStudies.length + (openIndex === i ? 10 : i) }}
               >
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 32 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={viewportOnce}
-                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: i * 0.04 }}
+                  transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1], delay: i * 0.07 }}
                   className="rounded-2xl border border-white/8 overflow-hidden relative group"
                   style={{ backgroundColor: cardBgs[i % cardBgs.length] }}
                 >
