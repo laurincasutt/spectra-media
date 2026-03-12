@@ -1,0 +1,17 @@
+[     663ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[  882044ms] [ERROR] ./app/case-studies/[slug]/CaseStudyClient.tsx:280:14
+Parsing ecmascript source code failed
+  278 |               )}
+  279 |             </motion.div>
+> 280 |             </motion.div>
+      |              ^^^^^^^^^^^^
+  281 |           )}
+  282 |
+  283 |           {/* Quote */}
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./app/case-studies/[slug]/CaseStudyClient.tsx
+    ./app/case-studies/[slug]/page.tsx @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127

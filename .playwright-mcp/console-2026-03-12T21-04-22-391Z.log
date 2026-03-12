@@ -1,0 +1,5 @@
+[   19974ms] [WARNING] The resource http://localhost:3036/_next/image?url=%2FKundenbilder%2FMike%20Sommerfeld.png&w=640&q=75 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3036/case-studies/mike-sommerfeld:0
+[   40443ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[   40481ms] [ERROR] Error: <rect> attribute height: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_74919255._.js:11801
+[   40481ms] [ERROR] Error: <rect> attribute height: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_74919255._.js:11801
+[   40481ms] [ERROR] Error: <circle> attribute cy: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_74919255._.js:11801

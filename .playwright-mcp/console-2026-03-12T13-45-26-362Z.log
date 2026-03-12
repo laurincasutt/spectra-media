@@ -1,0 +1,188 @@
+[    2872ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2958429ms] ReferenceError: staggerContainer is not defined
+    at ProblemSection (http://localhost:3036/_next/static/chunks/_ee37b065._.js?id=%255Bproject%255D%252Fcomponents%252FProblemSection.tsx+%255Bapp-client%255D+%2528ecmascript%2529:1048:35)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[ 2970151ms] [ERROR] ./components/ProblemSection.tsx:436:7
+Parsing ecmascript source code failed
+  434 |           ))}
+  435 |         </motion.div>
+> 436 |       </div>
+      |       ^
+  437 |     </section>
+  438 |   );
+  439 | }
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./components/ProblemSection.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ProblemSection.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component] @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[ 2970151ms] [ERROR] ./components/ProblemSection.tsx:434:13
+Parsing ecmascript source code failed
+  432 |               <div className="relative z-10 mt-auto pt-4">{problem.visual}</div>
+  433 |             </motion.div>
+> 434 |           ))}
+      |             ^
+  435 |         </motion.div>
+  436 |       </div>
+  437 |     </section>
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/ProblemSection.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ProblemSection.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component] @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[ 2970151ms] [ERROR] ./components/ProblemSection.tsx:436:8
+Parsing ecmascript source code failed
+  434 |           ))}
+  435 |         </motion.div>
+> 436 |       </div>
+      |        ^^^^^
+  437 |     </section>
+  438 |   );
+  439 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ProblemSection.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Client Component Browser]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ProblemSection.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Client Component SSR]
+    ./app/HomeClient.tsx [Server Component]
+    ./app/page.tsx [Server Component] @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[ 2973239ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 2973389ms] [ERROR] Error: <rect> attribute height: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_b6b5bf8e._.js:11801
+[ 2973389ms] [ERROR] Error: <rect> attribute height: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_b6b5bf8e._.js:11801
+[ 2973389ms] [ERROR] Error: <circle> attribute cy: Expected length, "undefined". @ http://localhost:3036/_next/static/chunks/node_modules_b6b5bf8e._.js:11801
+[ 2975936ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 3052575ms] ReferenceError: staggerContainer is not defined
+    at HomeClient (http://localhost:3036/_next/static/chunks/_52cc7296._.js?id=%255Bproject%255D%252Fapp%252FHomeClient.tsx+%255Bapp-client%255D+%2528ecmascript%2529:879:39)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6708:24)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[ 3059452ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 3059493ms] ReferenceError: staggerContainer is not defined
+    at HomeClient (http://localhost:3036/_next/static/chunks/_52cc7296._.js?id=%255Bproject%255D%252Fapp%252FHomeClient.tsx+%255Bapp-client%255D+%2528ecmascript%2529:878:39)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6687:639)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performSyncWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10238:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10154:316)
+    at flushSyncWork$1 (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9237:86)
+    at Object.scheduleRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:299:13)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:391:33
+    at Set.forEach (<anonymous>)
+    at Object.performReactRefresh (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:384:38)
+    at applyUpdate (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:878:31)
+    at http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:886:13
+[ 3060428ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3036/:0
+[ 3060580ms] ReferenceError: staggerContainer is not defined
+    at HomeClient (http://localhost:3036/_next/static/chunks/_52cc7296._.js:5855:39)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6687:639)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3063586ms] [WARNING] The resource http://localhost:3036/_next/static/chunks/%5Broot-of-the-server%5D__e245173b._.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3036/:0
+[ 3077331ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 3078743ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3036/:0
+[ 3078887ms] ReferenceError: staggerContainer is not defined
+    at HomeClient (http://localhost:3036/_next/static/chunks/_52cc7296._.js:5985:43)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6687:639)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3081898ms] [WARNING] The resource http://localhost:3036/_next/static/chunks/%5Broot-of-the-server%5D__e245173b._.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3036/:0
+[ 3085067ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 3085528ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3036/:0
+[ 3085697ms] ReferenceError: staggerContainer is not defined
+    at HomeClient (http://localhost:3036/_next/static/chunks/_52cc7296._.js:6128:51)
+    at Object.react_stack_bottom_frame (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:14826:24)
+    at renderWithHooks (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:4651:24)
+    at updateFunctionComponent (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6112:21)
+    at beginWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:6687:639)
+    at runWithFiberInDEV (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:965:74)
+    at performUnitOfWork (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9562:97)
+    at workLoopSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9456:40)
+    at renderRootSync (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9440:13)
+    at performWorkOnRoot (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:9105:47)
+    at performWorkOnRootViaSchedulerTask (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js:10230:9)
+    at MessagePort.performWorkUntilDeadline (http://localhost:3036/_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js:2647:64)
+[ 3088703ms] [WARNING] The resource http://localhost:3036/_next/static/chunks/%5Broot-of-the-server%5D__e245173b._.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally. @ http://localhost:3036/:0
+[ 3090705ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
+[ 3091838ms] [WARNING] Please ensure that the container has a non-static position, like 'relative', 'fixed', or 'absolute' to ensure scroll offset is calculated correctly. @ http://localhost:3036/_next/static/chunks/node_modules_next_dist_f3530cac._.js:2297
