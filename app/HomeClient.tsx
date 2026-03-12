@@ -1,59 +1,60 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
 
-// ─── System card mini visuals ──────────────────────────────────────────────
+// ─── System card mini visuals (all animate only on hover via `active` prop) ──
 
-function StrategyVisual() {
-  // Line DRAWS from left to right (pathLength 0→1) while container pans left.
-  // Effect: graph always extends rightward, the frontier stays visible on the right side.
+function StrategyVisual({ active }: { active: boolean }) {
+  const panControls = useAnimation();
+  const pathControls = useAnimation();
   const W = 1080;
-  const DUR = 16;
+  const DUR = 8; // Faster + steeper than default
+
+  useEffect(() => {
+    if (active) {
+      panControls.start({ x: [0, -(W - 180)], transition: { duration: DUR, repeat: Infinity, ease: "linear" } });
+      pathControls.start({ pathLength: [0, 1], transition: { duration: DUR, repeat: Infinity, ease: "linear" } });
+    } else {
+      panControls.stop();
+      panControls.set({ x: 0 });
+      pathControls.stop();
+      pathControls.set({ pathLength: 1 });
+    }
+  }, [active, panControls, pathControls]);
+
   return (
     <div
       className="w-full h-full flex items-end justify-center pb-2 overflow-hidden"
       style={{ maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 92%, transparent 100%)" }}
     >
       <div className="w-full relative overflow-hidden" style={{ height: 72 }}>
-        <motion.div
-          className="absolute top-0 left-0"
-          style={{ width: W }}
-          animate={{ x: [0, -(W - 180)] }}
-          transition={{ duration: DUR, repeat: Infinity, ease: "linear" }}
-        >
+        <motion.div className="absolute top-0 left-0" style={{ width: W }} animate={panControls} initial={{ x: 0 }}>
           <svg viewBox={`0 0 ${W} 90`} width={W} height={72} fill="none">
             <defs>
               <linearGradient id="homeStratGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#0066FF" stopOpacity="0.2" />
+                <stop offset="0%" stopColor="#0066FF" stopOpacity="0.22" />
                 <stop offset="100%" stopColor="#0066FF" stopOpacity="0" />
               </linearGradient>
             </defs>
             <line x1="0" y1="75" x2={W} y2="75" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
             <line x1="0" y1="50" x2={W} y2="50" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
             <line x1="0" y1="25" x2={W} y2="25" stroke="rgba(255,255,255,0.06)" strokeWidth="1" />
-            {/* Subtle static fill */}
-            <polygon
-              points={`0,70 ${W*0.25},62 ${W*0.5},48 ${W*0.75},32 ${W},5 ${W},80 0,80`}
-              fill="url(#homeStratGrad)"
-            />
-            {/* Growing line — draws from left to right */}
+            {/* Steeper fill area */}
+            <polygon points={`0,72 ${W*0.25},58 ${W*0.5},40 ${W*0.75},20 ${W},2 ${W},80 0,80`} fill="url(#homeStratGrad)" />
+            {/* Steeper line */}
             <motion.path
-              d={`M 0,70 L ${W*0.25},62 L ${W*0.5},48 L ${W*0.75},32 L ${W},5`}
-              stroke="#0066FF"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              fill="none"
-              animate={{ pathLength: [0, 1] }}
-              transition={{ duration: DUR, repeat: Infinity, ease: "linear" }}
+              d={`M 0,72 L ${W*0.25},58 L ${W*0.5},40 L ${W*0.75},20 L ${W},2`}
+              stroke="#0066FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"
+              initial={{ pathLength: 1 }}
+              animate={pathControls}
             />
-            {/* Pulsing dot at endpoint */}
-            <motion.circle
-              cx={W} cy={5} r={4} fill="#0066FF"
-              animate={{ r: [4, 6, 4], opacity: [1, 0.4, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
+            {active && (
+              <motion.circle cx={W} cy={2} r={4} fill="#0066FF"
+                animate={{ r: [4, 6, 4], opacity: [1, 0.4, 1] }}
+                transition={{ duration: 1.2, repeat: Infinity }}
+              />
+            )}
           </svg>
         </motion.div>
       </div>
@@ -61,39 +62,31 @@ function StrategyVisual() {
   );
 }
 
-function ScriptVisual() {
-  // 5 lines fill sequentially, 1.3s each → 6.5s filled → 0.5s pause → all reset simultaneously
-  // Total cycle = 7.0s. Line i fills during [i*1.3, (i+1)*1.3], resets at 7.0s
+function ScriptVisual({ active }: { active: boolean }) {
   const CYCLE = 7.0;
   const FILL = 1.3;
-  const RESET = 6.5 / CYCLE; // normalised time when last line finishes
+  const RESET = 6.5 / CYCLE;
   const lineWidths = [0.85, 0.65, 0.92, 0.55, 0.75];
-
-  // Line 0 = HOOK bar, lines 1-4 = script lines
   const makeTimes = (i: number) => [0, (i * FILL) / CYCLE, ((i + 1) * FILL) / CYCLE, RESET, 1];
 
   return (
     <div className="w-full h-full flex flex-col justify-center gap-2.5 px-8 py-3">
-      {/* HOOK row */}
       <div className="flex items-center gap-2">
-        <div className="px-2 py-0.5 rounded text-[10px] font-bold text-[#0066FF] bg-[#0066FF]/15 border border-[#0066FF]/30 whitespace-nowrap">
-          HOOK
-        </div>
+        <div className="px-2 py-0.5 rounded text-[10px] font-bold text-[#0066FF] bg-[#0066FF]/15 border border-[#0066FF]/30 whitespace-nowrap">HOOK</div>
         <div className="flex-1 relative h-2 rounded-full bg-[#0066FF]/15 overflow-hidden">
           <motion.div
             className="absolute inset-y-0 left-0 rounded-full bg-[#0066FF]/65"
-            animate={{ width: ["0%", "0%", "100%", "100%", "0%"] }}
-            transition={{ duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(0) }}
+            animate={active ? { width: ["0%", "0%", "100%", "100%", "0%"] } : { width: "28%" }}
+            transition={active ? { duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(0) } : { duration: 0.4 }}
           />
         </div>
       </div>
-      {/* Script lines */}
       {lineWidths.map((w, i) => (
         <div key={i} className="relative h-2 rounded-full bg-white/10 overflow-hidden" style={{ width: `${w * 100}%` }}>
           <motion.div
             className="absolute inset-y-0 left-0 rounded-full bg-[#0066FF]/45"
-            animate={{ width: ["0%", "0%", "100%", "100%", "0%"] }}
-            transition={{ duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(i + 1) }}
+            animate={active ? { width: ["0%", "0%", "100%", "100%", "0%"] } : { width: "22%" }}
+            transition={active ? { duration: CYCLE, repeat: Infinity, ease: ["linear", "easeOut", "linear", "linear"], times: makeTimes(i + 1) } : { duration: 0.4 }}
           />
         </div>
       ))}
@@ -101,7 +94,7 @@ function ScriptVisual() {
   );
 }
 
-function EditingVisual() {
+function EditingVisual({ active }: { active: boolean }) {
   return (
     <div className="w-full h-full flex flex-col justify-center gap-2.5 px-6">
       <div className="relative flex gap-1 h-8">
@@ -109,14 +102,14 @@ function EditingVisual() {
           <motion.div key={i}
             className={`rounded h-full border ${s.hi ? "bg-[#0066FF]/50 border-[#0066FF]/50" : "bg-white/10 border-white/8"}`}
             style={{ flexBasis: `${s.w}%`, flexShrink: 0, flexGrow: 0 }}
-            animate={s.hi ? { opacity: [0.7, 1, 0.7] } : {}}
+            animate={s.hi && active ? { opacity: [0.7, 1, 0.7] } : {}}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
         ))}
         <motion.div
           className="absolute top-0 bottom-0 w-0.5 bg-[#0066FF] shadow-[0_0_6px_rgba(0,102,255,0.7)]"
-          animate={{ left: ["5%", "90%"] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+          animate={active ? { left: ["5%", "90%"] } : { left: "5%" }}
+          transition={active ? { duration: 4, repeat: Infinity, ease: "linear" } : { duration: 0.3 }}
         />
       </div>
       <div className="flex gap-1 h-4">
@@ -128,15 +121,15 @@ function EditingVisual() {
   );
 }
 
-function CommunityVisual() {
+function CommunityVisual({ active }: { active: boolean }) {
   return (
     <div className="w-full h-full flex items-center justify-center">
       <div className="grid grid-cols-3 gap-2">
         {[...Array(6)].map((_, i) => (
           <motion.div key={i}
             className="w-12 h-12 rounded-xl bg-white/8 border border-white/8 flex items-center justify-center"
-            animate={{ opacity: [0.5, 0.9, 0.5] }}
-            transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+            animate={active ? { opacity: [0.5, 0.9, 0.5] } : { opacity: 0.5 }}
+            transition={active ? { duration: 2, repeat: Infinity, delay: i * 0.3 } : {}}
           >
             {i === 2 && (
               <svg className="w-4 h-4 text-[#FF6B6B]" fill="currentColor" viewBox="0 0 20 20">
@@ -155,61 +148,99 @@ function CommunityVisual() {
   );
 }
 
-function FunnelVisual() {
+function FunnelVisual({ active }: { active: boolean }) {
+  // Sized to fit in 140px container: bars h-6 (24px), gap-1 (4px), connector h-3 (12px), € w-5 h-5 (20px)
   return (
-    <div className="w-full h-full flex items-center justify-center">
-      <div className="flex flex-col items-center gap-1.5">
-        {[{ w: 110, label: "Reichweite" }, { w: 80, label: "Leads" }, { w: 50, label: "Kunden" }].map((s, i) => (
+    <div className="w-full h-full flex items-center justify-center py-2">
+      <div className="flex flex-col items-center gap-1">
+        {[{ w: 100, label: "Reichweite" }, { w: 72, label: "Leads" }, { w: 46, label: "Kunden" }].map((s, i) => (
           <motion.div key={i}
-            className="flex items-center justify-center h-7 rounded-lg"
+            className="flex items-center justify-center h-6 rounded-lg"
             style={{ width: s.w, background: `rgba(0,102,255,${0.1 + i * 0.08})`, border: `1px solid rgba(0,102,255,${0.2 + i * 0.1})` }}
-            animate={{ opacity: [0.65, 1, 0.65] }}
-            transition={{ duration: 2.2, repeat: Infinity, delay: i * 0.4 }}
+            animate={active ? { opacity: [0.65, 1, 0.65] } : { opacity: 0.75 }}
+            transition={active ? { duration: 2.2, repeat: Infinity, delay: i * 0.4 } : {}}
           >
-            <span className="text-[9px] text-[#3385FF]/90 font-medium">{s.label}</span>
+            <span className="text-[8px] text-[#3385FF]/90 font-medium">{s.label}</span>
           </motion.div>
         ))}
-        <div className="w-px h-4 bg-gradient-to-b from-[#0066FF]/50 to-transparent" />
+        <div className="w-px h-3 bg-gradient-to-b from-[#0066FF]/50 to-transparent" />
         <motion.div
-          className="w-6 h-6 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/40 flex items-center justify-center"
-          animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-5 h-5 rounded-full bg-[#0066FF]/15 border border-[#0066FF]/40 flex items-center justify-center"
+          animate={active ? { scale: [1, 1.2, 1] } : { scale: 1 }}
+          transition={active ? { duration: 1.5, repeat: Infinity } : {}}
         >
-          <span className="text-[#0066FF] text-[11px] font-bold">€</span>
+          <span className="text-[#0066FF] text-[10px] font-bold">€</span>
         </motion.div>
       </div>
     </div>
   );
 }
 
-function ConversionVisual() {
+function ConversionVisual({ active }: { active: boolean }) {
   const bars = [38, 52, 46, 62, 78];
   return (
     <div className="w-full h-full flex items-end justify-center gap-2 px-10 pb-3 pt-5">
       {bars.map((h, i) => (
         <motion.div key={i}
           className={`flex-1 rounded-t-md ${i === bars.length - 1 ? "bg-[#0066FF]/60 border border-[#0066FF]/50 shadow-[0_0_14px_rgba(0,102,255,0.3)]" : "bg-white/12 border border-white/8"}`}
-          style={{ height: h }}
-          animate={i === bars.length - 1 ? { height: [h, h + 12, h] } : {}}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={i === bars.length - 1 && active ? { height: [h, h + 12, h] } : { height: h }}
+          transition={active ? { duration: 2, repeat: Infinity } : {}}
         />
       ))}
     </div>
   );
 }
 
-const systemCardVisuals = [StrategyVisual, ScriptVisual, EditingVisual, CommunityVisual, FunnelVisual, ConversionVisual];
+type SystemVisual = React.FC<{ active: boolean }>;
+const systemCardVisuals: SystemVisual[] = [StrategyVisual, ScriptVisual, EditingVisual, CommunityVisual, FunnelVisual, ConversionVisual];
 import VideoSection from "@/components/VideoSection";
 import ClientLogosSection from "@/components/ClientLogosSection";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionPlaceholder from "@/components/SolutionPlaceholder";
 import StackedCaseStudies from "@/components/StackedCaseStudies";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
-import { home } from "@/data/content";
+import { home, nav } from "@/data/content";
 import {
   fadeUpVariants,
   staggerContainer,
   viewportOnce,
 } from "@/lib/animations";
+
+// ─── System card wrapper — tracks hover state per card ─────────────────────
+
+function SystemCard({
+  item,
+  Visual,
+}: {
+  item: (typeof home.system.deliverables)[0];
+  Visual: SystemVisual;
+}) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.div
+      variants={fadeUpVariants}
+      whileHover={{ scale: 1.03, y: -4 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      transition={{ type: "spring", stiffness: 350, damping: 22 }}
+      className="flex flex-col rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default transition-all duration-300 hover:border-[#0066FF]/40 hover:shadow-[0_0_28px_rgba(0,102,255,0.1)]"
+    >
+      <div className="relative h-[140px] bg-[#0D0D0F] flex items-center justify-center overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0066FF]/4 to-transparent pointer-events-none" />
+        <Visual active={hovered} />
+      </div>
+      <div className="relative p-6 lg:p-7 flex-1">
+        <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/10 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+        <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
+        <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-4 relative z-10">
+          {item.number}
+        </div>
+        <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">{item.title}</h3>
+        <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{item.desc}</p>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function HomeClient() {
   const { system } = home;
@@ -234,6 +265,47 @@ export default function HomeClient() {
 
       {/* Solution placeholder */}
       <SolutionPlaceholder />
+
+      {/* Mid-page CTA — after Spectra Methode */}
+      <section className="py-16 bg-[#111113] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[#0066FF]/4 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#0066FF]/8 rounded-full blur-[80px] pointer-events-none" />
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+          >
+            <motion.p variants={fadeUpVariants} className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">
+              Bereit loszulegen?
+            </motion.p>
+            <motion.h2
+              variants={fadeUpVariants}
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F4F4F5] mb-3 leading-tight"
+            >
+              Verwandle deine Präsenz in ein System,<br className="hidden sm:block" />{" "}
+              das für dich arbeitet.
+            </motion.h2>
+            <motion.p variants={fadeUpVariants} className="text-[#71717A] text-base mb-8">
+              In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.
+            </motion.p>
+            <motion.div variants={fadeUpVariants}>
+              <a
+                href={nav.ctaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 hover:scale-[1.02] active:scale-95"
+              >
+                Kostenloses Erstgespräch buchen
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* System / Deliverables Section */}
       <section className="py-20 lg:py-32 bg-[#111113] relative overflow-hidden">
@@ -310,32 +382,7 @@ export default function HomeClient() {
             >
               {system.deliverables.map((item, i) => {
                 const Visual = systemCardVisuals[i];
-                return (
-                  <motion.div
-                    key={i}
-                    variants={fadeUpVariants}
-                    whileHover={{ scale: 1.03, y: -4 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 22 }}
-                    className="flex flex-col rounded-2xl bg-[#1C1C1F] border border-white/8 overflow-hidden group cursor-default transition-all duration-300 hover:border-[#0066FF]/40 hover:shadow-[0_0_28px_rgba(0,102,255,0.1)]"
-                  >
-                    {/* Visual area */}
-                    <div className="relative h-[140px] bg-[#0D0D0F] flex items-center justify-center overflow-hidden border-b border-white/5">
-                      <div className="absolute inset-0 bg-gradient-to-b from-[#0066FF]/4 to-transparent pointer-events-none" />
-                      {Visual && <Visual />}
-                    </div>
-
-                    {/* Text content */}
-                    <div className="relative p-6 lg:p-7 flex-1">
-                      <div className="absolute -top-8 -right-8 w-28 h-28 bg-[#0066FF]/10 rounded-full blur-[35px] opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                      <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r from-[#0066FF]/60 to-transparent group-hover:w-full transition-all duration-500" />
-                      <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/20 text-[#0066FF] font-bold text-sm mb-4 relative z-10">
-                        {item.number}
-                      </div>
-                      <h3 className="text-[#F4F4F5] font-bold text-lg mb-3 relative z-10">{item.title}</h3>
-                      <p className="text-[#A1A1AA] text-sm leading-relaxed relative z-10">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                );
+                return <SystemCard key={i} item={item} Visual={Visual} />;
               })}
             </motion.div>
           </div>

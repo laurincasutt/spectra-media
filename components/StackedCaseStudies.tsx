@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { caseStudies } from "@/data/content";
@@ -11,20 +11,6 @@ const topOffsets = ["top-20", "top-24", "top-28", "top-32", "top-36", "top-40", 
 
 export default function StackedCaseStudies() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const headerRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  // Auto-close when open card header scrolls above viewport
-  useEffect(() => {
-    if (openIndex === null) return;
-    function onScroll() {
-      const el = headerRefs.current[openIndex!];
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      if (rect.bottom < 0) setOpenIndex(null);
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [openIndex]);
 
   return (
     <section className="py-20 lg:py-32 bg-[#09090B]">
@@ -84,10 +70,7 @@ export default function StackedCaseStudies() {
                   />
 
                   {/* Card main row */}
-                  <div
-                    ref={(el) => { headerRefs.current[i] = el; }}
-                    className="p-6 lg:p-8 relative z-10"
-                  >
+                  <div className="p-6 lg:p-8 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
                       {/* Person avatar */}
                       <div className="hidden lg:flex items-center shrink-0">

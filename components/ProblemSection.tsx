@@ -253,6 +253,14 @@ function SlotReel() {
 }
 
 function HourglassVisual() {
+  // Cover-rect approach: static sand polygons, animated dark covers hide/reveal them.
+  // Top: cover grows downward (wide base empties first → correct draining direction).
+  // Bottom: cover shrinks downward (base fills first → correct filling direction).
+  // Duration 4s drain + 0.8s pause = 4.8s cycle.
+  const DUR = 4.8;
+  const DRAIN_END = 4 / 4.8; // 0.833
+  const PAUSE_END = 0.99;
+
   return (
     <svg viewBox="0 0 64 108" width={52} height={88} fill="none">
       <defs>
@@ -279,22 +287,36 @@ function HourglassVisual() {
         fill="rgba(4,4,6,0.55)"
       />
 
-      {/* Top sand — surface DROPS (y increases), keeping bottom fixed at apex y=47 */}
+      {/* TOP: static full sand polygon */}
+      <polygon points="6,12 58,12 32,47" fill="rgba(0,102,255,0.52)" clipPath="url(#hgV2Top)" />
+      {/* TOP cover — grows from y=12 downward, hiding top sand from wide-base first */}
       <motion.rect
-        x="0" width="64"
-        animate={{ y: [12, 47], height: [35, 0] }}
-        transition={{ duration: 4, repeat: Infinity, repeatDelay: 0.8, ease: "linear" }}
+        x="0" y="12" width="64"
+        animate={{ height: [0, 35, 35, 0] }}
+        transition={{
+          duration: DUR,
+          times: [0, DRAIN_END, PAUSE_END, 1],
+          ease: ["linear", "linear", "easeIn"],
+          repeat: Infinity,
+        }}
         clipPath="url(#hgV2Top)"
-        fill="rgba(0,102,255,0.52)"
+        fill="rgba(4,4,6,0.97)"
       />
 
-      {/* Bottom sand — surface RISES from bottom of chamber */}
+      {/* BOTTOM: static full sand polygon */}
+      <polygon points="32,61 58,96 6,96" fill="rgba(0,102,255,0.46)" clipPath="url(#hgV2Bot)" />
+      {/* BOTTOM cover — shrinks from y=61 downward, revealing bottom sand from base upward */}
       <motion.rect
-        x="0" width="64"
-        animate={{ y: [96, 61], height: [0, 35] }}
-        transition={{ duration: 4, repeat: Infinity, repeatDelay: 0.8, ease: "linear" }}
+        x="0" y="61" width="64"
+        animate={{ height: [35, 0, 0, 35] }}
+        transition={{
+          duration: DUR,
+          times: [0, DRAIN_END, PAUSE_END, 1],
+          ease: ["linear", "linear", "easeIn"],
+          repeat: Infinity,
+        }}
         clipPath="url(#hgV2Bot)"
-        fill="rgba(0,102,255,0.46)"
+        fill="rgba(4,4,6,0.97)"
       />
 
       {/* Neck drip particle */}

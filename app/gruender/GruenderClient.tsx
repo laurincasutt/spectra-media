@@ -93,6 +93,25 @@ function AnimatedStats() {
   );
 }
 
+// ─── Team Member Photo ───────────────────────────────────────────────────────
+
+function TeamPhoto({ src, alt }: { src: string; alt: string }) {
+  const [err, setErr] = useState(false);
+  return err ? (
+    <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/10 via-[#09090B] to-[#0066FF]/5 flex items-center justify-center">
+      <span className="text-[#A1A1AA] text-5xl font-bold">{alt[0]}</span>
+    </div>
+  ) : (
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+      onError={() => setErr(true)}
+    />
+  );
+}
+
 // ─── LinkedIn Icon ───────────────────────────────────────────────────────────
 
 function LinkedInIcon() {
@@ -153,8 +172,8 @@ export default function GruenderClient() {
               <div className="relative rounded-2xl overflow-hidden border border-white/8 aspect-[4/3]">
                 {!imgError ? (
                   <Image
-                    src="/gruender-foto.jpg"
-                    alt="Gründer Spectra Media"
+                    src="/Team Spectra Media/Teambild.png"
+                    alt="Spectra Media Team"
                     fill
                     className="object-cover"
                     onError={() => setImgError(true)}
@@ -259,12 +278,7 @@ export default function GruenderClient() {
                 >
                   {/* Photo */}
                   <div className="relative overflow-hidden" style={{ aspectRatio: "4/3" }}>
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      fill
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <TeamPhoto src={member.img} alt={member.name} />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-[#111113]/20 to-transparent" />
                   </div>
 

@@ -247,7 +247,7 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Body Planet Tamer Galal.png",
     industry: "Fitness",
     badge: "Fitness & Coaching",
-    tagline: "128.000 neue Follower in den ersten 90 Tagen",
+    tagline: "128.000 neue Follower in 90 Tagen",
     heroStat: "128k+",
     heroStatLabel: "Neue Follower in 90 Tagen",
     challenge:
@@ -397,10 +397,10 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: {
       stats: [
-        { value: "+100k",   label: "Neue Follower in 30 Tagen" },
-        { value: "55 Mio.", label: "Views auf allen Plattformen" },
-        { value: "8.6 Mio.", label: "Accounts erreicht" },
-        { value: "30",      label: "Vlogs in 30 Tagen gedreht" },
+        { value: "+100k",    label: "Neue Follower in 30 Tagen" },
+        { value: "134 Mio.", label: "Views auf IG in 30 Tagen" },
+        { value: "8.6 Mio.", label: "Accounts erreicht in 30 Tagen" },
+        { value: "30",       label: "Vlogs in 30 Tagen gedreht" },
       ],
       summary:
         "Innerhalb von nur 30 Tagen entwickelte sich Mike Sommerfelds Social Media zu einer der sichtbarsten Bodybuilding-Präsenzen im deutschsprachigen Raum. Durch tägliche Inhalte, starke Storylines und eine konsequente Content-Strategie entstand eine enorme Dynamik rund um seine Mr.-Olympia-Vorbereitung. Die Kombination aus authentischer Dokumentation, hoher Posting-Frequenz und plattformübergreifendem Content sorgte für eine massive Reichweitensteigerung und ein starkes Wachstum seiner Community.",
@@ -518,7 +518,7 @@ export const prozess = {
   },
   hero: {
     eyebrow: "Unser Prozess",
-    headline: "Klar. Strukturiert. Ergebnisorientiert.",
+    headline: "Unser Fahrplan zum vollen Erfolg",
     sub: "Du weisst immer was als nächstes passiert. Kein Rätselraten, kein Chaos.",
   },
   steps: [
@@ -526,31 +526,31 @@ export const prozess = {
       number: "01",
       title: "Einführungscall & Strategie-Briefing",
       duration: "Woche 1",
-      desc: "Wir lernen dich kennen: Deine Ziele, deine Zielgruppe, deine Positionierung. Daraus entwickeln wir eine massgeschneiderte Strategie – keine Vorlagen, kein Copy-Paste.",
+      desc: "Wir lernen dich, dein Business und deine Ziele kennen. Daraus entsteht eine massgeschneiderte Content-Strategie: klare Positionierung, Zielgruppen-Analyse und die ersten Content-Ideen – maßgeschneidert auf dich, kein Copy-Paste.",
     },
     {
       number: "02",
       title: "Onboarding & Setup",
       duration: "Woche 1–2",
-      desc: "Account-Audit, Profil-Optimierung, Zugangs-Setup. Wir legen das Fundament: Highlight-Cover, Bio-Optimierung, Link-in-Bio-Funnel.",
+      desc: "Wir optimieren dein Profil von A bis Z: Bio, Highlights, Link-in-Bio-Funnel. Alle Zugänge werden eingerichtet, das Content-System aufgebaut und du erhältst eine klare Vorlage für deine ersten Recordings.",
     },
     {
       number: "03",
       title: "Content-Produktion & Erste Clips",
       duration: "Ab Woche 2",
-      desc: "Skripte werden geschrieben, du nimmst auf. Wir schneiden, optimieren und bereiten alles für den Upload vor. Der erste Clip geht innerhalb von 2 Wochen live.",
+      desc: "Skripte werden geschrieben – auf deine Stimme, deinen Stil, deine Sprache. Du nimmst auf, wir übernehmen alles: Editing, Optimierung, Captions. Innerhalb von 2 Wochen gehen die ersten Clips live.",
     },
     {
       number: "04",
-      title: "Continuous Optimization",
-      duration: "Laufend",
-      desc: "Jede Woche analysieren wir die Performance. Was funktioniert, wird skaliert. Was nicht, wird angepasst. Datengetriebene Entscheidungen statt Bauchgefühl.",
+      title: "Content Launch",
+      duration: "Erste Veröffentlichungen",
+      desc: "Die ersten Inhalte gehen live. Wir analysieren die Performance genau, reagieren auf das Feedback des Algorithmus und optimieren Hooks, Formate und Themen – damit jede Woche besser läuft als die vorherige.",
     },
     {
       number: "05",
       title: "Skalierung & Expansion",
       duration: "Ab Monat 2–3",
-      desc: "Sobald die ersten Ergebnisse da sind, skalieren wir: mehr Clips, neue Formate, neue Plattformen. Wir wachsen mit dir.",
+      desc: "Sobald das System läuft, skalieren wir: mehr Clips, neue Formate, neue Plattformen. Dein Account wächst schneller, dein Business generiert Anfragen – und du fokussierst dich weiter auf das, was du am besten kannst.",
     },
   ],
   principles: [
@@ -584,9 +584,9 @@ export const gruender = {
     sub: "Spectra Media wurde gegründet, weil wir selbst erlebt haben, wie frustrierend Social Media ohne System ist – und wie mächtig es mit einem wird.",
   },
   story: [
-    "Spectra Media entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen, wie talentierte Unternehmer, Coaches und Experten mit echtem Wissen unsichtbar blieben, während mittelmässige Inhalte viral gingen. Nicht weil die Qualität fehlte – sondern weil das System fehlte.",
-    "Als Gründer hatten wir selbst erlebt, wie mächtig Social Media sein kann – wenn man es richtig einsetzt. Also bauten wir eine Agentur, die genau das liefert: kein Einheitsbrei, keine leeren Versprechen, sondern maßgeschneiderte Content-Systeme, die messbare Resultate produzieren.",
-    "Heute skalieren wir die digitale Präsenz von über 30 Brands im DACH-Raum – vom Fitnesscoach bis zur Anwaltskanzlei. Was uns antreibt: der Moment, in dem ein Kunde sieht, wie sein Account zur echten Umsatzmaschine wird.",
+    "Spectra Media entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen immer wieder dasselbe: Unternehmer, Coaches und Experten mit echtem Wissen blieben unsichtbar, während oberflächlicher Content Millionen Views bekam. Nicht weil die Qualität fehlte – sondern weil das System fehlte.",
+    "Wir kannten dieses Gefühl selbst. Wir hatten das Wissen, die Erfahrung und die Ergebnisse – aber ohne das richtige System blieb das alles online unsichtbar. Also haben wir dieses System gebaut. Nicht nur für uns – sondern für alle, die sich in genau dieser Situation befinden.",
+    "Heute arbeiten wir mit ausgewählten Unternehmern, Coaches und Experten aus dem DACH-Raum zusammen und verwandeln ihr Wissen in sichtbare, profitable Personal Brands. Was uns antreibt: der Moment, in dem ein Kunde erkennt, dass sein Account nicht nur Content produziert – sondern sein gesamtes Business transformiert.",
   ],
   values: [
     {
@@ -606,13 +606,13 @@ export const gruender = {
     {
       name: "Laurin Casutt",
       role: "CEO & Geschäftsführer",
-      img: "/gruender-foto.jpg",
+      img: "/Team Spectra Media/Bild Laurin.png",
       linkedin: "https://www.linkedin.com/in/laurin-casutt/",
     },
     {
       name: "Julian Ott",
       role: "Co-Founder & Head of Operations",
-      img: "/gruender-foto.jpg",
+      img: "/Team Spectra Media/Bild André.png",
       linkedin: "#",
     },
   ],
@@ -631,7 +631,7 @@ export const gruender = {
     },
     {
       title: "Leere Versprechen",
-      desc: "Keine aufgeblähten Zahlen, keine unrealistischen Erwartungen. Wir sagen dir im Voraus, was realistisch ist.",
+      desc: "Keine aufgeblähten Zahlen, keine unrealistischen Erwartungen. Wir arbeiten bewusst mit einer ausgewählten Anzahl an Brands in langfristigen Projekten – nicht mit möglichst vielen Kunden, sondern mit den richtigen.",
     },
   ],
   cta: {
