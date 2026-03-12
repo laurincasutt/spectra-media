@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo-neu.png"
+                src="/logo-3d.png"
                 alt="Spectra Media"
                 width={160}
                 height={40}
