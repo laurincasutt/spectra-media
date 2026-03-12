@@ -26,7 +26,7 @@ export default function Reveal({
   margin = 80,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: `0px 0px ${margin}px 0px` });
+  const inView = useInView(ref, { once: true, amount: 0.05 });
 
   const hidden: Record<string, string> = {
     bottom: `translateY(${distance}px)`,

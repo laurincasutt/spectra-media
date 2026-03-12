@@ -36,8 +36,8 @@ export const cardHover = {
   },
 };
 
-// Triggers 60px before element enters viewport → already in motion when visible
-export const viewportOnce = { once: true, margin: "0px 0px 60px 0px" };
+// Triggers when 5% of element is visible — reliable across desktop + mobile (incl. iOS Safari)
+export const viewportOnce = { once: true, amount: 0.05 };
 
 export const slideInLeft: Variants = {
   hidden: { opacity: 0, x: -40 },

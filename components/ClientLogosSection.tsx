@@ -54,13 +54,13 @@ export default function ClientLogosSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="flex flex-wrap items-center justify-center gap-8 lg:gap-10"
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-6 sm:gap-8 lg:gap-10"
         >
           {logos.map((logo, i) => (
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              className="group relative h-10 w-28 flex items-center justify-center"
+              className="group relative h-9 w-24 sm:h-10 sm:w-28 flex items-center justify-center"
             >
               <Image
                 src={logo.src}
