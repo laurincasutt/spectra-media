@@ -17,6 +17,7 @@ export interface CaseStudy {
   profileImgContain?: boolean;
   brandLogoImg?: string;
   screenshots?: string[];
+  screenshotWide?: string;
   screenshotVideo?: string;
 }
 
@@ -277,10 +278,10 @@ export const caseStudies: CaseStudy[] = [
     screenshots: [
       "/case-studies/tamer-galal/follower-ig.png",
       "/case-studies/tamer-galal/views-ig.png",
-      "/case-studies/tamer-galal/insights-yt.png",
       "/case-studies/tamer-galal/tiktok-follower.png",
       "/case-studies/tamer-galal/tiktok-views.png",
     ],
+    screenshotWide: "/case-studies/tamer-galal/insights-yt.png",
   },
   {
     slug: "kanzlei-mandic",

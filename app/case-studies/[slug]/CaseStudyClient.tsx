@@ -195,7 +195,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
           </motion.div>
 
           {/* Screenshots & Insights */}
-          {(allScreenshots.length > 0 || cs.screenshotVideo) && (
+          {(allScreenshots.length > 0 || cs.screenshotVideo || cs.screenshotWide) && (
             <motion.div
               variants={staggerContainer}
               initial="hidden"
@@ -208,32 +208,64 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
               >
                 Screenshots & Insights
               </motion.h2>
-              <motion.div
-                variants={staggerContainer}
-                className={`grid gap-4 ${allScreenshots.length === 1 ? "grid-cols-1" : "grid-cols-2 sm:grid-cols-3"}`}
-              >
-                {allScreenshots.map((src, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeUpVariants}
-                    className="relative aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-[#111113] group"
-                  >
-                    <Image
-                      src={src}
-                      alt={`${cs.client} Screenshot ${i + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
-                ))}
 
-                {/* Video for Mike Sommerfeld */}
-                {cs.screenshotVideo && (
+              {/* Portrait grid */}
+              {allScreenshots.length > 0 && (
+                <motion.div
+                  variants={staggerContainer}
+                  className={`grid gap-4 ${
+                    allScreenshots.length === 1
+                      ? "grid-cols-1"
+                      : allScreenshots.length === 4
+                      ? "grid-cols-2 sm:grid-cols-4"
+                      : "grid-cols-2 sm:grid-cols-3"
+                  }`}
+                >
+                  {allScreenshots.map((src, i) => (
+                    <motion.div
+                      key={i}
+                      variants={fadeUpVariants}
+                      className="relative aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-[#111113] group"
+                    >
+                      <Image
+                        src={src}
+                        alt={`${cs.client} Screenshot ${i + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="(max-width: 640px) 50vw, 25vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+
+              {/* Wide / landscape screenshot below the grid */}
+              {cs.screenshotWide && (
+                <motion.div
+                  variants={fadeUpVariants}
+                  className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-[#111113] group mt-4"
+                >
+                  <Image
+                    src={cs.screenshotWide}
+                    alt={`${cs.client} Insights`}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 672px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </motion.div>
+              )}
+
+              {/* Video */}
+              {cs.screenshotVideo && (
+                <motion.div
+                  variants={staggerContainer}
+                  className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4"
+                >
                   <motion.div
                     variants={fadeUpVariants}
-                    className="relative aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-[#111113] col-span-full sm:col-span-1"
+                    className="relative aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-[#111113]"
                   >
                     <video
                       src={cs.screenshotVideo}
@@ -242,8 +274,8 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                       className="absolute inset-0 w-full h-full object-cover"
                     />
                   </motion.div>
-                )}
-              </motion.div>
+                </motion.div>
+              )}
             </motion.div>
           )}
 
