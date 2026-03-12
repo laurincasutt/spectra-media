@@ -101,16 +101,8 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile: CTA + WhatsApp + Hamburger */}
+            {/* Mobile: WhatsApp + Hamburger */}
             <div className="flex lg:hidden items-center gap-2 ml-auto">
-              <a
-                href={nav.ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center px-3.5 py-1.5 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white text-xs font-semibold transition-colors whitespace-nowrap"
-              >
-                Erstgespräch buchen
-              </a>
               <a
                 href={whatsappHref}
                 target="_blank"
