@@ -629,7 +629,7 @@ export const gruender = {
     },
     {
       title: "Transparenz > Buzzwords",
-      desc: "Keine versteckten Methoden, keine aufgeblähten Zahlen. Du weisst immer genau was wir tun und warum.",
+      desc: "Keine versteckten Methoden, keine aufgeblähten Zahlen. Du weisst immer, genau was wir tun und warum.",
     },
     {
       title: "Fokus > Masse",
