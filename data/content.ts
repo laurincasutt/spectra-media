@@ -618,7 +618,7 @@ export const gruender = {
     sub: "Spectra Media wurde gegründet, weil wir selbst erlebt haben, wie frustrierend Social Media ohne System ist – und wie mächtig es mit einem wird.",
   },
   story: [
-    "Spectra Media entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen immer wieder dasselbe: Unternehmer, Coaches und Experten mit echtem Wissen blieben unsichtbar, während oberflächlicher Content Millionen Views bekam. Nicht weil die Qualität fehlte – sondern weil das System fehlte.",
+    "Die Spectra Media GmbH entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen immer wieder dasselbe: Unternehmer, Coaches und Experten mit echtem Wissen blieben unsichtbar, während oberflächlicher Content Millionen Views bekam. Nicht weil die Qualität fehlte – sondern weil das System fehlte.",
     "Wir kannten dieses Gefühl selbst. Wir hatten das Wissen, die Erfahrung und die Ergebnisse – aber ohne das richtige System blieb das alles online unsichtbar. Also haben wir dieses System gebaut. Nicht nur für uns – sondern für alle, die sich in genau dieser Situation befinden.",
     "Heute arbeiten wir mit ausgewählten Unternehmern, Coaches und Experten aus dem DACH-Raum zusammen und verwandeln ihr Wissen in sichtbare, profitable Personal Brands. Was uns antreibt: der Moment, in dem ein Kunde erkennt, dass sein Account nicht nur Content produziert – sondern sein gesamtes Business transformiert.",
   ],

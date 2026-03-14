@@ -325,7 +325,7 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-10"
             >
-              Wie alles begann
+              Wie alles begann.
             </motion.h2>
             <div className="space-y-6">
               {gruender.story.map((para, i) => (
@@ -362,7 +362,7 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-12"
             >
-              Wofür wir nicht stehen
+              Wofür wir nicht stehen:
             </motion.h2>
             <motion.div
               variants={staggerContainer}
