@@ -232,7 +232,7 @@ export const home = {
   bottomCta: {
     eyebrow: "Bereit loszulegen?",
     headline: "Den ersten Schritt zu deiner digitalen Autorität.",
-    sub: "In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.",
+    sub: "In einem kostenlosen 30-Minuten-Gespräch schauen wir uns gemeinsam an, was für dich möglich ist.",
     cta: "Kostenloses Erstgespräch buchen",
     ctaUrl: "https://calendly.com/spectramedia/instagram-introduction-call",
   },
