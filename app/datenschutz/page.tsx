@@ -26,10 +26,10 @@ export default function DatenschutzPage() {
             </p>
             <p className="mt-3">
               <strong className="text-[#F4F4F5]">Spectra Media GmbH</strong><br />
-              St. Gallen, Schweiz<br />
+              Gossau SG, Schweiz<br />
               E-Mail:{" "}
-              <a href="mailto:info@spectra-media.ch" className="text-[#0066FF] hover:text-[#3385FF]">
-                info@spectra-media.ch
+              <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">
+                info@spectramedia.ch
               </a><br />
               Telefon:{" "}
               <a href="tel:+41795371839" className="text-[#0066FF] hover:text-[#3385FF]">
@@ -202,8 +202,8 @@ export default function DatenschutzPage() {
             </ul>
             <p className="mt-4">
               Zur Ausübung Ihrer Rechte wenden Sie sich an:{" "}
-              <a href="mailto:info@spectra-media.ch" className="text-[#0066FF] hover:text-[#3385FF]">
-                info@spectra-media.ch
+              <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">
+                info@spectramedia.ch
               </a>
             </p>
           </div>

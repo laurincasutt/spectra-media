@@ -20,7 +20,7 @@ export default function ImpressumPage() {
             </h2>
             <p>
               <strong className="text-[#F4F4F5]">Spectra Media GmbH</strong><br />
-              St. Gallen, Schweiz
+              Gossau SG, Schweiz
             </p>
           </div>
 
@@ -30,8 +30,8 @@ export default function ImpressumPage() {
             </h2>
             <p>
               E-Mail:{" "}
-              <a href="mailto:info@spectra-media.ch" className="text-[#0066FF] hover:text-[#3385FF]">
-                info@spectra-media.ch
+              <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">
+                info@spectramedia.ch
               </a>
               <br />
               Telefon:{" "}
@@ -56,7 +56,7 @@ export default function ImpressumPage() {
             </h2>
             <p>
               Verantwortlich für den Inhalt dieser Website im Sinne des anwendbaren Rechts ist die
-              Spectra Media GmbH, St. Gallen, Schweiz.
+              Spectra Media GmbH, Gossau SG, Schweiz.
             </p>
           </div>
 
