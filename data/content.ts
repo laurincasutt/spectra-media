@@ -560,7 +560,7 @@ export const prozess = {
       number: "01",
       title: "Einführungscall & Strategie-Briefing",
       duration: "Woche 1",
-      desc: "Wir lernen dich, dein Business und deine Ziele kennen. Daraus entsteht eine massgeschneiderte Content-Strategie: klare Positionierung, Zielgruppen-Analyse und die ersten Content-Ideen – maßgeschneidert auf dich, kein Copy-Paste.",
+      desc: "Wir lernen dich, dein Business und deine Ziele kennen. Daraus entsteht eine massgeschneiderte Content-Strategie: klare Positionierung, Zielgruppen-Analyse und die ersten Content-Ideen – präzise auf dich zugeschnitten, kein Copy-Paste.",
     },
     {
       number: "02",
