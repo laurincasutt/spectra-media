@@ -296,15 +296,15 @@ export default function ServiceClient() {
               variants={fadeUpVariants}
               className="text-3xl sm:text-5xl lg:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
             >
-              <span className="text-[#F4F4F5]">Als Accounts werden Marken,</span>
+              <span className="text-[#F4F4F5]">Aus Accounts werden Marken,</span>
               <br />
-              <span className="gradient-text">als Marken werden Marktführer.</span>
+              <span className="gradient-text">aus Marken werden Marktführer.</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
-              Für Social Media, für Experten und Unternehmen, die Sichtbarkeit in echtes Wachstum verwandeln wollen.
+              Für Experten und Unternehmen, die ihre Sichtbarkeit in echtes Wachstum verwandeln wollen.
             </motion.p>
             {/* Animated scroll arrows */}
             <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-1 mt-8">
