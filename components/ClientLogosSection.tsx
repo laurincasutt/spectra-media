@@ -54,7 +54,7 @@ export default function ClientLogosSection() {
           initial="hidden"
           whileInView="show"
           viewport={viewportOnce}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-6 sm:gap-8 lg:gap-10"
+          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-8 lg:gap-10"
         >
           {logos.map((logo, i) => (
             <motion.div
@@ -66,7 +66,7 @@ export default function ClientLogosSection() {
                 src={logo.src}
                 alt={logo.alt}
                 fill
-                className={`object-contain transition-all duration-300 grayscale group-hover:grayscale-0 ${"invert" in logo && logo.invert ? "opacity-50 group-hover:opacity-90 invert" : "opacity-50 group-hover:opacity-100"}`}
+                className={`object-contain transition-all duration-300 sm:grayscale sm:group-hover:grayscale-0 ${"invert" in logo && logo.invert ? "opacity-80 sm:opacity-50 sm:group-hover:opacity-90 invert" : "opacity-85 sm:opacity-50 sm:group-hover:opacity-100"}`}
                 sizes="112px"
               />
             </motion.div>

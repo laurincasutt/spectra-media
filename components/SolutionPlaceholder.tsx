@@ -214,6 +214,7 @@ export default function SolutionPlaceholder() {
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#0066FF]/4 rounded-full blur-[120px] pointer-events-none" />
+      <div className="md:hidden absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#111113] pointer-events-none z-20" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}

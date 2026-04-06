@@ -139,7 +139,7 @@ export default function AnimatedGridBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none select-none"
+      className="absolute inset-0 w-full h-full pointer-events-none select-none opacity-30 md:opacity-100"
     />
   );
 }

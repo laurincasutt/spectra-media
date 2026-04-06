@@ -101,7 +101,7 @@ function ScheduleVisual() {
       {flyBubbles.map((b, i) => (
         <motion.div
           key={i}
-          className="absolute flex items-center justify-center rounded-full"
+          className={`absolute flex items-center justify-center rounded-full${i >= 3 ? " hidden md:flex" : ""}`}
           style={{ top: b.top, left: b.left, width: b.size, height: b.size, zIndex: 10, ...bubbleStyle }}
           animate={{ x: [0, b.xDelta, 0] }}
           transition={{ duration: b.duration, repeat: Infinity, ease: "easeInOut", delay: b.delay }}

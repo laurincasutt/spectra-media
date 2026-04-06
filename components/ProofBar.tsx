@@ -84,15 +84,15 @@ export default function ProofBar() {
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="flex flex-wrap items-center justify-center gap-0"
+          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-0"
         >
           {stats.map((stat, i) => (
             <motion.div
               key={i}
               variants={fadeUpVariants}
-              className="flex items-center"
+              className="flex items-center justify-center"
             >
-              {i > 0 && <div className="w-px h-12 bg-white/10 mx-8 lg:mx-12 shrink-0" />}
+              {i > 0 && <div className="hidden sm:block w-px h-12 bg-white/10 mx-8 lg:mx-12 shrink-0" />}
               <div className="flex flex-col items-center text-center cursor-default">
                 <div className="min-h-[3.5rem] flex items-center justify-center mb-1.5">
                   {i === 0 && (
