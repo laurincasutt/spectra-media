@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import { useContent } from "@/hooks/useContent";
 
 // ─── Card 01: Kein System — Wochenplan mit fliegenden Task-Kreisen ─────────
 
@@ -11,8 +12,8 @@ const bubbleStyle = {
   boxShadow: "0 6px 20px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.07)",
 } as const;
 
-function ScheduleVisual() {
-  const DAYS = ["Mo", "Di", "Mi", "Do", "Fr"];
+function ScheduleVisual({ days }: { days: string[] }) {
+  const DAYS = days;
 
   // 6 task bubbles fly through the grid in different directions / speeds
   const flyBubbles = [
@@ -115,7 +116,7 @@ function ScheduleVisual() {
 
 // ─── Card 02: Konkurrenz — 3 Podeste (#1 wächst nach oben) ────────────────
 
-function CompetitorVisual() {
+function CompetitorVisual({ youLabel }: { youLabel: string }) {
   return (
     <div className="w-full flex items-end justify-center gap-3 pb-1" style={{ height: 145 }}>
       {/* #2 — medium, left */}
@@ -163,7 +164,7 @@ function CompetitorVisual() {
       <div className="flex flex-col items-center gap-1.5" style={{ width: 72 }}>
         <div className="flex flex-col items-center leading-tight">
           <span className="text-[10px] font-bold text-white/30">#3</span>
-          <span className="text-[11px] font-bold text-white/22">Du</span>
+          <span className="text-[11px] font-bold text-white/22">{youLabel}</span>
         </div>
         <div
           style={{
@@ -365,33 +366,25 @@ const problemIcon3 = (
   </svg>
 );
 
-const problems = [
-  {
-    number: "01",
-    title: "Dein Marketing folgt keiner Struktur.",
-    desc: "Hier ein Post, dort eine Ad - nichts greift ineinander. Du testest, hoffst, aber es fehlt die Strategie. Content verpufft, Ads konvertieren nicht. Andere erreichen mit weniger mehr. Was dir fehlt, ist ein System.",
-    icon: problemIcon1,
-    visual: <ScheduleVisual />,
-  },
-  {
-    number: "02",
-    title: "Deine Konkurrenz sticht dich aus.",
-    desc: "Du hast ein Produkt, das Marktführer sein sollte, aber niemand weiß davon. Weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören - nur weil sie wissen, wie man Social Media nutzt und Reichweite generiert.",
-    icon: problemIcon2,
-    visual: <CompetitorVisual />,
-  },
-  {
-    number: "03",
-    title: "Die Zeit rennt dir durch die Hände.",
-    desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen - nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
-    icon: problemIcon3,
-    visual: <ClockChaosVisual />,
-  },
-];
+const problemIcons = [problemIcon1, problemIcon2, problemIcon3];
 
 // ─── Section ───────────────────────────────────────────────────────────────
 
 export default function ProblemSection() {
+  const { ui } = useContent();
+  const t = ui.problemSection;
+  const problems = t.cards.map((card, i) => ({
+    number: String(i + 1).padStart(2, "0"),
+    title: card.title,
+    desc: card.desc,
+    icon: problemIcons[i],
+    visual: i === 0
+      ? <ScheduleVisual days={t.scheduleDays} />
+      : i === 1
+      ? <CompetitorVisual youLabel={t.youLabel} />
+      : <ClockChaosVisual />,
+  }));
+
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
@@ -401,12 +394,12 @@ export default function ProblemSection() {
         <div className="text-center mb-14 lg:mb-18">
           <Reveal>
             <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
-              Das Problem
+              {t.eyebrow}
             </span>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]">
-              Warum die meisten Marken unsichtbar bleiben.
+              {t.headline}
             </h2>
           </Reveal>
         </div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import ContactSection from "@/components/ContactSection";
-import { caseStudies } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 // Stat icons
@@ -39,6 +39,9 @@ function getObjectPosition(slug: string): string {
 }
 
 export default function CaseStudiesClient() {
+  const { caseStudies, ui } = useContent();
+  const t = ui.caseStudiesHero;
+
   return (
     <>
       {/* Hero */}
@@ -55,21 +58,21 @@ export default function CaseStudiesClient() {
               variants={fadeUpVariants}
               className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
             >
-              Case Studies
+              {t.eyebrow}
             </motion.span>
             <motion.h1
               variants={fadeUpVariants}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
             >
-              Resultate, die
+              {t.line1}
               <br />
-              <span className="gradient-text">für sich sprechen.</span>
+              <span className="gradient-text">{t.line2}</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
-              Was passiert, wenn Strategie, Content und Distribution zusammenkommen.
+              {t.sub}
             </motion.p>
           </motion.div>
         </div>
@@ -149,7 +152,7 @@ export default function CaseStudiesClient() {
                       {/* CTA button */}
                       <div className="mt-4">
                         <div className="w-full py-3 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/30 text-[#3385FF] font-medium text-sm text-center group-hover:bg-[#0066FF]/20 transition-colors duration-200">
-                          Mehr Details →
+                          {t.discoverBtn}
                         </div>
                       </div>
                     </div>

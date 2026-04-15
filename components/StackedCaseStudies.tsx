@@ -4,13 +4,15 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { caseStudies } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 const cardBgs = ["#111113", "#0F0F11", "#0D0D0F", "#0B0B0D"];
 const topOffsets = ["top-20", "top-24", "top-28", "top-32", "top-36", "top-40", "top-44"];
 
 export default function StackedCaseStudies() {
+  const { caseStudies, ui } = useContent();
+  const t = ui.stackedCases;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -28,19 +30,19 @@ export default function StackedCaseStudies() {
             variants={fadeUpVariants}
             className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider"
           >
-            Case Studies
+            {t.eyebrow}
           </motion.span>
           <motion.h2
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Vom Seitenfeld ins Rampenlicht.
+            {t.headline}
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto"
           >
-            Wir machen unsere Kunden nicht nur sichtbar, sondern zur Marktgrösse in ihrer Nische.
+            {t.sub}
           </motion.p>
         </motion.div>
 
@@ -113,7 +115,7 @@ export default function StackedCaseStudies() {
                         className="shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
                         aria-expanded={isOpen}
                       >
-                        {isOpen ? "Verbergen" : "Details anzeigen"}
+                        {isOpen ? t.hide : t.showMore}
                         <motion.span
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.25 }}
@@ -142,11 +144,11 @@ export default function StackedCaseStudies() {
                           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                             <div className="space-y-5">
                               <div>
-                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-2">Challenge</h4>
+                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-2">{t.challengeLabel}</h4>
                                 <p className="text-[#A1A1AA] text-sm leading-relaxed">{cs.challenge}</p>
                               </div>
                               <div>
-                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-2">Vorgehen</h4>
+                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-2">{t.approachLabel}</h4>
                                 <ul className="space-y-1.5">
                                   {cs.approach.map((a, j) => (
                                     <li key={j} className="flex gap-2 text-sm text-[#A1A1AA]">
@@ -159,7 +161,7 @@ export default function StackedCaseStudies() {
                             </div>
                             <div className="space-y-5">
                               <div>
-                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-3">Ergebnisse</h4>
+                                <h4 className="text-[#F4F4F5] font-semibold text-sm uppercase tracking-wider mb-3">{t.resultsLabel}</h4>
                                 <div className="grid grid-cols-2 gap-3">
                                   {cs.outcome.stats.map((stat, j) => (
                                     <div key={j} className="p-3 rounded-xl bg-white/5 border border-white/8">
@@ -180,7 +182,7 @@ export default function StackedCaseStudies() {
                                   href={`/case-studies/${cs.slug}`}
                                   className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#0066FF]/10 border border-[#0066FF]/25 text-[#3385FF] text-sm font-medium hover:bg-[#0066FF]/20 hover:border-[#0066FF]/50 transition-all duration-200 group"
                                 >
-                                  Zur Case Study
+                                  {t.linkLabel}
                                   <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                   </svg>

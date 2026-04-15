@@ -2,33 +2,7 @@
 
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
-
-const phases = [
-  {
-    number: "01",
-    name: "POSITIONING",
-    body: [
-      "Alles steht und fällt mit der Grundstruktur deiner Marke. Bevor wir erste Content Pieces produzieren, klären wir zuerst das Fundament: Wer du bist, welchen Personen du weiterhelfen möchtest und warum Menschen auf dich anstatt auf deine Konkurrenz setzen sollen.",
-      "Wir definieren ganz klar deine Positionierung im Markt, deine Zielgruppe und dein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort wiedererkennbar ist.",
-    ],
-  },
-  {
-    number: "02",
-    name: "CONTENT ENGINE",
-    body: [
-      "Bei unserem Service handelt es sich um ein Done-For-You-Service - wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management.",
-      "Alles was wir von deiner Seite brauchen, sind 1-2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest - und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
-    ],
-  },
-  {
-    number: "03",
-    name: "MARKET DOMINANCE",
-    body: [
-      "Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
-      "Das Ziel ist nicht nur viral zu gehen, sondern die unbestrittene Nummer 1 in deiner Nische zu werden. Dies schafft Vertrauen, das wir direkt monetarisieren können.",
-    ],
-  },
-];
+import { useContent } from "@/hooks/useContent";
 
 function PhaseVisual() {
   const hexPts = (cx: number, cy: number, r: number) =>
@@ -210,6 +184,9 @@ function PhaseVisual() {
 }
 
 export default function SolutionPlaceholder() {
+  const { ui } = useContent();
+  const { solution } = ui;
+  const phases = solution.phases;
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
@@ -229,19 +206,19 @@ export default function SolutionPlaceholder() {
             variants={fadeUpVariants}
             className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-xs font-semibold tracking-[0.2em] uppercase mb-4"
           >
-            Die Spectra Methode™
+            {solution.eyebrow}
           </motion.span>
           <motion.h2
             variants={fadeUpVariants}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4"
           >
-            Von unsichtbar zu unübersehbar - in drei Phasen.
+            {solution.headline}
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-lg max-w-2xl mx-auto leading-relaxed"
           >
-            Wir verwandeln gewöhnliche Accounts in herausstechende Marken und das nicht durch Zufall, sondern mit System.
+            {solution.sub}
           </motion.p>
         </motion.div>
 

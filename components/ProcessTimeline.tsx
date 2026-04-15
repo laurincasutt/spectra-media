@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { prozess } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import {
   fadeUpVariants,
   staggerContainer,
@@ -11,6 +11,7 @@ import {
 } from "@/lib/animations";
 
 export default function ProcessTimeline() {
+  const { prozess } = useContent();
   const { steps } = prozess;
   const containerRef = useRef<HTMLDivElement>(null);
 

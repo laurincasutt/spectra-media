@@ -4,22 +4,19 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
-import type { CaseStudy } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 interface Props {
-  cs: CaseStudy;
-  otherCases: CaseStudy[];
-  ctaSection: {
-    eyebrow: string;
-    headline: string;
-    sub: string;
-    cta: string;
-    ctaUrl: string;
-  };
+  slug: string;
+  otherCaseSlugs: string[];
 }
 
-export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
+export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
+  const { caseStudies, home, ui } = useContent();
+  const t = ui.caseStudiesHero;
+  const cs = caseStudies.find((c) => c.slug === slug)!;
+  const otherCases = otherCaseSlugs.map((s) => caseStudies.find((c) => c.slug === s)!).filter(Boolean);
   const allScreenshots = cs.screenshots ?? [];
 
   return (
@@ -42,7 +39,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
-                Alle Case Studies
+                {t.eyebrow}
               </Link>
             </motion.div>
 
@@ -138,7 +135,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
               variants={fadeUpVariants}
               className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-4"
             >
-              Die Herausforderung
+              {t.challengeTitle}
             </motion.h2>
             <motion.p
               variants={fadeUpVariants}
@@ -159,7 +156,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
               variants={fadeUpVariants}
               className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-6"
             >
-              Unser Ansatz
+              {t.approachTitle}
             </motion.h2>
             <motion.ol variants={staggerContainer} className="space-y-4">
               {cs.approach.map((step, i) => (
@@ -184,7 +181,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
               variants={fadeUpVariants}
               className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-4"
             >
-              Das Ergebnis
+              {t.outcomeTitle}
             </motion.h2>
             <motion.p
               variants={fadeUpVariants}
@@ -206,7 +203,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                 variants={fadeUpVariants}
                 className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-6"
               >
-                Screenshots & Insights
+                {t.screenshotsTitle}
               </motion.h2>
 
               {/* Portrait grid */}
@@ -314,7 +311,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                 variants={fadeUpVariants}
                 className="text-2xl lg:text-3xl font-bold text-[#F4F4F5] mb-10 text-center"
               >
-                Weitere Case Studies
+                {t.moreCasesTitle}
               </motion.h2>
               <motion.div
                 variants={staggerContainer}
@@ -367,7 +364,7 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
                           </div>
 
                           <div className="mt-4 flex items-center gap-2 text-[#0066FF] text-sm font-medium">
-                            <span>Case Study lesen</span>
+                            <span>{t.readCaseStudy}</span>
                             <svg
                               className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200"
                               fill="none"
@@ -390,11 +387,11 @@ export default function CaseStudyClient({ cs, otherCases, ctaSection }: Props) {
 
       {/* CTA */}
       <CTASection
-        eyebrow={ctaSection.eyebrow}
-        headline={ctaSection.headline}
-        sub={ctaSection.sub}
-        cta={ctaSection.cta}
-        ctaUrl={ctaSection.ctaUrl}
+        eyebrow={home.bottomCta.eyebrow}
+        headline={home.bottomCta.headline}
+        sub={home.bottomCta.sub}
+        cta={home.bottomCta.cta}
+        ctaUrl={home.bottomCta.ctaUrl}
       />
     </>
   );

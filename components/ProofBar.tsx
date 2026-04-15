@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { home } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer } from "@/lib/animations";
 
 function easeOutCubic(t: number) {
@@ -74,6 +74,7 @@ function CountUpValue({ target, duration, active, suffix = "" }: { target: numbe
 export default function ProofBar() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
+  const { home } = useContent();
 
   const stats = home.proofStats;
 
@@ -96,10 +97,10 @@ export default function ProofBar() {
               <div className="flex flex-col items-center text-center cursor-default">
                 <div className="min-h-[3.5rem] flex items-center justify-center mb-1.5">
                   {i === 0 && (
-                    <SlotMachineValue finalLabel="2 Mrd+" active={inView} />
+                    <SlotMachineValue finalLabel={stat.value} active={inView} />
                   )}
                   {i === 1 && (
-                    <SlotMachineValue finalLabel="1 Mio+" active={inView} />
+                    <SlotMachineValue finalLabel={stat.value} active={inView} />
                   )}
                   {i === 2 && (
                     <CountUpValue target={2000} duration={1500} active={inView} suffix="+" />

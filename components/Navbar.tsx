@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { nav } from "@/data/content";
-
-const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || nav.whatsappNumber;
-const WHATSAPP_MESSAGE = nav.whatsappMessage;
+import { useContent } from "@/hooks/useContent";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export default function Navbar() {
+  const { nav } = useContent();
+  const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || nav.whatsappNumber;
+  const WHATSAPP_MESSAGE = nav.whatsappMessage;
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -67,7 +67,7 @@ export default function Navbar() {
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-label={menuOpen ? nav.ariaMenuClose : nav.ariaMenuOpen}
             className="flex flex-col justify-center items-center w-9 h-9 gap-[5px]"
           >
             <span className={`block w-6 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
@@ -123,11 +123,12 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2.5">
+              <LanguageSwitcher />
               <a
                 href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp kontaktieren"
+                aria-label={nav.ariaWhatsApp}
                 className="flex items-center justify-center w-8 h-8 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors duration-200"
               >
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="#25D366" aria-hidden="true">
@@ -173,6 +174,9 @@ export default function Navbar() {
               );
             })}
           </nav>
+          <div className="flex justify-center mb-4">
+            <LanguageSwitcher />
+          </div>
           <a
             href={nav.ctaUrl}
             target="_blank"

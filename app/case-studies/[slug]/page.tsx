@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { caseStudies, home } from "@/data/content";
+import { caseStudies } from "@/data/content";
 import CaseStudyClient from "./CaseStudyClient";
 
 interface PageProps {
@@ -32,7 +32,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) notFound();
 
-  const otherCases = caseStudies.filter((c) => c.slug !== slug).slice(0, 3);
+  const otherCaseSlugs = caseStudies.filter((c) => c.slug !== slug).slice(0, 3).map((c) => c.slug);
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -57,9 +57,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
       <CaseStudyClient
-        cs={cs}
-        otherCases={otherCases}
-        ctaSection={home.bottomCta}
+        slug={slug}
+        otherCaseSlugs={otherCaseSlugs}
       />
     </>
   );

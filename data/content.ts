@@ -37,6 +37,10 @@ export const nav = {
   ctaUrl: "https://calendly.com/spectramedia-info/30min",
   whatsappNumber: "41795371839",
   whatsappMessage: "Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.",
+  ariaMenuOpen: "Menü öffnen",
+  ariaMenuClose: "Menü schließen",
+  ariaWhatsApp: "WhatsApp kontaktieren",
+  ariaLinkedIn: "auf LinkedIn",
 };
 
 // ─────────────────────────────────────────────
@@ -673,5 +677,258 @@ export const gruender = {
     sub: "Lass uns in 30 Minuten herausfinden, ob und wie wir zusammenarbeiten können.",
     cta: "Call buchen",
     ctaUrl: "https://calendly.com/spectramedia-info/30min",
+  },
+};
+
+// ─────────────────────────────────────────────
+// Footer
+// ─────────────────────────────────────────────
+export const footer = {
+  navigationTitle: "Navigation",
+  legalTitle: "Rechtliches",
+  impressum: "Impressum",
+  datenschutz: "Datenschutz",
+  description: "Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.",
+  copyright: "Alle Rechte vorbehalten.",
+  location: "🇨🇭 St. Gallen, Schweiz",
+};
+
+// ─────────────────────────────────────────────
+// Section UI strings (previously hardcoded)
+// ─────────────────────────────────────────────
+export const ui = {
+  video: {
+    badge: "In Action",
+    placeholder: "Video folgt",
+  },
+
+  clientLogos: {
+    badge: "Vertrauen",
+    headline: "Geschätzt von Marken, die Standards setzen.",
+    sub: "Ikonische Persönlichkeiten, Marktführer und Unternehmer mit Format vertrauen auf Spectra Media - wenn Sichtbarkeit messbare Resultate, strategische Tiefe und Umsatzgenerierung bedeuten soll.",
+  },
+
+  stackedCases: {
+    eyebrow: "Case Studies",
+    headline: "Vom Seitenfeld ins Rampenlicht.",
+    sub: "Wir machen unsere Kunden nicht nur sichtbar, sondern zur Marktgrösse in ihrer Nische.",
+    showMore: "Details anzeigen",
+    hide: "Verbergen",
+    approachLabel: "Vorgehen",
+    resultsLabel: "Ergebnisse",
+    challengeLabel: "Challenge",
+    linkLabel: "Zur Case Study",
+  },
+
+  contact: {
+    badge: "Bereit anzufangen?",
+    headline: "Den ersten Schritt zu deiner digitalen Autorität.",
+    headlineSub: "Kostenlos und unverbindlich.",
+    sub: "In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.",
+    calendarTitle: "Erstgespräch buchen",
+    calendarDuration: "30 Min · Kostenlos",
+    nextAvailable: "Nächste Verfügbarkeit: Morgen, 10:00",
+    bookingTitle: "Kostenloses Erstgespräch",
+    bookingDesc: "Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.",
+    tags: ["30 Min.", "Video-Call", "Kostenlos", "Unverbindlich"],
+    cta: "Jetzt Termin buchen",
+    emailLabel: "E-Mail",
+    whatsappLabel: "WhatsApp",
+    officeLabel: "Büro",
+    officeValue: "9200 Gossau SG, Schweiz",
+    weekDays: ["Mo", "Di", "Mi", "Do", "Fr"],
+  },
+
+  targetAudience: {
+    eyebrow: "Zielgruppen",
+    headline: "Brands, die Standards setzen,",
+    headlineSub: "nicht Trends hinterherjagen.",
+    groups: [
+      { title: "Elite-Coaches und Experten" },
+      { title: "Unternehmen mit Personal Brand" },
+      { title: "Anwälte und Kanzleien" },
+      { title: "Strategische Berater und Vordenker" },
+      { title: "Fitness- und Gesundheitscoaches" },
+      { title: "Supplement- und Gesundheitsmarken" },
+    ],
+  },
+
+  solution: {
+    eyebrow: "Die Spectra Methode™",
+    headline: "Von unsichtbar zu unübersehbar - in drei Phasen.",
+    sub: "Wir verwandeln gewöhnliche Accounts in herausstechende Marken und das nicht durch Zufall, sondern mit System.",
+    phases: [
+      {
+        number: "01",
+        name: "POSITIONING",
+        body: [
+          "Alles steht und fällt mit der Grundstruktur deiner Marke. Bevor wir erste Content Pieces produzieren, klären wir zuerst das Fundament: Wer du bist, welchen Personen du weiterhelfen möchtest und warum Menschen auf dich anstatt auf deine Konkurrenz setzen sollen.",
+          "Wir definieren ganz klar deine Positionierung im Markt, deine Zielgruppe und dein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort wiedererkennbar ist.",
+        ],
+      },
+      {
+        number: "02",
+        name: "CONTENT ENGINE",
+        body: [
+          "Bei unserem Service handelt es sich um ein Done-For-You-Service - wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management.",
+          "Alles was wir von deiner Seite brauchen, sind 1-2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest - und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.",
+        ],
+      },
+      {
+        number: "03",
+        name: "MARKET DOMINANCE",
+        body: [
+          "Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.",
+          "Das Ziel ist nicht nur viral zu gehen, sondern die unbestrittene Nummer 1 in deiner Nische zu werden. Dies schafft Vertrauen, das wir direkt monetarisieren können.",
+        ],
+      },
+    ],
+  },
+
+  advantages: {
+    eyebrow: "Vorteile",
+    headline: "Wie unsere Kunden ganze Märkte dominieren.",
+    sub: "Spectra Media verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.",
+    cards: [
+      {
+        number: "01",
+        title: "Wirkung statt Werbung",
+        desc: "Keine albernen Hooks und kein Content-Spam. Wir entwickeln Inhalte, die Vertrauen aufbauen und dich als klare Stimme in deiner Branche positionieren.",
+        low: "Niedrig",
+        high: "Hoch",
+        metric: "WIRKUNG",
+      },
+      {
+        number: "02",
+        title: "Geschwindigkeit durch Synergie",
+        desc: "Was organisch funktioniert, wird gezielt verstärkt. Statt blind zu testen, skalieren wir Inhalte, die bereits nachweisliche Aufmerksamkeit erzeugen.",
+      },
+      {
+        number: "03",
+        title: "Mehr Output, weniger Aufwand",
+        desc: "Du lieferst wenige Stunden Input, wir verwandeln daraus konstanten Content für alle Kanäle, ohne dass dein Alltag zum Content-Job wird.",
+      },
+      {
+        number: "04",
+        title: "Digitale Präsenz mit Substanz",
+        desc: "Deine Inhalte folgen einer klaren Struktur. Jeder Post stärkt deine Positionierung und baut langfristig Vertrauen in deine Marke auf.",
+        layers: ["Kanal", "Format", "Marke"] as [string, string, string],
+      },
+      {
+        number: "05",
+        title: "Führung durch Format",
+        desc: "Starke Marken kommunizieren nicht zufällig. Wir entwickeln wiedererkennbare Formate, die deine Expertise sichtbar machen und deine Marke führen.",
+        chatQ: "Warum greifen meine Posts nicht?",
+        chatA: "Kein System. Spectra löst das. ✓",
+      },
+      {
+        number: "06",
+        title: "Aura schlägt Algorithmus",
+        desc: "Wenn Positionierung, Stimme und Struktur stimmen, arbeitet der Algorithmus für dich. Deine Marke zieht Aufmerksamkeit an, statt sie erzwingen zu müssen.",
+      },
+    ],
+  },
+
+  midCta: {
+    eyebrow: "Bereit loszulegen?",
+    headline: "Den ersten Schritt zu deiner\ndigitalen Autorität.",
+    sub: "In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.",
+    cta: "Kostenloses Erstgespräch buchen",
+  },
+
+  systemVisuals: {
+    funnelLabels: ["Reichweite", "Leads", "Kunden"] as [string, string, string],
+  },
+
+  // ServiceClient hardcoded sections
+  serviceHero: {
+    line1: "Aus Accounts werden Marken,",
+    line2: "aus Marken werden Marktführer.",
+    sub: "Für Experten und Unternehmen, die ihre Sichtbarkeit in echtes Wachstum verwandeln wollen.",
+  },
+
+  serviceResultat: {
+    eyebrow: "Das Resultat",
+    headline: "Was passiert, wenn dein Marketing wirklich funktioniert.",
+    cards: [
+      {
+        number: "01",
+        title: "Autorität verändert alles, auch dein Preis.",
+        desc: "Sichtbarkeit schafft Vertrauen. Kunden zahlen mehr, stellen weniger Fragen und entscheiden schneller.",
+      },
+      {
+        number: "02",
+        title: "Abschlüsse gehen leicht von der Hand.",
+        desc: "Wer dich bereits kennt und vertraut, entscheidet leichter. Social Proof verkürzt jeden Verkaufsprozess.",
+      },
+      {
+        number: "03",
+        title: "Die richtigen Kunden kommen zu dir.",
+        desc: "Statt kalter Akquise entstehen Inbound Leads. Menschen melden sich bei dir, weil sie deine Inhalte bereits überzeugen.",
+      },
+      {
+        number: "04",
+        title: "Vom Anbieter zur Autorität.",
+        desc: "Dein Name steht für eine Kategorie, nicht für ein einzelnes Angebot.",
+      },
+    ],
+  },
+
+  // ProblemSection hardcoded strings
+  problemSection: {
+    eyebrow: "Das Problem",
+    headline: "Warum die meisten Marken unsichtbar bleiben.",
+    scheduleDays: ["Mo", "Di", "Mi", "Do", "Fr"],
+    youLabel: "Du",
+    cards: [
+      {
+        title: "Dein Marketing folgt keiner Struktur.",
+        desc: "Hier ein Post, dort eine Ad - nichts greift ineinander. Du testest, hoffst, aber es fehlt die Strategie. Content verpufft, Ads konvertieren nicht. Andere erreichen mit weniger mehr. Was dir fehlt, ist ein System.",
+      },
+      {
+        title: "Deine Konkurrenz sticht dich aus.",
+        desc: "Du hast ein Produkt, das Marktführer sein sollte, aber niemand weiß davon. Weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören - nur weil sie wissen, wie man Social Media nutzt und Reichweite generiert.",
+      },
+      {
+        title: "Die Zeit rennt dir durch die Hände.",
+        desc: "Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen - nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.",
+      },
+    ],
+  },
+
+  // CaseStudiesClient hardcoded hero
+  caseStudiesHero: {
+    eyebrow: "Case Studies",
+    line1: "Resultate, die",
+    line2: "für sich sprechen.",
+    sub: "Was passiert, wenn Strategie, Content und Distribution zusammenkommen.",
+    discoverBtn: "Case entdecken →",
+    backLink: "Alle Case Studies",
+    challengeTitle: "Die Herausforderung",
+    approachTitle: "Unser Ansatz",
+    outcomeTitle: "Das Ergebnis",
+    screenshotsTitle: "Screenshots & Insights",
+    moreCasesTitle: "Weitere Case Studies",
+    readCaseStudy: "Case Study lesen",
+  },
+
+  // GruenderClient hardcoded sections
+  gruenderExtras: {
+    statsLabel30: "Brands skaliert",
+    statsMrd: "Mrd+",
+    statsMio: "Mio+",
+    statsViews: "Views generiert",
+    statsFollower: "Follower gewachsen",
+    architectsHeadline: "Die Architekten hinter",
+    architectsGradient: "deiner digitalen Präsenz.",
+    architectsSub: "Wir sind darauf spezialisiert, gewöhnliche Instagram-Accounts in herausstechende Brands zu verwandeln, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.",
+    teamFallback: "Das Spectra Media Team —\ndein Partner für Social Media Wachstum",
+    storyEyebrow: "Unser Hintergrund",
+    storyHeadline: "Wie alles begann.",
+    valuesTitle: "Unsere Werte",
+    teamTitle: "Unser Team",
+    antiValuesEyebrow: "Kein Interesse an",
+    antiValuesHeadline: "Wofür wir nicht stehen:",
+    linkedinLabel: "LinkedIn",
   },
 };

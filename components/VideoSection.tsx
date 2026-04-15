@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
+import { useContent } from "@/hooks/useContent";
 
 export default function VideoSection() {
+  const { ui } = useContent();
   return (
     <section className="py-20 lg:py-28 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-hex pointer-events-none" />
@@ -24,7 +26,7 @@ export default function VideoSection() {
             variants={fadeUpVariants}
             className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-xs font-semibold mb-4 uppercase tracking-widest"
           >
-            In Action
+            {ui.video.badge}
           </motion.span>
         </motion.div>
 
@@ -48,7 +50,7 @@ export default function VideoSection() {
                 <path d="M8 5v14l11-7z" />
               </svg>
             </motion.div>
-            <span className="text-[#3F3F46] text-sm">Video folgt</span>
+            <span className="text-[#3F3F46] text-sm">{ui.video.placeholder}</span>
           </div>
           {/* Corner glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#0066FF]/8 rounded-bl-full pointer-events-none" />

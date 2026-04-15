@@ -1,46 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { nav } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
-const contactItems = [
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    label: "E-Mail",
-    value: "info@spectramedia.ch",
-    href: "mailto:info@spectramedia.ch",
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-      </svg>
-    ),
-    label: "WhatsApp",
-    value: `+${nav.whatsappNumber}`,
-    href: `https://wa.me/${nav.whatsappNumber}?text=${nav.whatsappMessage}`,
-  },
-  {
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-    label: "Büro",
-    value: "9200 Gossau SG, Schweiz",
-    href: "https://maps.google.com/?q=9200+Gossau+SG+Schweiz",
-  },
-];
-
 // Mini calendar visual
-function CalendarVisual() {
-  const days = ["Mo", "Di", "Mi", "Do", "Fr"];
+function CalendarVisual({ t }: { t: { calendarTitle: string; calendarDuration: string; nextAvailable: string; weekDays: string[] } }) {
+  const days = t.weekDays;
   const row1 = [
     { time: "10:00", available: true },
     { time: "14:00", available: false },
@@ -60,8 +26,8 @@ function CalendarVisual() {
     <div className="p-5 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-6 flex-1 flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <div>
-          <div className="text-[#F4F4F5] font-semibold text-sm">Erstgespräch buchen</div>
-          <div className="text-[#52525B] text-xs mt-0.5">30 Min · Kostenlos</div>
+          <div className="text-[#F4F4F5] font-semibold text-sm">{t.calendarTitle}</div>
+          <div className="text-[#52525B] text-xs mt-0.5">{t.calendarDuration}</div>
         </div>
         <div className="w-8 h-8 rounded-xl bg-[#0066FF]/15 border border-[#0066FF]/25 flex items-center justify-center">
           <svg className="w-4 h-4 text-[#0066FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,12 +63,49 @@ function CalendarVisual() {
           </div>
         ))}
       </div>
-      <div className="mt-3 text-[#52525B] text-[10px] text-center">Nächste Verfügbarkeit: Morgen, 10:00</div>
+      <div className="mt-3 text-[#52525B] text-[10px] text-center">{t.nextAvailable}</div>
     </div>
   );
 }
 
 export default function ContactSection() {
+  const { nav, ui } = useContent();
+  const t = ui.contact;
+
+  const contactItems = [
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      label: t.emailLabel,
+      value: "info@spectramedia.ch",
+      href: "mailto:info@spectramedia.ch",
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      ),
+      label: t.whatsappLabel,
+      value: `+${nav.whatsappNumber}`,
+      href: `https://wa.me/${nav.whatsappNumber}?text=${nav.whatsappMessage}`,
+    },
+    {
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      label: t.officeLabel,
+      value: t.officeValue,
+      href: "https://maps.google.com/?q=9200+Gossau+SG+Schweiz",
+    },
+  ];
+
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
@@ -119,14 +122,14 @@ export default function ContactSection() {
           {/* Left: contact info */}
           <motion.div variants={fadeUpVariants} className="flex flex-col">
             <span className="inline-block w-fit px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
-              Bereit anzufangen?
+              {t.badge}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4 leading-tight">
-              Den ersten Schritt zu deiner digitalen Autorität.<br />
-              <span className="text-[#52525B]">Kostenlos und unverbindlich.</span>
+              {t.headline}<br />
+              <span className="text-[#52525B]">{t.headlineSub}</span>
             </h2>
             <p className="text-[#A1A1AA] text-lg mb-8 leading-relaxed">
-              In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+              {t.sub}
             </p>
 
             {/* Contact cards */}
@@ -165,17 +168,17 @@ export default function ContactSection() {
 
               <div className="relative z-10 flex flex-col flex-1 justify-between">
                 <div>
-                <h3 className="text-[#F4F4F5] font-bold text-xl mb-2">Kostenloses Erstgespräch</h3>
-                <p className="text-[#A1A1AA] text-sm mb-1">Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.</p>
+                <h3 className="text-[#F4F4F5] font-bold text-xl mb-2">{t.bookingTitle}</h3>
+                <p className="text-[#A1A1AA] text-sm mb-1">{t.bookingDesc}</p>
                 <div className="flex flex-wrap gap-2 mt-3 mb-2">
-                  {["30 Min.", "Video-Call", "Kostenlos", "Unverbindlich"].map((tag) => (
+                  {t.tags.map((tag) => (
                     <span key={tag} className="px-2.5 py-1 rounded-full bg-white/5 border border-white/8 text-[#A1A1AA] text-xs">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <CalendarVisual />
+                <CalendarVisual t={t} />
                 </div>
 
                 <a
@@ -184,7 +187,7 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className="mt-5 inline-flex items-center justify-center w-full px-6 py-4 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#0066FF]/25 hover:shadow-[#0066FF]/40 hover:scale-[1.02] active:scale-95"
                 >
-                  Jetzt Termin buchen
+                  {t.cta}
                   <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

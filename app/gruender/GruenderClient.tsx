@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import ContactSection from "@/components/ContactSection";
-import { gruender } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 // ─── Value icons ────────────────────────────────────────────────────────────
@@ -30,7 +30,16 @@ const valueIcons = [
 
 // ─── Stats ──────────────────────────────────────────────────────────────────
 
-function AnimatedStats() {
+type GruenderExtras = {
+  statsLabel30: string;
+  statsMrd: string;
+  statsMio: string;
+  statsViews: string;
+  statsFollower: string;
+  [key: string]: string;
+};
+
+function AnimatedStats({ t }: { t: GruenderExtras }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
 
@@ -80,9 +89,9 @@ function AnimatedStats() {
   return (
     <motion.div ref={ref} variants={staggerContainer} className="grid grid-cols-3 gap-4 mt-10">
       {[
-        { value: `${count}+`, label: "Brands skaliert" },
-        { value: `${mrdDigit} Mrd+`, label: "Views generiert" },
-        { value: `${mioDigit} Mio+`, label: "Follower gegrowt" },
+        { value: `${count}+`, label: t.statsLabel30 },
+        { value: `${mrdDigit} ${t.statsMrd}`, label: t.statsViews },
+        { value: `${mioDigit} ${t.statsMio}`, label: t.statsFollower },
       ].map((stat, i) => (
         <motion.div key={i} variants={fadeUpVariants} className="text-center p-3 rounded-xl bg-white/4 border border-white/8">
           <div className="text-[#0066FF] font-bold text-xl drop-shadow-[0_0_10px_rgba(0,102,255,0.4)]">{stat.value}</div>
@@ -126,6 +135,8 @@ function LinkedInIcon() {
 
 export default function GruenderClient() {
   const [imgError, setImgError] = useState(false);
+  const { gruender, ui, nav } = useContent();
+  const t = ui.gruenderExtras;
 
   return (
     <>
@@ -143,23 +154,23 @@ export default function GruenderClient() {
                 variants={fadeUpVariants}
                 className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6 uppercase tracking-wider"
               >
-                Über uns
+                {gruender.hero.eyebrow}
               </motion.span>
               <motion.h1
                 variants={fadeUpVariants}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
               >
-                Die Architekten hinter<br />
-                <span className="gradient-text">deiner digitalen Präsenz.</span>
+                {t.architectsHeadline}<br />
+                <span className="gradient-text">{t.architectsGradient}</span>
               </motion.h1>
               <motion.p
                 variants={fadeUpVariants}
                 className="text-base text-[#52525B] leading-relaxed mb-4"
               >
-                Wir sind darauf spezialisiert, gewöhnliche Instagram-Accounts in herausstechende Brands zu verwandeln, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.
+                {t.architectsSub}
               </motion.p>
 
-              <AnimatedStats />
+              <AnimatedStats t={t} />
             </motion.div>
 
             {/* Right: founder photo */}
@@ -182,7 +193,9 @@ export default function GruenderClient() {
                   <div className="absolute inset-0 bg-gradient-to-br from-[#0066FF]/10 via-[#09090B] to-[#FF6B00]/8 flex flex-col items-center justify-center gap-4">
                     <div className="text-6xl">📱</div>
                     <div className="text-[#A1A1AA] text-sm text-center px-8">
-                      Das Spectra Media Team —<br />dein Partner für Social Media Wachstum
+                      {t.teamFallback.split("\n").map((line, i) => (
+                        <span key={i}>{line}{i === 0 && <br />}</span>
+                      ))}
                     </div>
                   </div>
                 )}
@@ -214,7 +227,7 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-10 uppercase tracking-wider"
             >
-              Unsere Werte
+              {t.valuesTitle}
             </motion.span>
             <motion.div
               variants={staggerContainer}
@@ -263,7 +276,7 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-10 uppercase tracking-wider"
             >
-              Unser Team
+              {t.teamTitle}
             </motion.span>
 
             <motion.div
@@ -293,7 +306,7 @@ export default function GruenderClient() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center w-9 h-9 rounded-lg bg-white/6 border border-white/10 text-[#A1A1AA] hover:text-white hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/40 transition-all duration-200"
-                      aria-label={`${member.name} auf LinkedIn`}
+                      aria-label={`${member.name} ${nav.ariaLinkedIn}`}
                     >
                       <LinkedInIcon />
                     </Link>
@@ -319,13 +332,13 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-6 uppercase tracking-wider"
             >
-              Unser Hintergrund
+              {t.storyEyebrow}
             </motion.span>
             <motion.h2
               variants={fadeUpVariants}
               className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-10"
             >
-              Wie alles begann.
+              {t.storyHeadline}
             </motion.h2>
             <div className="space-y-6">
               {gruender.story.map((para, i) => (
@@ -356,13 +369,13 @@ export default function GruenderClient() {
               variants={fadeUpVariants}
               className="inline-block px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-base font-semibold mb-6 uppercase tracking-wider"
             >
-              Kein Interesse an
+              {t.antiValuesEyebrow}
             </motion.span>
             <motion.h2
               variants={fadeUpVariants}
               className="text-3xl lg:text-5xl font-bold text-[#F4F4F5] mb-12"
             >
-              Wofür wir nicht stehen:
+              {t.antiValuesHeadline}
             </motion.h2>
             <motion.div
               variants={staggerContainer}

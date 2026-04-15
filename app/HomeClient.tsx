@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { useContent } from "@/hooks/useContent";
 
 // ─── System card mini visuals (all animate only on hover via `active` prop) ──
 
@@ -149,11 +150,13 @@ function CommunityVisual({ active }: { active: boolean }) {
 }
 
 function FunnelVisual({ active }: { active: boolean }) {
+  const { ui } = useContent();
+  const [l0, l1, l2] = ui.systemVisuals.funnelLabels;
   // Sized to fit in 140px container: bars h-6 (24px), gap-1 (4px), connector h-3 (12px), € w-5 h-5 (20px)
   return (
     <div className="w-full h-full flex items-center justify-center py-2">
       <div className="flex flex-col items-center gap-1">
-        {[{ w: 100, label: "Reichweite" }, { w: 72, label: "Leads" }, { w: 46, label: "Kunden" }].map((s, i) => (
+        {[{ w: 100, label: l0 }, { w: 72, label: l1 }, { w: 46, label: l2 }].map((s, i) => (
           <motion.div key={i}
             className="flex items-center justify-center h-6 rounded-lg"
             style={{ width: s.w, background: `rgba(0,102,255,${0.1 + i * 0.08})`, border: `1px solid rgba(0,102,255,${0.2 + i * 0.1})` }}
@@ -199,7 +202,6 @@ import ProblemSection from "@/components/ProblemSection";
 import SolutionPlaceholder from "@/components/SolutionPlaceholder";
 import StackedCaseStudies from "@/components/StackedCaseStudies";
 import TargetAudienceSection from "@/components/TargetAudienceSection";
-import { home, nav } from "@/data/content";
 import Reveal from "@/components/Reveal";
 
 // ─── System card wrapper — tracks hover state per card ─────────────────────
@@ -208,7 +210,7 @@ function SystemCard({
   item,
   Visual,
 }: {
-  item: (typeof home.system.deliverables)[0];
+  item: { number: string; title: string; desc: string };
   Visual: SystemVisual;
 }) {
   const [hovered, setHovered] = useState(false);
@@ -238,7 +240,9 @@ function SystemCard({
 }
 
 export default function HomeClient() {
+  const { home, nav, ui } = useContent();
   const { system } = home;
+  const midCta = ui.midCta;
 
   const gridRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -266,14 +270,15 @@ export default function HomeClient() {
         <div className="absolute inset-0 bg-[#0066FF]/4 pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[200px] bg-[#0066FF]/8 rounded-full blur-[80px] pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <Reveal><p className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">Bereit loszulegen?</p></Reveal>
+          <Reveal><p className="text-[#3385FF] text-sm font-semibold uppercase tracking-wider mb-3">{midCta.eyebrow}</p></Reveal>
           <Reveal delay={0.08}>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#F4F4F5] mb-3 leading-tight">
-              Den ersten Schritt zu deiner<br className="hidden sm:block" />{" "}
-              digitalen Autorität.
+              {midCta.headline.split("\n").map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br className="hidden sm:block" />}{i < arr.length - 1 && " "}</span>
+              ))}
             </h2>
           </Reveal>
-          <Reveal delay={0.15}><p className="text-[#71717A] text-base mb-8">In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.</p></Reveal>
+          <Reveal delay={0.15}><p className="text-[#71717A] text-base mb-8">{midCta.sub}</p></Reveal>
           <Reveal delay={0.2}>
             <a
               href={nav.ctaUrl}
@@ -281,7 +286,7 @@ export default function HomeClient() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#0066FF] hover:bg-[#3385FF] text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-[#0066FF]/30 hover:shadow-[#0066FF]/50 hover:scale-[1.02] active:scale-95"
             >
-              Kostenloses Erstgespräch buchen
+              {midCta.cta}
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

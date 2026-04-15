@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
+import { useContent } from "@/hooks/useContent";
 
 const logos = [
   { src: "/Logos/American-Medical-Wellness-Logo.svg", alt: "American Medical Wellness" },
@@ -18,6 +19,7 @@ const logos = [
 ];
 
 export default function ClientLogosSection() {
+  const { ui } = useContent();
   return (
     <section className="py-14 lg:py-20 bg-[#09090B] border-t border-white/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,19 +34,19 @@ export default function ClientLogosSection() {
             variants={fadeUpVariants}
             className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-xs font-semibold tracking-[0.2em] uppercase mb-4"
           >
-            Vertrauen
+            {ui.clientLogos.badge}
           </motion.span>
           <motion.h2
             variants={fadeUpVariants}
             className="text-2xl sm:text-3xl font-bold text-[#F4F4F5] mb-3"
           >
-            Geschätzt von Marken, die Standards setzen.
+            {ui.clientLogos.headline}
           </motion.h2>
           <motion.p
             variants={fadeUpVariants}
             className="text-[#A1A1AA] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed"
           >
-            Ikonische Persönlichkeiten, Marktführer und Unternehmer mit Format vertrauen auf Spectra Media - wenn Sichtbarkeit messbare Resultate, strategische Tiefe und Umsatzgenerierung bedeuten soll.
+            {ui.clientLogos.sub}
           </motion.p>
         </motion.div>
 

@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
+import { useContent } from "@/hooks/useContent";
 
-// Visual 01 — Pin + Wirkung scale
-function WirkungVisual() {
+// Visual 01 — Impact scale
+function WirkungVisual({ low, high, metric }: { low: string; high: string; metric: string }) {
   return (
     <div className="flex flex-col items-center justify-center h-full gap-3">
       <div className="flex items-end gap-2">
-        <span className="text-[#3F3F46] text-xs">Niedrig</span>
+        <span className="text-[#3F3F46] text-xs">{low}</span>
         <div className="flex items-end gap-1">
           {[20, 32, 44, 56, 70].map((h, i) => (
             <motion.div
@@ -23,9 +24,9 @@ function WirkungVisual() {
             />
           ))}
         </div>
-        <span className="text-[#3385FF] text-xs font-semibold">Hoch</span>
+        <span className="text-[#3385FF] text-xs font-semibold">{high}</span>
       </div>
-      <div className="text-[#52525B] text-[10px] uppercase tracking-wider">WIRKUNG</div>
+      <div className="text-[#52525B] text-[10px] uppercase tracking-wider">{metric}</div>
     </div>
   );
 }
@@ -88,14 +89,14 @@ function OutputVisual() {
 }
 
 // Visual 04 — Stacked isometric layers
-function LayersVisual() {
+function LayersVisual({ layers }: { layers: [string, string, string] }) {
   return (
     <div className="flex items-center justify-center h-full">
       <div className="relative flex flex-col-reverse gap-1.5 items-center">
         {[
-          { w: 64, opacity: 0.15, label: "Kanal" },
-          { w: 48, opacity: 0.3, label: "Format" },
-          { w: 32, opacity: 0.6, label: "Marke" },
+          { w: 64, opacity: 0.15, label: layers[0] },
+          { w: 48, opacity: 0.3, label: layers[1] },
+          { w: 32, opacity: 0.6, label: layers[2] },
         ].map((layer, i) => (
           <motion.div
             key={i}
@@ -113,7 +114,7 @@ function LayersVisual() {
 }
 
 // Visual 05 — Chat bubble with question + checkmark answer
-function ChatVisual() {
+function ChatVisual({ chatQ, chatA }: { chatQ: string; chatA: string }) {
   return (
     <div className="flex flex-col items-start justify-center h-full gap-2 px-2">
       {/* Question bubble */}
@@ -122,7 +123,7 @@ function ChatVisual() {
         animate={{ opacity: [0.5, 1, 0.5] }}
         transition={{ duration: 3, repeat: Infinity }}
       >
-        <span className="text-[#A1A1AA] text-[10px] leading-tight block">Warum greifen meine Posts nicht?</span>
+        <span className="text-[#A1A1AA] text-[10px] leading-tight block">{chatQ}</span>
       </motion.div>
       {/* Answer bubble */}
       <motion.div
@@ -130,7 +131,7 @@ function ChatVisual() {
         animate={{ opacity: [1, 0.6, 1] }}
         transition={{ duration: 3, delay: 1, repeat: Infinity }}
       >
-        <span className="text-[#3385FF] text-[10px] leading-tight block">Kein System. Spectra löst das. ✓</span>
+        <span className="text-[#3385FF] text-[10px] leading-tight block">{chatA}</span>
       </motion.div>
     </div>
   );
@@ -158,46 +159,19 @@ function AuraVisual() {
   );
 }
 
-const cards = [
-  {
-    number: "01",
-    title: "Wirkung statt Werbung",
-    desc: "Keine albernen Hooks und kein Content-Spam. Wir entwickeln Inhalte, die Vertrauen aufbauen und dich als klare Stimme in deiner Branche positionieren.",
-    visual: <WirkungVisual />,
-  },
-  {
-    number: "02",
-    title: "Geschwindigkeit durch Synergie",
-    desc: "Was organisch funktioniert, wird gezielt verstärkt. Statt blind zu testen, skalieren wir Inhalte, die bereits nachweisliche Aufmerksamkeit erzeugen.",
-    visual: <TachoVisual />,
-  },
-  {
-    number: "03",
-    title: "Mehr Output, weniger Aufwand",
-    desc: "Du lieferst wenige Stunden Input, wir verwandeln daraus konstanten Content für alle Kanäle, ohne dass dein Alltag zum Content-Job wird.",
-    visual: <OutputVisual />,
-  },
-  {
-    number: "04",
-    title: "Digitale Präsenz mit Substanz",
-    desc: "Deine Inhalte folgen einer klaren Struktur. Jeder Post stärkt deine Positionierung und baut langfristig Vertrauen in deine Marke auf.",
-    visual: <LayersVisual />,
-  },
-  {
-    number: "05",
-    title: "Führung durch Format",
-    desc: "Starke Marken kommunizieren nicht zufällig. Wir entwickeln wiedererkennbare Formate, die deine Expertise sichtbar machen und deine Marke führen.",
-    visual: <ChatVisual />,
-  },
-  {
-    number: "06",
-    title: "Aura schlägt Algorithmus",
-    desc: "Wenn Positionierung, Stimme und Struktur stimmen, arbeitet der Algorithmus für dich. Deine Marke zieht Aufmerksamkeit an, statt sie erzwingen zu müssen.",
-    visual: <AuraVisual />,
-  },
-];
-
 export default function AdvantagesSection() {
+  const { ui } = useContent();
+  const { advantages } = ui;
+
+  const visuals = advantages.cards.map((card, i) => {
+    if (i === 0) return <WirkungVisual low={card.low ?? "Low"} high={card.high ?? "High"} metric={card.metric ?? "IMPACT"} />;
+    if (i === 1) return <TachoVisual />;
+    if (i === 2) return <OutputVisual />;
+    if (i === 3) return <LayersVisual layers={card.layers ?? ["Ch", "Fmt", "Br"]} />;
+    if (i === 4) return <ChatVisual chatQ={card.chatQ ?? ""} chatA={card.chatA ?? ""} />;
+    return <AuraVisual />;
+  });
+
   return (
     <section className="py-20 lg:py-32 bg-[#09090B] relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-[0.35] pointer-events-none" />
@@ -207,23 +181,23 @@ export default function AdvantagesSection() {
         <div className="text-center mb-16 lg:mb-20">
           <Reveal>
             <span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">
-              Vorteile
+              {advantages.eyebrow}
             </span>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-4">
-              Wie unsere Kunden ganze Märkte dominieren.
+              {advantages.headline}
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <p className="text-[#A1A1AA] text-lg max-w-2xl mx-auto">
-              Spectra Media verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.
+              {advantages.sub}
             </p>
           </Reveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-          {cards.map((card, i) => (
+          {advantages.cards.map((card, i) => (
             <Reveal key={i} delay={i * 0.08}>
               <motion.div
                 whileHover={{ scale: 1.025, y: -4 }}
@@ -243,7 +217,7 @@ export default function AdvantagesSection() {
 
                 {/* Visual area */}
                 <div className="relative z-10 h-36 px-6 pt-6">
-                  {card.visual}
+                  {visuals[i]}
                 </div>
 
                 {/* Text */}

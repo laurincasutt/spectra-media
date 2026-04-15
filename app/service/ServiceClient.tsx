@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+import { useContent } from "@/hooks/useContent";
 
 // ─── System card mini visuals (all animate only on hover via `active` prop) ──
 
@@ -147,10 +148,12 @@ function CommunityVisual({ active }: { active: boolean }) {
 }
 
 function FunnelVisual({ active }: { active: boolean }) {
+  const { ui } = useContent();
+  const [reach, leads, clients] = ui.systemVisuals.funnelLabels;
   return (
     <div className="w-full h-full flex items-center justify-center py-2">
       <div className="flex flex-col items-center gap-1">
-        {[{ w: 100, label: "Reichweite" }, { w: 72, label: "Leads" }, { w: 46, label: "Kunden" }].map((s, i) => (
+        {[{ w: 100, label: reach }, { w: 72, label: leads }, { w: 46, label: clients }].map((s, i) => (
           <motion.div key={i}
             className="flex items-center justify-center h-6 rounded-lg"
             style={{ width: s.w, background: `rgba(0,102,255,${0.1 + i * 0.08})`, border: `1px solid rgba(0,102,255,${0.2 + i * 0.1})` }}
@@ -191,7 +194,7 @@ function ConversionVisual({ active }: { active: boolean }) {
 type SystemVisual = React.FC<{ active: boolean }>;
 const systemCardVisuals: SystemVisual[] = [StrategyVisual, ScriptVisual, EditingVisual, CommunityVisual, FunnelVisual, ConversionVisual];
 
-function SystemCard({ item, Visual }: { item: (typeof home.system.deliverables)[0]; Visual: SystemVisual }) {
+function SystemCard({ item, Visual }: { item: { number: string; title: string; desc: string }; Visual: SystemVisual }) {
   const [hovered, setHovered] = useState(false);
   return (
     <motion.div
@@ -221,55 +224,30 @@ function SystemCard({ item, Visual }: { item: (typeof home.system.deliverables)[
 import ContactSection from "@/components/ContactSection";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
-import { service, home } from "@/data/content";
 import Reveal from "@/components/Reveal";
 import { fadeUpVariants, staggerContainer } from "@/lib/animations";
 
-const outcomeCards = [
-  {
-    number: "01",
-    title: "Autorität verändert alles, auch dein Preis.",
-    desc: "Sichtbarkeit schafft Vertrauen. Kunden zahlen mehr, stellen weniger Fragen und entscheiden schneller.",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Abschlüsse gehen leicht von der Hand.",
-    desc: "Wer dich bereits kennt und vertraut, entscheidet leichter. Social Proof verkürzt jeden Verkaufsprozess.",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
-    title: "Die richtigen Kunden kommen zu dir.",
-    desc: "Statt kalter Akquise entstehen Inbound Leads. Menschen melden sich bei dir, weil sie deine Inhalte bereits überzeugen.",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
-  },
-  {
-    number: "04",
-    title: "Vom Anbieter zur Autorität.",
-    desc: "Dein Name steht für eine Kategorie, nicht für ein einzelnes Angebot.",
-    icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-      </svg>
-    ),
-  },
+const outcomeIcons = [
+  <svg key="0" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+  </svg>,
+  <svg key="1" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>,
+  <svg key="2" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+  </svg>,
+  <svg key="3" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+  </svg>,
 ];
 
 export default function ServiceClient() {
+  const { home, service, ui } = useContent();
   const { system } = home;
+  const svcHero = ui.serviceHero;
+  const resultat = ui.serviceResultat;
+  const outcomeCards = resultat.cards.map((card, i) => ({ ...card, icon: outcomeIcons[i] }));
 
   const gridRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -296,15 +274,15 @@ export default function ServiceClient() {
               variants={fadeUpVariants}
               className="text-3xl sm:text-5xl lg:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
             >
-              <span className="text-[#F4F4F5]">Aus Accounts werden Marken,</span>
+              <span className="text-[#F4F4F5]">{svcHero.line1}</span>
               <br />
-              <span className="gradient-text">aus Marken werden Marktführer.</span>
+              <span className="gradient-text">{svcHero.line2}</span>
             </motion.h1>
             <motion.p
               variants={fadeUpVariants}
               className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
-              Für Experten und Unternehmen, die ihre Sichtbarkeit in echtes Wachstum verwandeln wollen.
+              {svcHero.sub}
             </motion.p>
             {/* Animated scroll arrows */}
             <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-1 mt-8">
@@ -329,8 +307,8 @@ export default function ServiceClient() {
         <div className="absolute inset-0 bg-[#0066FF]/3 pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <Reveal><span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">Das Resultat</span></Reveal>
-            <Reveal delay={0.08}><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]">Was passiert, wenn dein Marketing wirklich funktioniert.</h2></Reveal>
+            <Reveal><span className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-4 uppercase tracking-wider">{resultat.eyebrow}</span></Reveal>
+            <Reveal delay={0.08}><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5]">{resultat.headline}</h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 lg:gap-6">

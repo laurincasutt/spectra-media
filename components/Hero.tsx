@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { home } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import {
   fadeUpVariants,
   staggerContainer,
@@ -12,6 +12,7 @@ import {
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
 export default function Hero() {
+  const { home } = useContent();
   const { hero } = home;
 
   return (

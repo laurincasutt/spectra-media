@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { nav } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 
 export default function Footer() {
+  const { nav, footer } = useContent();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -21,7 +24,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[#A1A1AA] text-sm leading-relaxed max-w-xs">
-              Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
+              {footer.description}
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -65,7 +68,7 @@ export default function Footer() {
           {/* Navigation */}
           <div className="space-y-4">
             <h3 className="text-white text-sm font-semibold uppercase tracking-wider">
-              Navigation
+              {footer.navigationTitle}
             </h3>
             <ul className="space-y-3">
               {nav.links.map((link) => (
@@ -84,7 +87,7 @@ export default function Footer() {
           {/* Legal */}
           <div className="space-y-4">
             <h3 className="text-white text-sm font-semibold uppercase tracking-wider">
-              Rechtliches
+              {footer.legalTitle}
             </h3>
             <ul className="space-y-3">
               <li>
@@ -92,7 +95,7 @@ export default function Footer() {
                   href="/impressum"
                   className="text-[#A1A1AA] hover:text-white text-sm transition-colors"
                 >
-                  Impressum
+                  {footer.impressum}
                 </Link>
               </li>
               <li>
@@ -100,7 +103,7 @@ export default function Footer() {
                   href="/datenschutz"
                   className="text-[#A1A1AA] hover:text-white text-sm transition-colors"
                 >
-                  Datenschutz
+                  {footer.datenschutz}
                 </Link>
               </li>
             </ul>
@@ -109,9 +112,9 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[#52525B] text-sm">
-            © {currentYear} Spectra Media GmbH. Alle Rechte vorbehalten.
+            © {currentYear} Spectra Media GmbH. {footer.copyright}
           </p>
-          <p className="text-[#52525B] text-sm">🇨🇭 St. Gallen, Schweiz</p>
+          <p className="text-[#52525B] text-sm">{footer.location}</p>
         </div>
       </div>
     </footer>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { home } from "@/data/content";
+import { useContent } from "@/hooks/useContent";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 
 interface FAQItemProps {
@@ -70,6 +70,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
 
 export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { home } = useContent();
   const { faq } = home;
 
   return (
