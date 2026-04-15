@@ -1,0 +1,235 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Process" [ref=e273] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "About Us" [ref=e274] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [ref=e16]
+          - button "EN" [active] [pressed] [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Book a Call" [ref=e275] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: About Us
+        - heading "The architects behind your digital presence." [level=1] [ref=e276]:
+          - text: The architects behind
+          - text: your digital presence.
+        - paragraph [ref=e29]: We specialize in transforming ordinary Instagram accounts into standout brands that not only attract the right followers, but convert them into loyal clients.
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: 30+
+            - generic [ref=e33]: Brands scaled
+          - generic [ref=e34]:
+            - generic [ref=e35]: 2 Bn+
+            - generic [ref=e36]: Views generated
+          - generic [ref=e37]:
+            - generic [ref=e38]: 1 M+
+            - generic [ref=e39]: Followers grown
+      - generic [ref=e40]:
+        - img "Spectra Media Team" [ref=e42]
+        - img "Spectra Media" [ref=e44]
+    - generic [ref=e47]:
+      - generic [ref=e48]: Our Values
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - img [ref=e52]
+          - heading "Results > Activity" [level=3] [ref=e277]
+          - paragraph [ref=e55]: We measure ourselves by outcomes, not effort. Follower growth, reach, inquiries — that's what counts.
+        - generic [ref=e56]:
+          - img [ref=e58]
+          - heading "Transparency > Buzzwords" [level=3] [ref=e278]
+          - paragraph [ref=e62]: No hidden methods, no inflated numbers. You always know exactly what we do and why.
+        - generic [ref=e63]:
+          - img [ref=e65]
+          - heading "Focus > Volume" [level=3] [ref=e279]
+          - paragraph [ref=e70]: We don't work with everyone. We concentrate on a selected number of clients where we see potential and can truly make a difference.
+    - generic [ref=e73]:
+      - generic [ref=e74]: Our Team
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - img "Laurin Casutt" [ref=e78]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - heading "Laurin Casutt" [level=3] [ref=e82]
+              - paragraph [ref=e83]: CEO & Managing Director
+            - link "Laurin Casutt auf LinkedIn" [ref=e84] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/laurin-casutt/
+              - img [ref=e85]
+        - generic [ref=e87]:
+          - img "Andri Casutt" [ref=e89]
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Andri Casutt" [level=3] [ref=e93]
+              - paragraph [ref=e94]: Co-Founder & Head of Operations
+            - link "Andri Casutt auf LinkedIn" [ref=e95] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e96]
+    - generic [ref=e100]:
+      - generic [ref=e101]: Our Background
+      - heading "How it all began." [level=2] [ref=e280]
+      - generic [ref=e103]:
+        - paragraph [ref=e104]: "Spectra Media GmbH wasn't born from a business plan — it was born from frustration. We kept seeing the same thing: entrepreneurs, coaches, and experts with genuine knowledge remaining invisible, while superficial content got millions of views. Not because quality was lacking — but because the system was lacking."
+        - paragraph [ref=e105]: We knew this feeling firsthand. We had the knowledge, the experience, and the results — but without the right system, all of that remained invisible online. So we built the system. Not just for ourselves — but for everyone in exactly that situation.
+        - paragraph [ref=e106]: "Today we work with selected entrepreneurs, coaches, and experts from the DACH region and beyond, transforming their knowledge into visible, profitable personal brands. What drives us: the moment a client realizes their account isn't just producing content — it's transforming their entire business."
+    - generic [ref=e109]:
+      - generic [ref=e110]: No interest in
+      - heading "What we don't stand for:" [level=2] [ref=e281]
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - img [ref=e115]
+          - generic [ref=e117]:
+            - heading "One-Size-Fits-All Solutions" [level=3] [ref=e282]
+            - paragraph [ref=e119]: No client is like another. Generic packages produce generic results — that's not our way.
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e124]:
+            - heading "Generic Scripts" [level=3] [ref=e283]
+            - paragraph [ref=e126]: We don't write copy-paste texts. Every script carries your voice, your language, and your personality.
+        - generic [ref=e127]:
+          - img [ref=e129]
+          - generic [ref=e131]:
+            - heading "Vanity Metrics" [level=3] [ref=e132]
+            - paragraph [ref=e133]: "Likes without leads mean nothing. We optimize for real results: inquiries, follower growth, and revenue."
+        - generic [ref=e134]:
+          - img [ref=e136]
+          - generic [ref=e138]:
+            - heading "Empty Promises" [level=3] [ref=e284]
+            - paragraph [ref=e140]: No inflated numbers, no unrealistic expectations. We deliberately work with a selected number of brands in long-term projects — not with as many clients as possible, but with the right ones.
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e145]: Ready to start?
+        - heading "Take the first step toward your digital authority. Free and non-binding." [level=2] [ref=e285]:
+          - text: Take the first step toward your digital authority.
+          - text: Free and non-binding.
+        - paragraph [ref=e147]: In a 30-minute call, we'll determine together whether Spectra Media is the right partner for your social media growth.
+        - generic [ref=e148]:
+          - link "Email info@spectramedia.ch" [ref=e286] [cursor=pointer]:
+            - /url: mailto:info@spectramedia.ch
+            - img [ref=e151]
+            - generic [ref=e153]:
+              - generic [ref=e154]: Email
+              - generic [ref=e155]: info@spectramedia.ch
+            - img [ref=e156]
+          - link "WhatsApp +41795371839" [ref=e158] [cursor=pointer]:
+            - /url: https://wa.me/41795371839?text=Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - generic [ref=e163]: WhatsApp
+              - generic [ref=e164]: "+41795371839"
+            - img [ref=e165]
+          - link "Office 9200 Gossau SG, Switzerland" [ref=e287] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=9200+Gossau+SG+Schweiz
+            - img [ref=e169]
+            - generic [ref=e172]:
+              - generic [ref=e173]: Office
+              - generic [ref=e174]: 9200 Gossau SG, Switzerland
+            - img [ref=e175]
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - heading "Free Discovery Call" [level=3] [ref=e288]
+          - paragraph [ref=e183]: We'll explore together if and how we can work together.
+          - generic [ref=e184]:
+            - generic [ref=e289]: 30 min.
+            - generic [ref=e290]: Video Call
+            - generic [ref=e291]: Free
+            - generic [ref=e292]: Non-binding
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - generic [ref=e192]: Book a Discovery Call
+                - generic [ref=e193]: 30 min · Free
+              - img [ref=e195]
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - generic [ref=e199]: Mon
+                - generic [ref=e200] [cursor=pointer]: 10:00
+                - generic [ref=e201] [cursor=pointer]: 14:00
+              - generic [ref=e202]:
+                - generic [ref=e203]: Tue
+                - generic [ref=e204] [cursor=pointer]: 14:00
+                - generic [ref=e205] [cursor=pointer]: 16:00
+              - generic [ref=e206]:
+                - generic [ref=e207]: Wed
+                - generic [ref=e208] [cursor=pointer]: 11:00
+                - generic [ref=e209] [cursor=pointer]: 13:00
+              - generic [ref=e210]:
+                - generic [ref=e211]: Thu
+                - generic [ref=e212] [cursor=pointer]: 09:00
+                - generic [ref=e213] [cursor=pointer]: 11:00
+              - generic [ref=e214]:
+                - generic [ref=e215]: Fri
+                - generic [ref=e216] [cursor=pointer]: 15:00
+                - generic [ref=e217] [cursor=pointer]: 10:00
+            - generic [ref=e218]: "Next availability: Tomorrow, 10:00"
+        - link "Book Your Appointment" [ref=e293] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+          - text: Book Your Appointment
+          - img [ref=e220]
+  - contentinfo [ref=e222]:
+    - generic [ref=e223]:
+      - generic [ref=e224]:
+        - generic [ref=e225]:
+          - link "Spectra Media" [ref=e226] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e227]
+          - paragraph [ref=e228]: Done-for-You Social Media Growth for ambitious entrepreneurs and Personal Brands in the DACH region and internationally.
+          - generic [ref=e229]:
+            - link "WhatsApp" [ref=e230] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.
+              - img [ref=e231]
+            - link "Instagram" [ref=e233] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e234]
+            - link "LinkedIn" [ref=e238] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e239]
+        - generic [ref=e241]:
+          - heading "Navigation" [level=3] [ref=e242]
+          - list [ref=e243]:
+            - listitem [ref=e244]:
+              - link "Home" [ref=e245] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e246]:
+              - link "Services" [ref=e247] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e248]:
+              - link "Process" [ref=e294] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e250]:
+              - link "Case Studies" [ref=e251] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e252]:
+              - link "About Us" [ref=e295] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e254]:
+          - heading "Legal" [level=3] [ref=e296]
+          - list [ref=e256]:
+            - listitem [ref=e257]:
+              - link "Legal Notice" [ref=e297] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e259]:
+              - link "Privacy Policy" [ref=e298] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e261]:
+        - paragraph [ref=e262]: © 2026 Spectra Media GmbH. All rights reserved.
+        - paragraph [ref=e263]: 🇨🇭 St. Gallen, Switzerland
+  - button "Open Next.js Dev Tools" [ref=e269] [cursor=pointer]:
+    - img [ref=e270]
+  - alert [ref=e299]

@@ -1,0 +1,198 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Process" [ref=e229] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "About Us" [ref=e230] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [ref=e16]
+          - button "EN" [active] [pressed] [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Book a Call" [ref=e231] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e26]:
+      - link "Case Studies" [ref=e28] [cursor=pointer]:
+        - /url: /case-studies
+        - img [ref=e29]
+        - text: Case Studies
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - generic [ref=e33]: Fitness & Coaching
+          - heading "128,000 new followers in 90 days" [level=1] [ref=e232]
+          - generic [ref=e35]:
+            - generic [ref=e36]: 128k+
+            - generic [ref=e37]: New followers in 90 days
+        - generic [ref=e39]:
+          - img "Tamer Galal" [ref=e40]
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: Tamer Galal
+            - paragraph [ref=e45]: Fitness
+    - generic [ref=e48]:
+      - generic [ref=e49]:
+        - generic [ref=e50]: 128k+
+        - generic [ref=e51]: New followers in 90 days
+      - generic [ref=e52]:
+        - generic [ref=e53]: 41 M.
+        - generic [ref=e54]: Views in 90 days
+      - generic [ref=e55]:
+        - generic [ref=e56]: 25+
+        - generic [ref=e57]: New client calls booked per week
+      - generic [ref=e58]:
+        - generic [ref=e59]: "1"
+        - generic [ref=e60]: School community built
+    - generic [ref=e62]:
+      - generic [ref=e63]:
+        - heading "The Challenge" [level=2] [ref=e233]
+        - paragraph [ref=e65]: Tamer Galal was already a legend in the German-speaking fitness world — but his offline presence didn't match his online presence. Although he had been a leading figure for over 30 years, he had missed the digital transition and suffered a significant disadvantage as a result. He had neither the time nor the expertise to produce consistent content that would position him as an expert and restore his platform. Previous attempts yielded no measurable results. We helped him present his knowledge and competence in a way that makes people understand what makes him special — and highlights his legendary status even today.
+      - generic [ref=e66]:
+        - heading "Our Approach" [level=2] [ref=e234]
+        - list [ref=e68]:
+          - listitem [ref=e69]:
+            - generic [ref=e70]: "01"
+            - paragraph [ref=e71]: "Brand Positioning — Before producing any content, we clearly positioned Tamer's decades of experience. The focus: not just the fitness coach, but the seasoned voice in German-speaking bodybuilding."
+          - listitem [ref=e72]:
+            - generic [ref=e73]: "02"
+            - paragraph [ref=e74]: Translating his expertise into content — Tamer's knowledge from over 30 years of training, coaching, and competition was translated into clear content formats that make his expertise understandable and recognizable to a broad audience.
+          - listitem [ref=e75]:
+            - generic [ref=e76]: "03"
+            - paragraph [ref=e77]: Building a consistent content structure — Instead of individual posts, a clear publishing rhythm was established with recognizable formats that make his content consistently and structurally visible.
+          - listitem [ref=e78]:
+            - generic [ref=e79]: "04"
+            - paragraph [ref=e80]: Focus on short-video platforms — The emphasis was placed on Instagram Reels, TikTok, and YouTube Shorts to showcase his expertise where the fitness community exists today.
+          - listitem [ref=e81]:
+            - generic [ref=e82]: "05"
+            - paragraph [ref=e83]: Content scaling — Content that performed particularly well was expanded and strategically amplified to continuously increase reach. Each month served as a feedback loop for adjusting the content strategy.
+      - generic [ref=e84]:
+        - heading "The Result" [level=2] [ref=e235]
+        - paragraph [ref=e86]: Within a few months, Tamer's online presence developed into one of the most visible voices in the German-speaking fitness scene. His content reached millions of people, built a rapidly growing community, and made his decades of experience digitally visible to a broad audience for the first time. As reach grew, so did demand — coaching inquiries multiplied while his content positioned him as a clear authority in the industry.
+      - generic [ref=e87]:
+        - heading "Screenshots & Insights" [level=2] [ref=e88]
+        - generic [ref=e89]:
+          - img "Tamer Galal Screenshot 1" [ref=e91]
+          - img "Tamer Galal Screenshot 2" [ref=e94]
+          - img "Tamer Galal Screenshot 3" [ref=e97]
+          - img "Tamer Galal Screenshot 4" [ref=e100]
+        - img "Tamer Galal Insights" [ref=e103]
+      - blockquote [ref=e105]:
+        - img [ref=e106]
+        - paragraph [ref=e108]: “Spectra Media didn't just rebuild my social media from scratch — they transformed my entire business. Today I receive inquiries and no longer have to chase them.”
+        - generic [ref=e109]: — Tamer Galal, Fitness Coach
+    - generic [ref=e112]:
+      - heading "More Case Studies" [level=2] [ref=e236]
+      - generic [ref=e114]:
+        - link "Kanzlei Mandic Legal Consulting 15k → 50k+ Follower growth Kanzlei Mandic From 15,000 to 50,000+ followers in 4 months Read Case Study" [ref=e237] [cursor=pointer]:
+          - /url: /case-studies/kanzlei-mandic
+          - generic [ref=e117]:
+            - img "Kanzlei Mandic" [ref=e120]
+            - generic [ref=e121]:
+              - generic [ref=e122]: Legal Consulting
+              - generic [ref=e123]: 15k → 50k+
+              - generic [ref=e124]: Follower growth
+              - generic [ref=e125]:
+                - generic [ref=e126]: Kanzlei Mandic
+                - generic [ref=e127]: From 15,000 to 50,000+ followers in 4 months
+              - generic [ref=e128]:
+                - generic [ref=e129]: Read Case Study
+                - img [ref=e130]
+        - link "Markus Hoppe Fitness & Lifestyle +30k New followers in 3 months Markus Hoppe From a stagnating supplement shop to a successful online coach Read Case Study" [ref=e238] [cursor=pointer]:
+          - /url: /case-studies/markus-hoppe
+          - generic [ref=e134]:
+            - img "Markus Hoppe" [ref=e137]
+            - generic [ref=e138]:
+              - generic [ref=e139]: Fitness & Lifestyle
+              - generic [ref=e140]: +30k
+              - generic [ref=e141]: New followers in 3 months
+              - generic [ref=e142]:
+                - generic [ref=e143]: Markus Hoppe
+                - generic [ref=e144]: From a stagnating supplement shop to a successful online coach
+              - generic [ref=e145]:
+                - generic [ref=e146]: Read Case Study
+                - img [ref=e147]
+        - link "Maiorano Performance Health & Wellness 0 → 10k Followers in 6 weeks Maiorano Performance From 0 to 10,000 followers in 6 weeks Read Case Study" [ref=e239] [cursor=pointer]:
+          - /url: /case-studies/george-maiorano
+          - generic [ref=e151]:
+            - img "Maiorano Performance" [ref=e154]
+            - generic [ref=e155]:
+              - generic [ref=e156]: Health & Wellness
+              - generic [ref=e157]: 0 → 10k
+              - generic [ref=e158]: Followers in 6 weeks
+              - generic [ref=e159]:
+                - generic [ref=e160]: Maiorano Performance
+                - generic [ref=e161]: From 0 to 10,000 followers in 6 weeks
+              - generic [ref=e162]:
+                - generic [ref=e163]: Read Case Study
+                - img [ref=e164]
+    - generic [ref=e170]:
+      - generic [ref=e171]: Ready to start?
+      - heading "Take the first step toward your digital authority." [level=2] [ref=e240]
+      - paragraph [ref=e173]: In a free 30-minute call, we'll explore together what's possible for you.
+      - link "Book Your Free Discovery Call" [ref=e241] [cursor=pointer]:
+        - /url: https://calendly.com/spectramedia-info/30min
+        - text: Book Your Free Discovery Call
+        - img [ref=e176]
+  - contentinfo [ref=e178]:
+    - generic [ref=e179]:
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - link "Spectra Media" [ref=e182] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e183]
+          - paragraph [ref=e184]: Done-for-You Social Media Growth for ambitious entrepreneurs and Personal Brands in the DACH region and internationally.
+          - generic [ref=e185]:
+            - link "WhatsApp" [ref=e186] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.
+              - img [ref=e187]
+            - link "Instagram" [ref=e189] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e190]
+            - link "LinkedIn" [ref=e194] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e195]
+        - generic [ref=e197]:
+          - heading "Navigation" [level=3] [ref=e198]
+          - list [ref=e199]:
+            - listitem [ref=e200]:
+              - link "Home" [ref=e201] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e202]:
+              - link "Services" [ref=e203] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e204]:
+              - link "Process" [ref=e242] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e206]:
+              - link "Case Studies" [ref=e207] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e208]:
+              - link "About Us" [ref=e243] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e210]:
+          - heading "Legal" [level=3] [ref=e244]
+          - list [ref=e212]:
+            - listitem [ref=e213]:
+              - link "Legal Notice" [ref=e245] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e215]:
+              - link "Privacy Policy" [ref=e246] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e217]:
+        - paragraph [ref=e218]: © 2026 Spectra Media GmbH. All rights reserved.
+        - paragraph [ref=e219]: 🇨🇭 St. Gallen, Switzerland
+  - button "Open Next.js Dev Tools" [ref=e225] [cursor=pointer]:
+    - img [ref=e226]
+  - alert [ref=e247]

@@ -1,0 +1,483 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Prozess" [ref=e10] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Über uns" [ref=e12] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [pressed] [ref=e16]
+          - button "EN" [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Erstgespräch buchen" [ref=e21] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - img "Instagram Screenshot Spectra Media"
+          - generic: Instagram
+        - generic:
+          - generic:
+            - generic:
+              - img "Insights Screenshot"
+          - generic: Insights
+      - generic [ref=e24]:
+        - generic [ref=e26]: Done-for-You Social Media Growth
+        - generic [ref=e30]:
+          - heading "Vom Mitläufer" [level=1] [ref=e31]
+          - heading "zum Marktführer." [level=1] [ref=e32]
+        - paragraph [ref=e33]: Spectra Media GmbH ist darauf spezialisiert, übersehbare Instagram-Accounts in herausragende Personal Brands und Business Pages zu transformieren, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden konvertieren.
+        - generic [ref=e34]:
+          - link "Erstgespräch buchen" [ref=e35] [cursor=pointer]:
+            - /url: https://calendly.com/spectramedia-info/30min
+            - text: Erstgespräch buchen
+            - img [ref=e36]
+          - link "Case Studies ansehen" [ref=e38] [cursor=pointer]:
+            - /url: /case-studies
+            - text: Case Studies ansehen
+            - img [ref=e39]
+    - generic [ref=e43]:
+      - generic [ref=e45]:
+        - generic [ref=e47]: 2 Mrd+
+        - generic [ref=e48]: Views generiert
+      - generic [ref=e51]:
+        - generic [ref=e53]: 1 Mio+
+        - generic [ref=e54]: Follower gegrowt
+      - generic [ref=e57]:
+        - generic [ref=e59]: 0+
+        - generic [ref=e60]: Kunden generiert
+      - generic [ref=e63]:
+        - generic [ref=e65]: 0+
+        - generic [ref=e66]: Brands skaliert
+    - generic [ref=e68]:
+      - generic [ref=e70]: In Action
+      - generic [ref=e72]:
+        - img [ref=e74] [cursor=pointer]
+        - generic [ref=e76]: Video folgt
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - generic [ref=e80]: Vertrauen
+        - heading "Geschätzt von Marken, die Standards setzen." [level=2] [ref=e81]
+        - paragraph [ref=e82]: Ikonische Persönlichkeiten, Marktführer und Unternehmer mit Format vertrauen auf Spectra Media - wenn Sichtbarkeit messbare Resultate, strategische Tiefe und Umsatzgenerierung bedeuten soll.
+      - generic [ref=e83]:
+        - img "American Medical Wellness" [ref=e85]
+        - img "American Wellness Pharmacy" [ref=e87]
+        - img "Badass Coaching Mike Sommerfeld" [ref=e89]
+        - img "BioWell Labs" [ref=e91]
+        - img "Body Planet Tamer Galal" [ref=e93]
+        - img "Der Holzapfel" [ref=e95]
+        - img "Gannikus" [ref=e97]
+        - img "Hoppe Coaching Markus Hoppe" [ref=e99]
+        - img "Kanzlei Mandic" [ref=e101]
+        - img "Maiorano Performance George Maiorano" [ref=e103]
+    - generic [ref=e105]:
+      - generic [ref=e106]:
+        - generic [ref=e108]: Das Problem
+        - heading "Warum die meisten Marken unsichtbar bleiben." [level=2] [ref=e110]
+      - generic [ref=e111]:
+        - generic [ref=e113]:
+          - generic [ref=e115]: "01"
+          - img [ref=e117]
+          - heading "Dein Marketing folgt keiner Struktur." [level=3] [ref=e120]
+          - paragraph [ref=e121]: Hier ein Post, dort eine Ad - nichts greift ineinander. Du testest, hoffst, aber es fehlt die Strategie. Content verpufft, Ads konvertieren nicht. Andere erreichen mit weniger mehr. Was dir fehlt, ist ein System.
+          - generic [ref=e123]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: Mo
+              - generic [ref=e127]: Di
+              - generic [ref=e128]: Mi
+              - generic [ref=e129]: Do
+              - generic [ref=e130]: Fr
+            - img [ref=e162]
+            - img [ref=e165]
+            - img [ref=e168]
+            - img [ref=e171]
+            - img [ref=e174]
+            - img [ref=e177]
+        - generic [ref=e180]:
+          - generic [ref=e182]: "02"
+          - img [ref=e184]
+          - heading "Deine Konkurrenz sticht dich aus." [level=3] [ref=e186]
+          - paragraph [ref=e187]: Du hast ein Produkt, das Marktführer sein sollte, aber niemand weiß davon. Weil heute nicht mehr die Besten gewinnen, sondern die Bekanntesten. Personen mit weniger Qualität sichern sich Marktanteile, die eigentlich dir gehören - nur weil sie wissen, wie man Social Media nutzt und Reichweite generiert.
+          - generic [ref=e189]:
+            - generic [ref=e191]: "#2"
+            - generic [ref=e194]: "#1"
+            - generic [ref=e197]:
+              - generic [ref=e198]: "#3"
+              - generic [ref=e199]: Du
+        - generic [ref=e202]:
+          - generic [ref=e204]: "03"
+          - img [ref=e206]
+          - heading "Die Zeit rennt dir durch die Hände." [level=3] [ref=e208]
+          - paragraph [ref=e209]: Du hast dich selbstständig gemacht, um deine Ziele zu verfolgen und etwas aufzubauen - nicht um ständig Content zu planen, zu posten und zu editieren. Du machst alles selbst, delegierst nichts und arbeitest im Business anstatt am Business. So verschwendest du wertvolle Zeit.
+          - generic [ref=e211]:
+            - generic [ref=e213]:
+              - img [ref=e216]
+              - img [ref=e220]
+              - img [ref=e224]
+              - img [ref=e229]
+              - img [ref=e233]
+              - img [ref=e237]
+              - img [ref=e241]
+              - img [ref=e245]
+              - img [ref=e249]
+              - img [ref=e253]
+            - img [ref=e257]
+    - generic [ref=e265]:
+      - generic [ref=e266]:
+        - generic [ref=e267]: Die Spectra Methode™
+        - heading "Von unsichtbar zu unübersehbar - in drei Phasen." [level=2] [ref=e268]
+        - paragraph [ref=e269]: Wir verwandeln gewöhnliche Accounts in herausstechende Marken und das nicht durch Zufall, sondern mit System.
+      - img [ref=e271]:
+        - generic [ref=e278]:
+          - generic [ref=e287]: "01"
+          - generic [ref=e288]: POSITIONING
+        - generic [ref=e289]:
+          - generic [ref=e299]: "02"
+          - generic [ref=e300]: CONTENT
+          - generic [ref=e301]: ENGINE
+        - generic [ref=e302]:
+          - generic [ref=e311]: "03"
+          - generic [ref=e312]: MARKET
+          - generic [ref=e313]: DOMINANCE
+      - generic [ref=e318]:
+        - generic [ref=e319]:
+          - generic [ref=e321]: "01"
+          - generic [ref=e322]:
+            - generic [ref=e323]: "01"
+            - text: POSITIONING
+          - heading "Positioning" [level=3] [ref=e324]
+          - paragraph [ref=e325]: "Alles steht und fällt mit der Grundstruktur deiner Marke. Bevor wir erste Content Pieces produzieren, klären wir zuerst das Fundament: Wer du bist, welchen Personen du weiterhelfen möchtest und warum Menschen auf dich anstatt auf deine Konkurrenz setzen sollen."
+          - paragraph [ref=e326]: "Wir definieren ganz klar deine Positionierung im Markt, deine Zielgruppe und dein unverwechselbares Markenversprechen. Das Ergebnis: eine klare Markenidentität, die auf jeder Plattform sofort wiedererkennbar ist."
+        - generic [ref=e327]:
+          - generic [ref=e329]: "02"
+          - generic [ref=e330]:
+            - generic [ref=e331]: "02"
+            - text: CONTENT ENGINE
+          - heading "Content Engine" [level=3] [ref=e332]
+          - paragraph [ref=e333]: "Bei unserem Service handelt es sich um ein Done-For-You-Service - wir wollen deinen Zeitaufwand so gering wie möglich halten. Dafür bauen wir eine vollständige Content Engine um deine Marke herum: Content-Strategie, Scriptwriting, Editing, Upload und Community Management."
+          - paragraph [ref=e334]: Alles was wir von deiner Seite brauchen, sind 1-2 Stunden Recording-Zeit pro Woche. Du fokussierst dich auf deine Stärken, wir übernehmen den Rest - und liefern dir täglichen Content, vollständig betreute Kanäle und Wachstum, das sich monatlich misst.
+        - generic [ref=e335]:
+          - generic [ref=e337]: "03"
+          - generic [ref=e338]:
+            - generic [ref=e339]: "03"
+            - text: MARKET DOMINANCE
+          - heading "Market Dominance" [level=3] [ref=e340]
+          - paragraph [ref=e341]: Reichweite allein reicht nicht aus. Deswegen bauen wir dir Systeme, die Follower in Kunden verwandeln - mit Funneln, Conversion-Optimierung und Angeboten, die dein Wachstum monetarisieren.
+          - paragraph [ref=e342]: Das Ziel ist nicht nur viral zu gehen, sondern die unbestrittene Nummer 1 in deiner Nische zu werden. Dies schafft Vertrauen, das wir direkt monetarisieren können.
+    - generic [ref=e344]:
+      - paragraph [ref=e346]: Bereit loszulegen?
+      - heading "Den ersten Schritt zu deiner digitalen Autorität." [level=2] [ref=e348]:
+        - generic [ref=e349]: Den ersten Schritt zu deiner
+        - text: digitalen Autorität.
+      - paragraph [ref=e351]: In einem kostenlosen 30-Minuten-Gespräch schauen wir gemeinsam, was für dich möglich ist.
+      - link "Kostenloses Erstgespräch buchen" [ref=e353] [cursor=pointer]:
+        - /url: https://calendly.com/spectramedia-info/30min
+        - text: Kostenloses Erstgespräch buchen
+        - img [ref=e354]
+    - generic [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e360]: Unser System
+        - heading "Du fokussierst dich auf deine Stärken, wir machen den Rest." [level=2] [ref=e362]
+        - paragraph [ref=e364]: Wir bauen die Marke, du skalierst dein Business.
+      - generic [ref=e365]:
+        - img
+        - generic [ref=e366]:
+          - generic [ref=e368]:
+            - img [ref=e373]
+            - generic [ref=e376]:
+              - generic [ref=e378]: "01"
+              - heading "Content-Strategie & Research" [level=3] [ref=e379]
+              - paragraph [ref=e380]: Wir analysieren deine Nische, Konkurrenz und Zielgruppe. Daraus entsteht eine Strategie, die auf Wachstum ausgelegt ist.
+          - generic [ref=e382]:
+            - generic [ref=e386]: HOOK
+            - generic [ref=e393]:
+              - generic [ref=e395]: "02"
+              - heading "Skript & Hook-Entwicklung" [level=3] [ref=e396]
+              - paragraph [ref=e397]: Jedes Video bekommt ein maßgeschneidertes Skript mit starkem Hook. Voice-Matching statt generischer Agency-Sprache.
+          - generic [ref=e414]:
+            - generic [ref=e416]: "03"
+            - heading "Professionelles Editing" [level=3] [ref=e417]
+            - paragraph [ref=e418]: Schnell, auf den Punkt, plattformgerecht. Wir schneiden deine Rohaufnahmen zu viralen Short-Form Clips.
+          - generic [ref=e420]:
+            - generic [ref=e423]:
+              - img [ref=e427]
+              - img [ref=e431]
+            - generic [ref=e434]:
+              - generic [ref=e436]: "04"
+              - heading "Upload & Community Management" [level=3] [ref=e437]
+              - paragraph [ref=e438]: Wir übernehmen den kompletten Upload-Prozess und managen deine Community – Kommentare, DMs, Engagement.
+          - generic [ref=e440]:
+            - generic [ref=e443]:
+              - generic [ref=e445]: Reichweite
+              - generic [ref=e447]: Leads
+              - generic [ref=e449]: Kunden
+              - generic [ref=e452]: €
+            - generic [ref=e453]:
+              - generic [ref=e455]: "05"
+              - heading "Funnel & Conversion" [level=3] [ref=e456]
+              - paragraph [ref=e457]: Reichweite allein reicht nicht. Wir bauen Systeme, die Follower zu Kunden machen.
+          - generic [ref=e467]:
+            - generic [ref=e469]: "06"
+            - heading "Angebot & Conversion-Optimierung" [level=3] [ref=e470]
+            - paragraph [ref=e471]: Wir optimieren dein Angebot, deine Preisstruktur und deine Calls-to-Action – damit Reichweite zu echten Kunden wird.
+    - generic [ref=e473]:
+      - generic [ref=e474]:
+        - generic [ref=e475]: Case Studies
+        - heading "Vom Seitenfeld ins Rampenlicht." [level=2] [ref=e476]
+        - paragraph [ref=e477]: Wir machen unsere Kunden nicht nur sichtbar, sondern zur Marktgrösse in ihrer Nische.
+      - generic [ref=e478]:
+        - generic [ref=e482]:
+          - img "Tamer Galal" [ref=e485]
+          - generic [ref=e486]:
+            - generic [ref=e487]: Fitness & Coaching
+            - heading "Tamer Galal" [level=3] [ref=e488]
+            - paragraph [ref=e489]: 128.000 neue Follower in 90 Tagen
+          - generic [ref=e490]:
+            - generic [ref=e491]: 128k+
+            - generic [ref=e492]: Neue Follower in 90 Tagen
+          - button "Details anzeigen" [ref=e493]:
+            - text: Details anzeigen
+            - img [ref=e495]
+        - generic [ref=e500]:
+          - img "Kanzlei Mandic" [ref=e503]
+          - generic [ref=e504]:
+            - generic [ref=e505]: Rechtsberatung
+            - heading "Kanzlei Mandic" [level=3] [ref=e506]
+            - paragraph [ref=e507]: Von 15.000 auf 50.000+ Follower in 4 Monaten
+          - generic [ref=e508]:
+            - generic [ref=e509]: 15k → 50k+
+            - generic [ref=e510]: Follower Wachstum
+          - button "Details anzeigen" [ref=e511]:
+            - text: Details anzeigen
+            - img [ref=e513]
+        - generic [ref=e518]:
+          - img "Markus Hoppe" [ref=e521]
+          - generic [ref=e522]:
+            - generic [ref=e523]: Fitness & Lifestyle
+            - heading "Markus Hoppe" [level=3] [ref=e524]
+            - paragraph [ref=e525]: Vom stagnierenden Supplement-Shop zum erfolgreichen Online-Coach
+          - generic [ref=e526]:
+            - generic [ref=e527]: +30k
+            - generic [ref=e528]: Neue Follower in 3 Monaten
+          - button "Details anzeigen" [ref=e529]:
+            - text: Details anzeigen
+            - img [ref=e531]
+        - generic [ref=e536]:
+          - img "Maiorano Performance" [ref=e539]
+          - generic [ref=e540]:
+            - generic [ref=e541]: Health & Wellness
+            - heading "Maiorano Performance" [level=3] [ref=e542]
+            - paragraph [ref=e543]: Von 0 auf 10.000 Follower in 6 Wochen
+          - generic [ref=e544]:
+            - generic [ref=e545]: 0 → 10k
+            - generic [ref=e546]: Follower in 6 Wochen
+          - button "Details anzeigen" [ref=e547]:
+            - text: Details anzeigen
+            - img [ref=e549]
+        - generic [ref=e554]:
+          - img "Mike Sommerfeld" [ref=e557]
+          - generic [ref=e558]:
+            - generic [ref=e559]: Fitness & Lifestyle
+            - heading "Mike Sommerfeld" [level=3] [ref=e560]
+            - paragraph [ref=e561]: Die Road zum Mr. Olympia - dokumentiert in Echtzeit
+          - generic [ref=e562]:
+            - generic [ref=e563]: +100k
+            - generic [ref=e564]: Follower in 30 Tagen
+          - button "Details anzeigen" [ref=e565]:
+            - text: Details anzeigen
+            - img [ref=e567]
+        - generic [ref=e572]:
+          - img "Gannikus" [ref=e575]
+          - generic [ref=e576]:
+            - generic [ref=e577]: Fitness & Media
+            - heading "Gannikus" [level=3] [ref=e578]
+            - paragraph [ref=e579]: Podcast in virale Clips umgewandelt
+          - generic [ref=e580]:
+            - generic [ref=e581]: Podcast
+            - generic [ref=e582]: in virale Clips umgewandelt
+          - button "Details anzeigen" [ref=e583]:
+            - text: Details anzeigen
+            - img [ref=e585]
+    - generic [ref=e589]:
+      - generic [ref=e590]:
+        - generic [ref=e591]: Zielgruppen
+        - heading "Brands, die Standards setzen, nicht Trends hinterherjagen." [level=2] [ref=e592]:
+          - text: Brands, die Standards setzen,
+          - text: nicht Trends hinterherjagen.
+      - generic [ref=e593]:
+        - generic [ref=e594]:
+          - img [ref=e598]
+          - heading "Elite-Coaches und Experten" [level=3] [ref=e602]
+        - generic [ref=e603]:
+          - img [ref=e607]
+          - heading "Unternehmen mit Personal Brand" [level=3] [ref=e610]
+        - generic [ref=e611]:
+          - img [ref=e615]
+          - heading "Anwälte und Kanzleien" [level=3] [ref=e618]
+        - generic [ref=e619]:
+          - img [ref=e623]
+          - heading "Strategische Berater und Vordenker" [level=3] [ref=e625]
+        - generic [ref=e626]:
+          - img [ref=e630]
+          - heading "Fitness- und Gesundheitscoaches" [level=3] [ref=e632]
+        - generic [ref=e633]:
+          - img [ref=e637]
+          - heading "Supplement- und Gesundheitsmarken" [level=3] [ref=e640]
+    - generic [ref=e642]:
+      - generic [ref=e643]:
+        - generic [ref=e644]: FAQ
+        - heading "Häufige Fragen" [level=2] [ref=e645]
+      - generic [ref=e646]:
+        - generic [ref=e648]:
+          - button "Wie viel Zeit muss ich selbst investieren?" [expanded] [ref=e649]:
+            - generic [ref=e650]: Wie viel Zeit muss ich selbst investieren?
+            - img [ref=e652]
+          - paragraph [ref=e655]: "Unser Service ist genau dazu da, damit du möglichst zeiteffizient die besten Resultate erhältst. Alles, was von deiner Seite gebraucht wird, sind 1–2 Stunden Recordings pro Woche, in denen du Videos für uns abdrehst. Den ganzen Rest übernehmen wir: Strategie, Skripte, Editing, Upload und Community Management. Du fokussierst dich auf deine Kernkompetenzen. Wir machen den Rest."
+        - button "Wie schnell sehe ich erste Ergebnisse?" [ref=e658]:
+          - generic [ref=e659]: Wie schnell sehe ich erste Ergebnisse?
+          - img [ref=e661]
+        - button "Für welche Branchen arbeitet ihr?" [ref=e665]:
+          - generic [ref=e666]: Für welche Branchen arbeitet ihr?
+          - img [ref=e668]
+        - button "Arbeitet ihr nur mit Instagram oder auch anderen Plattformen?" [ref=e672]:
+          - generic [ref=e673]: Arbeitet ihr nur mit Instagram oder auch anderen Plattformen?
+          - img [ref=e675]
+        - button "Wie läuft der Einstieg ab?" [ref=e679]:
+          - generic [ref=e680]: Wie läuft der Einstieg ab?
+          - img [ref=e682]
+    - generic [ref=e686]:
+      - generic [ref=e687]:
+        - generic [ref=e688]: Bereit anzufangen?
+        - heading "Den ersten Schritt zu deiner digitalen Autorität. Kostenlos und unverbindlich." [level=2] [ref=e689]:
+          - text: Den ersten Schritt zu deiner digitalen Autorität.
+          - text: Kostenlos und unverbindlich.
+        - paragraph [ref=e690]: In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+        - generic [ref=e691]:
+          - link "E-Mail info@spectramedia.ch" [ref=e692] [cursor=pointer]:
+            - /url: mailto:info@spectramedia.ch
+            - img [ref=e694]
+            - generic [ref=e696]:
+              - generic [ref=e697]: E-Mail
+              - generic [ref=e698]: info@spectramedia.ch
+            - img [ref=e699]
+          - link "WhatsApp +41795371839" [ref=e701] [cursor=pointer]:
+            - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+            - img [ref=e703]
+            - generic [ref=e705]:
+              - generic [ref=e706]: WhatsApp
+              - generic [ref=e707]: "+41795371839"
+            - img [ref=e708]
+          - link "Büro 9200 Gossau SG, Schweiz" [ref=e710] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=9200+Gossau+SG+Schweiz
+            - img [ref=e712]
+            - generic [ref=e715]:
+              - generic [ref=e716]: Büro
+              - generic [ref=e717]: 9200 Gossau SG, Schweiz
+            - img [ref=e718]
+      - generic [ref=e723]:
+        - generic [ref=e724]:
+          - heading "Kostenloses Erstgespräch" [level=3] [ref=e725]
+          - paragraph [ref=e726]: Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.
+          - generic [ref=e727]:
+            - generic [ref=e728]: 30 Min.
+            - generic [ref=e729]: Video-Call
+            - generic [ref=e730]: Kostenlos
+            - generic [ref=e731]: Unverbindlich
+          - generic [ref=e732]:
+            - generic [ref=e733]:
+              - generic [ref=e734]:
+                - generic [ref=e735]: Erstgespräch buchen
+                - generic [ref=e736]: 30 Min · Kostenlos
+              - img [ref=e738]
+            - generic [ref=e740]:
+              - generic [ref=e741]:
+                - generic [ref=e742]: Mo
+                - generic [ref=e743] [cursor=pointer]: 10:00
+                - generic [ref=e744] [cursor=pointer]: 14:00
+              - generic [ref=e745]:
+                - generic [ref=e746]: Di
+                - generic [ref=e747] [cursor=pointer]: 14:00
+                - generic [ref=e748] [cursor=pointer]: 16:00
+              - generic [ref=e749]:
+                - generic [ref=e750]: Mi
+                - generic [ref=e751] [cursor=pointer]: 11:00
+                - generic [ref=e752] [cursor=pointer]: 13:00
+              - generic [ref=e753]:
+                - generic [ref=e754]: Do
+                - generic [ref=e755] [cursor=pointer]: 09:00
+                - generic [ref=e756] [cursor=pointer]: 11:00
+              - generic [ref=e757]:
+                - generic [ref=e758]: Fr
+                - generic [ref=e759] [cursor=pointer]: 15:00
+                - generic [ref=e760] [cursor=pointer]: 10:00
+            - generic [ref=e761]: "Nächste Verfügbarkeit: Morgen, 10:00"
+        - link "Jetzt Termin buchen" [ref=e762] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+          - text: Jetzt Termin buchen
+          - img [ref=e763]
+  - contentinfo [ref=e765]:
+    - generic [ref=e766]:
+      - generic [ref=e767]:
+        - generic [ref=e768]:
+          - link "Spectra Media" [ref=e769] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e770]
+          - paragraph [ref=e771]: Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
+          - generic [ref=e772]:
+            - link "WhatsApp" [ref=e773] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+              - img [ref=e774]
+            - link "Instagram" [ref=e776] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e777]
+            - link "LinkedIn" [ref=e781] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e782]
+        - generic [ref=e784]:
+          - heading "Navigation" [level=3] [ref=e785]
+          - list [ref=e786]:
+            - listitem [ref=e787]:
+              - link "Home" [ref=e788] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e789]:
+              - link "Services" [ref=e790] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e791]:
+              - link "Prozess" [ref=e792] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e793]:
+              - link "Case Studies" [ref=e794] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e795]:
+              - link "Über uns" [ref=e796] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e797]:
+          - heading "Rechtliches" [level=3] [ref=e798]
+          - list [ref=e799]:
+            - listitem [ref=e800]:
+              - link "Impressum" [ref=e801] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e802]:
+              - link "Datenschutz" [ref=e803] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e804]:
+        - paragraph [ref=e805]: © 2026 Spectra Media GmbH. Alle Rechte vorbehalten.
+        - paragraph [ref=e806]: 🇨🇭 St. Gallen, Schweiz
+  - button "Open Next.js Dev Tools" [ref=e812] [cursor=pointer]:
+    - img [ref=e813]

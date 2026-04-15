@@ -1,0 +1,280 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Prozess" [ref=e10] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Über uns" [ref=e12] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [pressed] [ref=e16]
+          - button "EN" [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Erstgespräch buchen" [ref=e21] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e26]:
+      - generic [ref=e27]: Unsere Leistungen
+      - heading "Aus Accounts werden Marken, aus Marken werden Marktführer." [level=1] [ref=e28]:
+        - text: Aus Accounts werden Marken,
+        - text: aus Marken werden Marktführer.
+      - paragraph [ref=e29]: Für Experten und Unternehmen, die ihre Sichtbarkeit in echtes Wachstum verwandeln wollen.
+      - generic [ref=e30]:
+        - img [ref=e31]
+        - img [ref=e33]
+        - img [ref=e35]
+    - generic [ref=e38]:
+      - generic [ref=e39]:
+        - generic [ref=e41]: Vorteile
+        - heading "Wie unsere Kunden ganze Märkte dominieren." [level=2] [ref=e43]
+        - paragraph [ref=e45]: Spectra Media verschmilzt Organic Trust mit Paid Velocity. KI orchestriert beide. Präzise messbar & exponentiell skalierbar.
+      - generic [ref=e46]:
+        - generic [ref=e48]:
+          - generic [ref=e50]: "01"
+          - generic [ref=e53]:
+            - generic [ref=e54]:
+              - generic [ref=e55]: Niedrig
+              - generic [ref=e62]: Hoch
+            - generic [ref=e63]: WIRKUNG
+          - generic [ref=e64]:
+            - heading "Wirkung statt Werbung" [level=3] [ref=e65]
+            - paragraph [ref=e66]: Keine albernen Hooks und kein Content-Spam. Wir entwickeln Inhalte, die Vertrauen aufbauen und dich als klare Stimme in deiner Branche positionieren.
+        - generic [ref=e68]:
+          - generic [ref=e70]: "02"
+          - generic [ref=e74]:
+            - img [ref=e75]
+            - generic [ref=e80]: MAX
+          - generic [ref=e81]:
+            - heading "Geschwindigkeit durch Synergie" [level=3] [ref=e82]
+            - paragraph [ref=e83]: Was organisch funktioniert, wird gezielt verstärkt. Statt blind zu testen, skalieren wir Inhalte, die bereits nachweisliche Aufmerksamkeit erzeugen.
+        - generic [ref=e85]:
+          - generic [ref=e87]: "03"
+          - generic [ref=e101]:
+            - heading "Mehr Output, weniger Aufwand" [level=3] [ref=e102]
+            - paragraph [ref=e103]: Du lieferst wenige Stunden Input, wir verwandeln daraus konstanten Content für alle Kanäle, ohne dass dein Alltag zum Content-Job wird.
+        - generic [ref=e105]:
+          - generic [ref=e107]: "04"
+          - generic [ref=e111]:
+            - generic [ref=e113]: Kanal
+            - generic [ref=e115]: Format
+            - generic [ref=e117]: Marke
+          - generic [ref=e118]:
+            - heading "Digitale Präsenz mit Substanz" [level=3] [ref=e119]
+            - paragraph [ref=e120]: Deine Inhalte folgen einer klaren Struktur. Jeder Post stärkt deine Positionierung und baut langfristig Vertrauen in deine Marke auf.
+        - generic [ref=e122]:
+          - generic [ref=e124]: "05"
+          - generic [ref=e127]:
+            - generic [ref=e129]: Warum greifen meine Posts nicht?
+            - generic [ref=e131]: Kein System. Spectra löst das. ✓
+          - generic [ref=e132]:
+            - heading "Führung durch Format" [level=3] [ref=e133]
+            - paragraph [ref=e134]: Starke Marken kommunizieren nicht zufällig. Wir entwickeln wiedererkennbare Formate, die deine Expertise sichtbar machen und deine Marke führen.
+        - generic [ref=e136]:
+          - generic [ref=e138]: "06"
+          - generic [ref=e144]: S
+          - generic [ref=e145]:
+            - heading "Aura schlägt Algorithmus" [level=3] [ref=e146]
+            - paragraph [ref=e147]: Wenn Positionierung, Stimme und Struktur stimmen, arbeitet der Algorithmus für dich. Deine Marke zieht Aufmerksamkeit an, statt sie erzwingen zu müssen.
+    - generic [ref=e149]:
+      - generic [ref=e150]:
+        - generic [ref=e152]: Das Resultat
+        - heading "Was passiert, wenn dein Marketing wirklich funktioniert." [level=2] [ref=e154]
+      - generic [ref=e155]:
+        - generic [ref=e157]:
+          - generic [ref=e159]: "01"
+          - img [ref=e161]
+          - heading "Autorität verändert alles, auch dein Preis." [level=3] [ref=e163]
+          - paragraph [ref=e164]: Sichtbarkeit schafft Vertrauen. Kunden zahlen mehr, stellen weniger Fragen und entscheiden schneller.
+        - generic [ref=e166]:
+          - generic [ref=e168]: "02"
+          - img [ref=e170]
+          - heading "Abschlüsse gehen leicht von der Hand." [level=3] [ref=e172]
+          - paragraph [ref=e173]: Wer dich bereits kennt und vertraut, entscheidet leichter. Social Proof verkürzt jeden Verkaufsprozess.
+        - generic [ref=e175]:
+          - generic [ref=e177]: "03"
+          - img [ref=e179]
+          - heading "Die richtigen Kunden kommen zu dir." [level=3] [ref=e181]
+          - paragraph [ref=e182]: Statt kalter Akquise entstehen Inbound Leads. Menschen melden sich bei dir, weil sie deine Inhalte bereits überzeugen.
+        - generic [ref=e184]:
+          - generic [ref=e186]: "04"
+          - img [ref=e188]
+          - heading "Vom Anbieter zur Autorität." [level=3] [ref=e190]
+          - paragraph [ref=e191]: Dein Name steht für eine Kategorie, nicht für ein einzelnes Angebot.
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - generic [ref=e196]: Unser System
+        - heading "Du fokussierst dich auf deine Stärken, wir machen den Rest." [level=2] [ref=e198]
+        - paragraph [ref=e200]: Wir bauen die Marke, du skalierst dein Business.
+      - generic [ref=e201]:
+        - img
+        - generic [ref=e202]:
+          - generic [ref=e204]:
+            - img [ref=e209]
+            - generic [ref=e212]:
+              - generic [ref=e214]: "01"
+              - heading "Content-Strategie & Research" [level=3] [ref=e215]
+              - paragraph [ref=e216]: Wir analysieren deine Nische, Konkurrenz und Zielgruppe. Daraus entsteht eine Strategie, die auf Wachstum ausgelegt ist.
+          - generic [ref=e218]:
+            - generic [ref=e222]: HOOK
+            - generic [ref=e229]:
+              - generic [ref=e231]: "02"
+              - heading "Skript & Hook-Entwicklung" [level=3] [ref=e232]
+              - paragraph [ref=e233]: Jedes Video bekommt ein maßgeschneidertes Skript mit starkem Hook. Voice-Matching statt generischer Agency-Sprache.
+          - generic [ref=e250]:
+            - generic [ref=e252]: "03"
+            - heading "Professionelles Editing" [level=3] [ref=e253]
+            - paragraph [ref=e254]: Schnell, auf den Punkt, plattformgerecht. Wir schneiden deine Rohaufnahmen zu viralen Short-Form Clips.
+          - generic [ref=e256]:
+            - generic [ref=e259]:
+              - img [ref=e263]
+              - img [ref=e267]
+            - generic [ref=e270]:
+              - generic [ref=e272]: "04"
+              - heading "Upload & Community Management" [level=3] [ref=e273]
+              - paragraph [ref=e274]: Wir übernehmen den kompletten Upload-Prozess und managen deine Community – Kommentare, DMs, Engagement.
+          - generic [ref=e276]:
+            - generic [ref=e279]:
+              - generic [ref=e281]: Reichweite
+              - generic [ref=e283]: Leads
+              - generic [ref=e285]: Kunden
+              - generic [ref=e288]: €
+            - generic [ref=e289]:
+              - generic [ref=e291]: "05"
+              - heading "Funnel & Conversion" [level=3] [ref=e292]
+              - paragraph [ref=e293]: Reichweite allein reicht nicht. Wir bauen Systeme, die Follower zu Kunden machen.
+          - generic [ref=e303]:
+            - generic [ref=e305]: "06"
+            - heading "Angebot & Conversion-Optimierung" [level=3] [ref=e306]
+            - paragraph [ref=e307]: Wir optimieren dein Angebot, deine Preisstruktur und deine Calls-to-Action – damit Reichweite zu echten Kunden wird.
+    - generic [ref=e310]:
+      - generic [ref=e311]:
+        - generic [ref=e312]: Bereit anzufangen?
+        - heading "Den ersten Schritt zu deiner digitalen Autorität. Kostenlos und unverbindlich." [level=2] [ref=e313]:
+          - text: Den ersten Schritt zu deiner digitalen Autorität.
+          - text: Kostenlos und unverbindlich.
+        - paragraph [ref=e314]: In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+        - generic [ref=e315]:
+          - link "E-Mail info@spectramedia.ch" [ref=e316] [cursor=pointer]:
+            - /url: mailto:info@spectramedia.ch
+            - img [ref=e318]
+            - generic [ref=e320]:
+              - generic [ref=e321]: E-Mail
+              - generic [ref=e322]: info@spectramedia.ch
+            - img [ref=e323]
+          - link "WhatsApp +41795371839" [ref=e325] [cursor=pointer]:
+            - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+            - img [ref=e327]
+            - generic [ref=e329]:
+              - generic [ref=e330]: WhatsApp
+              - generic [ref=e331]: "+41795371839"
+            - img [ref=e332]
+          - link "Büro 9200 Gossau SG, Schweiz" [ref=e334] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=9200+Gossau+SG+Schweiz
+            - img [ref=e336]
+            - generic [ref=e339]:
+              - generic [ref=e340]: Büro
+              - generic [ref=e341]: 9200 Gossau SG, Schweiz
+            - img [ref=e342]
+      - generic [ref=e347]:
+        - generic [ref=e348]:
+          - heading "Kostenloses Erstgespräch" [level=3] [ref=e349]
+          - paragraph [ref=e350]: Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.
+          - generic [ref=e351]:
+            - generic [ref=e352]: 30 Min.
+            - generic [ref=e353]: Video-Call
+            - generic [ref=e354]: Kostenlos
+            - generic [ref=e355]: Unverbindlich
+          - generic [ref=e356]:
+            - generic [ref=e357]:
+              - generic [ref=e358]:
+                - generic [ref=e359]: Erstgespräch buchen
+                - generic [ref=e360]: 30 Min · Kostenlos
+              - img [ref=e362]
+            - generic [ref=e364]:
+              - generic [ref=e365]:
+                - generic [ref=e366]: Mo
+                - generic [ref=e367] [cursor=pointer]: 10:00
+                - generic [ref=e368] [cursor=pointer]: 14:00
+              - generic [ref=e369]:
+                - generic [ref=e370]: Di
+                - generic [ref=e371] [cursor=pointer]: 14:00
+                - generic [ref=e372] [cursor=pointer]: 16:00
+              - generic [ref=e373]:
+                - generic [ref=e374]: Mi
+                - generic [ref=e375] [cursor=pointer]: 11:00
+                - generic [ref=e376] [cursor=pointer]: 13:00
+              - generic [ref=e377]:
+                - generic [ref=e378]: Do
+                - generic [ref=e379] [cursor=pointer]: 09:00
+                - generic [ref=e380] [cursor=pointer]: 11:00
+              - generic [ref=e381]:
+                - generic [ref=e382]: Fr
+                - generic [ref=e383] [cursor=pointer]: 15:00
+                - generic [ref=e384] [cursor=pointer]: 10:00
+            - generic [ref=e385]: "Nächste Verfügbarkeit: Morgen, 10:00"
+        - link "Jetzt Termin buchen" [ref=e386] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+          - text: Jetzt Termin buchen
+          - img [ref=e387]
+  - contentinfo [ref=e389]:
+    - generic [ref=e390]:
+      - generic [ref=e391]:
+        - generic [ref=e392]:
+          - link "Spectra Media" [ref=e393] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e394]
+          - paragraph [ref=e395]: Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
+          - generic [ref=e396]:
+            - link "WhatsApp" [ref=e397] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+              - img [ref=e398]
+            - link "Instagram" [ref=e400] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e401]
+            - link "LinkedIn" [ref=e405] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e406]
+        - generic [ref=e408]:
+          - heading "Navigation" [level=3] [ref=e409]
+          - list [ref=e410]:
+            - listitem [ref=e411]:
+              - link "Home" [ref=e412] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e413]:
+              - link "Services" [ref=e414] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e415]:
+              - link "Prozess" [ref=e416] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e417]:
+              - link "Case Studies" [ref=e418] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e419]:
+              - link "Über uns" [ref=e420] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e421]:
+          - heading "Rechtliches" [level=3] [ref=e422]
+          - list [ref=e423]:
+            - listitem [ref=e424]:
+              - link "Impressum" [ref=e425] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e426]:
+              - link "Datenschutz" [ref=e427] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e428]:
+        - paragraph [ref=e429]: © 2026 Spectra Media GmbH. Alle Rechte vorbehalten.
+        - paragraph [ref=e430]: 🇨🇭 St. Gallen, Schweiz
+  - button "Open Next.js Dev Tools" [ref=e436] [cursor=pointer]:
+    - img [ref=e437]

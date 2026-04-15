@@ -1,0 +1,304 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Prozess" [ref=e10] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Über uns" [ref=e12] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [pressed] [ref=e16]
+          - button "EN" [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Erstgespräch buchen" [ref=e21] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e26]:
+      - generic [ref=e27]: Case Studies
+      - heading "Resultate, die für sich sprechen." [level=1] [ref=e28]:
+        - text: Resultate, die
+        - text: für sich sprechen.
+      - paragraph [ref=e29]: Was passiert, wenn Strategie, Content und Distribution zusammenkommen.
+    - generic [ref=e32]:
+      - link "Tamer Galal Tamer Galal Fitness & Coaching Neue Follower in 90 Tagen 128k+ Views in 90 Tagen 41 Mio. Neue Kunden Calls pro Woche gebucht 25+ Case entdecken →" [ref=e34] [cursor=pointer]:
+        - /url: /case-studies/tamer-galal
+        - generic [ref=e35]:
+          - img "Tamer Galal" [ref=e37]
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: Tamer Galal
+              - generic [ref=e42]: Fitness & Coaching
+            - generic [ref=e44]:
+              - generic [ref=e45]:
+                - generic [ref=e46]:
+                  - img [ref=e47]
+                  - generic [ref=e49]: Neue Follower in 90 Tagen
+                - generic [ref=e50]: 128k+
+              - generic [ref=e51]:
+                - generic [ref=e52]:
+                  - img [ref=e53]
+                  - generic [ref=e56]: Views in 90 Tagen
+                - generic [ref=e57]: 41 Mio.
+              - generic [ref=e58]:
+                - generic [ref=e59]:
+                  - img [ref=e60]
+                  - generic [ref=e62]: Neue Kunden Calls pro Woche gebucht
+                - generic [ref=e63]: 25+
+            - generic [ref=e65]: Case entdecken →
+      - link "Kanzlei Mandic Kanzlei Mandic Rechtsberatung Follower (von 15k) 50k+ Impressionen pro Monat 2 Mio. AI-Automatisierung für Erstanfragen ✓ Case entdecken →" [ref=e67] [cursor=pointer]:
+        - /url: /case-studies/kanzlei-mandic
+        - generic [ref=e68]:
+          - img "Kanzlei Mandic" [ref=e70]
+          - generic [ref=e72]:
+            - generic [ref=e73]:
+              - generic [ref=e74]: Kanzlei Mandic
+              - generic [ref=e75]: Rechtsberatung
+            - generic [ref=e77]:
+              - generic [ref=e78]:
+                - generic [ref=e79]:
+                  - img [ref=e80]
+                  - generic [ref=e82]: Follower (von 15k)
+                - generic [ref=e83]: 50k+
+              - generic [ref=e84]:
+                - generic [ref=e85]:
+                  - img [ref=e86]
+                  - generic [ref=e89]: Impressionen pro Monat
+                - generic [ref=e90]: 2 Mio.
+              - generic [ref=e91]:
+                - generic [ref=e92]:
+                  - img [ref=e93]
+                  - generic [ref=e95]: AI-Automatisierung für Erstanfragen
+                - generic [ref=e96]: ✓
+            - generic [ref=e98]: Case entdecken →
+      - link "Markus Hoppe Markus Hoppe Fitness & Lifestyle Neue Follower +30k Monatliches Coaching-Einkommen €20k Sponsorings ermöglicht 3 Case entdecken →" [ref=e100] [cursor=pointer]:
+        - /url: /case-studies/markus-hoppe
+        - generic [ref=e101]:
+          - img "Markus Hoppe" [ref=e103]
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - generic [ref=e107]: Markus Hoppe
+              - generic [ref=e108]: Fitness & Lifestyle
+            - generic [ref=e110]:
+              - generic [ref=e111]:
+                - generic [ref=e112]:
+                  - img [ref=e113]
+                  - generic [ref=e115]: Neue Follower
+                - generic [ref=e116]: +30k
+              - generic [ref=e117]:
+                - generic [ref=e118]:
+                  - img [ref=e119]
+                  - generic [ref=e122]: Monatliches Coaching-Einkommen
+                - generic [ref=e123]: €20k
+              - generic [ref=e124]:
+                - generic [ref=e125]:
+                  - img [ref=e126]
+                  - generic [ref=e128]: Sponsorings ermöglicht
+                - generic [ref=e129]: "3"
+            - generic [ref=e131]: Case entdecken →
+      - link "Maiorano Performance Maiorano Performance Health & Wellness Follower in 6 Wochen 10k Sponsoring/Monat in den ersten 4 Wochen 3.000€ Zeitraum 6 Wochen Case entdecken →" [ref=e133] [cursor=pointer]:
+        - /url: /case-studies/george-maiorano
+        - generic [ref=e134]:
+          - img "Maiorano Performance" [ref=e136]
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: Maiorano Performance
+              - generic [ref=e141]: Health & Wellness
+            - generic [ref=e143]:
+              - generic [ref=e144]:
+                - generic [ref=e145]:
+                  - img [ref=e146]
+                  - generic [ref=e148]: Follower in 6 Wochen
+                - generic [ref=e149]: 10k
+              - generic [ref=e150]:
+                - generic [ref=e151]:
+                  - img [ref=e152]
+                  - generic [ref=e155]: Sponsoring/Monat in den ersten 4 Wochen
+                - generic [ref=e156]: 3.000€
+              - generic [ref=e157]:
+                - generic [ref=e158]:
+                  - img [ref=e159]
+                  - generic [ref=e161]: Zeitraum
+                - generic [ref=e162]: 6 Wochen
+            - generic [ref=e164]: Case entdecken →
+      - link "Mike Sommerfeld Mike Sommerfeld Fitness & Lifestyle Neue Follower in 30 Tagen +100k Views auf IG in 30 Tagen 134 Mio. Accounts erreicht in 30 Tagen 8.6 Mio. Case entdecken →" [ref=e166] [cursor=pointer]:
+        - /url: /case-studies/mike-sommerfeld
+        - generic [ref=e167]:
+          - img "Mike Sommerfeld" [ref=e169]
+          - generic [ref=e171]:
+            - generic [ref=e172]:
+              - generic [ref=e173]: Mike Sommerfeld
+              - generic [ref=e174]: Fitness & Lifestyle
+            - generic [ref=e176]:
+              - generic [ref=e177]:
+                - generic [ref=e178]:
+                  - img [ref=e179]
+                  - generic [ref=e181]: Neue Follower in 30 Tagen
+                - generic [ref=e182]: +100k
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - img [ref=e185]
+                  - generic [ref=e188]: Views auf IG in 30 Tagen
+                - generic [ref=e189]: 134 Mio.
+              - generic [ref=e190]:
+                - generic [ref=e191]:
+                  - img [ref=e192]
+                  - generic [ref=e194]: Accounts erreicht in 30 Tagen
+                - generic [ref=e195]: 8.6 Mio.
+            - generic [ref=e197]: Case entdecken →
+      - link "Gannikus Gannikus Fitness & Media Erhöhter Shop Traffic ✓ Gestiegene Markenbekanntheit ✓ Klicks generiert Mio.+ Case entdecken →" [ref=e199] [cursor=pointer]:
+        - /url: /case-studies/gannikus
+        - generic [ref=e200]:
+          - img "Gannikus" [ref=e202]
+          - generic [ref=e204]:
+            - generic [ref=e205]:
+              - generic [ref=e206]: Gannikus
+              - generic [ref=e207]: Fitness & Media
+            - generic [ref=e209]:
+              - generic [ref=e210]:
+                - generic [ref=e211]:
+                  - img [ref=e212]
+                  - generic [ref=e214]: Erhöhter Shop Traffic
+                - generic [ref=e215]: ✓
+              - generic [ref=e216]:
+                - generic [ref=e217]:
+                  - img [ref=e218]
+                  - generic [ref=e221]: Gestiegene Markenbekanntheit
+                - generic [ref=e222]: ✓
+              - generic [ref=e223]:
+                - generic [ref=e224]:
+                  - img [ref=e225]
+                  - generic [ref=e227]: Klicks generiert
+                - generic [ref=e228]: Mio.+
+            - generic [ref=e230]: Case entdecken →
+    - generic [ref=e233]:
+      - generic [ref=e234]:
+        - generic [ref=e235]: Bereit anzufangen?
+        - heading "Den ersten Schritt zu deiner digitalen Autorität. Kostenlos und unverbindlich." [level=2] [ref=e236]:
+          - text: Den ersten Schritt zu deiner digitalen Autorität.
+          - text: Kostenlos und unverbindlich.
+        - paragraph [ref=e237]: In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+        - generic [ref=e238]:
+          - link "E-Mail info@spectramedia.ch" [ref=e239] [cursor=pointer]:
+            - /url: mailto:info@spectramedia.ch
+            - img [ref=e241]
+            - generic [ref=e243]:
+              - generic [ref=e244]: E-Mail
+              - generic [ref=e245]: info@spectramedia.ch
+            - img [ref=e246]
+          - link "WhatsApp +41795371839" [ref=e248] [cursor=pointer]:
+            - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+            - img [ref=e250]
+            - generic [ref=e252]:
+              - generic [ref=e253]: WhatsApp
+              - generic [ref=e254]: "+41795371839"
+            - img [ref=e255]
+          - link "Büro 9200 Gossau SG, Schweiz" [ref=e257] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=9200+Gossau+SG+Schweiz
+            - img [ref=e259]
+            - generic [ref=e262]:
+              - generic [ref=e263]: Büro
+              - generic [ref=e264]: 9200 Gossau SG, Schweiz
+            - img [ref=e265]
+      - generic [ref=e270]:
+        - generic [ref=e271]:
+          - heading "Kostenloses Erstgespräch" [level=3] [ref=e272]
+          - paragraph [ref=e273]: Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.
+          - generic [ref=e274]:
+            - generic [ref=e275]: 30 Min.
+            - generic [ref=e276]: Video-Call
+            - generic [ref=e277]: Kostenlos
+            - generic [ref=e278]: Unverbindlich
+          - generic [ref=e279]:
+            - generic [ref=e280]:
+              - generic [ref=e281]:
+                - generic [ref=e282]: Erstgespräch buchen
+                - generic [ref=e283]: 30 Min · Kostenlos
+              - img [ref=e285]
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - generic [ref=e289]: Mo
+                - generic [ref=e290] [cursor=pointer]: 10:00
+                - generic [ref=e291] [cursor=pointer]: 14:00
+              - generic [ref=e292]:
+                - generic [ref=e293]: Di
+                - generic [ref=e294] [cursor=pointer]: 14:00
+                - generic [ref=e295] [cursor=pointer]: 16:00
+              - generic [ref=e296]:
+                - generic [ref=e297]: Mi
+                - generic [ref=e298] [cursor=pointer]: 11:00
+                - generic [ref=e299] [cursor=pointer]: 13:00
+              - generic [ref=e300]:
+                - generic [ref=e301]: Do
+                - generic [ref=e302] [cursor=pointer]: 09:00
+                - generic [ref=e303] [cursor=pointer]: 11:00
+              - generic [ref=e304]:
+                - generic [ref=e305]: Fr
+                - generic [ref=e306] [cursor=pointer]: 15:00
+                - generic [ref=e307] [cursor=pointer]: 10:00
+            - generic [ref=e308]: "Nächste Verfügbarkeit: Morgen, 10:00"
+        - link "Jetzt Termin buchen" [ref=e309] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+          - text: Jetzt Termin buchen
+          - img [ref=e310]
+  - contentinfo [ref=e312]:
+    - generic [ref=e313]:
+      - generic [ref=e314]:
+        - generic [ref=e315]:
+          - link "Spectra Media" [ref=e316] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e317]
+          - paragraph [ref=e318]: Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
+          - generic [ref=e319]:
+            - link "WhatsApp" [ref=e320] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+              - img [ref=e321]
+            - link "Instagram" [ref=e323] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e324]
+            - link "LinkedIn" [ref=e328] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e329]
+        - generic [ref=e331]:
+          - heading "Navigation" [level=3] [ref=e332]
+          - list [ref=e333]:
+            - listitem [ref=e334]:
+              - link "Home" [ref=e335] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e336]:
+              - link "Services" [ref=e337] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e338]:
+              - link "Prozess" [ref=e339] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e340]:
+              - link "Case Studies" [ref=e341] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e342]:
+              - link "Über uns" [ref=e343] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e344]:
+          - heading "Rechtliches" [level=3] [ref=e345]
+          - list [ref=e346]:
+            - listitem [ref=e347]:
+              - link "Impressum" [ref=e348] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e349]:
+              - link "Datenschutz" [ref=e350] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e351]:
+        - paragraph [ref=e352]: © 2026 Spectra Media GmbH. Alle Rechte vorbehalten.
+        - paragraph [ref=e353]: 🇨🇭 St. Gallen, Schweiz
+  - button "Open Next.js Dev Tools" [ref=e359] [cursor=pointer]:
+    - img [ref=e360]

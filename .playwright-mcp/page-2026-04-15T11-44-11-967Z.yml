@@ -1,0 +1,234 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - link "Spectra Media" [ref=e4] [cursor=pointer]:
+      - /url: /
+      - img "Spectra Media" [ref=e5]
+    - banner [ref=e6]:
+      - navigation [ref=e7]:
+        - link "Home" [ref=e8] [cursor=pointer]:
+          - /url: /
+        - link "Services" [ref=e9] [cursor=pointer]:
+          - /url: /service
+        - link "Prozess" [ref=e10] [cursor=pointer]:
+          - /url: /prozess
+        - link "Case Studies" [ref=e11] [cursor=pointer]:
+          - /url: /case-studies
+        - link "Über uns" [ref=e12] [cursor=pointer]:
+          - /url: /gruender
+      - generic [ref=e13]:
+        - generic [ref=e14]:
+          - button "DE" [pressed] [ref=e16]
+          - button "EN" [ref=e17]
+        - link "WhatsApp kontaktieren" [ref=e18] [cursor=pointer]:
+          - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+          - img [ref=e19]
+        - link "Erstgespräch buchen" [ref=e21] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+  - main [ref=e22]:
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: Über uns
+        - heading "Die Architekten hinter deiner digitalen Präsenz." [level=1] [ref=e28]:
+          - text: Die Architekten hinter
+          - text: deiner digitalen Präsenz.
+        - paragraph [ref=e29]: Wir sind darauf spezialisiert, gewöhnliche Instagram-Accounts in herausstechende Brands zu verwandeln, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden verwandeln.
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: 30+
+            - generic [ref=e33]: Brands skaliert
+          - generic [ref=e34]:
+            - generic [ref=e35]: 2 Mrd+
+            - generic [ref=e36]: Views generiert
+          - generic [ref=e37]:
+            - generic [ref=e38]: 1 Mio+
+            - generic [ref=e39]: Follower gewachsen
+      - generic [ref=e40]:
+        - img "Spectra Media Team" [ref=e42]
+        - img "Spectra Media" [ref=e44]
+    - generic [ref=e47]:
+      - generic [ref=e48]: Unsere Werte
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - img [ref=e52]
+          - heading "Ergebnis > Aktivität" [level=3] [ref=e54]
+          - paragraph [ref=e55]: Wir messen uns an Resultaten, nicht an Arbeitsaufwand. Follower-Wachstum, Reichweite, Anfragen – das zählt.
+        - generic [ref=e56]:
+          - img [ref=e58]
+          - heading "Transparenz > Buzzwords" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Keine versteckten Methoden, keine aufgeblähten Zahlen. Du weisst immer, genau was wir tun und warum.
+        - generic [ref=e63]:
+          - img [ref=e65]
+          - heading "Fokus > Masse" [level=3] [ref=e69]
+          - paragraph [ref=e70]: Wir arbeiten nicht mit jedem. Wir konzentrieren uns auf eine ausgewählte Selektion von Kunden, bei denen wir Potenzial sehen und wo wir wirklich einen Unterschied machen können.
+    - generic [ref=e73]:
+      - generic [ref=e74]: Unser Team
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - img "Laurin Casutt" [ref=e78]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - heading "Laurin Casutt" [level=3] [ref=e82]
+              - paragraph [ref=e83]: CEO & Geschäftsführer
+            - link "Laurin Casutt auf LinkedIn" [ref=e84] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/laurin-casutt/
+              - img [ref=e85]
+        - generic [ref=e87]:
+          - img "Andri Casutt" [ref=e89]
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "Andri Casutt" [level=3] [ref=e93]
+              - paragraph [ref=e94]: Co-Founder & Head of Operations
+            - link "Andri Casutt auf LinkedIn" [ref=e95] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e96]
+    - generic [ref=e100]:
+      - generic [ref=e101]: Unser Hintergrund
+      - heading "Wie alles begann." [level=2] [ref=e102]
+      - generic [ref=e103]:
+        - paragraph [ref=e104]: "Die Spectra Media GmbH entstand nicht aus einem Businessplan – sondern aus Frustration. Wir sahen immer wieder dasselbe: Unternehmer, Coaches und Experten mit echtem Wissen blieben unsichtbar, während oberflächlicher Content Millionen Views bekam. Nicht weil die Qualität fehlte – sondern weil das System fehlte."
+        - paragraph [ref=e105]: Wir kannten dieses Gefühl selbst. Wir hatten das Wissen, die Erfahrung und die Ergebnisse – aber ohne das richtige System blieb das alles online unsichtbar. Also haben wir dieses System gebaut. Nicht nur für uns – sondern für alle, die sich in genau dieser Situation befinden.
+        - paragraph [ref=e106]: "Heute arbeiten wir mit ausgewählten Unternehmern, Coaches und Experten aus dem DACH-Raum zusammen und verwandeln ihr Wissen in sichtbare, profitable Personal Brands. Was uns antreibt: der Moment, in dem ein Kunde erkennt, dass sein Account nicht nur Content produziert – sondern sein gesamtes Business transformiert."
+    - generic [ref=e109]:
+      - generic [ref=e110]: Kein Interesse an
+      - heading "Wofür wir nicht stehen:" [level=2] [ref=e111]
+      - generic [ref=e112]:
+        - generic [ref=e113]:
+          - img [ref=e115]
+          - generic [ref=e117]:
+            - heading "One-Fits-All-Lösungen" [level=3] [ref=e118]
+            - paragraph [ref=e119]: Kein Kunde ist wie der andere. Generische Pakete produzieren generische Resultate – das ist nicht unser Weg.
+        - generic [ref=e120]:
+          - img [ref=e122]
+          - generic [ref=e124]:
+            - heading "Generische Skripte" [level=3] [ref=e125]
+            - paragraph [ref=e126]: Wir schreiben keine Copy-Paste-Texte. Jedes Skript trägt deine Stimme, deine Sprache und deine Persönlichkeit.
+        - generic [ref=e127]:
+          - img [ref=e129]
+          - generic [ref=e131]:
+            - heading "Vanity Metrics" [level=3] [ref=e132]
+            - paragraph [ref=e133]: "Likes ohne Leads bringen nichts. Wir optimieren für echte Resultate: Anfragen, Follower-Wachstum und Umsatz."
+        - generic [ref=e134]:
+          - img [ref=e136]
+          - generic [ref=e138]:
+            - heading "Leere Versprechen" [level=3] [ref=e139]
+            - paragraph [ref=e140]: Keine aufgeblähten Zahlen, keine unrealistischen Erwartungen. Wir arbeiten bewusst mit einer ausgewählten Anzahl an Brands in langfristigen Projekten – nicht mit möglichst vielen Kunden, sondern mit den richtigen.
+    - generic [ref=e143]:
+      - generic [ref=e144]:
+        - generic [ref=e145]: Bereit anzufangen?
+        - heading "Den ersten Schritt zu deiner digitalen Autorität. Kostenlos und unverbindlich." [level=2] [ref=e146]:
+          - text: Den ersten Schritt zu deiner digitalen Autorität.
+          - text: Kostenlos und unverbindlich.
+        - paragraph [ref=e147]: In einem 30-Minuten Gespräch klären wir gemeinsam, ob Spectra Media der richtige Partner für dein Social Media Wachstum ist.
+        - generic [ref=e148]:
+          - link "E-Mail info@spectramedia.ch" [ref=e149] [cursor=pointer]:
+            - /url: mailto:info@spectramedia.ch
+            - img [ref=e151]
+            - generic [ref=e153]:
+              - generic [ref=e154]: E-Mail
+              - generic [ref=e155]: info@spectramedia.ch
+            - img [ref=e156]
+          - link "WhatsApp +41795371839" [ref=e158] [cursor=pointer]:
+            - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+            - img [ref=e160]
+            - generic [ref=e162]:
+              - generic [ref=e163]: WhatsApp
+              - generic [ref=e164]: "+41795371839"
+            - img [ref=e165]
+          - link "Büro 9200 Gossau SG, Schweiz" [ref=e167] [cursor=pointer]:
+            - /url: https://maps.google.com/?q=9200+Gossau+SG+Schweiz
+            - img [ref=e169]
+            - generic [ref=e172]:
+              - generic [ref=e173]: Büro
+              - generic [ref=e174]: 9200 Gossau SG, Schweiz
+            - img [ref=e175]
+      - generic [ref=e180]:
+        - generic [ref=e181]:
+          - heading "Kostenloses Erstgespräch" [level=3] [ref=e182]
+          - paragraph [ref=e183]: Wir schauen gemeinsam, ob und wie wir zusammenarbeiten können.
+          - generic [ref=e184]:
+            - generic [ref=e185]: 30 Min.
+            - generic [ref=e186]: Video-Call
+            - generic [ref=e187]: Kostenlos
+            - generic [ref=e188]: Unverbindlich
+          - generic [ref=e189]:
+            - generic [ref=e190]:
+              - generic [ref=e191]:
+                - generic [ref=e192]: Erstgespräch buchen
+                - generic [ref=e193]: 30 Min · Kostenlos
+              - img [ref=e195]
+            - generic [ref=e197]:
+              - generic [ref=e198]:
+                - generic [ref=e199]: Mo
+                - generic [ref=e200] [cursor=pointer]: 10:00
+                - generic [ref=e201] [cursor=pointer]: 14:00
+              - generic [ref=e202]:
+                - generic [ref=e203]: Di
+                - generic [ref=e204] [cursor=pointer]: 14:00
+                - generic [ref=e205] [cursor=pointer]: 16:00
+              - generic [ref=e206]:
+                - generic [ref=e207]: Mi
+                - generic [ref=e208] [cursor=pointer]: 11:00
+                - generic [ref=e209] [cursor=pointer]: 13:00
+              - generic [ref=e210]:
+                - generic [ref=e211]: Do
+                - generic [ref=e212] [cursor=pointer]: 09:00
+                - generic [ref=e213] [cursor=pointer]: 11:00
+              - generic [ref=e214]:
+                - generic [ref=e215]: Fr
+                - generic [ref=e216] [cursor=pointer]: 15:00
+                - generic [ref=e217] [cursor=pointer]: 10:00
+            - generic [ref=e218]: "Nächste Verfügbarkeit: Morgen, 10:00"
+        - link "Jetzt Termin buchen" [ref=e219] [cursor=pointer]:
+          - /url: https://calendly.com/spectramedia-info/30min
+          - text: Jetzt Termin buchen
+          - img [ref=e220]
+  - contentinfo [ref=e222]:
+    - generic [ref=e223]:
+      - generic [ref=e224]:
+        - generic [ref=e225]:
+          - link "Spectra Media" [ref=e226] [cursor=pointer]:
+            - /url: /
+            - img "Spectra Media" [ref=e227]
+          - paragraph [ref=e228]: Done-for-You Social Media Growth für ambitionierte Unternehmer und Personal Brands im DACH-Raum sowie international.
+          - generic [ref=e229]:
+            - link "WhatsApp" [ref=e230] [cursor=pointer]:
+              - /url: https://wa.me/41795371839?text=Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.
+              - img [ref=e231]
+            - link "Instagram" [ref=e233] [cursor=pointer]:
+              - /url: https://www.instagram.com/spectramedia.ch/
+              - img [ref=e234]
+            - link "LinkedIn" [ref=e238] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/spectramedia
+              - img [ref=e239]
+        - generic [ref=e241]:
+          - heading "Navigation" [level=3] [ref=e242]
+          - list [ref=e243]:
+            - listitem [ref=e244]:
+              - link "Home" [ref=e245] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e246]:
+              - link "Services" [ref=e247] [cursor=pointer]:
+                - /url: /service
+            - listitem [ref=e248]:
+              - link "Prozess" [ref=e249] [cursor=pointer]:
+                - /url: /prozess
+            - listitem [ref=e250]:
+              - link "Case Studies" [ref=e251] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e252]:
+              - link "Über uns" [ref=e253] [cursor=pointer]:
+                - /url: /gruender
+        - generic [ref=e254]:
+          - heading "Rechtliches" [level=3] [ref=e255]
+          - list [ref=e256]:
+            - listitem [ref=e257]:
+              - link "Impressum" [ref=e258] [cursor=pointer]:
+                - /url: /impressum
+            - listitem [ref=e259]:
+              - link "Datenschutz" [ref=e260] [cursor=pointer]:
+                - /url: /datenschutz
+      - generic [ref=e261]:
+        - paragraph [ref=e262]: © 2026 Spectra Media GmbH. Alle Rechte vorbehalten.
+        - paragraph [ref=e263]: 🇨🇭 St. Gallen, Schweiz
+  - button "Open Next.js Dev Tools" [ref=e269] [cursor=pointer]:
+    - img [ref=e270]
