@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import ProcessTimeline from "@/components/ProcessTimeline";
-import CTASection from "@/components/CTASection";
-import { prozess, home } from "@/data/content";
+import { prozess } from "@/data/content";
+import ProzessClient from "./ProzessClient";
 
 export const metadata: Metadata = {
   title: prozess.meta.title,
@@ -9,16 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProzessPage() {
-  return (
-    <>
-      <ProcessTimeline />
-      <CTASection
-        eyebrow={home.bottomCta.eyebrow}
-        headline={home.bottomCta.headline}
-        sub={home.bottomCta.sub}
-        cta={home.bottomCta.cta}
-        ctaUrl={home.bottomCta.ctaUrl}
-      />
-    </>
-  );
+  return <ProzessClient />;
 }
