@@ -16,8 +16,8 @@ const orgSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Spectra Media GmbH",
-  url: "https://spectra-media.ch",
-  logo: "https://spectra-media.ch/og-image.jpg",
+  url: "https://www.spectramedia.ch",
+  logo: "https://www.spectramedia.ch/logo-3d.png",
   description:
     "Done-for-You Social Media Agentur aus der Schweiz. Strategie, Skripte, Editing, Upload und Community Management.",
   address: {

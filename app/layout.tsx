@@ -13,7 +13,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.SITE_URL || "https://spectra-media.ch"
+    process.env.SITE_URL || "https://www.spectramedia.ch"
   ),
   title: {
     default: "Spectra Media GmbH – Done-for-You Social Media Growth",

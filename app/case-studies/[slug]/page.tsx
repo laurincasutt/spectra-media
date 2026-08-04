@@ -46,7 +46,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     publisher: {
       "@type": "Organization",
       name: "Spectra Media GmbH",
-      url: "https://spectra-media.ch",
+      url: "https://www.spectramedia.ch",
     },
   };
 
