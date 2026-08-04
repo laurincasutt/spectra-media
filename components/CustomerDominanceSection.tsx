@@ -8,7 +8,8 @@ const cardQuotes: Record<string, string> = {
   "tamer-galal": "Spectra Media hat nicht nur meinen Account aufgebaut – sie haben mein Business transformiert. Die Anfragen kommen jetzt zu mir.",
   "kanzlei-mandic": "Wir haben nicht erwartet, dass Social Media so direkt auf unser Geschäft einzahlt. Spectra Media hat das möglich gemacht.",
   "markus-hoppe": "Mit dem richtigen System wuchs ich in 3 Monaten schneller als in den vorherigen 2 Jahren zusammen.",
-  "george-maiorano": "Ich hatte erwartet, vielleicht 3.000 Follower in 6 Wochen zu erreichen. Spectra Media hat das Dreifache geliefert.",
+  "george-maiorano": "Ich hatte erwartet, vielleicht 3.000 Follower in 8 Wochen zu erreichen. Spectra Media hat das Sechsfache geliefert.",
+  "raffael-gordzielik": "Ich hätte nicht gedacht, dass sich das so schnell auf die Kanzlei auswirkt. Nach drei Wochen kamen die ersten Mandatsanfragen über Social Media rein.",
 };
 
 export default function CustomerDominanceSection() {

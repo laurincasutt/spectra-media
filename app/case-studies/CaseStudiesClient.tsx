@@ -34,6 +34,7 @@ function getObjectPosition(slug: string): string {
     'tamer-galal': '50% -100px',
     'kanzlei-mandic': '50% -60px',
     'markus-hoppe': '50% -70px',
+    'raffael-gordzielik': '50% 26%',
   };
   return map[slug] ?? '50% 50%';
 }

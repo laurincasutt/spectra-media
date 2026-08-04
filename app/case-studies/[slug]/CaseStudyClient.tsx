@@ -86,7 +86,8 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
                       src={cs.profileImg}
                       alt={cs.client}
                       fill
-                      className="object-cover object-top"
+                      className="object-cover"
+                      style={{ objectPosition: cs.slug === "raffael-gordzielik" ? "50% 32%" : "50% 0%" }}
                       sizes="(max-width: 1024px) 100vw, 320px"
                       priority
                     />
@@ -341,6 +342,8 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
                                   ? { objectPosition: "50% 30%" }
                                   : oc.slug === "markus-hoppe"
                                   ? { objectPosition: "50% 10%" }
+                                  : oc.slug === "raffael-gordzielik"
+                                  ? { objectPosition: "50% 8%" }
                                   : undefined
                               }
                               sizes="48px"

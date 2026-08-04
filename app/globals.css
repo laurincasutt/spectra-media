@@ -70,6 +70,49 @@ body {
   background: radial-gradient(ellipse 60% 50% at 70% 20%, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
 }
 
+/* Endless logo marquee */
+@keyframes logo-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.logo-marquee-track {
+  animation: logo-marquee 45s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-viewport:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Fade the logos out at both edges so the loop is seamless */
+.logo-marquee-viewport {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee-track {
+    animation: none;
+  }
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

@@ -5,23 +5,33 @@ import { motion } from "framer-motion";
 import { fadeUpVariants, staggerContainer, viewportOnce } from "@/lib/animations";
 import { useContent } from "@/hooks/useContent";
 
+// `fx` = extra filter classes for logos that are too dark for the dark background.
+// "invert" flips a pure-black mark to white, "brightness-0 invert" forces any
+// dark-coloured mark to clean white.
 const logos = [
   { src: "/Logos/American-Medical-Wellness-Logo.svg", alt: "American Medical Wellness" },
   { src: "/Logos/American-Wellness-Pharmacy-Logo.png", alt: "American Wellness Pharmacy" },
   { src: "/Logos/Bad Ass Coaching neu.png", alt: "Badass Coaching Mike Sommerfeld" },
   { src: "/Logos/BioWell Labs neu.png", alt: "BioWell Labs" },
   { src: "/Logos/BodyPlanet neu.png", alt: "Body Planet Tamer Galal" },
-  { src: "/Logos/Holzapfel neu.png", alt: "Der Holzapfel", invert: true },
-  { src: "/Logos/Gannikus neu.png", alt: "Gannikus", invert: true },
+  { src: "/Logos/Holzapfel neu.png", alt: "Der Holzapfel", fx: "invert" },
+  { src: "/Logos/Gannikus neu.png", alt: "Gannikus", fx: "invert" },
   { src: "/Logos/Hoppe neu.png", alt: "Hoppe Coaching Markus Hoppe" },
   { src: "/Logos/Kanzlei Mandic neu.png", alt: "Kanzlei Mandic" },
   { src: "/Logos/Maiorano Perfomance 2 George Maiorano.png", alt: "Maiorano Performance George Maiorano" },
+  { src: "/Logos/Dr Sascha Gail.png", alt: "Dr. Sascha Gail" },
+  { src: "/Logos/Marc Galal.png", alt: "Marc Galal", fx: "brightness-125" },
+  { src: "/Logos/Figurmacher.png", alt: "Figurmacher.de - Andreas Scholz", fx: "brightness-0 invert" },
+  { src: "/Logos/Wolanin MD Aesthetics.png", alt: "Wolanin MD Aesthetics", fx: "brightness-0 invert" },
 ];
+
+// Duplicated once so the track can loop seamlessly at -50%
+const marqueeLogos = [...logos, ...logos];
 
 export default function ClientLogosSection() {
   const { ui } = useContent();
   return (
-    <section className="py-14 lg:py-20 bg-[#09090B] border-t border-white/5">
+    <section className="py-14 lg:py-20 bg-[#09090B] border-t border-white/5 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer}
@@ -49,32 +59,35 @@ export default function ClientLogosSection() {
             {ui.clientLogos.sub}
           </motion.p>
         </motion.div>
+      </div>
 
-        {/* Logo grid — no containers, logos float on dark bg */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={viewportOnce}
-          className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-8 lg:gap-10"
-        >
-          {logos.map((logo, i) => (
-            <motion.div
+      {/* Endless logo banner — runs right to left, full colour, no grid */}
+      <motion.div
+        variants={fadeUpVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+        className="logo-marquee-viewport relative w-full overflow-hidden"
+      >
+        <div className="logo-marquee-track flex w-max items-center">
+          {marqueeLogos.map((logo, i) => (
+            <div
               key={i}
-              variants={fadeUpVariants}
-              className="group relative h-9 w-24 sm:h-10 sm:w-28 flex items-center justify-center"
+              /* spacing via margin (not gap) so both halves are exactly equal in width */
+              className="relative h-16 w-40 mr-12 sm:h-20 sm:w-48 sm:mr-16 lg:h-24 lg:w-56 lg:mr-20 flex-shrink-0"
+              aria-hidden={i >= logos.length}
             >
               <Image
                 src={logo.src}
-                alt={logo.alt}
+                alt={i >= logos.length ? "" : logo.alt}
                 fill
-                className={`object-contain transition-all duration-300 sm:grayscale sm:group-hover:grayscale-0 ${"invert" in logo && logo.invert ? "opacity-80 sm:opacity-50 sm:group-hover:opacity-90 invert" : "opacity-85 sm:opacity-50 sm:group-hover:opacity-100"}`}
-                sizes="112px"
+                className={`object-contain ${"fx" in logo ? logo.fx : ""}`}
+                sizes="224px"
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

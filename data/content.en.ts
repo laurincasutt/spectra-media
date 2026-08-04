@@ -39,7 +39,7 @@ export const home = {
   },
 
   proofStats: [
-    { value: "2 Bn+", label: "Views generated", sub: "" },
+    { value: "1 Bn+", label: "Views generated", sub: "" },
     { value: "1 M+", label: "Followers grown", sub: "" },
     { value: "2,000+", label: "Clients generated", sub: "" },
     { value: "30+", label: "Brands scaled", sub: "" },
@@ -201,7 +201,7 @@ export const home = {
       role: "Law Firm",
     },
     {
-      quote: "I expected maybe 3,000 followers in 6 weeks. Spectra Media delivered three times that.",
+      quote: "I expected maybe 3,000 followers in 8 weeks. Spectra Media delivered six times that.",
       author: "George Maiorano",
       role: "Health Entrepreneur",
     },
@@ -273,8 +273,8 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.png",
     industry: "Legal",
     badge: "Legal Consulting",
-    tagline: "From 15,000 to 50,000+ followers in 4 months",
-    heroStat: "15k → 50k+",
+    tagline: "From 15,000 to 75,000+ followers",
+    heroStat: "15k → 75k+",
     heroStatLabel: "Follower growth",
     challenge:
       "Kanzlei Mandic wanted to make legal advice accessible and understandable for the general public. Their goal: build trust and attract qualified clients through social media. They had been trying this for years — unfortunately without sustainable success. The challenge: legal content must be precise, yet presented in a way that works and performs on social media. We developed a strategy that captures Mandic's values and personality — delivering helpful knowledge in a way that you can't get enough of, because it doesn't just inform, it also entertains.",
@@ -283,17 +283,18 @@ export const caseStudies: CaseStudy[] = [
       "Focus on concrete everyday problems — Content focused on topics that actually affect people, such as tenancy law, criminal law, and employment law. This created content that is actively searched for.",
       "Trust through real examples — Case studies, frequently asked questions, and real situations made content tangible and built trust with potential clients.",
       "Clear guidance to initial consultation — Every video has a clear structure and purposefully guides to the next action: contact or initial consultation. Even those without an immediate problem are remembered and get in touch when the time comes.",
-      "Presence on the right platforms — Instagram was used as the main channel for reach, LinkedIn additionally for the B2B audience. Maximum visibility was achieved across different target groups.",
+      "Presence on the right platforms — Instagram was used as the main channel for reach, TikTok for additional reach, and LinkedIn for the B2B audience. Maximum visibility was achieved across different target groups.",
+      "AI chatbot in the service funnel — For incoming inquiries, we built an AI chatbot directly into the Instagram funnel. It answers standard questions, pre-qualifies prospects, and guides them independently into a paid initial consultation — saving the firm an enormous amount of time on inquiries and support.",
     ],
     outcome: {
       stats: [
-        { value: "50k+",   label: "Followers (from 15k)" },
-        { value: "2 M.",   label: "Impressions per month" },
-        { value: "✓",      label: "AI automation for initial inquiries" },
-        { value: "+85%",   label: "More client inquiries" },
+        { value: "75k+",   label: "Followers (from 15k)" },
+        { value: "12 M.",  label: "Views on Instagram in 90 days" },
+        { value: "10 M.",  label: "Views on TikTok in 60 days" },
+        { value: "✓",      label: "AI chatbot for paid initial consultations" },
       ],
       summary:
-        "Kanzlei Mandic developed into one of the most visible voices for legal inquiries in the German-speaking world. Social media presence grew from 15,000 to over 50,000 followers and reaches over 100,000 people monthly with understandable explanations — that's around 2 million impressions per month. With increased visibility, demand was automated: a system integrated into social media professionally routes incoming inquiries to a paid initial consultation, resulting in fully automated and significantly increased revenue.",
+        "Kanzlei Mandic developed into one of the most visible voices for legal inquiries in the German-speaking world. Social media presence grew from 15,000 to over 75,000 followers on Instagram — in the last 90 days alone, that channel generated around 12 million views, over 420,000 interactions, and more than 2.5 million accounts reached. In parallel, TikTok was built up as a second growth channel: over 10 million post views and 5.5 million viewers in 60 days. With increased visibility, demand was automated as well: an AI chatbot is integrated directly into the service funnel on Instagram, pre-qualifies incoming inquiries, and independently guides prospects into a paid initial consultation. The result: fully automated, significantly increased revenue — with noticeably less time spent on inquiries and support.",
     },
     quote: {
       text: "We never expected social media to pay off so directly for our business. Spectra Media made that possible for us — and for that we are infinitely grateful.",
@@ -303,6 +304,47 @@ export const caseStudies: CaseStudy[] = [
       "/case-studies/kanzlei-mandic/follower-ig.png",
       "/case-studies/kanzlei-mandic/interaktionen-ig.png",
       "/case-studies/kanzlei-mandic/views-ig.png",
+      "/case-studies/kanzlei-mandic/tiktok-follower.png",
+      "/case-studies/kanzlei-mandic/tiktok-aufrufe.png",
+      "/case-studies/kanzlei-mandic/tiktok-zuschauer.png",
+    ],
+  },
+  {
+    slug: "raffael-gordzielik",
+    client: "Raffael Gordzielik",
+    profileImg: "/Kundenbilder/Raffael Gordzielik.png",
+    industry: "Legal",
+    badge: "Legal Consulting",
+    tagline: "From 0 to 14,000 followers in just three weeks",
+    heroStat: "0 → 14k",
+    heroStatLabel: "Followers in 3 weeks",
+    challenge:
+      "Raffael Gordzielik is a three-time German strongman champion, criminal defense attorney, and patients' rights lawyer — and has already appeared on RTL, ProSieben, and SAT.1. Maximum presence offline, practically invisible online: his TikTok account sat at around 50 followers, his YouTube channel hadn't seen an upload in six years, and on Instagram a video reached an average of about 400 people. Previous attempts had been abandoned after a few weeks each time — not for lack of substance, but because a criminal defense attorney with a full caseload has no time to build a content system on the side. Add to that the specifics of the niche: every statement must be legally sound, professional conduct rules set narrow limits, and the target audience is in the hardest situation of their lives — house searches, summonses, pre-trial detention. Content that comes across as too loud or too flippant here destroys trust instead of building it. Our task: turn a person who fills every room offline into a brand that has the same effect online — without losing the authority that is decisive in a mandate.",
+    approach: [
+      "Positioning before production — Before the first camera rolled, the brand was sharpened: “Strongest Lawyer\" — the crossover between elite strength sport and criminal defense. Exactly the combination that doesn't exist a second time in German legal consulting, turning an interchangeable attorney profile into an unmistakable figure.",
+      "Testing formats at high speed — Instead of betting on one format for months, several were tested in parallel and evaluated against real data. Within three weeks the winners were clear: videos about the person himself, short explainer clips on concrete legal questions, and five-second formats with maximum reach. From then on, only what demonstrably worked was scaled.",
+      "One shoot, four platforms — TikTok, Instagram, YouTube Shorts, and Facebook are served from the same shooting day — adapted per platform instead of simply copied. The client's effort stays at a few hours per week while visibility multiplies.",
+      "Legal safety as part of the process — Every legal statement goes through the client's approval before publication. Professional conduct requirements, ongoing proceedings, and personality rights are not an afterthought filter but built firmly into the production workflow. That creates reach without the firm carrying any risk.",
+      "From viewer to mandate — Reach alone is not a metric that pays bills. That's why the path from video to inquiry was built in parallel — from first contact through automated pre-qualification to the paid initial consultation.",
+    ],
+    outcome: {
+      stats: [
+        { value: "0 → 14k", label: "TikTok followers in 3 weeks" },
+        { value: "1 M.+",   label: "Views in 3 weeks" },
+        { value: "620,000", label: "People reached" },
+        { value: "✓",       label: "Ongoing mandate inquiries via social media" },
+      ],
+      summary:
+        "In the first three weeks of active publishing, the TikTok account grew from effectively zero to over 14,000 followers. With 410,000 viewers, that represents a conversion far above what is normal for a cold start — and across all platforms, around 15,000 new followers came in during the same period. This growth was carried by over one million views and around 620,000 people reached. On Instagram, 77% of views come from non-followers, meaning the content performs on its own strength rather than off an existing base. The YouTube channel, dormant for six years, is active again, and Facebook reached over 142,000 views. More important than any of these numbers: mandate inquiries are already coming in via social media, above all through TikTok. After three weeks. In a niche where trust normally takes years to build. An attorney people knew if they happened to know him has, within a month, become a voice seen across Germany — reaching exactly the people who need a defense lawyer.",
+    },
+    quote: {
+      text: "I wouldn't have thought it would affect the firm this quickly. After three weeks, the first mandate inquiries came in via social media. Spectra Media turned something I had put off for years into a working channel in no time.",
+      author: "Raffael Gordzielik, Attorney & Strongman Champion",
+    },
+    screenshots: [
+      "/case-studies/raffael-gordzielik/tiktok-follower.png",
+      "/case-studies/raffael-gordzielik/tiktok-aufrufe.png",
+      "/case-studies/raffael-gordzielik/tiktok-zuschauer.png",
     ],
   },
   {
@@ -351,9 +393,9 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Maiorano Perfomance 2 George Maiorano.png",
     industry: "Health / Peptides",
     badge: "Health & Wellness",
-    tagline: "From 0 to 10,000 followers in 6 weeks",
-    heroStat: "0 → 10k",
-    heroStatLabel: "Followers in 6 weeks",
+    tagline: "From 0 to 18,000 followers in 8 weeks",
+    heroStat: "0 → 18k",
+    heroStatLabel: "Followers in 8 weeks",
     challenge:
       "With George Maiorano, the task was to build an account completely from scratch. Focus: biohacking, peptides, and longevity — a niche requiring extensive explanation that demands deep trust. The challenge was to build visibility quickly while simultaneously forming a community that grows around products that need explanation. We developed a strategy that makes scientific content accessible — turning an empty profile into a relevant voice in the niche within just a few weeks.",
     approach: [
@@ -365,16 +407,16 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: {
       stats: [
-        { value: "10k",    label: "Followers in 6 weeks" },
+        { value: "18k",    label: "Followers in 8 weeks" },
         { value: "3,000€", label: "Sponsorship/month in the first 4 weeks" },
-        { value: "6 weeks", label: "Time period" },
+        { value: "8 weeks", label: "Time period" },
         { value: "1,000+", label: "E-books sold" },
       ],
       summary:
-        "In just 6 weeks, George's account grew from zero to 10,000 followers — an achievement that takes others months or years. Made possible by content that precisely hit his target audience and explained complicated medical topics like peptides in user-friendly language. The newly gained attention was strategically used to successfully market his e-book and establish his coaching offer — which became a great success for him.",
+        "In just 8 weeks, George's account grew from zero to over 18,000 followers — an achievement that takes others months or years. Made possible by content that precisely hit his target audience and explained complicated medical topics like peptides in user-friendly language. The newly gained attention was strategically used to successfully market his e-book and establish his coaching offer — which became a great success for him.",
     },
     quote: {
-      text: "I expected my content to generate interest, but that Spectra Media would get me 10,000 followers in 6 weeks exceeded all my expectations.",
+      text: "I expected my content to generate interest, but that Spectra Media would get me 18,000 followers in 8 weeks exceeded all my expectations.",
       author: "George Maiorano, CEO and Owner of American Medical Wellness and American Wellness Pharmacy",
     },
     screenshots: [

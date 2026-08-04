@@ -44,7 +44,7 @@ function AnimatedStats({ t }: { t: GruenderExtras }) {
   const inView = useInView(ref, { once: true });
 
   const [count, setCount] = useState(30);
-  const [mrdDigit, setMrdDigit] = useState(2);
+  const [mrdDigit, setMrdDigit] = useState(1);
   const [mioDigit, setMioDigit] = useState(1);
 
   useEffect(() => {
@@ -66,7 +66,7 @@ function AnimatedStats({ t }: { t: GruenderExtras }) {
     }, 80);
     const mrdTimeout = setTimeout(() => {
       clearInterval(mrdInterval);
-      setMrdDigit(2);
+      setMrdDigit(1);
     }, 1500);
 
     const mioInterval = setInterval(() => {

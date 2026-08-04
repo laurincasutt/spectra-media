@@ -83,7 +83,7 @@ export default function StackedCaseStudies() {
                                 alt={cs.client}
                                 fill
                                 className="object-cover"
-                                style={cs.slug === "kanzlei-mandic" ? { objectPosition: "50% 30%" } : cs.slug === "markus-hoppe" ? { objectPosition: "50% 10%" } : undefined}
+                                style={cs.slug === "kanzlei-mandic" ? { objectPosition: "50% 30%" } : cs.slug === "markus-hoppe" ? { objectPosition: "50% 10%" } : cs.slug === "raffael-gordzielik" ? { objectPosition: "50% 8%" } : undefined}
                                 sizes="96px"
                               />
                             : <span className="text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}

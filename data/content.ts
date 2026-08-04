@@ -60,7 +60,7 @@ export const home = {
   },
 
   proofStats: [
-    { value: "2 Mrd+", label: "Views generiert", sub: "" },
+    { value: "1 Mrd+", label: "Views generiert", sub: "" },
     { value: "1 Mio+", label: "Follower gegrowt", sub: "" },
     { value: "2.000+", label: "Kunden generiert", sub: "" },
     { value: "30+", label: "Brands skaliert", sub: "" },
@@ -222,7 +222,7 @@ export const home = {
       role: "Anwaltskanzlei",
     },
     {
-      quote: "Ich hatte erwartet, vielleicht 3.000 Follower in 6 Wochen zu erreichen. Spectra Media hat das Dreifache geliefert.",
+      quote: "Ich hatte erwartet, vielleicht 3.000 Follower in 8 Wochen zu erreichen. Spectra Media hat das Sechsfache geliefert.",
       author: "George Maiorano",
       role: "Health Entrepreneur",
     },
@@ -294,8 +294,8 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Kanzlei Mandic Dubravko Mandic.png",
     industry: "Legal",
     badge: "Rechtsberatung",
-    tagline: "Von 15.000 auf 50.000+ Follower in 4 Monaten",
-    heroStat: "15k → 50k+",
+    tagline: "Von 15.000 auf 75.000+ Follower",
+    heroStat: "15k → 75k+",
     heroStatLabel: "Follower Wachstum",
     challenge:
       "Kanzlei Mandic wollte Rechtsberatung zugänglich und verständlich für die Allgemeinheit machen. Ihr Ziel: Vertrauen aufbauen und qualifizierte Mandanten über Social Media gewinnen. Dies versuchten sie über die letzten Jahre - leider ohne nachhaltigen Erfolg. Die Herausforderung: Juristische Inhalte müssen präzise sein, aber gleichzeitig so aufbereitet, dass sie auf Social Media ankommen und performen. Wir entwickelten eine Strategie, die Mandics Werte und Persönlichkeit einfängt - hilfreiches Wissen so vermittelt, dass man nicht genug davon bekommt, weil es nicht nur informiert, sondern auch unterhält.",
@@ -304,17 +304,18 @@ export const caseStudies: CaseStudy[] = [
       "Fokus auf konkrete Alltagsprobleme - Der Inhalt konzentrierte sich auf Themen, die Menschen tatsächlich betreffen, etwa Mietrecht, Strafrecht und Arbeitsrecht. So entstand Content, nach dem aktiv gesucht wird.",
       "Vertrauen durch echte Beispiele - Fallbeispiele, häufige Fragen und reale Situationen machten den Inhalt greifbar und bauten Vertrauen bei potenziellen Mandanten auf.",
       "Klare Führung zur Erstberatung - Jedes Video hat eine klare Struktur und führt gezielt zur nächsten Handlung: der Kontaktaufnahme oder Erstberatung. Auch wer gerade kein akutes Problem hat, bleibt im Kopf und meldet sich, wenn es soweit ist.",
-      "Präsenz auf den richtigen Plattformen - Instagram wurde als Hauptkanal für Reichweite genutzt, LinkedIn zusätzlich für die B2B-Zielgruppe. So wurde maximale Sichtbarkeit bei unterschiedlichen Zielgruppen erreicht.",
+      "Präsenz auf den richtigen Plattformen - Instagram wurde als Hauptkanal für Reichweite genutzt, TikTok für zusätzliche Reichweite und LinkedIn für die B2B-Zielgruppe. So wurde maximale Sichtbarkeit bei unterschiedlichen Zielgruppen erreicht.",
+      "KI-Chatbot im Service-Funnel - Für die eingehenden Anfragen bauten wir einen KI-Chatbot direkt in den Instagram-Funnel ein. Er beantwortet Standardfragen, qualifiziert Interessenten vor und führt sie eigenständig in ein kostenpflichtiges Erstgespräch - das spart der Kanzlei extrem viel Zeit bei Anfragen und Support.",
     ],
     outcome: {
       stats: [
-        { value: "50k+",   label: "Follower (von 15k)" },
-        { value: "2 Mio.", label: "Impressionen pro Monat" },
-        { value: "✓",      label: "AI-Automatisierung für Erstanfragen" },
-        { value: "+85%",   label: "Mehr Mandantenanfragen" },
+        { value: "75k+",    label: "Follower (von 15k)" },
+        { value: "12 Mio.", label: "Aufrufe auf Instagram in 90 Tagen" },
+        { value: "10 Mio.", label: "Aufrufe auf TikTok in 60 Tagen" },
+        { value: "✓",       label: "KI-Chatbot für bezahlte Erstgespräche" },
       ],
       summary:
-        "Die Kanzlei Mandic entwickelte sich zu einer der sichtbarsten Stimmen für Rechtsanfragen im deutschsprachigen Raum. Die Social-Media-Präsenz wuchs von 15.000 auf über 50.000 Follower und erreicht monatlich über 100.000 Menschen mit verständlichen Erklärungen - das entspricht rund 2 Millionen Impressionen pro Monat. Mit der gesteigerten Sichtbarkeit wurde auch die Nachfrage automatisiert: Ein in Social Media integriertes System leitet eingehende Anfragen professionell auf ein kostenpflichtiges Erstgespräch, was zu einem vollautomatischen und deutlich gestiegenen Umsatz führte.",
+        "Die Kanzlei Mandic entwickelte sich zu einer der sichtbarsten Stimmen für Rechtsanfragen im deutschsprachigen Raum. Die Social-Media-Präsenz wuchs von 15.000 auf über 75.000 Follower auf Instagram - allein in den letzten 90 Tagen kamen dort rund 12 Millionen Aufrufe, über 420.000 Interaktionen und mehr als 2,5 Millionen erreichte Konten zusammen. Parallel dazu wurde TikTok als zweiter Wachstumskanal aufgebaut: über 10 Millionen Beitragsaufrufe und 5,5 Millionen Zuschauer in 60 Tagen. Mit der gesteigerten Sichtbarkeit wurde auch die Nachfrage automatisiert: Ein KI-Chatbot ist direkt in den Service-Funnel auf Instagram integriert, qualifiziert eingehende Anfragen vor und führt Interessenten eigenständig in ein kostenpflichtiges Erstgespräch. Das Ergebnis: ein vollautomatischer, deutlich gestiegener Umsatz - bei spürbar weniger Zeitaufwand für Anfragen und Support.",
     },
     quote: {
       text: "Wir hätten nie erwartet, dass Social Media sich so direkt auf unser Geschäft auszahlen kann. Spectra Media hat das für uns möglich gemacht - und dafür sind wir ihnen unendlich dankbar.",
@@ -324,6 +325,47 @@ export const caseStudies: CaseStudy[] = [
       "/case-studies/kanzlei-mandic/follower-ig.png",
       "/case-studies/kanzlei-mandic/interaktionen-ig.png",
       "/case-studies/kanzlei-mandic/views-ig.png",
+      "/case-studies/kanzlei-mandic/tiktok-follower.png",
+      "/case-studies/kanzlei-mandic/tiktok-aufrufe.png",
+      "/case-studies/kanzlei-mandic/tiktok-zuschauer.png",
+    ],
+  },
+  {
+    slug: "raffael-gordzielik",
+    client: "Raffael Gordzielik",
+    profileImg: "/Kundenbilder/Raffael Gordzielik.png",
+    industry: "Legal",
+    badge: "Rechtsberatung",
+    tagline: "Von 0 auf 14.000 Follower in nur drei Wochen",
+    heroStat: "0 → 14k",
+    heroStatLabel: "Follower in 3 Wochen",
+    challenge:
+      "Raffael Gordzielik ist dreifacher deutscher Strongman-Champion, Strafverteidiger und Patientenanwalt - und war bereits bei RTL, ProSieben und SAT.1 im Fernsehen zu sehen. Offline maximale Präsenz, online praktisch unsichtbar: Der TikTok-Account lag bei rund 50 Followern, der YouTube-Kanal hatte seit sechs Jahren keinen Upload mehr gesehen, und auf Instagram erreichte ein Video im Schnitt rund 400 Menschen. Frühere Anläufe waren jeweils nach wenigen Wochen abgebrochen - nicht aus Mangel an Substanz, sondern weil ein Strafverteidiger mit voller Mandatslast keine Zeit hat, nebenher ein Content-System aufzubauen. Dazu kommt die Besonderheit der Nische: Jede Aussage muss juristisch belastbar sein, das Berufsrecht setzt enge Grenzen, und die Zielgruppe befindet sich in der schwersten Situation ihres Lebens - Hausdurchsuchung, Vorladung, Untersuchungshaft. Content, der hier zu laut oder zu leichtfüßig auftritt, zerstört Vertrauen, statt es aufzubauen. Unsere Aufgabe: Aus einer Person, die offline jeden Raum füllt, eine Marke machen, die online genauso wirkt - ohne die Autorität zu verlieren, die im Mandat entscheidend ist.",
+    approach: [
+      "Positionierung vor Produktion - Bevor die erste Kamera lief, wurde die Marke geschärft: „Strongest Lawyer\" - der Crossover aus Spitzenkraftsport und Strafverteidigung. Genau die Kombination, die es in der deutschen Rechtsberatung kein zweites Mal gibt und die aus einem austauschbaren Anwaltsprofil eine unverwechselbare Figur macht.",
+      "Formate im Schnelldurchlauf testen - Statt monatelang auf ein Format zu setzen, wurden mehrere parallel getestet und nach echten Daten bewertet. Innerhalb von drei Wochen standen die Gewinner fest: Videos über die Person selbst, kurze Erklärclips zu konkreten Rechtsfragen und Fünf-Sekunden-Formate mit maximaler Reichweite. Ab da wurde nur noch skaliert, was nachweislich funktioniert.",
+      "Ein Dreh, vier Plattformen - TikTok, Instagram, YouTube Shorts und Facebook werden aus demselben Drehtag bespielt - plattformgerecht aufbereitet statt einfach kopiert. Der Aufwand für den Kunden bleibt bei wenigen Stunden pro Woche, die Sichtbarkeit vervielfacht sich.",
+      "Rechtssicherheit als Teil des Prozesses - Jede juristische Aussage durchläuft vor der Veröffentlichung die Freigabe des Mandanten. Berufsrechtliche Vorgaben, laufende Verfahren und Persönlichkeitsrechte sind kein nachträglicher Filter, sondern fest in den Produktionsablauf eingebaut. So entsteht Reichweite, ohne dass die Kanzlei ein Risiko trägt.",
+      "Vom Zuschauer zum Mandat - Reichweite allein ist keine Kennzahl, die Rechnungen bezahlt. Deshalb wurde parallel der Weg vom Video zur Anfrage aufgebaut - von der ersten Kontaktaufnahme über automatisierte Vorqualifizierung bis zum kostenpflichtigen Erstgespräch.",
+    ],
+    outcome: {
+      stats: [
+        { value: "0 → 14k",  label: "TikTok-Follower in 3 Wochen" },
+        { value: "1 Mio.+",  label: "Aufrufe in 3 Wochen" },
+        { value: "620.000",  label: "erreichte Menschen" },
+        { value: "✓",        label: "Laufende Mandatsanfragen über Social Media" },
+      ],
+      summary:
+        "In den ersten drei Wochen aktiver Veröffentlichung wuchs der TikTok-Account von faktisch null auf über 14.000 Follower. Bei 410.000 Zuschauern entspricht das einer Conversion, die weit über dem liegt, was bei einem Kaltstart üblich ist - und plattformübergreifend kamen im selben Zeitraum rund 15.000 neue Follower dazu. Getragen wurde dieses Wachstum von über einer Million Aufrufen und rund 620.000 erreichten Menschen. Auf Instagram stammen 77 % der Aufrufe von Nicht-Followern, der Content läuft also aus eigener Kraft und nicht über einen bestehenden Stamm. Der seit sechs Jahren stillstehende YouTube-Kanal ist wieder aktiv, Facebook erreichte über 142.000 Aufrufe. Wichtiger als jede dieser Zahlen: Es kommen bereits Mandatsanfragen über Social Media herein, allen voran über TikTok. Nach drei Wochen. In einer Nische, in der Vertrauen normalerweise über Jahre entsteht. Aus einem Anwalt, den man kannte, wenn man ihn kannte, ist innerhalb eines Monats eine Stimme geworden, die in ganz Deutschland gesehen wird - und die genau die Menschen erreicht, die einen Verteidiger brauchen.",
+    },
+    quote: {
+      text: "Ich hätte nicht gedacht, dass sich das so schnell auf die Kanzlei auswirkt. Nach drei Wochen kamen die ersten Mandatsanfragen über Social Media rein. Spectra Media hat aus etwas, das ich jahrelang aufgeschoben habe, in kürzester Zeit einen funktionierenden Kanal gemacht.",
+      author: "Raffael Gordzielik, Rechtsanwalt & Strongman-Champion",
+    },
+    screenshots: [
+      "/case-studies/raffael-gordzielik/tiktok-follower.png",
+      "/case-studies/raffael-gordzielik/tiktok-aufrufe.png",
+      "/case-studies/raffael-gordzielik/tiktok-zuschauer.png",
     ],
   },
   {
@@ -372,9 +414,9 @@ export const caseStudies: CaseStudy[] = [
     brandLogoImg: "/Logos/Maiorano Perfomance 2 George Maiorano.png",
     industry: "Health / Peptides",
     badge: "Health & Wellness",
-    tagline: "Von 0 auf 10.000 Follower in 6 Wochen",
-    heroStat: "0 → 10k",
-    heroStatLabel: "Follower in 6 Wochen",
+    tagline: "Von 0 auf 18.000 Follower in 8 Wochen",
+    heroStat: "0 → 18k",
+    heroStatLabel: "Follower in 8 Wochen",
     challenge:
       "Mit George Maiorano stand die Aufgabe, einen Account komplett von null aufzubauen. Fokus: Biohacking, Peptide und Longevity - eine Nische mit hohem Erklärungsbedarf, die tiefes Vertrauen voraussetzt. Die Herausforderung war, schnell Sichtbarkeit aufzubauen und gleichzeitig eine Community zu formen, die rund um erklärungsbedürftige Produkte entsteht und wächst. Wir entwickelten eine Strategie, die wissenschaftliche Inhalte zugänglich macht - und aus einem leeren Profil in wenigen Wochen eine relevante Stimme in der Nische machte.",
     approach: [
@@ -386,16 +428,16 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: {
       stats: [
-        { value: "10k",    label: "Follower in 6 Wochen" },
+        { value: "18k",    label: "Follower in 8 Wochen" },
         { value: "3.000€", label: "Sponsoring/Monat in den ersten 4 Wochen" },
-        { value: "6 Wochen", label: "Zeitraum" },
+        { value: "8 Wochen", label: "Zeitraum" },
         { value: "1.000+", label: "E-Books verkauft" },
       ],
       summary:
-        "In nur 6 Wochen entwickelte sich Georges Account von null auf 10.000 Follower - eine Leistung, für die andere Monate oder Jahre brauchen. Ermöglicht durch Content, der genau seine Zielgruppe traf und komplizierte medizinische Themen wie Peptide in nutzerfreundlicher Sprache erklärte. Die neu gewonnene Aufmerksamkeit wurde gezielt genutzt, um sein E-Book erfolgreich zu vermarkten und sein Coaching-Angebot zu etablieren - was für ihn zu einem großen Erfolg wurde.",
+        "In nur 8 Wochen entwickelte sich Georges Account von null auf über 18.000 Follower - eine Leistung, für die andere Monate oder Jahre brauchen. Ermöglicht durch Content, der genau seine Zielgruppe traf und komplizierte medizinische Themen wie Peptide in nutzerfreundlicher Sprache erklärte. Die neu gewonnene Aufmerksamkeit wurde gezielt genutzt, um sein E-Book erfolgreich zu vermarkten und sein Coaching-Angebot zu etablieren - was für ihn zu einem großen Erfolg wurde.",
     },
     quote: {
-      text: "Ich habe schon erwartet, dass mein Content auf Interesse stößt, aber dass Spectra Media mir 10.000 Follower in 6 Wochen generiert, das hat alle meine Erwartungen gesprengt.",
+      text: "Ich habe schon erwartet, dass mein Content auf Interesse stößt, aber dass Spectra Media mir 18.000 Follower in 8 Wochen generiert, das hat alle meine Erwartungen gesprengt.",
       author: "George Maiorano, Geschäftsführer und Inhaber von American Medical Wellness und American Wellness Pharmacy",
     },
     screenshots: [
