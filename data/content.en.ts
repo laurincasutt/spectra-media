@@ -13,7 +13,7 @@ export const nav = {
     { label: "About Us", href: "/gruender" },
   ],
   ctaText: "Book a Call",
-  ctaUrl: "https://calendly.com/spectramedia-info/30min",
+  ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   whatsappNumber: "41795371839",
   whatsappMessage: "Hello%2C%20I%27m%20interested%20in%20Spectra%20Media.",
   ariaMenuOpen: "Open menu",
@@ -33,7 +33,7 @@ export const home = {
     sub: "Spectra Media GmbH specializes in transforming overlooked Instagram accounts into outstanding Personal Brands and Business Pages that not only attract the right followers, but convert them into loyal clients.",
     sub2: "",
     cta: "Book a Call",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
     secondaryCta: "View Case Studies",
     secondaryCtaUrl: "/case-studies",
   },
@@ -217,7 +217,7 @@ export const home = {
     headline: "Take the first step toward your digital authority.",
     sub: "In a free 30-minute call, we'll explore together what's possible for you.",
     cta: "Book Your Free Discovery Call",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   },
 };
 
@@ -697,7 +697,7 @@ export const gruender = {
     headline: "Ready for the call?",
     sub: "Let's spend 30 minutes figuring out if and how we can work together.",
     cta: "Book a Call",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   },
 };
 

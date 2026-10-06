@@ -34,7 +34,7 @@ export const nav = {
     { label: "Über uns", href: "/gruender" },
   ],
   ctaText: "Erstgespräch buchen",
-  ctaUrl: "https://calendly.com/spectramedia-info/30min",
+  ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   whatsappNumber: "41795371839",
   whatsappMessage: "Hallo%2C%20ich%20interessiere%20mich%20fuer%20Spectra%20Media.",
   ariaMenuOpen: "Menü öffnen",
@@ -54,7 +54,7 @@ export const home = {
     sub: "Spectra Media GmbH ist darauf spezialisiert, übersehbare Instagram-Accounts in herausragende Personal Brands und Business Pages zu transformieren, die nicht nur die richtigen Follower anziehen, sondern sie in loyale Kunden konvertieren.",
     sub2: "",
     cta: "Erstgespräch buchen",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
     secondaryCta: "Case Studies ansehen",
     secondaryCtaUrl: "/case-studies",
   },
@@ -238,7 +238,7 @@ export const home = {
     headline: "Den ersten Schritt zu deiner digitalen Autorität.",
     sub: "In einem kostenlosen 30-Minuten-Gespräch schauen wir uns gemeinsam an, was für dich möglich ist.",
     cta: "Kostenloses Erstgespräch buchen",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   },
 };
 
@@ -718,7 +718,7 @@ export const gruender = {
     headline: "Bereit für das Gespräch?",
     sub: "Lass uns in 30 Minuten herausfinden, ob und wie wir zusammenarbeiten können.",
     cta: "Call buchen",
-    ctaUrl: "https://calendly.com/spectramedia-info/30min",
+    ctaUrl: "https://calendly.com/spectramedia-info/erstgespraech",
   },
 };
 
