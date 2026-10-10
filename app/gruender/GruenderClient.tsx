@@ -150,25 +150,22 @@ export default function GruenderClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: text */}
             <motion.div variants={staggerContainer} initial="hidden" animate="show">
-              <motion.span
-                variants={fadeUpVariants}
-                className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6 uppercase tracking-wider"
+              <span
+                className="fade-up inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6 uppercase tracking-wider"
               >
                 {gruender.hero.eyebrow}
-              </motion.span>
-              <motion.h1
-                variants={fadeUpVariants}
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
+              </span>
+              <h1
+                className="fade-up fade-up-1 text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
               >
                 {t.architectsHeadline}<br />
                 <span className="gradient-text">{t.architectsGradient}</span>
-              </motion.h1>
-              <motion.p
-                variants={fadeUpVariants}
-                className="text-base text-[#52525B] leading-relaxed mb-4"
+              </h1>
+              <p
+                className="fade-up fade-up-2 text-base text-[#80808A] leading-relaxed mb-4"
               >
                 {t.architectsSub}
-              </motion.p>
+              </p>
 
               <AnimatedStats t={t} />
             </motion.div>
@@ -252,7 +249,7 @@ export default function GruenderClient() {
                   <h3 className="text-[#F4F4F5] font-bold text-xl mb-3 leading-snug">
                     {value.title}
                   </h3>
-                  <p className="text-[#71717A] text-sm leading-relaxed">
+                  <p className="text-[#80808A] text-sm leading-relaxed">
                     {value.desc}
                   </p>
                 </motion.div>
@@ -299,7 +296,7 @@ export default function GruenderClient() {
                   <div className="p-5 flex items-center justify-between">
                     <div>
                       <h3 className="text-[#F4F4F5] font-bold text-lg">{member.name}</h3>
-                      <p className="text-[#71717A] text-sm mt-0.5">{member.role}</p>
+                      <p className="text-[#80808A] text-sm mt-0.5">{member.role}</p>
                     </div>
                     <Link
                       href={member.linkedin}
@@ -397,7 +394,7 @@ export default function GruenderClient() {
                     <h3 className="text-[#F4F4F5] font-bold text-base mb-1.5 line-through decoration-[#FF4444]/40 decoration-1">
                       {item.title}
                     </h3>
-                    <p className="text-[#71717A] text-sm leading-relaxed">{item.desc}</p>
+                    <p className="text-[#80808A] text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 </motion.div>
               ))}

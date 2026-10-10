@@ -107,8 +107,31 @@ body {
   );
 }
 
+/* Hero entrance — pure CSS so above-the-fold text paints before JS hydrates (LCP).
+   Mirrors fadeUpVariants + staggerChildren 0.07 from lib/animations.ts. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-up {
+  animation: fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.fade-up-1 { animation-delay: 0.07s; }
+.fade-up-2 { animation-delay: 0.14s; }
+.fade-up-3 { animation-delay: 0.21s; }
+.fade-up-4 { animation-delay: 0.28s; }
+.fade-up-5 { animation-delay: 0.35s; }
+.fade-up-6 { animation-delay: 0.42s; }
+
 @media (prefers-reduced-motion: reduce) {
-  .logo-marquee-track {
+  .logo-marquee-track,
+  .fade-up {
     animation: none;
   }
 }

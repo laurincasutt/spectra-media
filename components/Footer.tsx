@@ -111,10 +111,10 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[#52525B] text-sm">
+          <p className="text-[#80808A] text-sm">
             © {currentYear} Spectra Media GmbH. {footer.copyright}
           </p>
-          <p className="text-[#52525B] text-sm">{footer.location}</p>
+          <p className="text-[#80808A] text-sm">{footer.location}</p>
         </div>
       </div>
     </footer>

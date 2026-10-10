@@ -225,7 +225,7 @@ import ContactSection from "@/components/ContactSection";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 import Reveal from "@/components/Reveal";
-import { fadeUpVariants, staggerContainer } from "@/lib/animations";
+import { staggerContainer } from "@/lib/animations";
 
 const outcomeIcons = [
   <svg key="0" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,28 +264,25 @@ export default function ServiceClient() {
         <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-[#0066FF]/6 rounded-full blur-[120px] -translate-y-1/3 translate-x-1/4" />
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.div variants={staggerContainer} initial="hidden" animate="show">
-            <motion.span
-              variants={fadeUpVariants}
-              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
+            <span
+              className="fade-up inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
             >
               {service.hero.eyebrow}
-            </motion.span>
-            <motion.h1
-              variants={fadeUpVariants}
-              className="text-3xl sm:text-5xl lg:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
+            </span>
+            <h1
+              className="fade-up fade-up-1 text-3xl sm:text-5xl lg:text-5xl font-bold mb-6 leading-tight max-w-3xl mx-auto"
             >
               <span className="text-[#F4F4F5]">{svcHero.line1}</span>
               <br />
               <span className="gradient-text">{svcHero.line2}</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUpVariants}
-              className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
+            </h1>
+            <p
+              className="fade-up fade-up-2 text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
               {svcHero.sub}
-            </motion.p>
+            </p>
             {/* Animated scroll arrows */}
-            <motion.div variants={fadeUpVariants} className="flex flex-col items-center gap-1 mt-8">
+            <div className="fade-up fade-up-3 flex flex-col items-center gap-1 mt-8">
               {[0, 1, 2].map(i => (
                 <motion.svg key={i} width="20" height="12" viewBox="0 0 20 12" fill="none"
                   animate={{ y: [0, 4, 0], opacity: [0.3 + i * 0.25, 0.8, 0.3 + i * 0.25] }}
@@ -294,7 +291,7 @@ export default function ServiceClient() {
                   <path d="M2 2l8 8 8-8" stroke="#0066FF" strokeWidth="2" strokeLinecap="round" />
                 </motion.svg>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>

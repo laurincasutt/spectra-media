@@ -55,26 +55,23 @@ export default function CaseStudiesClient() {
             animate="show"
             viewport={viewportOnce}
           >
-            <motion.span
-              variants={fadeUpVariants}
-              className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
+            <span
+              className="fade-up inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
             >
               {t.eyebrow}
-            </motion.span>
-            <motion.h1
-              variants={fadeUpVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
+            </span>
+            <h1
+              className="fade-up fade-up-1 text-4xl sm:text-5xl lg:text-6xl font-bold text-[#F4F4F5] mb-6 leading-tight"
             >
               {t.line1}
               <br />
               <span className="gradient-text">{t.line2}</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeUpVariants}
-              className="text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
+            </h1>
+            <p
+              className="fade-up fade-up-2 text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed"
             >
               {t.sub}
-            </motion.p>
+            </p>
           </motion.div>
         </div>
       </section>
@@ -126,7 +123,7 @@ export default function CaseStudiesClient() {
                         <div className="text-[#F4F4F5] font-bold text-lg uppercase tracking-wide mb-1">
                           {cs.client}
                         </div>
-                        <div className="text-[#52525B] text-sm">{cs.badge}</div>
+                        <div className="text-[#80808A] text-sm">{cs.badge}</div>
                       </div>
 
                       {/* Divider */}

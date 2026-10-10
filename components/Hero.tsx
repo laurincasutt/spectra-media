@@ -4,11 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useContent } from "@/hooks/useContent";
-import {
-  fadeUpVariants,
-  staggerContainer,
-  viewportOnce,
-} from "@/lib/animations";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
 export default function Hero() {
@@ -83,15 +78,9 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-16"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="show"
-        viewport={viewportOnce}
-      >
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-16">
         {/* Eyebrow badge */}
-        <motion.div variants={fadeUpVariants} className="inline-flex items-center gap-2 mb-8">
+        <div className="fade-up inline-flex items-center gap-2 mb-8">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0066FF] opacity-75" />
@@ -99,45 +88,41 @@ export default function Hero() {
             </span>
             {hero.eyebrow}
           </span>
-        </motion.div>
+        </div>
 
         {/* Headline */}
         <div className="mb-8">
           {hero.headlineLines.map((line, i) => (
-            <motion.h1
+            <h1
               key={i}
-              variants={fadeUpVariants}
-              className={`block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none ${
+              className={`fade-up fade-up-${i + 1} block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none ${
                 i === hero.gradientLineIndex ? "gradient-text" : "text-[#F4F4F5]"
               }`}
             >
               {line}
-            </motion.h1>
+            </h1>
           ))}
         </div>
 
         {/* Sub */}
-        <motion.p
-          variants={fadeUpVariants}
-          className="text-base sm:text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-8"
+        <p
+          className={`fade-up fade-up-${hero.headlineLines.length + 1} text-base sm:text-lg text-[#A1A1AA] max-w-2xl mx-auto leading-relaxed mb-8`}
         >
           {hero.sub}
-        </motion.p>
+        </p>
 
         {/* Sub2 */}
         {hero.sub2 && (
-          <motion.p
-            variants={fadeUpVariants}
-            className="text-sm sm:text-base text-[#52525B] max-w-xl mx-auto leading-relaxed mb-10"
+          <p
+            className={`fade-up fade-up-${hero.headlineLines.length + 2} text-sm sm:text-base text-[#80808A] max-w-xl mx-auto leading-relaxed mb-10`}
           >
             {hero.sub2}
-          </motion.p>
+          </p>
         )}
 
         {/* CTA Row */}
-        <motion.div
-          variants={fadeUpVariants}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+        <div
+          className={`fade-up fade-up-${Math.min(hero.headlineLines.length + 3, 6)} flex flex-col sm:flex-row items-center justify-center gap-4`}
         >
           <a
             href={hero.ctaUrl}
@@ -159,8 +144,8 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

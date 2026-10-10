@@ -31,7 +31,7 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
             animate="show"
           >
             {/* Back link */}
-            <motion.div variants={fadeUpVariants} className="mb-8">
+            <div className="fade-up mb-8">
               <Link
                 href="/case-studies"
                 className="inline-flex items-center gap-2 text-[#A1A1AA] hover:text-[#F4F4F5] text-sm transition-colors"
@@ -41,30 +41,27 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
                 </svg>
                 {t.eyebrow}
               </Link>
-            </motion.div>
+            </div>
 
             {/* 2-col layout: text left, photo right */}
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-start">
               {/* Left: text content */}
               <div className="flex-1 min-w-0">
-                <motion.span
-                  variants={fadeUpVariants}
-                  className="inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
+                <span
+                  className="fade-up fade-up-1 inline-block px-3 py-1 rounded-full border border-[#0066FF]/30 bg-[#0066FF]/10 text-[#3385FF] text-sm font-medium mb-6"
                 >
                   {cs.badge}
-                </motion.span>
+                </span>
 
-                <motion.h1
-                  variants={fadeUpVariants}
-                  className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-6 leading-tight"
+                <h1
+                  className="fade-up fade-up-2 text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F4F4F5] mb-6 leading-tight"
                 >
                   {cs.tagline}
-                </motion.h1>
+                </h1>
 
                 {/* Hero stat */}
-                <motion.div
-                  variants={fadeUpVariants}
-                  className="inline-flex flex-col items-start p-6 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-2"
+                <div
+                  className="fade-up fade-up-3 inline-flex flex-col items-start p-6 rounded-2xl bg-[#1C1C1F] border border-white/8 mt-2"
                 >
                   <span className="text-5xl lg:text-6xl font-bold text-[#0066FF] leading-none">
                     {cs.heroStat}
@@ -72,14 +69,13 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
                   <span className="text-[#A1A1AA] text-base mt-2">
                     {cs.heroStatLabel}
                   </span>
-                </motion.div>
+                </div>
               </div>
 
               {/* Right: profile photo */}
               {cs.profileImg && (
-                <motion.div
-                  variants={fadeUpVariants}
-                  className="w-full lg:w-72 xl:w-80 flex-shrink-0"
+                <div
+                  className="fade-up fade-up-4 w-full lg:w-72 xl:w-80 flex-shrink-0"
                 >
                   <div className="relative h-80 lg:h-96 rounded-2xl overflow-hidden border border-white/10">
                     <Image
@@ -99,7 +95,7 @@ export default function CaseStudyClient({ slug, otherCaseSlugs }: Props) {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               )}
             </div>
           </motion.div>
