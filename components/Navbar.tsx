@@ -136,6 +136,16 @@ export default function Navbar() {
                 </svg>
               </a>
               <a
+                href={nav.loginUrl}
+                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-white/10 text-[#A1A1AA] hover:text-white hover:bg-white/6 hover:border-white/20 text-xs font-medium transition-all duration-200"
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                {nav.loginText}
+              </a>
+              <a
                 href={nav.ctaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -177,6 +187,16 @@ export default function Navbar() {
           <div className="flex justify-center mb-4">
             <LanguageSwitcher />
           </div>
+          <a
+            href={nav.loginUrl}
+            className="w-full flex items-center justify-center gap-2 py-4 mb-3 rounded-full border border-white/15 text-white text-lg font-medium hover:bg-white/5 transition-colors"
+          >
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            {nav.loginText}
+          </a>
           <a
             href={nav.ctaUrl}
             target="_blank"

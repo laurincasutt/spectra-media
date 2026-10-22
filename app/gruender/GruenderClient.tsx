@@ -177,10 +177,10 @@ export default function GruenderClient() {
               transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="relative"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-white/8 aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden border border-white/8 aspect-[4/5]">
                 {!imgError ? (
                   <Image
-                    src="/Team Spectra Media/Teambild.png"
+                    src="/Team Spectra Media/teambild-2026.png"
                     alt="Spectra Media Team"
                     fill
                     className="object-cover"
