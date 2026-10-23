@@ -73,10 +73,10 @@ export default function StackedCaseStudies() {
 
                   {/* Card main row */}
                   <div className="p-6 lg:p-8 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr_auto_auto] gap-4 lg:gap-8 lg:items-center">
+                    <div className="grid grid-cols-[auto_1fr] lg:grid-cols-[auto_1fr_auto_auto] gap-x-4 gap-y-3 lg:gap-8 lg:items-center">
                       {/* Person avatar */}
-                      <div className="hidden lg:flex items-center shrink-0">
-                        <div className="w-24 h-24 rounded-full bg-white/10 border border-white/20 overflow-hidden relative flex items-center justify-center">
+                      <div className="row-span-3 lg:row-span-1 self-start lg:self-center flex items-center shrink-0">
+                        <div className="w-16 h-16 lg:w-24 lg:h-24 rounded-full bg-white/10 border border-white/20 overflow-hidden relative flex items-center justify-center">
                           {cs.profileImg
                             ? <Image
                                 src={cs.profileImg}
@@ -86,7 +86,7 @@ export default function StackedCaseStudies() {
                                 style={cs.slug === "kanzlei-mandic" ? { objectPosition: "50% 30%" } : cs.slug === "markus-hoppe" ? { objectPosition: "50% 10%" } : cs.slug === "raffael-gordzielik" ? { objectPosition: "50% 8%" } : undefined}
                                 sizes="96px"
                               />
-                            : <span className="text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}
+                            : <span className="text-xl lg:text-2xl font-bold text-[#A1A1AA]">{cs.client[0]}</span>}
                         </div>
                       </div>
 
@@ -102,7 +102,7 @@ export default function StackedCaseStudies() {
                       </div>
 
                       {/* Stat block */}
-                      <div className="w-44 shrink-0">
+                      <div className="col-start-2 lg:col-start-auto w-44 shrink-0">
                         <div className="text-[#0066FF] font-bold text-2xl lg:text-3xl drop-shadow-[0_0_12px_rgba(0,102,255,0.4)] leading-tight">
                           {cs.heroStat}
                         </div>
@@ -112,7 +112,7 @@ export default function StackedCaseStudies() {
                       {/* Toggle */}
                       <button
                         onClick={() => setOpenIndex(isOpen ? null : i)}
-                        className="shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
+                        className="col-start-2 lg:col-start-auto justify-self-start shrink-0 inline-flex items-center gap-2 text-sm font-medium text-[#A1A1AA] hover:text-[#F4F4F5] transition-colors"
                         aria-expanded={isOpen}
                       >
                         {isOpen ? t.hide : t.showMore}
