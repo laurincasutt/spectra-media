@@ -724,6 +724,8 @@ export const ui = {
     caseTag: "Case Study",
     quoteDotLabel: "Client quote",
     caseDotLabel: "Case study",
+    prevQuote: "Previous quote",
+    nextQuote: "Next quote",
   },
 
   video: {

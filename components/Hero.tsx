@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useContent } from "@/hooks/useContent";
 import AnimatedGridBackground from "@/components/AnimatedGridBackground";
 
@@ -15,13 +15,13 @@ const imgPosition: Record<string, string> = {
 };
 
 // Wechselt alle `ms` Millisekunden zum nächsten Eintrag; pausiert, solange `paused` true ist
-function useRotation(count: number, ms: number, paused: boolean) {
+function useRotation(count: number, ms: number, paused: boolean, onTick?: () => void) {
   const [index, setIndex] = useState(0);
   useEffect(() => {
     if (paused || count < 2) return;
-    const id = setInterval(() => setIndex((i) => (i + 1) % count), ms);
+    const id = setInterval(() => { onTick?.(); setIndex((i) => (i + 1) % count); }, ms);
     return () => clearInterval(id);
-  }, [count, ms, paused, index]);
+  }, [count, ms, paused, index, onTick]);
   return [index, setIndex] as const;
 }
 
@@ -52,7 +52,9 @@ export default function Hero() {
     img: caseStudies.find((cs) => cs.client === q.author || cs.quote?.author.startsWith(q.author))?.profileImg,
   }));
   const [quotePaused, setQuotePaused] = useState(false);
-  const [quoteIndex, setQuoteIndex] = useRotation(quotes.length, 5500, quotePaused);
+  // Richtung, aus der das nächste Zitat hereinkommt (automatisch immer vorwärts)
+  const [quoteDir, setQuoteDir] = useState(1);
+  const [quoteIndex, setQuoteIndex] = useRotation(quotes.length, 5500, quotePaused, useCallback(() => setQuoteDir(1), []));
 
   // Case-Karte unten links im Hero (nur Desktop)
   const cases = caseStudies.slice(0, 3);
@@ -60,25 +62,112 @@ export default function Hero() {
   const [caseIndex, setCaseIndex] = useRotation(cases.length, 5000, casePaused);
   const activeCase = cases[caseIndex];
 
-  // 3D: Headline neigt sich leicht zur Maus (nur Desktop, ohne reduced motion)
+  // 3D: Headline kippt beim Hovern Richtung Maus (nur Geräte mit Maus, ohne reduced motion)
+  const tiltAreaRef = useRef<HTMLDivElement>(null);
   const tiltRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
+    const area = tiltAreaRef.current;
     const el = tiltRef.current;
-    if (!el) return;
-    const mq = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
+    if (!area || !el) return;
+    const mq = window.matchMedia("(hover: hover) and (prefers-reduced-motion: no-preference)");
     let raf = 0;
     const onMove = (e: PointerEvent) => {
       if (!mq.matches) return;
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
-        const x = e.clientX / window.innerWidth - 0.5;
-        const y = e.clientY / window.innerHeight - 0.5;
-        el.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 8}deg)`;
+        const r = area.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        el.style.transition = "transform 0.15s ease-out";
+        el.style.transform = `rotateY(${x * 26}deg) rotateX(${-y * 20}deg) translateZ(40px) scale(1.03)`;
       });
     };
-    window.addEventListener("pointermove", onMove, { passive: true });
-    return () => { window.removeEventListener("pointermove", onMove); cancelAnimationFrame(raf); };
+    const onLeave = () => {
+      cancelAnimationFrame(raf);
+      el.style.transition = "transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)";
+      el.style.transform = "";
+    };
+    area.addEventListener("pointermove", onMove);
+    area.addEventListener("pointerleave", onLeave);
+    return () => {
+      area.removeEventListener("pointermove", onMove);
+      area.removeEventListener("pointerleave", onLeave);
+      cancelAnimationFrame(raf);
+    };
   }, []);
+
+  // Zitat manuell wechseln (Ziehen, Pfeile, Punkte)
+  const goQuote = (i: number, dir?: number) => {
+    const n = quotes.length;
+    setQuoteDir(dir ?? (i > quoteIndex ? 1 : -1));
+    setQuoteIndex(((i % n) + n) % n);
+  };
+
+  // Kundenzitate-Slider: Desktop über der Headline, Handy unter den Buttons
+  const quoteSlider = (className: string) => (
+    <div
+      className={`max-w-2xl mx-auto ${className}`}
+      onMouseEnter={() => setQuotePaused(true)}
+      onMouseLeave={() => setQuotePaused(false)}
+      aria-live="polite"
+    >
+      <div className="relative min-h-[112px] overflow-hidden">
+        <AnimatePresence initial={false} mode="popLayout" custom={quoteDir}>
+          <motion.figure
+            key={quoteIndex}
+            custom={quoteDir}
+            variants={{
+              enter: (d: number) => ({ x: d * 80, opacity: 0 }),
+              center: { x: 0, opacity: 1 },
+              exit: (d: number) => ({ x: d * -80, opacity: 0 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.5}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -50 || info.velocity.x < -400) goQuote(quoteIndex + 1, 1);
+              else if (info.offset.x > 50 || info.velocity.x > 400) goQuote(quoteIndex - 1, -1);
+            }}
+            className="flex flex-col items-center gap-3 cursor-grab active:cursor-grabbing select-none touch-pan-y"
+          >
+            <blockquote className="text-[17px] italic font-medium leading-snug text-[#E4E4E7] text-balance">
+              «{quotes[quoteIndex].quote}»
+            </blockquote>
+            <figcaption className="inline-flex items-center gap-2.5 text-[13px]">
+              {quotes[quoteIndex].img && (
+                <span className="relative w-[26px] h-[26px] rounded-full overflow-hidden border border-white/20">
+                  <Image src={quotes[quoteIndex].img!} alt="" fill sizes="26px" className="object-cover pointer-events-none" draggable={false} />
+                </span>
+              )}
+              <span className="font-semibold text-[#F4F4F5]">{quotes[quoteIndex].author}</span>
+              <span className="text-[#71717A] text-xs">{quotes[quoteIndex].role}</span>
+            </figcaption>
+          </motion.figure>
+        </AnimatePresence>
+      </div>
+      <div className="mt-3.5 flex items-center justify-center gap-3">
+        <button
+          onClick={() => goQuote(quoteIndex - 1, -1)}
+          aria-label={t.prevQuote}
+          className="w-7 h-7 rounded-full grid place-items-center text-[#71717A] hover:text-white hover:bg-white/8 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <Dots count={quotes.length} active={quoteIndex} onSelect={(i) => goQuote(i)} label={t.quoteDotLabel} />
+        <button
+          onClick={() => goQuote(quoteIndex + 1, 1)}
+          aria-label={t.nextQuote}
+          className="w-7 h-7 rounded-full grid place-items-center text-[#71717A] hover:text-white hover:bg-white/8 transition-colors"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+      </div>
+    </div>
+  );
 
   return (
     <section className="relative bg-[#09090B] lg:px-4 lg:pt-4">
@@ -156,41 +245,8 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 lg:pt-36 pb-16">
-          {/* Kundenzitat (rotierend) */}
-          <div
-            className="fade-up hidden lg:block max-w-2xl mx-auto mb-8"
-            onMouseEnter={() => setQuotePaused(true)}
-            onMouseLeave={() => setQuotePaused(false)}
-            aria-live="polite"
-          >
-            <div className="grid">
-              {quotes.map((q, i) => (
-                <figure
-                  key={q.author}
-                  className={`[grid-area:1/1] flex flex-col items-center gap-3 transition-all duration-700 ${
-                    i === quoteIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-                  }`}
-                  aria-hidden={i !== quoteIndex}
-                >
-                  <blockquote className="text-[17px] italic font-medium leading-snug text-[#E4E4E7] text-balance">
-                    «{q.quote}»
-                  </blockquote>
-                  <figcaption className="inline-flex items-center gap-2.5 text-[13px]">
-                    {q.img && (
-                      <span className="relative w-[26px] h-[26px] rounded-full overflow-hidden border border-white/20">
-                        <Image src={q.img} alt="" fill sizes="26px" className="object-cover" />
-                      </span>
-                    )}
-                    <span className="font-semibold text-[#F4F4F5]">{q.author}</span>
-                    <span className="text-[#71717A] text-xs">{q.role}</span>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <div className="mt-3.5">
-              <Dots count={quotes.length} active={quoteIndex} onSelect={setQuoteIndex} label={t.quoteDotLabel} />
-            </div>
-          </div>
+          {/* Kundenzitat (rotierend) – Desktop */}
+          {quoteSlider("fade-up hidden lg:block mb-8")}
 
           {/* Eyebrow badge */}
           <div className="fade-up inline-flex items-center gap-2 mb-8">
@@ -204,9 +260,9 @@ export default function Hero() {
           </div>
 
           {/* Headline (3D) */}
-          <div className="mb-8 [perspective:1100px]">
+          <div ref={tiltAreaRef} className="mb-8 [perspective:900px]">
             <div className="hero-rise">
-              <div ref={tiltRef} className="transition-transform duration-300 ease-out [transform-style:preserve-3d]">
+              <div ref={tiltRef} className="[transform-style:preserve-3d] will-change-transform">
                 {hero.headlineLines.map((line, i) => (
                   <h1
                     key={i}
@@ -262,6 +318,9 @@ export default function Hero() {
               </svg>
             </Link>
           </div>
+
+          {/* Kundenzitat (rotierend) – Handy */}
+          {quoteSlider("lg:hidden mt-12")}
         </div>
 
         {/* Case-Karte (rotierend): unter den Buttons, ab 1280px unten links im Kasten */}

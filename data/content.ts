@@ -745,6 +745,8 @@ export const ui = {
     caseTag: "Case Study",
     quoteDotLabel: "Kundenstimme",
     caseDotLabel: "Case Study",
+    prevQuote: "Vorheriges Zitat",
+    nextQuote: "Nächstes Zitat",
   },
 
   video: {
