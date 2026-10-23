@@ -56,7 +56,7 @@ function SlotMachineValue({ finalLabel, active }: { finalLabel: string; active: 
   }, [active, finalLabel]);
 
   return (
-    <span className={`text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0066FF] leading-none tabular-nums ${spinning ? "opacity-90" : ""}`}>
+    <span className={`text-3xl sm:text-4xl xl:text-5xl font-bold text-[#0066FF] leading-none tabular-nums whitespace-nowrap ${spinning ? "opacity-90" : ""}`}>
       {display}
     </span>
   );
@@ -65,7 +65,7 @@ function SlotMachineValue({ finalLabel, active }: { finalLabel: string; active: 
 function CountUpValue({ target, duration, active, suffix = "" }: { target: number; duration: number; active: boolean; suffix?: string }) {
   const value = useCountUp(target, duration, active);
   return (
-    <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0066FF] leading-none tabular-nums">
+    <span className="text-3xl sm:text-4xl xl:text-5xl font-bold text-[#0066FF] leading-none tabular-nums whitespace-nowrap">
       {formatGerman(value)}{suffix}
     </span>
   );
@@ -79,13 +79,13 @@ export default function ProofBar() {
   const stats = home.proofStats;
 
   return (
-    <section ref={ref} className="border-y border-white/8 bg-[#111113]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <section ref={ref} className="border-y border-white/8 bg-[#111113] lg:border-0 lg:bg-transparent">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-0"
+          className="grid grid-cols-2 gap-x-6 gap-y-10 sm:flex sm:flex-wrap lg:flex-nowrap sm:items-center sm:justify-center sm:gap-0"
         >
           {stats.map((stat, i) => (
             <motion.div
@@ -93,9 +93,9 @@ export default function ProofBar() {
               variants={fadeUpVariants}
               className="flex items-center justify-center"
             >
-              {i > 0 && <div className="hidden sm:block w-px h-12 bg-white/10 mx-8 lg:mx-12 shrink-0" />}
-              <div className="flex flex-col items-center text-center cursor-default">
-                <div className="min-h-[3.5rem] flex items-center justify-center mb-1.5">
+              {i > 0 && <div className="hidden sm:block w-px h-12 bg-white/10 mx-8 lg:mx-6 xl:mx-10 shrink-0" />}
+              <div className="flex flex-col items-center text-center lg:flex-row lg:gap-3 lg:text-left cursor-default">
+                <div className="min-h-[3.5rem] flex items-center justify-center mb-1.5 lg:mb-0">
                   {i === 0 && (
                     <SlotMachineValue finalLabel={stat.value} active={inView} />
                   )}
@@ -109,7 +109,7 @@ export default function ProofBar() {
                     <CountUpValue target={30} duration={1200} active={inView} suffix="+" />
                   )}
                 </div>
-                <span className="text-[#A1A1AA] font-medium text-sm sm:text-base">
+                <span className="text-[#A1A1AA] font-medium text-sm sm:text-base lg:text-sm lg:leading-tight lg:max-w-[9ch]">
                   {stat.label}
                 </span>
               </div>

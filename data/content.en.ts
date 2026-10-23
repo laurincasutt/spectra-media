@@ -720,6 +720,12 @@ export const footer = {
 // Section UI strings
 // ─────────────────────────────────────────────
 export const ui = {
+  heroExtras: {
+    caseTag: "Case Study",
+    quoteDotLabel: "Client quote",
+    caseDotLabel: "Case study",
+  },
+
   video: {
     badge: "In Action",
     placeholder: "Video coming soon",

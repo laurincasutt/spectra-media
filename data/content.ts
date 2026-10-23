@@ -741,6 +741,12 @@ export const footer = {
 // Section UI strings (previously hardcoded)
 // ─────────────────────────────────────────────
 export const ui = {
+  heroExtras: {
+    caseTag: "Case Study",
+    quoteDotLabel: "Kundenstimme",
+    caseDotLabel: "Case Study",
+  },
+
   video: {
     badge: "In Action",
     placeholder: "Video folgt",
