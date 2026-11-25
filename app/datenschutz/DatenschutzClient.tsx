@@ -13,7 +13,7 @@ export default function DatenschutzClient() {
           {isEn ? "Privacy Policy" : "Datenschutzerklärung"}
         </h1>
         <p className="text-[#52525B] text-sm mb-10">
-          {isEn ? "Last updated: March 2026" : "Stand: März 2026"}
+          {isEn ? "Last updated: November 2026" : "Stand: November 2026"}
         </p>
 
         <div className="space-y-10 text-[#A1A1AA] text-base leading-relaxed">
@@ -192,7 +192,7 @@ export default function DatenschutzClient() {
               {isEn ? (
                 <>
                   Our website offers the option to contact us via{" "}
-                  <strong className="text-[#F4F4F5]">WhatsApp</strong> (Meta Platforms Ireland Ltd.). When you use this link, data — in particular your phone number and message content — is transmitted to WhatsApp/Meta. The privacy policy of Meta applies to data processing by WhatsApp.
+                  <strong className="text-[#F4F4F5]">WhatsApp</strong> (Meta Platforms Ireland Ltd.). When you use this link, data, in particular your phone number and message content, is transmitted to WhatsApp/Meta. The privacy policy of Meta applies to data processing by WhatsApp.
                 </>
               ) : (
                 <>
@@ -206,7 +206,103 @@ export default function DatenschutzClient() {
           {/* 8 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "8. Cookies and Tracking" : "8. Cookies und Tracking"}
+              {isEn
+                ? "8. Instagram app “Spectra Kommentare” (comments and direct messages)"
+                : "8. Instagram-App „Spectra Kommentare“ (Kommentare und Direktnachrichten)"}
+            </h2>
+            <p>
+              {isEn
+                ? "We manage Instagram accounts on behalf of our clients. For this we operate our own app on the platform of Meta Platforms Ireland Ltd. (“Spectra Kommentare”). Our clients connect their Instagram account to this app themselves through Meta’s login and decide which Instagram accounts and Facebook Pages we may access. The app is operated by our team only."
+                : "Für unsere Kundinnen und Kunden betreuen wir deren Instagram-Konten. Dafür betreiben wir eine eigene App auf der Plattform von Meta Platforms Ireland Ltd. („Spectra Kommentare“). Unsere Kundinnen und Kunden verbinden ihr Instagram-Konto über die Anmeldung von Meta selbst mit dieser App und bestimmen dabei, auf welche Instagram-Konten und Facebook-Seiten wir zugreifen dürfen. Die App wird nur von unserem Team bedient."}
+            </p>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Data we process" : "Welche Daten wir bearbeiten"}</strong>
+            </p>
+            <ul className="list-disc list-inside mt-2 space-y-1.5">
+              {isEn ? (
+                <>
+                  <li>From the connected account: account name, account ID, its own posts (caption, link, date, comment count) and an access token, which we store encrypted.</li>
+                  <li>From people who comment on these posts: username, the user ID assigned by Instagram, text and time of the comment.</li>
+                  <li>If a person comments a keyword defined by our client: the content of the direct message we send on behalf of the account, and a log of which message was sent when.</li>
+                </>
+              ) : (
+                <>
+                  <li>Vom verbundenen Konto: Kontoname, Konto-ID, die eigenen Beiträge (Bildtext, Link, Datum, Anzahl Kommentare) sowie ein Zugriffstoken, das wir verschlüsselt speichern.</li>
+                  <li>Von Personen, die unter diesen Beiträgen kommentieren: Benutzername, die von Instagram vergebene Nutzer-ID, Text und Zeitpunkt des Kommentars.</li>
+                  <li>Wenn eine Person ein von unserer Kundin oder unserem Kunden festgelegtes Schlagwort kommentiert: der Inhalt der Direktnachricht, die wir im Auftrag des Kontos senden, und ein Protokoll, wann welche Nachricht gesendet wurde.</li>
+                </>
+              )}
+            </ul>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Purposes" : "Wofür"}</strong>
+            </p>
+            <ul className="list-disc list-inside mt-2 space-y-1.5">
+              {isEn ? (
+                <>
+                  <li>To reply to comments on behalf of our clients. An AI model (Claude by Anthropic PBC, USA) creates a draft reply; the comment text, username and the post caption are transmitted for this purpose.</li>
+                  <li>To automatically send a direct message with the requested content to people who comment a defined keyword (for example “Freebie”). At most one message is sent per comment, and only within 7 days of the comment.</li>
+                </>
+              ) : (
+                <>
+                  <li>Um Kommentare im Namen unserer Kundinnen und Kunden zu beantworten. Einen Entwurf der Antwort erstellt ein KI-Modell (Claude von Anthropic PBC, USA). Dabei werden Kommentartext, Benutzername und der Bildtext des Beitrags übermittelt.</li>
+                  <li>Um Personen, die ein festgelegtes Schlagwort kommentieren (zum Beispiel „Freebie“), automatisch eine Direktnachricht mit dem angefragten Inhalt zu senden. Je Kommentar geht höchstens eine Nachricht raus, und nur innert 7 Tagen nach dem Kommentar.</li>
+                </>
+              )}
+            </ul>
+
+            <p className="mt-4">
+              {isEn
+                ? "We do not use this data for advertising, do not build profiles and do not sell it. It is shared only with the service providers we need for this: Meta (execution on Instagram), Anthropic (reply drafts), Vercel Inc. (application hosting) and Supabase Inc. (database, stored in Switzerland). With Anthropic and Vercel, data may be transferred to the USA; we rely on the contractual data protection safeguards of these providers (standard contractual clauses)."
+                : "Wir verwenden diese Daten nicht für Werbung, erstellen keine Profile und verkaufen sie nicht. Weitergegeben werden sie nur an die Dienstleister, die wir dafür brauchen: Meta (Ausführung auf Instagram), Anthropic (Antwortentwürfe), Vercel Inc. (Hosting der Anwendung) und Supabase Inc. (Datenbank, Speicherort Schweiz). Bei Anthropic und Vercel können Daten in die USA übermittelt werden; wir stützen uns dabei auf die vertraglichen Datenschutzgarantien dieser Anbieter (Standardvertragsklauseln)."}
+            </p>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Retention" : "Speicherdauer"}</strong>:{" "}
+              {isEn
+                ? "An account’s data is kept as long as the account is connected to the app. When it is disconnected, we fully delete the access token, comments, drafts and send logs of that account."
+                : "Die Daten eines Kontos bleiben gespeichert, solange das Konto mit der App verbunden ist. Wird es getrennt, löschen wir Zugriffstoken, Kommentare, Entwürfe und Versandprotokolle dieses Kontos vollständig."}
+            </p>
+
+            <h3 id="datenloeschung" className="text-[#F4F4F5] text-lg font-semibold mt-6 mb-3 scroll-mt-32">
+              {isEn ? "Deletion of your Instagram data" : "Löschung Ihrer Instagram-Daten"}
+            </h3>
+            <ul className="list-disc list-inside space-y-1.5">
+              {isEn ? (
+                <>
+                  <li>
+                    <strong className="text-[#F4F4F5]">Connected account:</strong> email{" "}
+                    <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">info@spectramedia.ch</a>.
+                    {" "}We disconnect the account within 30 days and delete all of the data listed above for that account. You can also revoke access yourself at any time in Facebook (Settings › Business integrations) or in Instagram (Settings › Website permissions › Apps and websites).
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F4F5]">People who commented or received a message:</strong> email{" "}
+                    <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">info@spectramedia.ch</a>
+                    {" "}with your Instagram username. We delete all records for that username within 30 days and confirm the deletion by email.
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <strong className="text-[#F4F4F5]">Als verbundenes Konto:</strong> Schreiben Sie an{" "}
+                    <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">info@spectramedia.ch</a>.
+                    {" "}Wir trennen das Konto innert 30 Tagen und löschen dabei alle oben genannten Daten dieses Kontos. Zusätzlich können Sie den Zugriff jederzeit selbst entziehen: in Facebook unter Einstellungen › Business-Integrationen, in Instagram unter Einstellungen › Website-Berechtigungen › Apps und Websites.
+                  </li>
+                  <li>
+                    <strong className="text-[#F4F4F5]">Als Person, die kommentiert oder eine Nachricht erhalten hat:</strong> Schreiben Sie an{" "}
+                    <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">info@spectramedia.ch</a>
+                    {" "}und nennen Sie Ihren Instagram-Benutzernamen. Wir löschen alle Einträge zu diesem Benutzernamen innert 30 Tagen und bestätigen die Löschung per E-Mail.
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
+
+          {/* 9 */}
+          <div>
+            <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
+              {isEn ? "9. Cookies and Tracking" : "9. Cookies und Tracking"}
             </h2>
             <p>
               {isEn
@@ -215,10 +311,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 9 */}
+          {/* 10 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "9. Data Security" : "9. Datensicherheit"}
+              {isEn ? "10. Data Security" : "10. Datensicherheit"}
             </h2>
             <p>
               {isEn
@@ -227,10 +323,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 10 */}
+          {/* 11 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "10. Your Rights" : "10. Ihre Rechte"}
+              {isEn ? "11. Your Rights" : "11. Ihre Rechte"}
             </h2>
             <p>
               {isEn
@@ -264,12 +360,19 @@ export default function DatenschutzClient() {
                 info@spectramedia.ch
               </a>
             </p>
+            <p className="mt-3">
+              {isEn ? (
+                <>For deleting data from our Instagram app, see <a href="#datenloeschung" className="text-[#0066FF] hover:text-[#3385FF]">section 8</a>.</>
+              ) : (
+                <>Zur Löschung von Daten aus unserer Instagram-App siehe <a href="#datenloeschung" className="text-[#0066FF] hover:text-[#3385FF]">Abschnitt 8</a>.</>
+              )}
+            </p>
           </div>
 
-          {/* 11 */}
+          {/* 12 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "11. Right to Lodge a Complaint with the Supervisory Authority" : "11. Beschwerderecht bei der Aufsichtsbehörde"}
+              {isEn ? "12. Right to Lodge a Complaint with the Supervisory Authority" : "12. Beschwerderecht bei der Aufsichtsbehörde"}
             </h2>
             <p>
               {isEn ? (
@@ -290,10 +393,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 12 */}
+          {/* 13 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "12. Changes to This Privacy Policy" : "12. Änderungen dieser Datenschutzerklärung"}
+              {isEn ? "13. Changes to This Privacy Policy" : "13. Änderungen dieser Datenschutzerklärung"}
             </h2>
             <p>
               {isEn
