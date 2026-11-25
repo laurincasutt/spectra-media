@@ -1,10 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 
-export default function DatenschutzClient() {
-  const { lang } = useLanguage();
-  const isEn = lang === "en";
+export default function DatenschutzClient({ initialLang }: { initialLang?: "de" | "en" }) {
+  const { lang, setLang } = useLanguage();
+  // ?lang=en / ?lang=de: render that language on the server and on first paint,
+  // then hand over to the normal DE/EN switcher (which then shows the same language).
+  const [synced, setSynced] = useState(!initialLang);
+  useEffect(() => {
+    if (initialLang) {
+      setLang(initialLang);
+      setSynced(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const isEn = (synced ? lang : initialLang) === "en";
 
   return (
     <div className="min-h-screen bg-[#09090B] pt-32 pb-20">
@@ -39,6 +50,11 @@ export default function DatenschutzClient() {
               <a href="tel:+41795371839" className="text-[#0066FF] hover:text-[#3385FF]">
                 +41 79 537 18 39
               </a>
+            </p>
+            <p className="mt-3">
+              {isEn
+                ? "This privacy policy applies to our website www.spectramedia.ch, to our client portal Content Hub (contenthub.spectramedia.ch and the related client subdomains) and to our apps on the Meta and TikTok platforms."
+                : "Diese Datenschutzerklärung gilt für unsere Website www.spectramedia.ch, für unser Kundenportal Content Hub (contenthub.spectramedia.ch und die zugehörigen Kunden-Subdomains) sowie für unsere Apps auf den Plattformen von Meta und TikTok."}
             </p>
           </div>
 
@@ -225,12 +241,14 @@ export default function DatenschutzClient() {
                   <li>From the connected account: account name, account ID, its own posts (caption, link, date, comment count) and an access token, which we store encrypted.</li>
                   <li>From people who comment on these posts: username, the user ID assigned by Instagram, text and time of the comment.</li>
                   <li>If a person comments a keyword defined by our client: the content of the direct message we send on behalf of the account, and a log of which message was sent when.</li>
+                  <li>If a person sends the account a direct message or replies to our message: the content of that message and any information they provide voluntarily (for example an email address to receive the requested material).</li>
                 </>
               ) : (
                 <>
                   <li>Vom verbundenen Konto: Kontoname, Konto-ID, die eigenen Beiträge (Bildtext, Link, Datum, Anzahl Kommentare) sowie ein Zugriffstoken, das wir verschlüsselt speichern.</li>
                   <li>Von Personen, die unter diesen Beiträgen kommentieren: Benutzername, die von Instagram vergebene Nutzer-ID, Text und Zeitpunkt des Kommentars.</li>
                   <li>Wenn eine Person ein von unserer Kundin oder unserem Kunden festgelegtes Schlagwort kommentiert: der Inhalt der Direktnachricht, die wir im Auftrag des Kontos senden, und ein Protokoll, wann welche Nachricht gesendet wurde.</li>
+                  <li>Wenn eine Person dem Konto eine Direktnachricht schreibt oder auf unsere Nachricht antwortet: der Inhalt dieser Nachricht und Angaben, die sie dabei freiwillig macht (zum Beispiel eine E-Mail-Adresse, um das angefragte Material zu erhalten).</li>
                 </>
               )}
             </ul>
@@ -263,6 +281,13 @@ export default function DatenschutzClient() {
               {isEn
                 ? "An account’s data is kept as long as the account is connected to the app. When it is disconnected, we fully delete the access token, comments, drafts and send logs of that account."
                 : "Die Daten eines Kontos bleiben gespeichert, solange das Konto mit der App verbunden ist. Wird es getrennt, löschen wir Zugriffstoken, Kommentare, Entwürfe und Versandprotokolle dieses Kontos vollständig."}
+            </p>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">TikTok:</strong>{" "}
+              {isEn
+                ? "In the same way we reply to comments on our clients’ TikTok accounts through our own TikTok app (TikTok API for Business, “Spectra Content Hub”). We process the account name, the account’s videos, comments (username, text, time) and the replies sent. When a TikTok account is disconnected, we revoke access at TikTok and delete all data of that account."
+                : "Auf dieselbe Weise beantworten wir Kommentare auf den TikTok-Konten unserer Kundinnen und Kunden über eine eigene App bei TikTok (TikTok API for Business, „Spectra Content Hub“). Bearbeitet werden Kontoname, Videos des Kontos, Kommentare (Benutzername, Text, Zeitpunkt) sowie die gesendeten Antworten. Wird ein TikTok-Konto getrennt, widerrufen wir den Zugriff bei TikTok und löschen alle Daten dieses Kontos."}
             </p>
 
             <h3 id="datenloeschung" className="text-[#F4F4F5] text-lg font-semibold mt-6 mb-3 scroll-mt-32">
@@ -302,19 +327,122 @@ export default function DatenschutzClient() {
           {/* 9 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "9. Cookies and Tracking" : "9. Cookies und Tracking"}
+              {isEn ? "9. Client portal Content Hub" : "9. Kundenportal Content Hub"}
             </h2>
             <p>
               {isEn
-                ? "Our website uses technically necessary cookies required for the operation of the website. These cookies do not store personal data and are automatically deleted when the browser is closed. We do not use any tracking or analytics cookies from third-party providers."
-                : "Unsere Website verwendet technisch notwendige Cookies, die für den Betrieb der Website erforderlich sind. Diese Cookies speichern keine Personendaten und werden beim Schliessen des Browsers automatisch gelöscht. Wir setzen keine Tracking- oder Analyse-Cookies von Drittanbietern ein."}
+                ? "To work with our clients we operate the portal Content Hub. Clients log in to see their content, appointments and metrics and to upload material. Our team uses the same application as its working tool."
+                : "Für die Zusammenarbeit mit unseren Kundinnen und Kunden betreiben wir das Portal Content Hub. Kundinnen und Kunden melden sich dort an, sehen ihre Inhalte, Termine und Kennzahlen und laden Material hoch. Unser Team nutzt dieselbe Anwendung als Arbeitswerkzeug."}
+            </p>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Data we process" : "Welche Daten wir bearbeiten"}</strong>
+            </p>
+            <ul className="list-disc list-inside mt-2 space-y-1.5">
+              {isEn ? (
+                <>
+                  <li>Access: name, email address and password (stored only as an encrypted hash) of people with an account, i.e. clients, our team and freelancers (for example video editors).</li>
+                  <li>Client data: company and contact details, onboarding information, contracts and signatures, brand documents and logos, goals, reports, tasks and the content plan.</li>
+                  <li>Content: uploaded voice messages, videos and links, and the transcripts, scripts and captions created from them.</li>
+                  <li>Calls: recordings, transcripts and summaries of video calls, where the call was recorded with Fathom, as well as booked appointments (Calendly, Google Calendar).</li>
+                  <li>Metrics of our clients’ social media channels (reach, views, interactions per post) and the scheduling of posts.</li>
+                  <li>Prospective clients: contact details, call notes and a summary to prepare for calls. Such summaries and assessments may be created with the help of AI. They are used for internal preparation only; we do not make automated individual decisions.</li>
+                  <li>For research: publicly available posts of other social media accounts and newsletters we subscribe to, in order to find topics for our clients.</li>
+                </>
+              ) : (
+                <>
+                  <li>Zugang: Name, E-Mail-Adresse und Passwort (nur als verschlüsselter Hashwert gespeichert) der Personen mit einem Zugang, das heisst Kundinnen und Kunden, unser Team und freie Mitarbeitende (zum Beispiel Videoeditoren).</li>
+                  <li>Kundendaten: Firmen- und Kontaktangaben, Angaben aus dem Onboarding, Verträge und Unterschriften, Markendokumente und Logos, Ziele, Berichte, Aufgaben und der Content-Plan.</li>
+                  <li>Inhalte: hochgeladene Sprachnachrichten, Videos und Links, daraus erstellte Transkripte, Skripte und Bildunterschriften.</li>
+                  <li>Gespräche: Aufzeichnungen, Transkripte und Zusammenfassungen von Videocalls, sofern das Gespräch mit Fathom aufgezeichnet wurde, sowie gebuchte Termine (Calendly, Google Kalender).</li>
+                  <li>Kennzahlen der Social-Media-Kanäle unserer Kundinnen und Kunden (Reichweite, Aufrufe, Interaktionen je Beitrag) und die Planung von Beiträgen.</li>
+                  <li>Interessentinnen und Interessenten: Kontaktangaben, Gesprächsnotizen und eine Zusammenfassung zur Vorbereitung von Gesprächen. Solche Zusammenfassungen und Einschätzungen können mit Unterstützung von KI erstellt werden. Sie dienen nur der internen Vorbereitung; wir treffen keine automatisierten Einzelentscheidungen.</li>
+                  <li>Für die Recherche: öffentlich zugängliche Beiträge anderer Social-Media-Konten und Newsletter, die wir abonniert haben, um Themen für unsere Kundinnen und Kunden zu finden.</li>
+                </>
+              )}
+            </ul>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Purposes" : "Wofür"}</strong>:{" "}
+              {isEn
+                ? "to provide our contractual services (strategy, scripts, editing, scheduling and publishing, community management, reporting), to communicate with our clients and to initiate new collaborations."
+                : "zur Erbringung unserer vertraglichen Leistungen (Strategie, Skripte, Schnitt, Planung und Veröffentlichung, Community Management, Auswertung), zur Kommunikation mit unseren Kundinnen und Kunden sowie zur Anbahnung neuer Zusammenarbeit."}
+            </p>
+
+            <p className="mt-4">
+              {isEn ? (
+                <><strong className="text-[#F4F4F5]">Service providers</strong> (processors) to which we transmit data for this purpose:</>
+              ) : (
+                <><strong className="text-[#F4F4F5]">Dienstleister</strong> (Auftragsbearbeiter), an die wir dafür Daten übermitteln:</>
+              )}
+            </p>
+            <ul className="list-disc list-inside mt-2 space-y-1.5">
+              {isEn ? (
+                <>
+                  <li>Supabase Inc. (database and file storage, stored in Switzerland)</li>
+                  <li>Vercel Inc., USA (application hosting, data centre in Frankfurt)</li>
+                  <li>Inngest Inc., USA (running background tasks)</li>
+                  <li>Anthropic PBC, USA (AI model Claude: scripts, summaries, reply drafts)</li>
+                  <li>OpenAI, L.L.C., USA (AI model for captions)</li>
+                  <li>Groq Inc., USA (transcription of voice messages and videos)</li>
+                  <li>Resend Inc., USA (sending emails)</li>
+                  <li>Fathom Video Inc., USA (recording and transcription of video calls)</li>
+                  <li>Calendly LLC, USA (appointment booking)</li>
+                  <li>Google (Drive for client folders, Calendar)</li>
+                  <li>Metricool (metrics and post scheduling)</li>
+                  <li>Apify (retrieval of publicly available social media posts)</li>
+                  <li>Meta Platforms Ireland Ltd. and TikTok (execution on their platforms)</li>
+                </>
+              ) : (
+                <>
+                  <li>Supabase Inc. (Datenbank und Dateiablage, Speicherort Schweiz)</li>
+                  <li>Vercel Inc., USA (Hosting der Anwendung, Rechenzentrum in Frankfurt)</li>
+                  <li>Inngest Inc., USA (Ausführung von Hintergrundaufgaben)</li>
+                  <li>Anthropic PBC, USA (KI-Modell Claude: Skripte, Zusammenfassungen, Antwortentwürfe)</li>
+                  <li>OpenAI, L.L.C., USA (KI-Modell für Bildunterschriften)</li>
+                  <li>Groq Inc., USA (Transkription von Sprachnachrichten und Videos)</li>
+                  <li>Resend Inc., USA (Versand von E-Mails)</li>
+                  <li>Fathom Video Inc., USA (Aufzeichnung und Transkription von Videocalls)</li>
+                  <li>Calendly LLC, USA (Terminbuchung)</li>
+                  <li>Google (Drive für Kundenordner, Kalender)</li>
+                  <li>Metricool (Kennzahlen und Planung von Beiträgen)</li>
+                  <li>Apify (Abruf öffentlich zugänglicher Social-Media-Beiträge)</li>
+                  <li>Meta Platforms Ireland Ltd. und TikTok (Ausführung auf den Plattformen)</li>
+                </>
+              )}
+            </ul>
+
+            <p className="mt-4">
+              {isEn
+                ? "For providers in the USA we rely on their contractual data protection safeguards (standard contractual clauses). Under the terms of the AI providers, data we transmit through their interfaces is not used to train their models."
+                : "Bei Anbietern in den USA stützen wir uns auf deren vertragliche Datenschutzgarantien (Standardvertragsklauseln). Nach den Bedingungen der KI-Anbieter werden Daten, die wir über ihre Schnittstellen übermitteln, nicht zum Training ihrer Modelle verwendet."}
+            </p>
+
+            <p className="mt-4">
+              <strong className="text-[#F4F4F5]">{isEn ? "Retention" : "Speicherdauer"}</strong>:{" "}
+              {isEn
+                ? "We store the data for the duration of the collaboration. Afterwards we deactivate the account and keep business records for as long as required by law (in Switzerland generally 10 years). Other data is deleted on request to "
+                : "Wir speichern die Daten für die Dauer der Zusammenarbeit. Danach legen wir den Zugang still und bewahren Geschäftsunterlagen so lange auf, wie es gesetzlich vorgeschrieben ist (in der Schweiz in der Regel 10 Jahre). Übrige Daten löschen wir auf Anfrage an "}
+              <a href="mailto:info@spectramedia.ch" className="text-[#0066FF] hover:text-[#3385FF]">info@spectramedia.ch</a>.
             </p>
           </div>
 
           {/* 10 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "10. Data Security" : "10. Datensicherheit"}
+              {isEn ? "10. Cookies and Tracking" : "10. Cookies und Tracking"}
+            </h2>
+            <p>
+              {isEn
+                ? "Our website uses only technically necessary cookies. In the client portal Content Hub we additionally use cookies required for logging in (the session of the logged-in person) and cookies for settings such as language and light or dark mode. These cookies serve operation only, not analysis. We do not use tracking or analytics cookies from third parties, neither on the website nor in the portal."
+                : "Unsere Website verwendet nur technisch notwendige Cookies. Im Kundenportal Content Hub setzen wir zusätzlich Cookies, die für die Anmeldung nötig sind (Sitzung der angemeldeten Person), sowie Cookies für Einstellungen wie Sprache und helle oder dunkle Darstellung. Diese Cookies dienen nur dem Betrieb, nicht der Auswertung. Wir setzen weder auf der Website noch im Portal Tracking- oder Analyse-Cookies von Drittanbietern ein."}
+            </p>
+          </div>
+
+          {/* 11 */}
+          <div>
+            <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
+              {isEn ? "11. Data Security" : "11. Datensicherheit"}
             </h2>
             <p>
               {isEn
@@ -323,10 +451,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 11 */}
+          {/* 12 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "11. Your Rights" : "11. Ihre Rechte"}
+              {isEn ? "12. Your Rights" : "12. Ihre Rechte"}
             </h2>
             <p>
               {isEn
@@ -369,10 +497,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 12 */}
+          {/* 13 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "12. Right to Lodge a Complaint with the Supervisory Authority" : "12. Beschwerderecht bei der Aufsichtsbehörde"}
+              {isEn ? "13. Right to Lodge a Complaint with the Supervisory Authority" : "13. Beschwerderecht bei der Aufsichtsbehörde"}
             </h2>
             <p>
               {isEn ? (
@@ -393,10 +521,10 @@ export default function DatenschutzClient() {
             </p>
           </div>
 
-          {/* 13 */}
+          {/* 14 */}
           <div>
             <h2 className="text-[#F4F4F5] text-xl font-semibold mb-3">
-              {isEn ? "13. Changes to This Privacy Policy" : "13. Änderungen dieser Datenschutzerklärung"}
+              {isEn ? "14. Changes to This Privacy Policy" : "14. Änderungen dieser Datenschutzerklärung"}
             </h2>
             <p>
               {isEn
